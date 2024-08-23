@@ -1,0 +1,261 @@
+.addressManager {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: var(--margin-xl) 20rem;
+  width: 100%;
+  background-color: var(--background-color);
+}
+.addressManager .goToAccount {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: var(--margin-xxs);
+  cursor: pointer;
+}
+.addressManager .goToAccount svg {
+  font: var(--pui);
+  color: var(--grey30);
+}
+.addressManager .goToAccount p {
+  font: var(--pui);
+  color: var(--grey30);
+}
+.addressManager h2 {
+  font: var(--h2);
+  color: var(--text-color);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  margin-bottom: var(--margin-xs);
+}
+.addressManager button {
+  margin: var(--margin-xs) 0rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 3rem;
+}
+.addressManager button svg {
+  color: var(--white);
+  font-size: var(--big);
+  margin-left: var(--margin-xs);
+  height: 100%;
+}
+.addressManager button big {
+  font: var(--bigui);
+  font-weight: 500;
+  height: 100%;
+}
+.addressManager .addressFlex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: var(--margin-s) 0rem;
+  flex-wrap: wrap;
+  gap: var(--margin-xxl);
+}
+.addressManager .addressFlex p {
+  font: var(--pui);
+}
+.addressManager .addressForm {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--grey90);
+  padding: var(--margin-s) var(--margin-xl) var(--margin-l) var(--margin-xl);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 30rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 998;
+  transition: var(--transition-in);
+}
+.addressManager .addressForm div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.addressManager .addressForm div .closeAddressFormBtn {
+  border: none;
+  color: var(--grey90);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  margin: 0;
+}
+.addressManager .addressForm div .closeAddressFormBtn svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--grey10);
+  margin: 0;
+}
+.addressManager .addressForm p {
+  font: var(--p);
+}
+.addressManager .addressForm input {
+  padding-left: var(--margin-xxs);
+  font: var(--p);
+  margin-bottom: var(--margin-s);
+  color: var(--grey30);
+}
+.addressManager .addressForm button {
+  margin: auto;
+  margin-top: var(--margin-s);
+}
+
+.overlayAddressForm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  transition: var(--transition-out);
+  z-index: 997;
+}
+
+.overlayAddressForm.show {
+  opacity: 1;
+  visibility: visible;
+  transition: var(--transition-in);
+}
+
+@media (max-width: 1536px) {
+  .addressManager {
+    padding: var(--margin-xl) 10vw;
+  }
+}
+@media (max-width: 1280px) {
+  .addressManager {
+    padding: var(--margin-xl) 5vw;
+  }
+}
+@media (max-width: 1024px) {
+  .addressManager {
+    padding: var(--margin-xl) 5vw;
+  }
+  .addressManager .goToAccount svg {
+    font-size: 2vw;
+  }
+  .addressManager .goToAccount p {
+    font-size: 1.5vw;
+  }
+  .addressManager h2 {
+    font-size: 4vw;
+  }
+  .addressManager button {
+    height: 5vw;
+    padding: 1vw 2vw;
+    margin: 0.5vw 0;
+  }
+  .addressManager button big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+  }
+  .addressManager button svg {
+    font-size: 2vw;
+  }
+  .addressManager .addressFlex {
+    display: flex;
+    align-items: start;
+    margin: 1vw 0;
+    gap: 1vw;
+  }
+}
+@media (max-width: 768px) {
+  .addressManager {
+    padding: var(--margin-xl) 5vw;
+  }
+  .addressManager .goToAccount svg {
+    font-size: 2vw;
+  }
+  .addressManager .goToAccount p {
+    font-size: 1.5vw;
+  }
+  .addressManager h2 {
+    font-size: 3vw;
+    margin-bottom: 0.5vw;
+  }
+  .addressManager button {
+    height: 4vw;
+    padding: 1vw 1.5vw;
+    margin: 0.5vw 0;
+  }
+  .addressManager button big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7vw;
+  }
+  .addressManager button svg {
+    font-size: 1.7vw;
+  }
+  .addressManager .addressFlex {
+    display: flex;
+    align-items: start;
+    margin: 1vw 0;
+    gap: 1.5vw;
+  }
+}
+@media (max-width: 640px) {
+  .addressManager {
+    padding: var(--margin-xl) 5vw;
+  }
+  .addressManager .goToAccount svg {
+    font-size: 2vw;
+  }
+  .addressManager .goToAccount p {
+    font-size: 1.5vw;
+  }
+  .addressManager h2 {
+    font-size: 3vw;
+    margin-bottom: 0.5vw;
+  }
+  .addressManager button {
+    height: 4vw;
+    padding: 1vw 1.5vw;
+    margin: 0.5vw 0;
+  }
+  .addressManager button big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7vw;
+  }
+  .addressManager button svg {
+    font-size: 1.7vw;
+  }
+  .addressManager .addressFlex {
+    display: flex;
+    align-items: start;
+    margin: 1vw 0;
+    gap: 1.5vw;
+    flex-wrap: wrap;
+  }
+}/*# sourceMappingURL=addressManager.css.map */

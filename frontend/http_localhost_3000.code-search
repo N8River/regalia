@@ -1,0 +1,142 @@
+# Query: http://localhost:3000
+# ContextLines: 1
+
+30 results - 22 files
+
+.env:
+  1: REACT_APP_BACKEND_URL=http://localhost:3000
+  2  
+
+src\components\account\account.jsx:
+  21          const response = await fetch(
+  22:           `${process.env.REACT_APP_BACKEND_URL}/api/order/fetch-order`,
+  23            {
+
+src\components\addressManager\addressManager.jsx:
+  35      try {
+  36:       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/user/addresses`, {
+  37          headers: {
+
+  90        const url = editAddressId
+  91:         ? `${process.env.REACT_APP_BACKEND_URL}/api/user/update-address/${editAddressId}`
+  92:         : `${process.env.REACT_APP_BACKEND_URL}/api/user/create-address`;
+  93  
+
+src\components\addressManager\addressFlex\addressFlex.jsx:
+   8        const response = await fetch(
+   9:         `${process.env.REACT_APP_BACKEND_URL}/api/user/delete-address/${address._id}`,
+  10          {
+
+  29        const response = await fetch(
+  30:         `${process.env.REACT_APP_BACKEND_URL}/api/user/set-default-address/${address._id}`,
+  31          {
+
+src\components\adminProductCard\adminProductCard.jsx:
+  8        const response = await fetch(
+  9:         `${process.env.REACT_APP_BACKEND_URL}/api/products/${product._id}`,
+  10          {
+
+src\components\cart\cart.jsx:
+  23    //     const token = localStorage.getItem("token");
+  24:   //     const response = await fetch("http://localhost:3000/api/cart/", {
+  25    //       method: "GET",
+
+src\components\cart\cartProduct\cartProduct.jsx:
+  14        const response = await fetch(
+  15:         `${process.env.REACT_APP_BACKEND_URL}/api/cart/${product.productId._id}`,
+  16          {
+
+  41      try {
+  42:       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/cart/update`, {
+  43          method: "POST",
+
+src\components\checkout\checkout.jsx:
+   72      try {
+   73:       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/user/addresses`, {
+   74          headers: {
+
+  108        const response = await fetch(
+  109:         `${process.env.REACT_APP_BACKEND_URL}/api/order/create-order`,
+  110          {
+
+  162        const response = await fetch(
+  163:         `${process.env.REACT_APP_BACKEND_URL}/api/coupon/validate`,
+  164          {
+
+src\components\featuredCollection\featuredCollection.jsx:
+   9    useEffect(() => {
+  10:     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products`)
+  11        .then((response) => response.json())
+
+  21    useEffect(() => {
+  22:     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products`)
+  23        .then((response) => response.json())
+
+src\components\order\order.jsx:
+  20          const response = await fetch(
+  21:           `${process.env.REACT_APP_BACKEND_URL}/api/order/fetch-order/${orderId}`,
+  22            {
+
+src\components\productDetails\ProductDetails.jsx:
+  34      try {
+  35:       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/cart/`, {
+  36          method: "POST",
+
+src\hooks\useCartInfo.js:
+  8        const token = localStorage.getItem("token");
+  9:       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/cart/`, {
+  10          method: "GET",
+
+src\hooks\useUserInfo.js:
+   9          const token = localStorage.getItem("token");
+  10:         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/profile`, {
+  11            method: "GET",
+
+src\pages\admin\adminAddProductPage\adminAddProductPage.jsx:
+  8      try {
+  9:       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products`, {
+  10          method: "POST",
+
+src\pages\admin\adminEditProductPage\adminEditProductPage.jsx:
+   9    useEffect(() => {
+  10:     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products`)
+  11        .then((response) => response.json())
+
+src\pages\admin\adminEditProductPage\editSingleProductPage\editSingleProduct.jsx:
+  13    useEffect(() => {
+  14:     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products/${productId}`)
+  15        .then((response) => response.json())
+
+  22        const response = await fetch(
+  23:         `${process.env.REACT_APP_BACKEND_URL}/api/products/${productId}`,
+  24          {
+
+src\pages\admin\adminLoginPage\adminLoginForm\adminLoginForm.jsx:
+  10  
+  11:     const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/admin/login`, {
+  12        method: "POST",
+
+src\pages\CollectionPage\ProductDetailsPage.jsx:
+  13    useEffect(() => {
+  14:     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products/${productId}`)
+  15        .then((response) => response.json())
+
+src\pages\CollectionPage\productCollection\productCollection.jsx:
+  36        try {
+  37:         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products`, {
+  38            method: "GET",
+
+src\pages\searchResultsPage\searchResults\searchResults.jsx:
+  14          const response = await fetch(
+  15:           `${process.env.REACT_APP_BACKEND_URL}/api/products/search?q=${query}`,
+  16            {
+
+src\pages\user\login\loginForm\loginForm.jsx:
+  15      try {
+  16:       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, {
+  17          method: "POST",
+
+src\pages\user\signup\signUpForm\signUpForm.jsx:
+  18      try {
+  19:       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signup`, {
+  20          method: "POST",

@@ -1,0 +1,200 @@
+.accountOrder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-radius: 0.5rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: var(--margin-xs);
+  background-color: var(--secondary-color);
+  margin-top: var(--margin-xs);
+  transition: var(--transition-out);
+  border: 0.5px solid var(--secondary-hover);
+  cursor: pointer;
+}
+.accountOrder:hover {
+  background-color: var(--secondary-hover);
+  transition: var(--transition-in);
+}
+.accountOrder .orderItemImages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 7rem;
+  max-width: 84px;
+}
+.accountOrder .orderItemImages img {
+  height: 100%;
+  width: auto;
+}
+.accountOrder .accountOrderDetails {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-left: var(--margin-s);
+  padding-right: var(--margin-xxs);
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  height: 7rem;
+}
+.accountOrder .accountOrderDetails div {
+  width: 50%;
+  height: 100%;
+}
+.accountOrder .accountOrderDetails div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+}
+.accountOrder .accountOrderDetails div:nth-child(1) p {
+  margin: 0;
+  text-align: left;
+}
+.accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(1) {
+  font: var(--big);
+  font-weight: 600;
+}
+.accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(2) {
+  font: var(--p);
+  font-weight: 500;
+}
+.accountOrder .accountOrderDetails div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.accountOrder .accountOrderDetails div:nth-child(2) p {
+  margin: 0;
+  text-align: right;
+}
+.accountOrder .accountOrderDetails div:nth-child(2) p {
+  font: var(--p);
+  font-weight: 600;
+}
+.accountOrder .accountOrderDetails div:nth-child(2) button {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: auto;
+  margin-bottom: var(--margin-xxs);
+  border: none;
+  border-bottom: 1px solid var(--accent-color);
+  background-color: transparent;
+  transition: var(--transition-out);
+  cursor: pointer;
+}
+.accountOrder .accountOrderDetails div:nth-child(2) button small {
+  color: var(--accent-color);
+  transition: var(--transition-out);
+}
+.accountOrder .accountOrderDetails div:nth-child(2) button:hover {
+  transition: var(--transition-in);
+  border-bottom: 1px solid var(--text-color);
+}
+.accountOrder .accountOrderDetails div:nth-child(2) button:hover small {
+  color: var(--text-color);
+}
+
+@media (max-width: 1024px) {
+  .accountOrder .accountOrderDetails div:nth-child(1) {
+    width: 60%;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(1) {
+    font-size: 1.85vw;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(2) {
+    font-size: 1.75vw;
+    font-weight: 500;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) p:nth-child(1) {
+    font-size: 1.85vw;
+    font-weight: 500;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) button small {
+    font-size: 1.7vw;
+  }
+}
+@media (max-width: 768px) {
+  .accountOrder .accountOrderDetails div:nth-child(1) {
+    width: 60%;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(1) {
+    font-size: 1.85vw;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(2) {
+    font-size: 1.75vw;
+    font-weight: 500;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) p:nth-child(1) {
+    font-size: 1.85vw;
+    font-weight: 500;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) button small {
+    font-size: 1.7vw;
+  }
+}
+@media (max-width: 640px) {
+  .accountOrder .accountOrderDetails div:nth-child(1) {
+    width: 75%;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(1) {
+    font-size: 2.25vw;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(2) {
+    font-size: 2vw;
+    font-weight: 500;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) p:nth-child(1) {
+    font-size: 2.25vw;
+    font-weight: 500;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) button small {
+    font-size: 2vw;
+  }
+}
+@media (max-width: 475px) {
+  .accountOrder .orderItemImages {
+    height: 20vw;
+  }
+  .accountOrder .accountOrderDetails {
+    height: 20vw;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) {
+    width: 70%;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(1) {
+    font-size: 2.5vw;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(2) {
+    font-size: 2.25vw;
+    font-weight: 500;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) p:nth-child(1) {
+    font-size: 2.5vw;
+    font-weight: 500;
+  }
+  .accountOrder .accountOrderDetails div:nth-child(2) button small {
+    font-size: 2.25vw;
+  }
+}/*# sourceMappingURL=accountOrder.css.map */

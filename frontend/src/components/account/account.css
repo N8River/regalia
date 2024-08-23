@@ -1,0 +1,376 @@
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: var(--margin-xxl) 25rem;
+  gap: var(--margin-l);
+}
+.account div {
+  width: 100%;
+}
+.account .accountToolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.account .accountToolbar .logOutBtn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--margin-s);
+}
+.account .accountToolbar .logOutBtn button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 500;
+  width: 100%;
+  color: var(--grey30);
+  font: var(--pui);
+  cursor: pointer;
+  transition: var(--transition-out);
+}
+.account .accountToolbar .logOutBtn button svg {
+  display: flex;
+  height: 100%;
+}
+.account .accountToolbar .logOutBtn button:hover {
+  color: var(--text-color);
+  transition: var(--transition-in);
+}
+.account .accountToolbar h2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--text-color);
+}
+.account .accountToolbar h4 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--text-color);
+  font-weight: 600;
+}
+.account .accountInfo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--margin-xxl);
+}
+.account .accountInfo .orders {
+  width: 60%;
+  min-height: 15rem;
+}
+.account .accountInfo .address {
+  width: 40%;
+  min-height: 15rem;
+}
+.account .accountInfo .orders {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+}
+.account .accountInfo .orders big {
+  width: 100%;
+  font-weight: 400;
+  border-bottom: 0.5px solid var(--grey50);
+}
+.account .accountInfo .orders p {
+  color: var(--text-color);
+  width: 100%;
+  text-align: center;
+  margin: 0.75rem 0rem;
+}
+.account .accountInfo .orders .btn {
+  background-color: var(--primary-color);
+  border: 0.5px solid var(--primary-color);
+  font-size: 1rem;
+  padding: 0.4rem 1.25rem;
+  transition: all 0.15s ease-out;
+}
+.account .accountInfo .orders .btn a {
+  color: var(--white);
+  font-family: "Poppins";
+  letter-spacing: 1px;
+}
+.account .accountInfo .orders .btn:hover {
+  background-color: var(--black);
+  border: 0.5px solid var(--black);
+  transition: all 0.2s ease-in;
+}
+.account .accountInfo .address {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+}
+.account .accountInfo .address big {
+  color: var(--text-color);
+  width: 100%;
+  text-align: left;
+  font-weight: 400;
+  border-bottom: 0.5px solid var(--grey50);
+}
+.account .accountInfo .address p {
+  display: flex;
+  color: var(--text-color);
+  width: 100%;
+  font: var(--big);
+  text-align: center;
+  margin: var(--margin-xxs) 0rem;
+}
+.account .accountInfo .address .addressList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: var(--margin-xxs) 0rem;
+}
+.account .accountInfo .address .addressList p {
+  font: var(--p);
+  margin: 0;
+}
+.account .accountInfo .address div {
+  margin: var(--margin-s) 0rem;
+}
+.account .accountInfo .address div button {
+  transition: var(--transition-out);
+}
+.account .accountInfo .address div button a {
+  color: var(--white);
+  font-family: "Poppins";
+  letter-spacing: 1px;
+}
+.account .accountInfo .address div button:hover {
+  background-color: var(--black);
+  border: 0.5px solid var(--black);
+  transition: var(--transition-in);
+}
+
+@media (max-width: 1536px) {
+  .account {
+    padding: var(--margin-xxl) 10vw;
+  }
+}
+@media (max-width: 1280px) {
+  .account {
+    padding: var(--margin-xxl) 5vw;
+  }
+}
+@media (max-width: 1024px) {
+  .account .accountToolbar .logOutBtn {
+    margin-bottom: 0.5vw;
+  }
+  .account .accountToolbar .logOutBtn button {
+    font-size: 1.75vw;
+  }
+  .account .accountToolbar .logOutBtn button svg {
+    font-size: 2.25vw;
+  }
+  .account .accountToolbar h2 {
+    font-size: 4vw;
+  }
+  .account .accountToolbar h4 {
+    font-size: 2vw;
+  }
+  .account .accountInfo .orders big {
+    font-size: 2vw;
+  }
+  .account .accountInfo .address big {
+    font-size: 2vw;
+  }
+  .account .accountInfo .address p {
+    font-size: 2vw;
+    font-weight: 500;
+  }
+  .account .accountInfo .address .addressList p {
+    font-size: 1.7vw;
+  }
+  .account .accountInfo .address div {
+    margin: 0.75vw 0;
+  }
+  .account .accountInfo .address div button {
+    padding: 0.5vw 1.5vw;
+  }
+  .account .accountInfo .address div button a {
+    font-size: 1.75vw;
+  }
+}
+@media (max-width: 768px) {
+  .account {
+    gap: 2vw;
+  }
+  .account .accountToolbar .logOutBtn {
+    margin-bottom: 0.5vw;
+  }
+  .account .accountToolbar .logOutBtn button {
+    font-size: 2.2vw;
+  }
+  .account .accountToolbar .logOutBtn button svg {
+    font-size: 2.5vw;
+  }
+  .account .accountToolbar h2 {
+    font-size: 4vw;
+  }
+  .account .accountToolbar h4 {
+    font-size: 2.2vw;
+  }
+  .account .accountInfo {
+    flex-direction: column;
+    gap: 2.5vw;
+  }
+  .account .accountInfo .orders {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    width: auto;
+  }
+  .account .accountInfo .orders big {
+    font-size: 2vw;
+  }
+  .account .accountInfo .address {
+    width: auto;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  .account .accountInfo .address big {
+    font-size: 2vw;
+  }
+  .account .accountInfo .address p {
+    font-size: 2vw;
+    font-weight: 500;
+  }
+  .account .accountInfo .address .addressList p {
+    font-size: 1.7vw;
+  }
+  .account .accountInfo .address div {
+    margin: 0.75vw 0;
+  }
+  .account .accountInfo .address div button {
+    padding: 0.5vw 1.5vw;
+  }
+  .account .accountInfo .address div button a {
+    font-size: 1.75vw;
+  }
+}
+@media (max-width: 640px) {
+  .account {
+    gap: 2vw;
+  }
+  .account .accountToolbar .logOutBtn {
+    margin-bottom: 0.5vw;
+  }
+  .account .accountToolbar .logOutBtn button {
+    font-size: 2.2vw;
+  }
+  .account .accountToolbar .logOutBtn button svg {
+    font-size: 2.5vw;
+  }
+  .account .accountToolbar h2 {
+    font-size: 4vw;
+  }
+  .account .accountToolbar h4 {
+    font-size: 2.2vw;
+  }
+  .account .accountInfo {
+    flex-direction: column;
+    gap: 2.5vw;
+  }
+  .account .accountInfo .orders {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    width: auto;
+  }
+  .account .accountInfo .orders big {
+    font-size: 2vw;
+  }
+  .account .accountInfo .address {
+    width: auto;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  .account .accountInfo .address big {
+    font-size: 2vw;
+  }
+  .account .accountInfo .address p {
+    font-size: 2.25vw;
+    font-weight: 500;
+  }
+  .account .accountInfo .address .addressList p {
+    font-size: 2vw;
+  }
+  .account .accountInfo .address div {
+    margin: 0.75vw 0;
+  }
+  .account .accountInfo .address div button {
+    padding: 0.5vw 1.5vw;
+  }
+  .account .accountInfo .address div button a {
+    font-size: 2vw;
+  }
+}
+@media (max-width: 475px) {
+  .account {
+    gap: 2vw;
+  }
+  .account .accountToolbar .logOutBtn {
+    margin-bottom: 0.5vw;
+  }
+  .account .accountToolbar .logOutBtn button {
+    font-size: 2.2vw;
+  }
+  .account .accountToolbar .logOutBtn button svg {
+    font-size: 2.5vw;
+  }
+  .account .accountToolbar h2 {
+    font-size: 4vw;
+  }
+  .account .accountToolbar h4 {
+    font-size: 2.2vw;
+  }
+  .account .accountInfo {
+    flex-direction: column;
+    gap: 2.5vw;
+  }
+  .account .accountInfo .orders {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    width: auto;
+  }
+  .account .accountInfo .orders big {
+    font-size: 2.5vw;
+  }
+  .account .accountInfo .address {
+    width: auto;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  .account .accountInfo .address big {
+    font-size: 2.5vw;
+  }
+  .account .accountInfo .address p {
+    font-size: 2.5vw;
+    font-weight: 500;
+  }
+  .account .accountInfo .address .addressList p {
+    font-size: 2.25vw;
+  }
+  .account .accountInfo .address div {
+    margin: 0.75vw 0;
+  }
+  .account .accountInfo .address div button {
+    display: flex;
+    padding: 1.25vw 2.5vw;
+  }
+  .account .accountInfo .address div button a {
+    font-size: 2.5vw;
+  }
+}/*# sourceMappingURL=account.css.map */

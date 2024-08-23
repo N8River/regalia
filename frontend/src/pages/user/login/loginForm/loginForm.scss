@@ -1,0 +1,172 @@
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  flex-direction: column;
+
+  padding: var(--margin-xxl) 25rem;
+
+  text-align: center;
+
+  h3 {
+    margin-bottom: var(--margin-l);
+
+    font-weight: 600;
+
+    color: var(--text-color);
+    width: 100%;
+  }
+
+  big {
+    margin: var(--margin-xs) 0rem;
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    gap: var(--margin-xs);
+
+    margin: var(--margin-xs) 0rem;
+
+    input {
+      height: 2.5rem;
+      width: 30%;
+      min-width: 20vw;
+
+      border: 0.5px solid var(--grey50);
+      padding: var(--margin-xs);
+
+      font-family: "Poppins";
+      font: var(--p);
+
+      border-radius: 0rem;
+
+      &::placeholder {
+        font: var(--p);
+      }
+    }
+
+    button {
+      margin-top: var(--margin-xxs);
+      width: 30%;
+      min-width: 20vw;
+      big {
+        font: var(--bigui);
+        font-weight: 500;
+
+        padding: 0rem var(--margin-xxs);
+      }
+    }
+  }
+
+  small {
+    color: var(--grey30);
+
+    font-weight: 400;
+    width: 100%;
+
+    a {
+      margin-left: var(--margin-xxs);
+      color: var(--grey10);
+      font-weight: 600;
+
+      border-bottom: 1px solid var(--grey10);
+    }
+  }
+}
+
+@media (max-width: 1536px) {
+  .loginForm {
+    form {
+      input {
+        min-width: 25vw;
+      }
+
+      button {
+        min-width: 25vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .loginForm {
+    padding: var(--margin-xxl) 10vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .loginForm {
+    form {
+      input {
+        min-width: 35vw;
+      }
+
+      button {
+        min-width: 35vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .loginForm {
+    form {
+      input {
+        min-width: 40vw;
+      }
+
+      button {
+        min-width: 40vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .loginForm {
+    padding: var(--margin-xxl) 5vw;
+
+    form {
+      input {
+        min-width: 50vw;
+      }
+
+      button {
+        min-width: 50vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .loginForm {
+    padding: var(--margin-xxl) 5vw;
+
+    h3 {
+      margin-bottom: 2vw;
+      font-size: 7.5vw;
+    }
+
+    big {
+      font-size: 4vw;
+    }
+
+    form {
+      input {
+        min-width: 70vw;
+      }
+
+      button {
+        min-width: 70vw;
+      }
+    }
+  }
+}

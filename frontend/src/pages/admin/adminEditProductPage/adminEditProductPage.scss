@@ -1,0 +1,11 @@
+.adminProductList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 100%;
+  padding: 2rem 10rem;
+
+  gap: 1rem;
+}

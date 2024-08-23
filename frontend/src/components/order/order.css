@@ -1,0 +1,208 @@
+.order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--margin-xxl) 30rem;
+}
+.order .orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.order .orderHeader h4 {
+  font: var(--h4);
+}
+.order .orderHeader button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border: 0.5px solid var(--grey70);
+  padding: var(--margin-xxs) var(--margin-xs);
+  background-color: var(--white);
+  height: 100%;
+  cursor: pointer;
+}
+.order .orderHeader button p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font: var(--p);
+  height: 100%;
+  color: var(--grey30);
+}
+.order .orderHeader button p p {
+  color: var(--grey10);
+}
+.order .orderHeader button svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font: var(--h4);
+  padding-left: var(--margin-xxs);
+  margin: none;
+  height: 100%;
+  color: var(--grey30);
+}
+.order .orderSubHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-bottom: var(--margin-xs);
+  border-bottom: 1px solid var(--grey70);
+  gap: var(--margin-xxl);
+}
+.order .orderSubHeader p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order .orderItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: var(--margin-s);
+  padding-bottom: var(--margin-s);
+  border-bottom: 1px solid var(--grey70);
+  gap: var(--margin-xs);
+}
+.order .orderPaymentAndDelivery {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: var(--margin-s) 0rem;
+}
+.order .orderPaymentAndDelivery .payment {
+  width: 50%;
+  height: 100%;
+}
+.order .orderPaymentAndDelivery .payment big {
+  font-weight: 600;
+}
+.order .orderPaymentAndDelivery .delivery {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+.order .orderPaymentAndDelivery .delivery big {
+  font-weight: 600;
+}
+.order .orderPaymentAndDelivery .delivery p {
+  color: var(--text-color);
+}
+.order .helpAndSummary {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: var(--margin-s) 0rem;
+}
+.order .helpAndSummary .orderHelp {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+}
+.order .helpAndSummary .orderHelp big {
+  margin-bottom: var(--margin-xs);
+  font-weight: 500;
+}
+.order .helpAndSummary .orderHelp button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: var(--margin-xxs);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--grey30);
+}
+.order .helpAndSummary .orderHelp button svg {
+  font-size: 1.25rem;
+  margin-right: var(--margin-xxs);
+  color: var(--grey50);
+  transition: var(--transition-out);
+}
+.order .helpAndSummary .orderHelp button:hover svg {
+  transition: var(--transition-in);
+  color: var(--grey30);
+}
+.order .helpAndSummary .orderSummary {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+}
+.order .helpAndSummary .orderSummary big {
+  margin-bottom: var(--margin-xs);
+  font-weight: 500;
+}
+.order .helpAndSummary .orderSummary .orderSubTotal {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.order .helpAndSummary .orderSummary .orderSubTotal big {
+  font-weight: 400;
+}
+.order .helpAndSummary .orderSummary .orderDiscount {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.order .helpAndSummary .orderSummary .deliveryCharges {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.order .helpAndSummary .orderSummary .orderTotal {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--margin-xxs);
+  margin-bottom: 0rem;
+}
+
+@media (max-width: 1536px) {
+  .order {
+    padding: var(--margin-xxl) 25vw;
+  }
+}
+@media (max-width: 1280px) {
+  .order {
+    padding: var(--margin-xxl) 20vw;
+  }
+}
+@media (max-width: 1024px) {
+  .order {
+    padding: var(--margin-xxl) 10vw;
+  }
+  .order .orderHeader h4 {
+    font-size: 3vw;
+  }
+  .order .orderHeader button p {
+    font-size: 1.7vw;
+  }
+  .order .orderSubHeader p {
+    font-size: 1.7vw;
+  }
+}/*# sourceMappingURL=order.css.map */

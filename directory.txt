@@ -1,0 +1,22 @@
+regalia/
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── middlewares/
+│   ├── public/
+│   ├── views/
+│   ├── app.js
+│   └── package.json
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── assets/
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── ...
+│   └── package.json
+└── README.md

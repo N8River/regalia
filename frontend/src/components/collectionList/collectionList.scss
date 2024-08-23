@@ -1,0 +1,133 @@
+.collectionList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  gap: var(--margin-xxl);
+
+  padding: var(--margin-xl);
+  background-color: var(--secondary-color);
+
+  .collectionType {
+    display: flex;
+    flex-direction: column;
+    // flex: 1 1 22%;
+
+    // min-height: 25rem;
+    // min-width: 25rem;
+
+    cursor: pointer;
+
+    .circleImg {
+      display: flex;
+      flex: 1;
+      // min-height: 20rem;
+
+      overflow: hidden; /* Ensures the image stays within the circle */
+      border-radius: 50%;
+
+      box-shadow: 0px 2px 4px var(--shadow-secondary);
+
+      img {
+        width: 100%; /* Ensures the image covers the container */
+        height: auto;
+        object-fit: cover; /* Maintains the aspect ratio and covers the container */
+        transition: var(--transition-out-slow);
+
+        &:hover {
+          transform: scale(1.1);
+          transition: var(--transition-in-slow);
+        }
+      }
+    }
+
+    h3 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: var(--margin-xs);
+      font: var(--h4ui);
+
+      color: var(--text-color);
+
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 1536px) {
+  .collectionType {
+  }
+}
+
+@media (max-width: 1440px) {
+  .collectionType {
+    h3 {
+      font-size: 1.75vw !important;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .collectionList {
+    padding: var(--margin-s) var(--margin-m);
+    gap: var(--margin-m);
+
+    .collectionType {
+      // flex: 1 1 30%;
+
+      .circleImg {
+        box-shadow: 0px 1px 3px var(--shadow-secondary);
+      }
+
+      h3 {
+        margin-top: var(--margin-xxs);
+        font-size: 2vw !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 640px) {
+  .collectionList {
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    scrollbar-gutter: stable;
+
+    padding: 2.5vw;
+
+    gap: 2.5vw;
+
+    .collectionType {
+      min-width: 30vw;
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .collectionList {
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    scrollbar-gutter: stable;
+
+    padding: 2vw;
+
+    gap: 2vw;
+
+    .collectionType {
+      min-width: 29vw;
+
+      h3 {
+        font-size: 3vw !important;
+      }
+    }
+  }
+}

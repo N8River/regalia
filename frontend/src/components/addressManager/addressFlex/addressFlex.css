@@ -1,0 +1,118 @@
+.addressCard {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 24.5rem;
+  flex: 1;
+}
+.addressCard h2 {
+  padding-bottom: 0rem;
+  margin-bottom: var(--margin-xs);
+  font: var(--h4ui);
+  border-bottom: 0.5px solid var(--grey70);
+}
+.addressCard .addressInfo {
+  width: 100%;
+}
+.addressCard .addressBtns {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: var(--margin-m);
+  margin-top: var(--margin-xs);
+}
+.addressCard .addressBtns button {
+  margin: 0;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.addressCard .addressBtns button p {
+  font: var(--p);
+  color: var(--accent-color);
+  transition: var(--transition-out);
+}
+.addressCard .addressBtns button:hover p {
+  color: var(--text-color);
+  transition: var(--transition-in);
+}
+
+@media (max-width: 1024px) {
+  .addressCard {
+    min-height: 25vw;
+  }
+  .addressCard h2 {
+    font-size: 2vw;
+    margin-bottom: 0.75vw;
+  }
+  .addressCard .addressInfo {
+    margin-bottom: auto;
+  }
+  .addressCard .addressInfo p {
+    font-size: 1.5vw;
+  }
+  .addressCard .addressBtns {
+    margin-top: 1vw;
+    gap: 1.5vw;
+  }
+  .addressCard .addressBtns button {
+    padding: 0vw 0.5vw;
+  }
+  .addressCard .addressBtns button p {
+    font-size: 1.6vw;
+  }
+}
+@media (max-width: 768px) {
+  .addressCard {
+    min-height: 20vw;
+  }
+  .addressCard h2 {
+    font-size: 2vw;
+    margin-bottom: 0.75vw;
+  }
+  .addressCard .addressInfo {
+    margin-bottom: auto;
+  }
+  .addressCard .addressInfo p {
+    font-size: 1.5vw;
+  }
+  .addressCard .addressBtns {
+    margin-top: 1vw;
+    gap: 1.5vw;
+  }
+  .addressCard .addressBtns button {
+    padding: 0vw 0.5vw;
+  }
+  .addressCard .addressBtns button p {
+    font-size: 1.6vw;
+  }
+}
+@media (max-width: 640px) {
+  .addressCard {
+    min-height: 20vw;
+    min-width: 45vw;
+  }
+  .addressCard h2 {
+    font-size: 2vw;
+    margin-bottom: 0.75vw;
+  }
+  .addressCard .addressInfo {
+    margin-bottom: auto;
+  }
+  .addressCard .addressInfo p {
+    font-size: 1.5vw;
+  }
+  .addressCard .addressBtns {
+    margin-top: 1vw;
+    gap: 1.5vw;
+  }
+  .addressCard .addressBtns button {
+    padding: 0vw 0.5vw;
+  }
+  .addressCard .addressBtns button p {
+    font-size: 1.6vw;
+  }
+}/*# sourceMappingURL=addressFlex.css.map */

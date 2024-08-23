@@ -1,0 +1,104 @@
+.signUpForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: var(--margin-xxl) 25rem;
+  text-align: center;
+}
+.signUpForm h3 {
+  margin-bottom: var(--margin-m);
+  font-weight: 600;
+  color: var(--text-color);
+  width: 100%;
+}
+.signUpForm big {
+  margin: var(--margin-xs) 0rem;
+  width: 100%;
+}
+.signUpForm form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--margin-xs);
+  margin: var(--margin-xs) 0rem;
+}
+.signUpForm form input {
+  height: 2.5rem;
+  width: 30%;
+  border: 0.5px solid var(--grey50);
+  padding: var(--margin-xs);
+  font-size: var(--p);
+}
+.signUpForm form input::-moz-placeholder {
+  font-family: var(--ff);
+  font-size: var(--p);
+}
+.signUpForm form input::placeholder {
+  font-family: var(--ff);
+  font-size: var(--p);
+}
+.signUpForm form button {
+  width: 30%;
+}
+.signUpForm small {
+  color: var(--grey30);
+  font-weight: 400;
+  width: 100%;
+}
+.signUpForm small a {
+  color: var(--grey10);
+  font-weight: 600;
+}
+
+@media (max-width: 1536px) {
+  .signUpForm {
+    padding: var(--margin-xxl) 10vw;
+  }
+}
+@media (max-width: 1536px) {
+  .signUpForm form input {
+    width: 35vw;
+  }
+  .signUpForm form button {
+    width: 35vw;
+  }
+}
+@media (max-width: 768px) {
+  .signUpForm form input {
+    width: 45vw;
+  }
+  .signUpForm form button {
+    width: 45vw;
+  }
+}
+@media (max-width: 640px) {
+  .signUpForm form input {
+    width: 55vw;
+  }
+  .signUpForm form button {
+    width: 55vw;
+  }
+}
+@media (max-width: 640px) {
+  .signUpForm {
+    padding: var(--margin-xxl) 5vw;
+  }
+  .signUpForm h3 {
+    margin-bottom: 2vw;
+    font-size: 7.5vw;
+  }
+  .signUpForm big {
+    font-size: 4vw;
+    margin: 1vw 0;
+  }
+  .signUpForm form input {
+    width: 75vw;
+  }
+  .signUpForm form button {
+    width: 75vw;
+  }
+}/*# sourceMappingURL=signUpForm.css.map */

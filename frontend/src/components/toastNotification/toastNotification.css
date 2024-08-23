@@ -1,0 +1,126 @@
+.toast-container {
+  position: fixed; /* Changed from sticky to fixed */
+  top: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(50%);
+  z-index: 9999; /* Ensure it's on top of most elements */
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-m); /* Space between multiple toasts */
+}
+
+.toast-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 9998; /* One level below the toast notification */
+  opacity: 0; /* Start fully transparent */
+  animation: fadeInOutOverlay 3s ease-in-out; /* Combined fade in and out */
+}
+
+.toastNotification {
+  background-color: var(--white);
+  padding: var(--margin-m) var(--margin-l);
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px var(--grey30);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideIn 0.3s ease-in, slideOut 0.3s ease-out 2.7s forwards; /* Sync slide in/out */
+  font-family: var(--ff);
+  opacity: 0.9;
+  max-width: 300px;
+  word-wrap: break-word; /* Ensures long messages are wrapped */
+  gap: var(--margin-s);
+}
+.toastNotification .closeBtnToast {
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  display: flex;
+  padding-bottom: auto;
+  cursor: pointer;
+}
+.toastNotification .closeBtnToast svg {
+  font-size: 1.75rem;
+}
+.toastNotification.success {
+  background-color: var(--green);
+  color: var(--text-color);
+}
+.toastNotification.success .closeBtnToast {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  height: 100%;
+}
+.toastNotification.success .closeBtnToast svg {
+  color: var(--text-color);
+}
+.toastNotification.error {
+  background-color: var(--red);
+  color: var(--white);
+}
+.toastNotification.error .closeBtnToast {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  height: 100%;
+}
+.toastNotification.error .closeBtnToast svg {
+  color: var(--white);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0; /* Start fully transparent */
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1; /* End fully opaque */
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1; /* Start fully opaque */
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0; /* End fully transparent */
+  }
+}
+@keyframes fadeOverlayIn {
+  from {
+    opacity: 0; /* Start fully transparent */
+  }
+  to {
+    opacity: 1; /* Fully opaque at the end of the animation */
+  }
+}
+@keyframes fadeOverlayOut {
+  from {
+    opacity: 1; /* Start fully opaque */
+  }
+  to {
+    opacity: 0; /* Fully transparent at the end of the animation */
+  }
+}
+@keyframes fadeInOutOverlay {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}/*# sourceMappingURL=toastNotification.css.map */

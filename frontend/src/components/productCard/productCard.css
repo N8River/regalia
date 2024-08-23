@@ -1,0 +1,120 @@
+.productCard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 40rem;
+  width: 27rem;
+  background-color: var(--secondary-color);
+  padding: var(--margin-l);
+  cursor: pointer;
+  border-radius: 1.5rem;
+  transition: var(--transition-out);
+}
+.productCard:hover {
+  background-color: var(--secondary-hover);
+  transition: var(--transition-in);
+}
+.productCard .productImgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.productCard .productImgContainer .productImg {
+  width: 100%;
+  height: auto;
+  transition: var(--transition-out-slow);
+}
+.productCard .productImgContainer .productImg:hover {
+  transform: scale(1.1);
+  transition: var(--transition-in-slow);
+}
+.productCard .productInfo {
+  width: 100%;
+  min-height: 15%;
+  padding-top: var(--margin-s);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: var(--margin-xxs);
+}
+.productCard .productInfo big {
+  font-weight: 500;
+  color: var(--text-color);
+}
+.productCard .productInfo p {
+  font-weight: 400;
+  color: var(--text-color);
+}
+.productCard .productInfo div {
+  margin: 0.1rem 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--dark-grey);
+}
+
+@media (max-width: 1024px) {
+  .productCard {
+    max-height: 67vw;
+    max-width: 42vw;
+    padding: var(--margin-m);
+  }
+  .productCard .productInfo big {
+    font: var(--bigui);
+    font-weight: 500;
+  }
+}
+@media (max-width: 768px) {
+  .productCard {
+    max-height: 67vw;
+    max-width: 42vw;
+    padding: var(--margin-m);
+  }
+  .productCard .productInfo {
+    padding-left: 0;
+    padding-top: 2%;
+  }
+  .productCard .productInfo big {
+    font-size: 2.5vw;
+    font-weight: 500;
+  }
+  .productCard .productInfo p {
+    font-size: 2.25vw;
+  }
+}
+@media (max-width: 640px) {
+  .productCard {
+    max-height: 70vw;
+    max-width: 44vw;
+    padding: var(--margin-s);
+  }
+  .productCard .productInfo {
+    padding-left: 0;
+    padding-top: 2%;
+  }
+  .productCard .productInfo big {
+    font-size: 2.5vw;
+    font-weight: 500;
+  }
+  .productCard .productInfo p {
+    font-size: 2.25vw;
+  }
+}
+@media (max-width: 475px) {
+  .productCard {
+    max-height: 64vw;
+    max-width: 40vw;
+    padding: 2vw;
+    border-radius: 3vw;
+  }
+  .productCard .productImgContainer {
+    border-radius: 2vw;
+  }
+  .productCard .productInfo {
+    padding-top: 3%;
+  }
+}/*# sourceMappingURL=productCard.css.map */

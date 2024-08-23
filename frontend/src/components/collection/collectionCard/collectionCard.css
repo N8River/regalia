@@ -1,0 +1,67 @@
+.collectionCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative; /* Make the parent relatively positioned */
+  height: 40rem;
+  width: 25rem;
+  cursor: pointer;
+}
+.collectionCard .collectionCardImgContainer {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.collectionCard .collectionCardImgContainer .collectionCardImg {
+  height: 100%;
+  width: auto;
+  transition: var(--transition-out-slow);
+}
+.collectionCard .collectionCardNameContainer {
+  height: 10%;
+  width: 100%;
+}
+.collectionCard .collectionCardNameContainer .collectionCardName {
+  margin: 0;
+}
+.collectionCard:hover .collectionCardImg {
+  transform: scale(1.05);
+  transition: var(--transition-in-slow);
+}
+.collectionCard:hover .collectionCardNameContainer {
+  background: rgba(0, 0, 0, 0.6);
+  transition: var(--transition-in-slow);
+}
+
+.collectionCardNameContainer {
+  position: absolute; /* Position the text absolutely */
+  bottom: 0; /* Align to the bottom of the image */
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Optional: Add background to the text */
+  color: var(--white);
+  text-align: center;
+  transition: var(--transition-out-slow);
+}
+.collectionCardNameContainer h1 {
+  display: flex;
+  height: 100%;
+}
+
+@media (max-width: 1440px) {
+  .collectionCard {
+    max-height: 40vw;
+    max-width: 25vw;
+  }
+  .collectionCard .collectionCardImgContainer {
+    max-height: 40vw;
+    max-width: 25vw;
+  }
+  .collectionCardNameContainer h1 {
+    font-size: 2vw;
+  }
+}/*# sourceMappingURL=collectionCard.css.map */

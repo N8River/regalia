@@ -1,0 +1,323 @@
+.productCollection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--primary-color);
+}
+.productCollection h1 {
+  padding: var(--margin-xxl) 0rem;
+  width: 100%;
+  text-align: center;
+}
+.productCollection .collectionToolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem var(--margin-s);
+  height: 4rem;
+  border: 0.5px solid var(--grey70);
+  background-color: var(--primary-color);
+  border-left: none;
+  border-right: none;
+  z-index: 990;
+}
+.productCollection .collectionToolbar.sticky {
+  position: fixed;
+  top: 6rem;
+}
+.productCollection .collectionToolbar .toolbarNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  padding-right: var(--margin-l);
+  border-right: 0.5px solid var(--grey50);
+  gap: var(--margin-s);
+}
+.productCollection .collectionToolbar .toolbarNav div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+.productCollection .collectionToolbar .toolbarNav div svg {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--grey30);
+  cursor: pointer;
+  transition: var(--transition-out);
+  margin-right: var(--margin-xxs);
+  height: 100%;
+}
+.productCollection .collectionToolbar .toolbarNav div svg path:nth-of-type(2) {
+  stroke-width: 0.1px;
+}
+.productCollection .collectionToolbar .toolbarNav div p {
+  display: flex;
+  align-items: center;
+  color: var(--grey30);
+  transition: var(--transition-out);
+  height: 100%;
+}
+.productCollection .collectionToolbar .toolbarNav div:hover svg {
+  color: var(--text-color);
+  transition: var(--transition-in);
+}
+.productCollection .collectionToolbar .toolbarNav div:hover p {
+  color: var(--text-color);
+  transition: var(--transition-in);
+}
+.productCollection .collectionToolbar .toolbarFilterBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 5rem;
+  padding-left: 0.5rem;
+  border-left: 0.5px solid var(--grey50);
+  color: var(--grey30);
+  cursor: pointer;
+}
+.productCollection .collectionToolbar .toolbarFilterBtn div {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.productCollection .productCollectionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--margin-xxl);
+  gap: var(--margin-xxl);
+}
+
+.toolbarFilter {
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 100vh;
+  background-color: var(--white);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: var(--transition-out);
+}
+.toolbarFilter.show {
+  transform: translateX(0);
+  box-shadow: -1px 0px 3px var(--grey50);
+  transition: var(--transition-in);
+}
+.toolbarFilter .toolbarFilterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--margin-s) var(--margin-l);
+  border-bottom: 1px solid var(--grey70);
+}
+.toolbarFilter .toolbarFilterHeader h4 {
+  font-weight: 600;
+}
+.toolbarFilter .toolbarFilterHeader div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.toolbarFilter .toolbarFilterHeader div button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.toolbarFilter .toolbarFilterHeader div button svg {
+  font-size: 2rem;
+}
+.toolbarFilter .filterDropdownContainer {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin: 0 var(--margin-m);
+  cursor: pointer;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdownFilter {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--margin-s);
+  padding-top: var(--margin-s);
+  border-bottom: 1px solid var(--grey90);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdownFilter p {
+  font-weight: 500;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdownFilter div {
+  display: flex;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdownFilter div button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdownFilter div button .filterDropdownArrow {
+  font-size: 1rem;
+  transition: var(--transition-out);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdownFilter div button .filterDropdownArrow.show {
+  transform: rotate(180deg);
+  transition: var(--transition-in);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.25s margin ease-out, 0.25s max-height ease-out;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown.show {
+  margin: var(--margin-s) 0rem;
+  max-height: 500px;
+  transition: 0.25s margin ease-in, 0.25s max-height ease-in;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice {
+  display: flex;
+  align-items: center;
+  gap: var(--margin-s);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--grey70); /* Style the border as you like */
+  padding: var(--margin-xs) var(--margin-s);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input span {
+  margin-right: var(--margin-xs);
+  color: var(--grey30);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input input {
+  border: none;
+  outline: none;
+  width: 100%; /* Ensures the input takes up remaining space */
+  text-align: right;
+  color: var(--grey30);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input input::-webkit-outer-spin-button, .toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input input::-moz-placeholder {
+  color: var(--grey30);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input input::placeholder {
+  color: var(--grey30);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByPriceSort {
+  display: flex;
+  flex-direction: column;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByPriceSort p {
+  font: var(--p);
+  font-weight: 400;
+  margin-bottom: var(--margin-xxs);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByPriceSort select {
+  display: flex;
+  font-family: var(--ff);
+  border: 1px solid var(--grey50);
+  padding: var(--margin-xxs) var(--margin-xs);
+  outline: none;
+  cursor: pointer;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .filterByPriceSort select option {
+  height: 2rem;
+  font-family: var(--ff);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .categoryFilter {
+  display: flex;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .categoryFilter form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-xxs);
+  width: 100%;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .categoryFilter form div {
+  display: flex;
+  align-items: center;
+  gap: var(--margin-xs);
+  cursor: pointer;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .categoryFilter form div input {
+  cursor: pointer;
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .categoryFilter form div label {
+  cursor: pointer;
+  color: var(--grey30);
+}
+.toolbarFilter .filterDropdownContainer .filterDropdown .categoryFilter form div:hover {
+  color: var(--text-color);
+}
+.toolbarFilter .applyFiltersContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: var(--margin-xxl);
+}
+
+.productCollectionContainer.sticky-padding2 {
+  padding-top: 6.5rem;
+}
+
+@media (max-width: 1024px) {
+  .productCollection .collectionToolbar.sticky {
+    top: 5rem;
+  }
+  .toolbarFilter {
+    width: 50vw;
+  }
+}
+@media (max-width: 768px) {
+  .productCollection .productCollectionContainer {
+    padding: var(--margin-m);
+    gap: 4vw;
+  }
+}
+@media (max-width: 640px) {
+  .toolbarFilter {
+    width: 70vw;
+  }
+}
+@media (max-width: 475px) {
+  .productCollection .collectionToolbar {
+    height: 10vw;
+  }
+  .productCollection .collectionToolbar .toolbarNav div svg {
+    font-size: 5vw;
+  }
+  .productCollection .collectionToolbar .toolbarNav div p {
+    font-size: 4.5vw;
+  }
+  .productCollection .collectionToolbar .toolbarFilterBtn div {
+    font-size: 4.5vw;
+  }
+  .productCollection .collectionToolbar.sticky {
+    top: 4rem;
+  }
+  .productCollection .productCollectionContainer {
+    padding: var(--margin-m) 0;
+    gap: 3.5vw;
+  }
+  .toolbarFilter {
+    width: 100vw;
+  }
+}/*# sourceMappingURL=productCollection.css.map */

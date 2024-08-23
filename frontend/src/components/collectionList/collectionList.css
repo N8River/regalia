@@ -1,0 +1,89 @@
+.collectionList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: var(--margin-xxl);
+  padding: var(--margin-xl);
+  background-color: var(--secondary-color);
+}
+.collectionList .collectionType {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.collectionList .collectionType .circleImg {
+  display: flex;
+  flex: 1;
+  overflow: hidden; /* Ensures the image stays within the circle */
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px var(--shadow-secondary);
+}
+.collectionList .collectionType .circleImg img {
+  width: 100%; /* Ensures the image covers the container */
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover; /* Maintains the aspect ratio and covers the container */
+  transition: var(--transition-out-slow);
+}
+.collectionList .collectionType .circleImg img:hover {
+  transform: scale(1.1);
+  transition: var(--transition-in-slow);
+}
+.collectionList .collectionType h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--margin-xs);
+  font: var(--h4ui);
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+@media (max-width: 1440px) {
+  .collectionType h3 {
+    font-size: 1.75vw !important;
+  }
+}
+@media (max-width: 1024px) {
+  .collectionList {
+    padding: var(--margin-s) var(--margin-m);
+    gap: var(--margin-m);
+  }
+  .collectionList .collectionType .circleImg {
+    box-shadow: 0px 1px 3px var(--shadow-secondary);
+  }
+  .collectionList .collectionType h3 {
+    margin-top: var(--margin-xxs);
+    font-size: 2vw !important;
+  }
+}
+@media (max-width: 640px) {
+  .collectionList {
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    scrollbar-gutter: stable;
+    padding: 2.5vw;
+    gap: 2.5vw;
+  }
+  .collectionList .collectionType {
+    min-width: 30vw;
+  }
+}
+@media (max-width: 475px) {
+  .collectionList {
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    scrollbar-gutter: stable;
+    padding: 2vw;
+    gap: 2vw;
+  }
+  .collectionList .collectionType {
+    min-width: 29vw;
+  }
+  .collectionList .collectionType h3 {
+    font-size: 3vw !important;
+  }
+}/*# sourceMappingURL=collectionList.css.map */

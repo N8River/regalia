@@ -1,0 +1,38 @@
+.collections {
+  background-color: var(--primary-color);
+  padding: var(--margin-xxl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.collections h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--margin-xxl);
+  width: 100%;
+}
+.collections .collectionTiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  flex-wrap: wrap;
+  gap: var(--margin-xxl);
+}
+
+@media (max-width: 1536px) {
+  .collections {
+    padding: 3vw;
+  }
+  .collections h1 {
+    font-size: 3vw;
+    margin-bottom: 3vw;
+  }
+  .collections .collectionTiles {
+    width: 100%;
+    gap: 3vw;
+  }
+}/*# sourceMappingURL=collection.css.map */

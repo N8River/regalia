@@ -1,0 +1,42 @@
+.addressCheckout.shippingPage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: var(--margin-s);
+  border: 0.5px solid var(--grey90);
+  margin: var(--margin-xxs) 0rem;
+  transition: var(--transition-out);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-hover);
+  cursor: pointer;
+}
+.addressCheckout.shippingPage.selected {
+  border: 1px solid var(--shadow-secondary);
+  background-color: var(--secondary-hover);
+  transition: var(--transition-in);
+}
+.addressCheckout.shippingPage:hover {
+  border: 1px solid var(--shadow-secondary);
+  background-color: var(--secondary-hover);
+  transition: var(--transition-in);
+}
+.addressCheckout.shippingPage p {
+  font: var(--pui);
+}
+
+.addressCheckout.reviewPage {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  -moz-column-gap: var(--margin-xxs);
+       column-gap: var(--margin-xxs);
+  height: 100%;
+  transition: var(--transition-out);
+}
+.addressCheckout.reviewPage p {
+  font: var(--p);
+}/*# sourceMappingURL=addressCheckout.css.map */

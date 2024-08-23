@@ -1,0 +1,25 @@
+.checkoutItem {
+  height: 6.5rem !important;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--margin-s);
+}
+.checkoutItem .checkoutItemImg {
+  height: 6.5rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkoutItem .checkoutItemImg img {
+  height: 100%;
+  width: auto;
+}
+.checkoutItem .checkoutItemNameQuantity {
+  height: 100%;
+}
+.checkoutItem .checkoutItemPrice {
+  height: 100%;
+  margin-left: auto;
+}/*# sourceMappingURL=checkoutItem.css.map */

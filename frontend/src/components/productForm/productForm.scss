@@ -1,0 +1,106 @@
+.addProductForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  // height: 20rem;
+
+  padding: 1rem 0rem;
+
+  div {
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    margin: 0.25rem 0rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input {
+    height: 2rem;
+    font-size: 1rem;
+
+    margin: 0.25rem 0rem;
+
+    border: 0.5px solid var(--grey);
+
+    padding: 0.5rem;
+  }
+
+  .addProductBtn {
+    height: 2rem;
+    font-size: 1rem;
+
+    margin: 0.25rem 0rem;
+    border: 0.5px solid var(--grey);
+
+    font-family: "Poppins";
+    padding: 0rem 2rem;
+
+    background-color: var(--background-color);
+
+    transition: all 0.15s ease-out;
+
+    &:hover {
+      background-color: var(--dark-grey);
+      color: var(--white);
+
+      border: 0.5px solid var(--dark-grey);
+      transition: all 0.2s ease-in;
+    }
+  }
+
+  div:nth-child(5) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 2rem;
+
+    h1 {
+      width: 50%;
+    }
+
+    select {
+      height: 2rem;
+      padding: 0rem 0.5rem;
+
+      font-size: 1rem;
+      font-family: "Poppins";
+
+      width: 50%;
+    }
+  }
+
+  div:nth-child(4) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 2rem;
+
+    h1 {
+      width: 50%;
+    }
+
+    select {
+      height: 2rem;
+      padding: 0rem 0.5rem;
+
+      font-size: 1rem;
+      font-family: "Poppins";
+
+      width: 50%;
+    }
+  }
+}

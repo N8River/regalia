@@ -1,0 +1,501 @@
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+
+  padding: var(--margin-xxl) 25rem;
+
+  gap: var(--margin-l);
+
+  div {
+    width: 100%;
+  }
+
+  .accountToolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .logOutBtn {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      width: 100%;
+
+      margin-bottom: var(--margin-s);
+
+      button {
+        background-color: transparent;
+        border: none;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        font-weight: 500;
+
+        width: 100%;
+
+        color: var(--grey30);
+        font: var(--pui);
+
+        cursor: pointer;
+        transition: var(--transition-out);
+
+        svg {
+          display: flex;
+          height: 100%;
+        }
+
+        &:hover {
+          color: var(--text-color);
+          transition: var(--transition-in);
+        }
+      }
+    }
+
+    h2 {
+      display: flex;
+
+      align-items: center;
+
+      width: 100%;
+      color: var(--text-color);
+    }
+
+    h4 {
+      display: flex;
+      align-items: center;
+
+      width: 100%;
+      color: var(--text-color);
+
+      font-weight: 600;
+    }
+  }
+
+  .accountInfo {
+    display: flex;
+    justify-content: space-between;
+
+    flex-direction: row;
+
+    width: 100%;
+
+    gap: var(--margin-xxl);
+
+    .orders {
+      width: 60%;
+      min-height: 15rem;
+    }
+
+    .address {
+      width: 40%;
+      min-height: 15rem;
+    }
+
+    .orders {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+
+      text-align: left;
+
+      big {
+        width: 100%;
+        font-weight: 400;
+
+        border-bottom: 0.5px solid var(--grey50);
+      }
+
+      p {
+        color: var(--text-color);
+        width: 100%;
+
+        text-align: center;
+
+        margin: 0.75rem 0rem;
+      }
+
+      .btn {
+        background-color: var(--primary-color);
+        border: 0.5px solid var(--primary-color);
+
+        font-size: 1rem;
+        padding: 0.4rem 1.25rem;
+        transition: all 0.15s ease-out;
+
+        a {
+          color: var(--white);
+          font-family: "Poppins";
+
+          letter-spacing: 1px;
+        }
+
+        &:hover {
+          background-color: var(--black);
+          border: 0.5px solid var(--black);
+
+          transition: all 0.2s ease-in;
+        }
+      }
+    }
+
+    .address {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+
+      text-align: left;
+
+      big {
+        color: var(--text-color);
+        width: 100%;
+
+        text-align: left;
+        font-weight: 400;
+        border-bottom: 0.5px solid var(--grey50);
+      }
+
+      p {
+        display: flex;
+
+        color: var(--text-color);
+        width: 100%;
+
+        font: var(--big);
+
+        text-align: center;
+
+        margin: var(--margin-xxs) 0rem;
+      }
+
+      .addressList {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        margin: var(--margin-xxs) 0rem;
+
+        p {
+          font: var(--p);
+          margin: 0;
+        }
+      }
+
+      div {
+        margin: var(--margin-s) 0rem;
+        button {
+          transition: var(--transition-out);
+
+          a {
+            color: var(--white);
+            font-family: "Poppins";
+
+            letter-spacing: 1px;
+          }
+
+          &:hover {
+            background-color: var(--black);
+            border: 0.5px solid var(--black);
+
+            transition: var(--transition-in);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1536px) {
+  .account {
+    padding: var(--margin-xxl) 10vw;
+  }
+}
+
+@media (max-width: 1280px) {
+  .account {
+    padding: var(--margin-xxl) 5vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .account {
+    .accountToolbar {
+      .logOutBtn {
+        margin-bottom: 0.5vw;
+
+        button {
+          font-size: 1.75vw;
+          svg {
+            font-size: 2.25vw;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 4vw;
+      }
+
+      h4 {
+        font-size: 2vw;
+      }
+    }
+
+    .accountInfo {
+      .orders {
+        big {
+          font-size: 2vw;
+        }
+      }
+
+      .address {
+        big {
+          font-size: 2vw;
+        }
+
+        p {
+          font-size: 2vw;
+          font-weight: 500;
+        }
+
+        .addressList {
+          p {
+            font-size: 1.7vw;
+          }
+        }
+
+        div {
+          margin: 0.75vw 0;
+
+          button {
+            padding: 0.5vw 1.5vw;
+            a {
+              font-size: 1.75vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .account {
+    gap: 2vw;
+
+    .accountToolbar {
+      .logOutBtn {
+        margin-bottom: 0.5vw;
+
+        button {
+          font-size: 2.2vw;
+          svg {
+            font-size: 2.5vw;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 4vw;
+      }
+
+      h4 {
+        font-size: 2.2vw;
+      }
+    }
+
+    .accountInfo {
+      flex-direction: column;
+      gap: 2.5vw;
+
+      .orders {
+        min-height: fit-content;
+        width: auto;
+
+        big {
+          font-size: 2vw;
+        }
+      }
+
+      .address {
+        width: auto;
+        min-height: fit-content;
+        big {
+          font-size: 2vw;
+        }
+
+        p {
+          font-size: 2vw;
+          font-weight: 500;
+        }
+
+        .addressList {
+          p {
+            font-size: 1.7vw;
+          }
+        }
+
+        div {
+          margin: 0.75vw 0;
+
+          button {
+            padding: 0.5vw 1.5vw;
+            a {
+              font-size: 1.75vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .account {
+    gap: 2vw;
+
+    .accountToolbar {
+      .logOutBtn {
+        margin-bottom: 0.5vw;
+
+        button {
+          font-size: 2.2vw;
+          svg {
+            font-size: 2.5vw;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 4vw;
+      }
+
+      h4 {
+        font-size: 2.2vw;
+      }
+    }
+
+    .accountInfo {
+      flex-direction: column;
+      gap: 2.5vw;
+
+      .orders {
+        min-height: fit-content;
+        width: auto;
+
+        big {
+          font-size: 2vw;
+        }
+      }
+
+      .address {
+        width: auto;
+        min-height: fit-content;
+        big {
+          font-size: 2vw;
+        }
+
+        p {
+          font-size: 2.25vw;
+          font-weight: 500;
+        }
+
+        .addressList {
+          p {
+            font-size: 2vw;
+          }
+        }
+
+        div {
+          margin: 0.75vw 0;
+
+          button {
+            padding: 0.5vw 1.5vw;
+            a {
+              font-size: 2vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .account {
+    gap: 2vw;
+
+    .accountToolbar {
+      .logOutBtn {
+        margin-bottom: 0.5vw;
+
+        button {
+          font-size: 2.2vw;
+          svg {
+            font-size: 2.5vw;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 4vw;
+      }
+
+      h4 {
+        font-size: 2.2vw;
+      }
+    }
+
+    .accountInfo {
+      flex-direction: column;
+      gap: 2.5vw;
+
+      .orders {
+        min-height: fit-content;
+        width: auto;
+
+        big {
+          font-size: 2.5vw;
+        }
+      }
+
+      .address {
+        width: auto;
+        min-height: fit-content;
+        big {
+          font-size: 2.5vw;
+        }
+
+        p {
+          font-size: 2.5vw;
+          font-weight: 500;
+        }
+
+        .addressList {
+          p {
+            font-size: 2.25vw;
+          }
+        }
+
+        div {
+          margin: 0.75vw 0;
+
+          button {
+            display: flex;
+            padding: 1.25vw 2.5vw;
+            a {
+              font-size: 2.5vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}

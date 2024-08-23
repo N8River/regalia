@@ -1,0 +1,509 @@
+.headerLogo {
+  font-family: "CinzelDecorative";
+  flex: 1;
+  color: var(--text-color);
+  letter-spacing: 1px;
+
+  height: 100%;
+}
+
+.no-scroll {
+  overflow: hidden; /* Prevents scrolling */
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 6rem;
+
+  padding: var(--margin-s) var(--margin-xxl);
+  background-color: var(--white);
+
+  box-shadow: 0px 0.75px 1.5px var(--grey50);
+
+  z-index: 1000;
+
+  transition: var(--transition-out);
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    transition: var(--transition-in);
+  }
+
+  .hamburgerMenu {
+    display: none;
+  }
+
+  .headerMenu {
+    display: none;
+  }
+
+  .headerBtn:hover {
+    transform: translateY(-2px);
+    transition: all 150ms ease-in-out;
+  }
+
+  .headerLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: 1;
+  }
+
+  .headerMiddle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 0.5rem;
+
+    height: 100%;
+
+    flex: 1;
+
+    .headerBtn {
+      margin: 0 var(--margin-xs);
+      transition: var(--transition-out);
+    }
+  }
+
+  .headerRight {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+
+    flex: 1;
+
+    .headerBtn {
+      margin: 0 var(--margin-s);
+
+      transition: all 150ms ease-in-out;
+
+      a {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+
+        svg {
+          font: var(--h2ui);
+
+          font-weight: 200;
+        }
+      }
+
+      .searchBtn {
+        display: flex;
+        height: 100%;
+
+        cursor: pointer;
+        svg {
+          font: var(--h2ui);
+
+          font-weight: 200;
+        }
+      }
+    }
+  }
+}
+
+.searchBarDropdown {
+  position: absolute;
+  top: 8rem;
+  left: 0;
+
+  width: 100%;
+
+  background-color: var(--primary-color);
+
+  padding: var(--margin-m) var(--margin-l);
+  padding-bottom: var(--margin-xxl);
+
+  display: flex;
+  justify-content: space-between;
+
+  height: fit-content;
+  transform: translateY(-100%); /* Initially hidden */
+  transition: var(--transition-out);
+
+  z-index: 999; /* Make sure it's above other content */
+  opacity: 0;
+
+  &.show {
+    transition: var(--transition-in);
+    display: flex;
+    transform: translateY(0); /* Slide down */
+    box-shadow: 0px 1px 2px var(--shadow-secondary);
+    padding-bottom: var(--margin-m);
+    opacity: 1;
+  }
+
+  &.sticky {
+    position: fixed;
+    top: 6rem; /* Reset top to align with sticky header */
+  }
+
+  // &.sticky.show {
+  //   position: fixed;
+  //   top: 6rem;
+  // }
+
+  .searchForm {
+    display: flex;
+    width: 100%;
+
+    height: 2rem;
+
+    .searchInput {
+      width: 50%;
+      height: 2rem;
+      padding-left: var(--margin-xs);
+
+      font-family: var(--ff);
+      font-weight: 400;
+
+      &::placeholder {
+        font-family: var(--ff);
+        font-weight: 400;
+      }
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      margin-left: var(--margin-xs);
+
+      height: 100%;
+
+      cursor: pointer;
+
+      svg {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .closeSearchBarDropdown {
+    width: fit-content;
+    height: 2rem;
+
+    button {
+      border: none;
+      background-color: transparent;
+      height: 100%;
+
+      display: flex;
+      cursor: pointer;
+
+      svg {
+        font-size: 1.6rem;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  backdrop-filter: blur(1.5px);
+  transition: all 0.3s ease-in-out;
+  z-index: 998;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sticky-padding {
+  padding-top: 6rem; /* Match the height of the sticky header */
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1440px) {
+  .headerLogo {
+    font-size: 3vw;
+  }
+}
+
+@media (max-width: 1280px) {
+  .headerMiddle {
+    // justify-content: space-between !important;
+    flex: 1.5 !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 1rem 1.5rem;
+    height: 5rem;
+
+    div {
+      width: 33%;
+      text-align: center;
+    }
+
+    .hamburgerMenu {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+
+      .menu-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        border: none;
+        background-color: transparent;
+        transition: all 0.2s ease-in-out;
+        padding: 0 0.5rem;
+
+        svg {
+          font-size: 1.75rem;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+
+    .headerMenu {
+      display: flex;
+      justify-content: flex-start;
+      // align-items: center;
+      flex-direction: column;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+
+      background-color: var(--white);
+
+      // box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+
+      width: 25rem;
+      padding: var(--margin-m);
+      z-index: 999;
+
+      .menu-toggle-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .menu-toggle {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: fit-content;
+
+        font-size: 1.5rem;
+        border: none;
+        background-color: transparent;
+
+        // margin-bottom: var(--margin-xs);
+      }
+
+      .headerBtn {
+        text-align: left;
+        width: 100%;
+        padding-bottom: var(--margin-xxs);
+        margin-top: var(--margin-xs);
+
+        font-weight: 500;
+
+        border-bottom: 0.5px solid var(--grey70);
+
+        transition: all 150ms ease-in-out;
+
+        a {
+          width: 100%;
+          height: 100%;
+        }
+
+        &.lastChild {
+          margin-top: auto;
+
+          a {
+            height: fit-content;
+          }
+        }
+      }
+
+      &.open {
+        transform: translateX(0);
+        box-shadow: 0px 1px 7.5px var(--grey30);
+      }
+    }
+
+    .headerMiddle {
+      display: none;
+    }
+
+    .headerRight {
+      justify-content: flex-end;
+
+      .headerBtn {
+        width: fit-content;
+
+        margin: 0 var(--margin-xs);
+
+        .searchBtn {
+          width: 100%;
+          svg {
+            font-size: 1.75rem !important;
+          }
+        }
+      }
+    }
+  }
+
+  .searchBarDropdown {
+    top: 7rem;
+
+    &.sticky {
+      top: 5rem;
+    }
+  }
+
+  .headerLogo {
+    font-size: 4vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    h1 {
+      font-size: 4vw !important;
+      height: fit-content;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    h1 {
+      font-size: 6vw !important;
+      height: fit-content;
+    }
+  }
+
+  .headerRight {
+    .headerBtn:nth-child(1) {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  // .header {
+  //   padding: 1rem;
+
+  //   .headerRight {
+  //     .headerBtn {
+  //       margin: 0 0.5rem;
+
+  //       svg {
+  //         font-size: 1.75rem;
+  //       }
+  //     }
+
+  //     .headerBtn:nth-child(1) {
+  //       display: none;
+  //     }
+  //   }
+  // }
+
+  // .headerMenu {
+  //   .headerBtn:nth-child(6) {
+  //     border: none;
+  //     font-size: 1.5rem;
+  //   }
+  // }
+
+  .header {
+    height: 4rem;
+    padding: 2vw;
+
+    .hamburgerMenu {
+      .menu-toggle {
+        svg {
+          font-size: 7.5vw;
+        }
+      }
+    }
+
+    .headerMenu {
+      width: 100vw;
+    }
+
+    .headerLeft {
+      .headerLogo {
+        font-size: 7vw !important;
+      }
+    }
+
+    .headerRight {
+      .headerBtn {
+        margin: 0;
+        margin-right: 2.5vw;
+
+        svg {
+          font-size: 7.5vw !important;
+        }
+
+        .searchBtn {
+          svg {
+            font-size: 7.5vw !important;
+          }
+        }
+      }
+    }
+  }
+
+  .searchBarDropdown {
+    top: 6rem;
+    padding: 3vw;
+
+    &.show {
+      padding-bottom: 3vw;
+    }
+
+    &.sticky {
+      top: 4rem;
+    }
+  }
+}

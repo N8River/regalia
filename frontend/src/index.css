@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@font-face {
+  font-family: CinzelDecorative;
+  src: url("assets/fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+:root {
+  /* Font */
+  --ff: "Poppins";
+
+  /* Colors */
+  --primary-color: hsl(204, 100%, 97%);
+  --secondary-color: hsl(204, 45%, 86%);
+  --accent-color: hsl(16, 66%, 50%);
+  /* --card-color: hsl(216, 20%, 90%); */
+  --text-color: hsl(222, 100%, 4%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+
+  --secondary-hover: hsl(204, 55%, 80%);
+  /* --light-grey: hsl(0, 0%, 75%); */
+  /* --grey: hsl(0, 0%, 50%); */
+  /* --dark-grey: hsl(0, 0%, 25%); */
+  /* --background-gradient: linear-gradient(
+    to top,
+    hsl(0, 0%, 86%),
+    var(--background-color)
+  ); */
+  --border-gradient: linear-gradient(#d4ad2b, #d42b53);
+  --green: hsl(131, 100%, 35%);
+  --red: hsl(0, 90%, 40%);
+  --grey10: hsl(0, 0%, 10%);
+  --grey30: hsl(0, 0%, 30%);
+  --grey50: hsl(0, 0%, 50%);
+  --grey70: hsl(0, 0%, 70%);
+  --grey90: hsl(0, 0%, 90%);
+  --shadow-primary: hsl(204, 50%, 80%);
+  --shadow-secondary: hsl(204, 10%, 50%);
+
+  /* Margins */
+  --margin-xxs: 0.25rem;
+  --margin-xs: 0.5rem;
+  --margin-s: 0.75rem;
+  --margin-m: 1rem;
+  --margin-l: 1.25rem;
+  --margin-xl: 1.75rem;
+  --margin-xxl: 2.5rem;
+
+  /* Landing page */
+  --h1: bold 3rem/1em var(--ff);
+  --h2: bold 2.5rem/1.2em var(--ff);
+  --h3: bold 2rem/1.2em var(--ff);
+  --h4: bold 1.7rem/1.6em var(--ff);
+  --big: 1.2rem/1.6em var(--ff);
+  --p: 1rem/1.6em var(--ff);
+  --small: 0.83rem/2em var(--ff);
+
+  /* UI */
+  --h1ui: bold 2rem/1.2em var(--ff);
+  --h2ui: bold 1.8rem/1.2em var(--ff);
+  --h3ui: bold 1.6rem/1.2em var(--ff);
+  --h4ui: bold 1.42rem/1.6em var(--ff);
+  --bigui: 1.125rem/1.6em var(--ff);
+  --pui: 1rem/1.6em var(--ff);
+  --smallui: 0.9rem/1.8em var(--ff);
+
+  /* Transition */
+  --transition-in: all ease-in 0.15s;
+  --transition-out: all ease-out 0.1s;
+  --transition-in-slow: all ease-in 0.4s;
+  --transition-out-slow: all ease-out 0.3s;
+}
+
+body {
+  font-family: var(--ff);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-family: var(--ff);
+}
+
+.btn {
+  font: var(--bigui);
+
+  border: 0.5px solid var(--accent-color);
+  padding: var(--margin-xs) var(--margin-l);
+
+  background-color: var(--accent-color);
+  color: var(--white);
+
+  transition: var(--transition-out);
+
+  cursor: pointer;
+
+  font-weight: 500;
+
+  letter-spacing: 1px;
+}
+
+.btn a {
+  color: var(--white);
+  font: var(--bigui);
+  font-weight: 500;
+
+  letter-spacing: 1px;
+
+  transition: var(--transition-out);
+}
+
+.btn:hover {
+  background-color: var(--black);
+  border: 0.5px solid var(--black);
+
+  transition: var(--transition-in);
+}
+
+.btn a:hover {
+  transition: var(--transition-in);
+}
+
+.linkBtn {
+  font: var(--pui) !important;
+  border: none;
+  border-bottom: 0.5px solid var(--accent-color);
+  color: var(--accent-color);
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  transition: var(--transition-out);
+}
+
+.linkBtn:hover {
+  border-bottom: 0.5px solid var(--text-color);
+  color: var(--text-color);
+
+  transition: var(--transition-in);
+}
+
+h1 {
+  font: var(--h1);
+}
+h2 {
+  font: var(--h2);
+}
+h3 {
+  font: var(--h3);
+}
+h4 {
+  font: var(--h4);
+}
+big {
+  font: var(--big);
+}
+p {
+  font: var(--p);
+}
+small {
+  font: var(--small);
+}
+
+input {
+  font: var(--p);
+  padding-left: var(--margin-xxs);
+  background-color: var(--white);
+  border: 1px solid var(--grey50);
+  font: var(--p);
+}
+input::placeholder {
+  font: var(--p);
+}
+
+.h1ui {
+  font: var(--h1ui);
+}
+.h2ui {
+  font: var(--h2ui);
+}
+.h3ui {
+  font: var(--h3ui);
+}
+.h4ui {
+  font: var(--h4ui);
+}
+.bigui {
+  font: var(--bigui);
+}
+.pui {
+  font: var(--pui);
+}
+.smallui {
+  font: var(--smallui);
+}
+
+/* .btn {
+  font: var(--big);
+
+  border: 0.5px solid var(--accent-color);
+  padding: 0.25rem 1rem;
+
+  background-color: var(--primary-color);
+  color: var(--black);
+
+  font-family: "Poppins";
+  font-weight: 500;
+
+  transition: all ease 0.1s ease-out;
+}
+
+.btn:hover {
+  background-color: var(--black);
+  border: 0.5px solid var(--black);
+
+  transition: all ease 0.15s ease-in;
+} */

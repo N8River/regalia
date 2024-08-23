@@ -1,0 +1,78 @@
+.adminProductCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 32rem;
+  width: 20rem;
+  margin: 1rem;
+}
+.adminProductCard .adminProductImgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+}
+.adminProductCard .adminProductImgContainer .adminProductImg {
+  height: 100%;
+  width: auto;
+}
+.adminProductCard .adminProductName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.adminProductCard .adminProductName h1 {
+  font-size: 1rem;
+  text-align: center;
+}
+.adminProductCard .editDeleteBtns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+  margin: 0.25rem 0rem;
+}
+.adminProductCard .editDeleteBtns .editProductBtn {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Poppins";
+  background-color: var(--primary-color);
+  border: 0.5px solid var(--primary-color);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.adminProductCard .editDeleteBtns .editProductBtn:hover {
+  background-color: var(--black);
+  transition: all 0.15s ease-in-out;
+}
+.adminProductCard .editDeleteBtns .editProductBtn a {
+  color: var(--white);
+}
+.adminProductCard .editDeleteBtns .deleteProductBtn {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Poppins";
+  background-color: var(--red);
+  border: 0.5px solid var(--red);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+.adminProductCard .editDeleteBtns .deleteProductBtn:hover {
+  background-color: var(--red);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.1s ease-in;
+}/*# sourceMappingURL=adminProductCard.css.map */
