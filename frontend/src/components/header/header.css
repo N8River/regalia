@@ -1,9 +1,13 @@
 .headerLogo {
-  font-family: "CinzelDecorative";
+  display: flex;
+  align-items: center;
+  font: var(--h1);
+  font-size: var(--fs-h1);
   flex: 1;
   color: var(--text-color);
   letter-spacing: 1px;
   height: 100%;
+  font-family: "CinzelDecorative";
 }
 
 .no-scroll {
@@ -16,7 +20,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 6rem;
+  min-height: 6rem;
   padding: var(--margin-s) var(--margin-xxl);
   background-color: var(--white);
   box-shadow: 0px 0.75px 1.5px var(--grey50);
@@ -46,6 +50,7 @@
   justify-content: center;
   align-items: center;
   flex: 1;
+  height: 100%;
 }
 .header .headerMiddle {
   display: flex;
@@ -66,6 +71,7 @@
   align-items: center;
   flex-direction: row;
   flex: 1;
+  height: 100%;
 }
 .header .headerRight .headerBtn {
   margin: 0 var(--margin-s);
@@ -186,15 +192,6 @@
   visibility: visible;
 }
 
-.sticky-padding {
-  padding-top: 6rem; /* Match the height of the sticky header */
-}
-
-@media (max-width: 1440px) {
-  .headerLogo {
-    font-size: 3vw;
-  }
-}
 @media (max-width: 1280px) {
   .headerMiddle {
     flex: 1.5 !important;
@@ -202,8 +199,7 @@
 }
 @media (max-width: 1024px) {
   .header {
-    padding: 1rem 1.5rem;
-    height: 5rem;
+    padding: clamp(var(--margin-xs), 1vw + 0.5rem, var(--margin-s)) clamp(var(--margin-m), 1vw + 0.5rem, var(--margin-l));
   }
   .header div {
     width: 33%;
@@ -222,12 +218,12 @@
     height: 100%;
     border: none;
     background-color: transparent;
-    transition: all 0.2s ease-in-out;
-    padding: 0 0.5rem;
+    transition: var(--transition-in);
+    padding: 0 var(--margin-xs);
   }
   .header .hamburgerMenu .menu-toggle svg {
-    font-size: 1.75rem;
-    transition: all 0.2s ease-in-out;
+    font-size: clamp(var(--fs-h5), 3vw + 0.5rem, var(--fs-h4));
+    transition: var(--transition-in);
   }
   .header .headerMenu {
     display: flex;
@@ -239,8 +235,8 @@
     height: 100%;
     background-color: var(--white);
     transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    width: 25rem;
+    transition: transform 0.3s ease-in;
+    min-width: 40vw;
     padding: var(--margin-m);
     z-index: 999;
   }
@@ -292,48 +288,33 @@
   .header .headerRight .headerBtn {
     width: -moz-fit-content;
     width: fit-content;
-    margin: 0 var(--margin-xs);
+    margin: 0;
+    margin-right: clamp(var(--margin-xs), 2vw + 0.5rem, var(--margin-s));
+  }
+  .header .headerRight .headerBtn a svg {
+    font-size: clamp(var(--fs-h5), 3vw + 0.5rem, var(--fs-h4));
   }
   .header .headerRight .headerBtn .searchBtn {
     width: 100%;
   }
   .header .headerRight .headerBtn .searchBtn svg {
-    font-size: 1.75rem !important;
+    font-size: clamp(var(--fs-h5), 3vw + 0.5rem, var(--fs-h4));
+  }
+  .header .headerLeft .headerLogo {
+    justify-content: center;
+    font-size: var(--fs-h1);
+    font-size: clamp(var(--fs-h4), 3vw + 1rem, var(--fs-h2));
   }
   .searchBarDropdown {
-    top: 7rem;
+    top: 8rem;
   }
   .searchBarDropdown.sticky {
-    top: 5rem;
-  }
-  .headerLogo {
-    font-size: 4vw;
-  }
-}
-@media (max-width: 768px) {
-  .headerLeft {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-  .headerLeft h1 {
-    font-size: 4vw !important;
-    height: -moz-fit-content;
-    height: fit-content;
+    top: 6rem;
   }
 }
 @media (max-width: 640px) {
-  .headerLeft {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-  .headerLeft h1 {
-    font-size: 6vw !important;
-    height: -moz-fit-content;
-    height: fit-content;
+  .header .headerMenu {
+    min-width: 50vw;
   }
   .headerRight .headerBtn:nth-child(1) {
     display: none;
@@ -341,36 +322,62 @@
 }
 @media (max-width: 475px) {
   .header {
-    height: 4rem;
-    padding: 2vw;
+    justify-content: space-between;
+    min-height: 5rem;
   }
-  .header .hamburgerMenu .menu-toggle svg {
-    font-size: 7.5vw;
+  .header div {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .header .hamburgerMenu {
+    min-width: 4.5rem;
   }
   .header .headerMenu {
-    width: 100vw;
+    min-width: 80vw;
+  }
+  .header .headerLeft {
+    flex-shrink: 1;
+    flex-grow: 0;
   }
   .header .headerLeft .headerLogo {
-    font-size: 7vw !important;
+    font-size: clamp(var(--fs-h4), 3vw + 1rem, var(--fs-h2));
+  }
+  .header .headerRight {
+    min-width: 4.5rem;
+    flex-shrink: 1;
+    flex-grow: 0;
   }
   .header .headerRight .headerBtn {
-    margin: 0;
-    margin-right: 2.5vw;
-  }
-  .header .headerRight .headerBtn svg {
-    font-size: 7.5vw !important;
-  }
-  .header .headerRight .headerBtn .searchBtn svg {
-    font-size: 7.5vw !important;
+    margin-right: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
   }
   .searchBarDropdown {
-    top: 6rem;
-    padding: 3vw;
+    top: 7rem;
+    padding: var(--margin-s);
+  }
+  .searchBarDropdown .searchForm {
+    display: flex;
+    align-items: center;
+  }
+  .searchBarDropdown .searchForm .searchInput {
+    font-size: var(--fsp);
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .searchBarDropdown .searchForm svg {
+    font-size: var(--fsbig) !important;
+  }
+  .searchBarDropdown .closeSearchBarDropdown button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .searchBarDropdown .closeSearchBarDropdown button svg {
+    font-size: var(--fsbig);
   }
   .searchBarDropdown.show {
-    padding-bottom: 3vw;
+    padding-bottom: var(--margin-s);
   }
   .searchBarDropdown.sticky {
-    top: 4rem;
+    top: 5rem;
   }
 }/*# sourceMappingURL=header.css.map */

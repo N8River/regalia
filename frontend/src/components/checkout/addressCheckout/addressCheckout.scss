@@ -8,11 +8,12 @@
 
   flex-wrap: wrap;
 
-  padding: var(--margin-s);
+  padding-block: clamp(var(--margin-xxs), 2.5vw, var(--margin-xs));
+  padding-inline: clamp(var(--margin-xs), 3vw, var(--margin-m));
 
   border: 0.5px solid var(--grey90);
 
-  margin: var(--margin-xxs) 0rem;
+  margin-block: var(--margin-xxs);
   transition: var(--transition-out);
 
   background-color: var(--secondary-color);
@@ -37,7 +38,7 @@
   }
 
   p {
-    font: var(--pui);
+    font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
   }
 }
 

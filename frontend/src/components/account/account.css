@@ -4,24 +4,22 @@
   align-items: center;
   width: 100%;
   flex-direction: column;
-  padding: var(--margin-xxl) 25rem;
-  gap: var(--margin-l);
-}
-.account div {
-  width: 100%;
+  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
+  gap: clamp(var(--margin-s), 5vw, var(--margin-m));
 }
 .account .accountToolbar {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 60rem;
 }
 .account .accountToolbar .logOutBtn {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  margin-bottom: var(--margin-s);
+  margin-bottom: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
 }
 .account .accountToolbar .logOutBtn button {
   background-color: transparent;
@@ -29,16 +27,17 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-weight: 500;
   width: 100%;
+  font-family: var(--ff);
   color: var(--grey30);
-  font: var(--pui);
+  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
   cursor: pointer;
   transition: var(--transition-out);
 }
 .account .accountToolbar .logOutBtn button svg {
   display: flex;
-  height: 100%;
+  align-items: center;
+  font-size: clamp(var(--p), 2vw, var(--big));
 }
 .account .accountToolbar .logOutBtn button:hover {
   color: var(--text-color);
@@ -49,28 +48,42 @@
   align-items: center;
   width: 100%;
   color: var(--text-color);
+  font-size: clamp(var(--fs-h5), 3.5vw, var(--fs-h2));
 }
 .account .accountToolbar h4 {
   display: flex;
   align-items: center;
   width: 100%;
   color: var(--text-color);
+  font-size: clamp(var(--fs-big), 2.5vw, var(--fs-h4));
   font-weight: 600;
 }
 .account .accountInfo {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  width: 100%;
-  gap: var(--margin-xxl);
+  gap: clamp(var(--margin-m), 2.5vw, var(--margin-xxl));
+  width: 60rem;
 }
 .account .accountInfo .orders {
   width: 60%;
   min-height: 15rem;
 }
+.account .accountInfo .orders big {
+  width: 100%;
+  font-weight: 400;
+  border-bottom: 0.5px solid var(--grey50);
+  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+}
 .account .accountInfo .address {
   width: 40%;
   min-height: 15rem;
+}
+.account .accountInfo .address big {
+  width: 100%;
+  font-weight: 400;
+  border-bottom: 0.5px solid var(--grey50);
+  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
 }
 .account .accountInfo .orders {
   display: flex;
@@ -83,6 +96,7 @@
   width: 100%;
   font-weight: 400;
   border-bottom: 0.5px solid var(--grey50);
+  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
 }
 .account .accountInfo .orders p {
   color: var(--text-color);
@@ -125,29 +139,37 @@
   display: flex;
   color: var(--text-color);
   width: 100%;
-  font: var(--big);
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
   text-align: center;
-  margin: var(--margin-xxs) 0rem;
+  margin-block: var(--margin-xxs);
+  margin-bottom: 0;
+  font-weight: 400;
 }
 .account .accountInfo .address .addressList {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: var(--margin-xxs) 0rem;
+  margin: 0;
+  margin-bottom: var(--margin-xxs);
 }
 .account .accountInfo .address .addressList p {
-  font: var(--p);
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
   margin: 0;
+  font-weight: 400;
 }
 .account .accountInfo .address div {
-  margin: var(--margin-s) 0rem;
+  margin-block: var(--margin-xxs);
+  width: 100%;
 }
 .account .accountInfo .address div button {
   transition: var(--transition-out);
+  padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
+  padding-inline: clamp(var(--margin-xs), 1.5vw, var(--margin-m));
 }
 .account .accountInfo .address div button a {
   color: var(--white);
   font-family: "Poppins";
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
   letter-spacing: 1px;
 }
 .account .accountInfo .address div button:hover {
@@ -156,221 +178,22 @@
   transition: var(--transition-in);
 }
 
-@media (max-width: 1536px) {
-  .account {
-    padding: var(--margin-xxl) 10vw;
-  }
-}
-@media (max-width: 1280px) {
-  .account {
-    padding: var(--margin-xxl) 5vw;
-  }
-}
 @media (max-width: 1024px) {
-  .account .accountToolbar .logOutBtn {
-    margin-bottom: 0.5vw;
-  }
-  .account .accountToolbar .logOutBtn button {
-    font-size: 1.75vw;
-  }
-  .account .accountToolbar .logOutBtn button svg {
-    font-size: 2.25vw;
-  }
-  .account .accountToolbar h2 {
-    font-size: 4vw;
-  }
-  .account .accountToolbar h4 {
-    font-size: 2vw;
-  }
-  .account .accountInfo .orders big {
-    font-size: 2vw;
-  }
-  .account .accountInfo .address big {
-    font-size: 2vw;
-  }
-  .account .accountInfo .address p {
-    font-size: 2vw;
-    font-weight: 500;
-  }
-  .account .accountInfo .address .addressList p {
-    font-size: 1.7vw;
-  }
-  .account .accountInfo .address div {
-    margin: 0.75vw 0;
-  }
-  .account .accountInfo .address div button {
-    padding: 0.5vw 1.5vw;
-  }
-  .account .accountInfo .address div button a {
-    font-size: 1.75vw;
-  }
-}
-@media (max-width: 768px) {
-  .account {
-    gap: 2vw;
-  }
-  .account .accountToolbar .logOutBtn {
-    margin-bottom: 0.5vw;
-  }
-  .account .accountToolbar .logOutBtn button {
-    font-size: 2.2vw;
-  }
-  .account .accountToolbar .logOutBtn button svg {
-    font-size: 2.5vw;
-  }
-  .account .accountToolbar h2 {
-    font-size: 4vw;
-  }
-  .account .accountToolbar h4 {
-    font-size: 2.2vw;
+  .account .accountToolbar {
+    width: clamp(45rem, 95vw, 60rem);
+    margin-inline: auto;
   }
   .account .accountInfo {
-    flex-direction: column;
-    gap: 2.5vw;
-  }
-  .account .accountInfo .orders {
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-    width: auto;
-  }
-  .account .accountInfo .orders big {
-    font-size: 2vw;
-  }
-  .account .accountInfo .address {
-    width: auto;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-  }
-  .account .accountInfo .address big {
-    font-size: 2vw;
+    width: clamp(45rem, 95vw, 60rem);
+    margin-inline: auto;
   }
   .account .accountInfo .address p {
-    font-size: 2vw;
-    font-weight: 500;
+    font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
   }
   .account .accountInfo .address .addressList p {
-    font-size: 1.7vw;
-  }
-  .account .accountInfo .address div {
-    margin: 0.75vw 0;
-  }
-  .account .accountInfo .address div button {
-    padding: 0.5vw 1.5vw;
+    font-size: clamp(var(--fs-p), 1.75vw, var(--fs-big));
   }
   .account .accountInfo .address div button a {
-    font-size: 1.75vw;
-  }
-}
-@media (max-width: 640px) {
-  .account {
-    gap: 2vw;
-  }
-  .account .accountToolbar .logOutBtn {
-    margin-bottom: 0.5vw;
-  }
-  .account .accountToolbar .logOutBtn button {
-    font-size: 2.2vw;
-  }
-  .account .accountToolbar .logOutBtn button svg {
-    font-size: 2.5vw;
-  }
-  .account .accountToolbar h2 {
-    font-size: 4vw;
-  }
-  .account .accountToolbar h4 {
-    font-size: 2.2vw;
-  }
-  .account .accountInfo {
-    flex-direction: column;
-    gap: 2.5vw;
-  }
-  .account .accountInfo .orders {
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-    width: auto;
-  }
-  .account .accountInfo .orders big {
-    font-size: 2vw;
-  }
-  .account .accountInfo .address {
-    width: auto;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-  }
-  .account .accountInfo .address big {
-    font-size: 2vw;
-  }
-  .account .accountInfo .address p {
-    font-size: 2.25vw;
-    font-weight: 500;
-  }
-  .account .accountInfo .address .addressList p {
-    font-size: 2vw;
-  }
-  .account .accountInfo .address div {
-    margin: 0.75vw 0;
-  }
-  .account .accountInfo .address div button {
-    padding: 0.5vw 1.5vw;
-  }
-  .account .accountInfo .address div button a {
-    font-size: 2vw;
-  }
-}
-@media (max-width: 475px) {
-  .account {
-    gap: 2vw;
-  }
-  .account .accountToolbar .logOutBtn {
-    margin-bottom: 0.5vw;
-  }
-  .account .accountToolbar .logOutBtn button {
-    font-size: 2.2vw;
-  }
-  .account .accountToolbar .logOutBtn button svg {
-    font-size: 2.5vw;
-  }
-  .account .accountToolbar h2 {
-    font-size: 4vw;
-  }
-  .account .accountToolbar h4 {
-    font-size: 2.2vw;
-  }
-  .account .accountInfo {
-    flex-direction: column;
-    gap: 2.5vw;
-  }
-  .account .accountInfo .orders {
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-    width: auto;
-  }
-  .account .accountInfo .orders big {
-    font-size: 2.5vw;
-  }
-  .account .accountInfo .address {
-    width: auto;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-  }
-  .account .accountInfo .address big {
-    font-size: 2.5vw;
-  }
-  .account .accountInfo .address p {
-    font-size: 2.5vw;
-    font-weight: 500;
-  }
-  .account .accountInfo .address .addressList p {
-    font-size: 2.25vw;
-  }
-  .account .accountInfo .address div {
-    margin: 0.75vw 0;
-  }
-  .account .accountInfo .address div button {
-    display: flex;
-    padding: 1.25vw 2.5vw;
-  }
-  .account .accountInfo .address div button a {
-    font-size: 2.5vw;
+    font-size: clamp(var(--fs-p), 1.75vw, var(--fs-big));
   }
 }/*# sourceMappingURL=account.css.map */

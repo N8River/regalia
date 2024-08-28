@@ -1,8 +1,8 @@
 .toast-container {
   position: fixed; /* Changed from sticky to fixed */
-  top: 50%;
+  top: 40vh;
   right: 50%;
-  transform: translateX(50%) translateY(50%);
+  transform: translateX(50%);
   z-index: 9999; /* Ensure it's on top of most elements */
   display: flex;
   flex-direction: column;
@@ -22,10 +22,16 @@
 }
 
 .toastNotification {
+  // position: fixed;
+
   background-color: var(--white);
-  padding: var(--margin-m) var(--margin-l);
+
+  padding-block: clamp(var(--margin-xs), 5vw, var(--margin-m));
+  padding-inline: clamp(var(--margin-m), 5vw, var(--margin-l));
+
   border-radius: 0.5rem;
-  box-shadow: 0px 0px 10px var(--grey30);
+  box-shadow: 0px 0px 10px var(--grey10);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,7 +43,11 @@
   max-width: 300px;
   word-wrap: break-word; /* Ensures long messages are wrapped */
 
-  gap: var(--margin-s);
+  gap: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+
+  p {
+    font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
+  }
 
   .closeBtnToast {
     border: none;
@@ -51,13 +61,14 @@
     cursor: pointer;
 
     svg {
-      font-size: 1.75rem;
+      font-size: clamp(var(--fs-h5), 5vw, var(--fs-h3));
+      color: var(--black);
     }
   }
 
   &.success {
-    background-color: var(--green);
-    color: var(--text-color);
+    border: 3px solid var(--green);
+    color: var(--green);
 
     .closeBtnToast {
       border: none;
@@ -72,8 +83,8 @@
   }
 
   &.error {
-    background-color: var(--red);
-    color: var(--white);
+    border: 3px solid var(--red);
+    color: var(--red);
 
     .closeBtnToast {
       border: none;
@@ -82,7 +93,7 @@
       height: 100%;
 
       svg {
-        color: var(--white);
+        color: var(--black);
       }
     }
   }

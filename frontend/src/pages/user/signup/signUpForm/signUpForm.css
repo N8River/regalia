@@ -4,17 +4,20 @@
   align-items: center;
   width: 100%;
   flex-direction: column;
-  padding: var(--margin-xxl) 25rem;
+  padding-inline: clamp(var(--margin-m), 2vw + 0.5rem, var(--margin-xxl));
+  padding-bottom: clamp(var(--margin-m), 2vw + 0.5rem, var(--margin-xxl));
   text-align: center;
 }
 .signUpForm h3 {
-  margin-bottom: var(--margin-m);
+  margin-block: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
+  font-size: clamp(var(--fs-h5), 3vw + 1rem, var(--fs-h2));
   font-weight: 600;
   color: var(--text-color);
   width: 100%;
 }
 .signUpForm big {
-  margin: var(--margin-xs) 0rem;
+  margin-bottom: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
+  font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
   width: 100%;
 }
 .signUpForm form {
@@ -23,82 +26,67 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  gap: var(--margin-xs);
-  margin: var(--margin-xs) 0rem;
+  gap: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
+  margin-bottom: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
 }
 .signUpForm form input {
-  height: 2.5rem;
-  width: 30%;
+  min-width: 30rem;
   border: 0.5px solid var(--grey50);
-  padding: var(--margin-xs);
-  font-size: var(--p);
+  padding: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
+  padding-inline: var(--margin-xs);
+  font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
+  border-radius: 0rem;
 }
 .signUpForm form input::-moz-placeholder {
-  font-family: var(--ff);
-  font-size: var(--p);
+  font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
 }
 .signUpForm form input::placeholder {
-  font-family: var(--ff);
-  font-size: var(--p);
+  font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
 }
 .signUpForm form button {
-  width: 30%;
+  min-width: 30rem;
+  padding-inline: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
+}
+.signUpForm form button big {
+  font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
+  font-weight: 600;
 }
 .signUpForm small {
+  display: flex;
+  justify-content: center;
   color: var(--grey30);
+  font-size: clamp(var(--fs-small), 2vw + 0.5rem, var(--fs-p));
+  gap: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-s));
   font-weight: 400;
   width: 100%;
 }
 .signUpForm small a {
   color: var(--grey10);
   font-weight: 600;
+  border-bottom: 1px solid var(--grey10);
 }
 
-@media (max-width: 1536px) {
-  .signUpForm {
-    padding: var(--margin-xxl) 10vw;
-  }
-}
-@media (max-width: 1536px) {
+@media (max-width: 1024px) {
   .signUpForm form input {
-    width: 35vw;
+    min-width: 25rem;
   }
   .signUpForm form button {
-    width: 35vw;
-  }
-}
-@media (max-width: 768px) {
-  .signUpForm form input {
-    width: 45vw;
-  }
-  .signUpForm form button {
-    width: 45vw;
+    min-width: 25rem;
   }
 }
 @media (max-width: 640px) {
   .signUpForm form input {
-    width: 55vw;
+    min-width: 20rem;
   }
   .signUpForm form button {
-    width: 55vw;
+    min-width: 20rem;
   }
 }
-@media (max-width: 640px) {
-  .signUpForm {
-    padding: var(--margin-xxl) 5vw;
-  }
-  .signUpForm h3 {
-    margin-bottom: 2vw;
-    font-size: 7.5vw;
-  }
-  .signUpForm big {
-    font-size: 4vw;
-    margin: 1vw 0;
-  }
+@media (max-width: 475px) {
   .signUpForm form input {
-    width: 75vw;
+    min-width: 70vw;
   }
   .signUpForm form button {
-    width: 75vw;
+    min-width: 70vw;
   }
 }/*# sourceMappingURL=signUpForm.css.map */

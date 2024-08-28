@@ -1,10 +1,8 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-direction: row;
   padding: var(--margin-l) var(--margin-xl);
-  padding-bottom: var(--margin-xxl);
   background-color: var(--white);
   gap: var(--margin-m);
 }
@@ -128,45 +126,51 @@
   font-weight: 500;
 }
 
-@media (max-width: 1536px) {
-  .footer {
-    padding: 2rem 2rem;
-  }
-  .footer .about {
-    width: 40rem;
-  }
-}
 @media (max-width: 1024px) {
   .footer {
-    padding: 2rem 2rem;
-    gap: 2rem;
+    padding: clamp(var(--margin-m), 2vw + 0.5rem, var(--margin-l));
+    gap: clamp(var(--margin-s), 2vw + 0.5rem, var(--margin-m));
   }
-  .footer .about {
-    width: 22.5rem;
-  }
-  .footer .about h1 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+  .footer .about h4 {
+    margin-bottom: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
+    font-size: clamp(var(--fs-h5-ui), 1.5vw + 0.5rem, var(--fs-h4-ui));
   }
   .footer .about p {
-    font-size: 1rem;
+    font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
   }
-  .footer .help h1 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+  .footer .about .socials a {
+    margin-right: var(--margin-xs);
+  }
+  .footer .about .socials a svg {
+    font-size: clamp(var(--fs-big-ui), 1.5vw + 0.5rem, var(--fs-h4-ui));
+  }
+  .footer .help {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .footer .help h4 {
+    margin-bottom: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
+    font-size: clamp(var(--fs-h5-ui), 1.5vw + 0.5rem, var(--fs-h4-ui));
   }
   .footer .help p {
-    font-size: 1rem;
+    font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
   }
-  .footer .newsletter {
-    width: 20rem;
-  }
-  .footer .newsletter h1 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+  .footer .newsletter h4 {
+    margin-bottom: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
+    font-size: clamp(var(--fs-h5-ui), 1.5vw + 0.5rem, var(--fs-h4-ui));
   }
   .footer .newsletter p {
-    font-size: 1rem;
+    font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
+  }
+  .footer .newsletter form input {
+    margin-bottom: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
+  }
+  .footer .newsletter form div button {
+    width: 100%;
+    padding: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
+  }
+  .footer .newsletter form div button p {
+    font-size: clamp(var(--fs-big-ui), 1.5vw + 0.5rem, var(--fs-h5-ui));
   }
 }
 @media (max-width: 768px) {
@@ -174,118 +178,23 @@
     height: -moz-fit-content;
     height: fit-content;
     flex-direction: column;
-    gap: 2.5vw;
-    padding: 3.5vw;
-  }
-  .footer .about {
-    width: 100%;
   }
   .footer .about h4 {
-    font-size: min(3.5vw, 1.42rem);
-  }
-  .footer .about p {
-    font-size: min(2.5vw, var(--pui));
-  }
-  .footer .help {
-    width: 100%;
-  }
-  .footer .help h4 {
-    font-size: min(3.5vw, 1.42rem);
-  }
-  .footer .help p {
-    font-size: min(2.5vw, var(--pui));
-  }
-  .footer .newsletter {
-    width: 100%;
+    margin-bottom: 0;
   }
   .footer .newsletter h4 {
-    font-size: min(3.5vw, 1.42rem);
+    margin-bottom: 0;
   }
-  .footer .newsletter p {
-    text-align: left;
-    width: 100%;
-    font-size: min(2.5vw, var(--pui));
+  .footer .help h4 {
+    margin-bottom: 0;
   }
   .footer .newsletter form div {
     justify-content: center;
-  }
-  .footer .newsletter form div button p {
-    text-align: center;
-  }
-}
-@media (max-width: 640px) {
-  .footer {
-    height: -moz-fit-content;
-    height: fit-content;
-    flex-direction: column;
-    gap: 2.5vw;
-    padding: 3.5vw;
-  }
-  .footer .about {
-    width: 100%;
-  }
-  .footer .about h4 {
-    font-size: min(3.5vw, 1.42rem);
-  }
-  .footer .about p {
-    font-size: 3vw !important;
-  }
-  .footer .help {
-    width: 100%;
-  }
-  .footer .help h4 {
-    font-size: min(3.5vw, 1.42rem);
-  }
-  .footer .help p {
-    font-size: 3vw !important;
-  }
-  .footer .newsletter {
-    width: 100%;
-  }
-  .footer .newsletter h4 {
-    font-size: min(3.5vw, 1.42rem);
-  }
-  .footer .newsletter p {
-    text-align: left;
-    width: 100%;
-    font-size: 3vw !important;
-  }
-  .footer .newsletter form input {
-    font-size: 3vw;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .footer .newsletter form div {
-    justify-content: center;
-  }
-  .footer .newsletter form div button p {
-    text-align: center;
-  }
-}
-@media (max-width: 475px) {
-  .footer .about p {
-    font-size: 3vw !important;
-  }
-  .footer .about .socials {
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .footer .about .socials a {
-    margin-right: 2vw;
-  }
-  .footer .about .socials a svg {
-    font-size: 4vw !important;
-  }
-  .footer .newsletter form input {
-    height: 6.5vw;
-    margin-bottom: 1vw;
-    padding-left: 1vw;
   }
   .footer .newsletter form div button {
-    height: 2rem;
-    padding: 1vw !important;
+    width: 62.5%;
   }
   .footer .newsletter form div button p {
-    font-size: 3vw !important;
+    text-align: center;
   }
 }/*# sourceMappingURL=footer.css.map */

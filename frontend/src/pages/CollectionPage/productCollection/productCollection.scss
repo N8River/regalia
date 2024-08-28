@@ -8,8 +8,11 @@
   background-color: var(--primary-color);
 
   h1 {
-    padding: var(--margin-xxl) 0rem;
+    // padding-block: var(--margin-xxl);
+    padding-block: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
     width: 100%;
+
+    font-size: clamp(var(--fs-h4), 2vw + 0.5rem, var(--fs-h2));
 
     text-align: center;
   }
@@ -21,10 +24,9 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 0rem var(--margin-s);
-    height: 4rem;
+    padding-inline: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
 
-    border: 0.5px solid var(--grey70);
+    border: 1px solid var(--grey70);
 
     background-color: var(--primary-color);
     border-left: none;
@@ -32,10 +34,10 @@
 
     z-index: 990;
 
-    &.sticky {
-      position: fixed;
-      top: 6rem;
-    }
+    // &.sticky {
+    //   position: fixed;
+    //   top: 6rem;
+    // }
 
     .toolbarNav {
       display: flex;
@@ -43,13 +45,13 @@
       align-items: center;
 
       width: fit-content;
-      height: 100%;
+      padding-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
 
-      padding-right: var(--margin-l);
+      padding-right: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
 
       border-right: 0.5px solid var(--grey50);
 
-      gap: var(--margin-s);
+      // gap: var(--margin-s);
 
       div {
         display: flex;
@@ -64,7 +66,7 @@
         svg {
           display: flex;
           align-items: center;
-          font-size: 1.5rem;
+          font-size: clamp(var(--fs-big), 1.5vw + 0.5rem, var(--fs-h5));
           color: var(--grey30);
 
           cursor: pointer;
@@ -84,6 +86,9 @@
           align-items: center;
           color: var(--grey30);
           transition: var(--transition-out);
+
+          font-size: clamp(var(--fs-s), 1.5vw + 0.5rem, var(--fs-big));
+          font-weight: 500;
 
           height: 100%;
         }
@@ -110,7 +115,9 @@
       height: 100%;
       width: 5rem;
 
-      padding-left: 0.5rem;
+      padding-left: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+      padding-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+      // padding-block: auto;
 
       border-left: 0.5px solid var(--grey50);
 
@@ -124,6 +131,9 @@
         height: 100%;
         align-items: center;
         justify-content: center;
+
+        font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
+        font-weight: 500;
       }
     }
   }
@@ -135,8 +145,8 @@
 
     flex-wrap: wrap;
 
-    padding: var(--margin-xxl);
-    gap: var(--margin-xxl);
+    padding: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+    gap: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
   }
 }
 
@@ -375,9 +385,9 @@
   }
 }
 
-.productCollectionContainer.sticky-padding2 {
-  padding-top: 6.5rem;
-}
+// .productCollectionContainer.sticky-padding2 {
+//   padding-top: 6.5rem;
+// }
 
 @media (max-width: 1536px) {
 }
@@ -402,13 +412,13 @@
 }
 
 @media (max-width: 768px) {
-  .productCollection {
-    .productCollectionContainer {
-      padding: var(--margin-m);
+  // .productCollection {
+  //   .productCollectionContainer {
+  //     padding: var(--margin-m);
 
-      gap: 4vw;
-    }
-  }
+  //     gap: 4vw;
+  //   }
+  // }
 }
 
 @media (max-width: 640px) {
@@ -418,41 +428,41 @@
 }
 
 @media (max-width: 475px) {
-  .productCollection {
-    .collectionToolbar {
-      height: 10vw;
+  // .productCollection {
+  //   .collectionToolbar {
+  //     height: 10vw;
 
-      .toolbarNav {
-        div {
-          svg {
-            font-size: 5vw;
-          }
+  //     .toolbarNav {
+  //       div {
+  //         svg {
+  //           font-size: 5vw;
+  //         }
 
-          p {
-            font-size: 4.5vw;
-          }
-        }
-      }
+  //         p {
+  //           font-size: 4.5vw;
+  //         }
+  //       }
+  //     }
 
-      .toolbarFilterBtn {
-        div {
-          font-size: 4.5vw;
-        }
-      }
-    }
+  //     .toolbarFilterBtn {
+  //       div {
+  //         font-size: 4.5vw;
+  //       }
+  //     }
+  //   }
 
-    .collectionToolbar {
-      &.sticky {
-        top: 4rem;
-      }
-    }
+  //   .collectionToolbar {
+  //     &.sticky {
+  //       top: 4rem;
+  //     }
+  //   }
 
-    .productCollectionContainer {
-      padding: var(--margin-m) 0;
+  //   .productCollectionContainer {
+  //     padding: var(--margin-m) 0;
 
-      gap: 3.5vw;
-    }
-  }
+  //     gap: 3.5vw;
+  //   }
+  // }
 
   .toolbarFilter {
     width: 100vw;

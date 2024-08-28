@@ -5,8 +5,9 @@
 
   width: 100%;
 
-  margin-top: var(--margin-s);
-  padding: var(--margin-s);
+  margin-top: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+
+  padding: clamp(var(--margin-xxs), 3vw, var(--margin-s));
 
   height: fit-content;
 
@@ -15,6 +16,10 @@
   // border-bottom: 0.5px dotted var(--grey70);
 
   background-color: var(--secondary-color);
+
+  &.mobile {
+    display: none;
+  }
 
   .cartProductInfo {
     display: flex;
@@ -52,17 +57,18 @@
 
       width: 100%;
 
-      margin-left: var(--margin-s);
+      margin-left: clamp(var(--margin-xxs), 3vw, var(--margin-s));
 
       h4 {
-        font: var(--big);
+        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
         width: 100%;
         font-weight: 600;
       }
 
       big {
-        font: var(--p);
         display: flex;
+        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+        margin-top: 0 !important;
         width: 100%;
       }
     }
@@ -70,14 +76,14 @@
 
   .quantityCart {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
     flex-direction: column;
 
-    gap: var(--margin-m);
+    gap: clamp(var(--margin-xs), 3vw, var(--margin-m));
 
-    padding-top: var(--margin-m);
+    // padding-top: clamp(var(--margin-xs), 3vw, var(--margin-m));
 
     width: 20%;
 
@@ -96,7 +102,8 @@
 
       button {
         flex: 1;
-        padding: var(--margin-xs) 0;
+        padding: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+        // padding-inline: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
 
         height: 100%;
       }
@@ -105,7 +112,9 @@
         flex: 1;
         display: flex;
         align-items: center;
-        padding: var(--margin-xs) 0;
+        padding: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+
+        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
 
         height: 100%;
 
@@ -116,7 +125,7 @@
 
     .deleteProductCart {
       button {
-        padding: var(--margin-xxs) var(--margin-xs);
+        // padding: var(--margin-xxs) var(--margin-xs);
         border: none;
 
         cursor: pointer;
@@ -124,7 +133,9 @@
 
         p {
           color: var(--accent-color);
-          font: var(--p);
+          font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+
+          padding: 0;
 
           border-bottom: 0.5px solid var(--accent-color);
 
@@ -154,6 +165,10 @@
       flex-direction: row;
       justify-content: flex-end;
 
+      margin-top: 0 !important;
+
+      font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+
       width: 100%;
 
       font-weight: 400;
@@ -161,64 +176,196 @@
   }
 }
 
+// @media (max-width: 1024px) {
+//   .cartProduct {
+//     .cartProductInfo {
+//       height: 16vw;
+//       .cartProductImg {
+//         height: 16vw;
+//         min-width: 11vw;
+//         border-radius: 1vw;
+//         img {
+//           width: 100%;
+//           height: 100%;
+//         }
+//       }
+
+//       .cartProductTitlePrice {
+//         height: 16vw;
+//         h4 {
+//           font-size: 1.75vw;
+//         }
+
+//         big {
+//           margin-top: 0.5vw !important;
+//           font-size: 1.5vw;
+//         }
+//       }
+//     }
+
+//     .quantityCart {
+//       height: 16vw;
+//       padding: 0;
+
+//       gap: 1.5vw;
+
+//       .changeQuantityCart {
+//         button {
+//           font-size: 1.5vw;
+//         }
+//         p {
+//           font-size: 1.5vw;
+//           margin-bottom: 0;
+//         }
+//       }
+
+//       .deleteProductCart {
+//         button {
+//           p {
+//             font-size: 1.5vw;
+//           }
+//         }
+//       }
+//     }
+
+//     .subSubTotal {
+//       height: 16vw;
+
+//       big {
+//         margin-top: 0 !important;
+//         font-size: 2vw;
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 640px) {
+//   .cartProduct {
+//     padding: 1vw;
+//     .cartProductInfo {
+//       height: 14vw;
+//       .cartProductImg {
+//         height: 14vw;
+//         min-width: 10vw;
+//         border-radius: 1vw;
+//         img {
+//           width: 100%;
+//           height: 100%;
+//         }
+//       }
+
+//       .cartProductTitlePrice {
+//         height: 14vw;
+//         h4 {
+//           font-size: 1.75vw;
+//         }
+
+//         big {
+//           margin-top: 0.5vw !important;
+//           font-size: 1.5vw;
+//         }
+//       }
+//     }
+
+//     .quantityCart {
+//       height: 14vw;
+//       padding: 0;
+
+//       gap: 1.5vw;
+
+//       .changeQuantityCart {
+//         button {
+//           font-size: 1.5vw;
+//         }
+//         p {
+//           font-size: 1.5vw;
+//           margin-bottom: 0;
+//         }
+//       }
+
+//       .deleteProductCart {
+//         button {
+//           p {
+//             font-size: 1.5vw;
+//           }
+//         }
+//       }
+//     }
+
+//     .subSubTotal {
+//       height: 14vw;
+
+//       big {
+//         margin-top: 0 !important;
+//         font-size: 2vw;
+//       }
+//     }
+//   }
+// }
+
 @media (max-width: 1024px) {
   .cartProduct {
+    margin-top: clamp(var(--margin-xxs), 1.5vw, var(--margin-s));
+
+    padding: clamp(var(--margin-xxs), 1.5vw, var(--margin-s));
+
     .cartProductInfo {
-      height: 16vw;
       .cartProductImg {
-        height: 16vw;
-        min-width: 11vw;
-        border-radius: 1vw;
+        height: clamp(7.5rem, 16vw, 10rem);
+        min-width: max-content;
+
         img {
-          width: 100%;
-          height: 100%;
         }
       }
 
       .cartProductTitlePrice {
-        height: 16vw;
+        height: clamp(7.5rem, 16vw, 10rem);
+
         h4 {
-          font-size: 1.75vw;
+          font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
         }
 
         big {
-          margin-top: 0.5vw !important;
-          font-size: 1.5vw;
+          font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
         }
       }
     }
 
     .quantityCart {
-      height: 16vw;
-      padding: 0;
-
-      gap: 1.5vw;
+      width: 27%;
+      height: clamp(7.5rem, 16vw, 10rem);
 
       .changeQuantityCart {
+        width: clamp(5rem, 16vw, 10rem);
+
         button {
-          font-size: 1.5vw;
+          padding: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+          font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
         }
+
         p {
-          font-size: 1.5vw;
-          margin-bottom: 0;
+          padding: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+          font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
+
+          font-weight: 600;
         }
       }
 
       .deleteProductCart {
         button {
           p {
-            font-size: 1.5vw;
+            font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
           }
         }
       }
     }
 
     .subSubTotal {
-      height: 16vw;
+      height: clamp(7.5rem, 16vw, 10rem);
+      width: 13%;
 
       big {
-        margin-top: 0 !important;
-        font-size: 2vw;
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
       }
     }
   }
@@ -226,63 +373,108 @@
 
 @media (max-width: 640px) {
   .cartProduct {
-    padding: 1vw;
+    display: none;
+  }
+
+  .cartProduct.mobile {
+    display: flex;
+    gap: var(--margin-s);
+    padding: clamp(var(--margin-xs), 1.5vw, var(--margin-s));
+
     .cartProductInfo {
-      height: 14vw;
-      .cartProductImg {
-        height: 14vw;
-        min-width: 10vw;
-        border-radius: 1vw;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
+      width: auto;
+      flex: 1;
 
       .cartProductTitlePrice {
-        height: 14vw;
+        align-items: flex-start;
+        justify-content: flex-start;
+
         h4 {
-          font-size: 1.75vw;
+          line-height: 1.5em;
+          font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
         }
 
         big {
-          margin-top: 0.5vw !important;
-          font-size: 1.5vw;
+          line-height: 1.5em;
+          font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
         }
-      }
-    }
 
-    .quantityCart {
-      height: 14vw;
-      padding: 0;
+        .deleteProductCart {
+          width: 100%;
 
-      gap: 1.5vw;
+          margin-top: auto;
+          // margin-bottom: var(--margin-xxs);
 
-      .changeQuantityCart {
-        button {
-          font-size: 1.5vw;
+          button {
+            p {
+              font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
+
+              padding: 0;
+              color: var(--accent-color);
+            }
+          }
         }
-        p {
-          font-size: 1.5vw;
-          margin-bottom: 0;
-        }
-      }
 
-      .deleteProductCart {
-        button {
-          p {
-            font-size: 1.5vw;
+        .quantityCart {
+          width: fit-content;
+          height: fit-content;
+
+          margin-block: auto;
+
+          .changeQuantityCart {
+            height: fit-content;
+
+            .btn {
+              height: fit-content;
+              padding: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+              // padding-block: 0;
+
+              font-size: clamp(var(--fs-small), 1.5vw, var(--fs-p));
+            }
+
+            p {
+              height: fit-content;
+              padding: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+              // padding-block: 0;
+
+              font-size: clamp(var(--fs-small), 1.5vw, var(--fs-p));
+            }
           }
         }
       }
     }
 
-    .subSubTotal {
-      height: 14vw;
+    .quantityAndSubSubTotal {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      height: clamp(7.5rem, 16vw, 10rem);
+      // width: fit-content;
 
-      big {
-        margin-top: 0 !important;
-        font-size: 2vw;
+      gap: var(--margin-s);
+
+      .quantityCart {
+        // width: clamp(5rem, 500vw, 7.5rem);
+        width: fit-content;
+        height: auto;
+
+        .changeQuantityCart {
+          width: auto;
+          .btn {
+            padding-block: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+            padding-inline: clamp(var(--margin-xs), 2vw, var(--margin-s));
+          }
+
+          p {
+            padding-block: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+            padding-inline: clamp(var(--margin-xs), 2vw, var(--margin-s));
+          }
+        }
+      }
+
+      .subSubTotal {
+        height: auto;
+        width: fit-content;
       }
     }
   }

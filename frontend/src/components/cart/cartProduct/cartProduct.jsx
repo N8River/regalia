@@ -84,46 +84,115 @@ function CartProduct({ item, onDelete, onUpdate }) {
   };
 
   return (
-    <div className="cartProduct">
-      <div className="cartProductInfo">
-        <div className="cartProductImg">
-          <img src={product.productId.imageUrl} alt={product.productId.title} />
+    <>
+      <div className="cartProduct">
+        <div className="cartProductInfo">
+          <div className="cartProductImg">
+            <img
+              src={product.productId.imageUrl}
+              alt={product.productId.title}
+            />
+          </div>
+          <div className="cartProductTitlePrice">
+            <h4>{product.productId.title}</h4>
+            <big>Rs. {product.productId.price}</big>
+          </div>
         </div>
-        <div className="cartProductTitlePrice">
-          <h4>{product.productId.title}</h4>
-          <big>Rs. {product.productId.price}</big>
+        <div className="quantityCart">
+          <div className="changeQuantityCart">
+            <button
+              onClick={decreaseQuantity}
+              style={{ cursor: "pointer" }}
+              className="btn"
+            >
+              -
+            </button>
+            <p>{product.quantity} </p>
+            <button
+              onClick={increaseQuantity}
+              style={{ cursor: "pointer" }}
+              className="btn"
+            >
+              +
+            </button>
+          </div>
+          <div className="deleteProductCart">
+            <button onClick={deleteProductHandler}>
+              <p>Delete</p>
+            </button>
+          </div>
+        </div>
+        <div className="subSubTotal">
+          <big>
+            Rs. {+(product.quantity * product.productId.price).toFixed(2)}
+          </big>
         </div>
       </div>
-      <div className="quantityCart">
-        <div className="changeQuantityCart">
-          <button
-            onClick={decreaseQuantity}
-            style={{ cursor: "pointer" }}
-            className="btn"
-          >
-            -
-          </button>
-          <p>{product.quantity} </p>
-          <button
-            onClick={increaseQuantity}
-            style={{ cursor: "pointer" }}
-            className="btn"
-          >
-            +
-          </button>
+      <div className="cartProduct mobile">
+        <div className="cartProductInfo">
+          <div className="cartProductImg">
+            <img
+              src={product.productId.imageUrl}
+              alt={product.productId.title}
+            />
+          </div>
+          <div className="cartProductTitlePrice">
+            <h4>{product.productId.title}</h4>
+            <big>Rs. {product.productId.price}</big>
+            <div className="quantityCart">
+              <div className="changeQuantityCart">
+                <button
+                  onClick={decreaseQuantity}
+                  style={{ cursor: "pointer" }}
+                  className="btn"
+                >
+                  -
+                </button>
+                <p>{product.quantity} </p>
+                <button
+                  onClick={increaseQuantity}
+                  style={{ cursor: "pointer" }}
+                  className="btn"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div className="deleteProductCart">
+              <button onClick={deleteProductHandler} className="linkBtn">
+                <p>Delete</p>
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="deleteProductCart">
-          <button onClick={deleteProductHandler}>
-            <p>Delete</p>
-          </button>
-        </div>
+        {/* <div className="quantityAndSubSubTotal">
+          <div className="quantityCart">
+            <div className="changeQuantityCart">
+              <button
+                onClick={decreaseQuantity}
+                style={{ cursor: "pointer" }}
+                className="btn"
+              >
+                -
+              </button>
+              <p>{product.quantity} </p>
+              <button
+                onClick={increaseQuantity}
+                style={{ cursor: "pointer" }}
+                className="btn"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <div className="subSubTotal">
+            <big>
+              Rs. {+(product.quantity * product.productId.price).toFixed(2)}
+            </big>
+          </div>
+        </div> */}
       </div>
-      <div className="subSubTotal">
-        <big>
-          Rs. {+(product.quantity * product.productId.price).toFixed(2)}
-        </big>
-      </div>
-    </div>
+    </>
   );
 }
 

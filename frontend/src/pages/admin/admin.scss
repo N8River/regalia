@@ -1,41 +1,40 @@
-.adminHeader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+// .adminHeader {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: row;
 
-  height: 5rem;
-  width: 100%;
-  gap: 3rem;
+//   // height: 5rem;
+//   width: 100%;
+//   gap: 3rem;
 
-  padding: 1rem 1rem;
-  border: 0.5px solid var(--grey);
+//   border: 0.5px solid var(--grey);
 
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+//   a {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
 
-    padding: 0 1rem;
+//     padding: 0 1rem;
 
-    font-size: 1.25rem;
-    height: 100%;
+//     font-size: 1.25rem;
+//     height: 100%;
 
-    transition: all 0.2s ease-out;
-  }
+//     transition: all 0.2s ease-out;
+//   }
 
-  a:hover {
-    background-color: var(--light-grey);
-    transition: all 0.2s ease-in;
-  }
+//   a:hover {
+//     background-color: var(--grey30);
+//     transition: all 0.2s ease-in;
+//   }
 
-  .adminSignOut {
-    button {
-      border: none;
-      font-size: 1.25rem;
+//   .adminSignOut {
+//     button {
+//       border: none;
+//       font-size: 1.25rem;
 
-      font-family: "Poppins";
-      background-color: transparent;
-    }
-  }
-}
+//       font-family: "Poppins";
+//       background-color: transparent;
+//     }
+//   }
+// }

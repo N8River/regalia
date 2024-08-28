@@ -21,14 +21,14 @@ body {
 
   /* Colors */
   --primary-color: hsl(204, 100%, 97%);
-  --secondary-color: hsl(204, 45%, 86%);
-  --accent-color: hsl(16, 66%, 50%);
+  --secondary-color: hsl(203, 70%, 90%);
+  --accent-color: hsl(16, 80%, 50%);
   /* --card-color: hsl(216, 20%, 90%); */
   --text-color: hsl(222, 100%, 4%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
 
-  --secondary-hover: hsl(204, 55%, 80%);
+  --secondary-hover: hsl(204, 60%, 85%);
   /* --light-grey: hsl(0, 0%, 75%); */
   /* --grey: hsl(0, 0%, 50%); */
   /* --dark-grey: hsl(0, 0%, 25%); */
@@ -66,6 +66,25 @@ body {
   --p: 1rem/1.6em var(--ff);
   --small: 0.83rem/2em var(--ff);
 
+  /* FONT SIZE */
+  --fs-h1: 2.986rem;
+  --fs-h2: 2.488rem;
+  --fs-h3: 2.074rem;
+  --fs-h4: 1.728rem;
+  --fs-h5: 1.44rem;
+  --fs-big: 1.2rem;
+  --fs-p: 1rem;
+  --fs-small: 0.833rem;
+
+  --fs-h1-ui: 2.027rem;
+  --fs-h2-ui: 1.802rem;
+  --fs-h3-ui: 1.602rem;
+  --fs-h4-ui: 1.424rem;
+  --fs-h5-ui: 1.266rem;
+  --fs-big-ui: 1.125rem;
+  --fs-p-ui: 1rem;
+  --fs-small-ui: 0.889rem;
+
   /* UI */
   --h1ui: bold 2rem/1.2em var(--ff);
   --h2ui: bold 1.8rem/1.2em var(--ff);
@@ -80,6 +99,25 @@ body {
   --transition-out: all ease-out 0.1s;
   --transition-in-slow: all ease-in 0.4s;
   --transition-out-slow: all ease-out 0.3s;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    /* --margin-xxs: clamp(0.15rem, 1.5vw, 0.25rem);
+    --margin-xs: clamp(0.3rem, 2vw, 0.5rem);
+    --margin-s: clamp(0.5rem, 2.5vw, 0.75rem);
+    --margin-m: clamp(0.75rem, 3vw, 1rem);
+    --margin-l: clamp(1rem, 4vw, 1.25rem);
+    --margin-xl: clamp(1.25rem, 5vw, 1.75rem);
+    --margin-xxl: clamp(1.75rem, 6vw, 2.5rem); */
+
+    /* --fsh1: clamp(2.488rem, 4vw + 0.5rem, 2.986rem);
+    --fsh2: clamp(2.074rem, 3.5vw + 0.5rem, 2.488rem);
+    --fsh3: clamp(1.728rem, 3vw + 0.5rem, 2.074rem);
+    --fsh4: clamp(1.44rem, 2.5vw + 0.5rem, 1.728rem);
+    --fsbig: clamp(1.2rem, 2vw + 0.5rem, 1.44rem);
+    --fsp: clamp(1rem, 1.5vw + 0.5rem, 1.2rem); */
+  }
 }
 
 body {

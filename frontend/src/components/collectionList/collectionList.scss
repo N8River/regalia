@@ -5,7 +5,9 @@
 
   width: 100%;
 
-  gap: var(--margin-xxl);
+  gap: clamp(var(--margin-s), 1vw, var(--margin-xl));
+
+  // min-height: 25rem;
 
   padding: var(--margin-xl);
   background-color: var(--secondary-color);
@@ -22,13 +24,13 @@
 
     .circleImg {
       display: flex;
-      flex: 1;
+      // flex: 1;
       // min-height: 20rem;
 
       overflow: hidden; /* Ensures the image stays within the circle */
       border-radius: 50%;
 
-      box-shadow: 0px 2px 4px var(--shadow-secondary);
+      box-shadow: 0px 1px 5px var(--shadow-secondary);
 
       img {
         width: 100%; /* Ensures the image covers the container */
@@ -48,12 +50,12 @@
       justify-content: center;
       align-items: center;
 
-      margin-top: var(--margin-xs);
-      font: var(--h4ui);
+      margin-top: var(--margin-s);
 
       color: var(--text-color);
+      font-size: clamp(0.9rem, 5vw + 1rem, 1.25rem);
 
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 }
@@ -66,18 +68,18 @@
 @media (max-width: 1440px) {
   .collectionType {
     h3 {
-      font-size: 1.75vw !important;
     }
   }
 }
 
 @media (max-width: 1024px) {
   .collectionList {
-    padding: var(--margin-s) var(--margin-m);
+    padding: var(--margin-m) var(--margin-s);
     gap: var(--margin-m);
 
     .collectionType {
-      // flex: 1 1 30%;
+      height: 100%;
+      width: auto;
 
       .circleImg {
         box-shadow: 0px 1px 3px var(--shadow-secondary);
@@ -85,30 +87,46 @@
 
       h3 {
         margin-top: var(--margin-xxs);
-        font-size: 2vw !important;
+        font-size: vaR(--fsp);
       }
     }
   }
 }
 
 @media (max-width: 768px) {
-}
-
-@media (max-width: 640px) {
   .collectionList {
     overflow-x: scroll;
     display: flex;
     justify-content: flex-start;
     scrollbar-gutter: stable;
 
-    padding: 2.5vw;
+    // padding: var(--margin-s);
 
-    gap: 2.5vw;
+    // gap: var(--margin-s);
 
     .collectionType {
-      min-width: 30vw;
+      min-width: 50vw;
+      min-width: clamp(10rem, 50vw, 14rem);
     }
   }
+}
+
+@media (max-width: 640px) {
+  // .collectionList {
+  //   overflow-x: scroll;
+  //   display: flex;
+  //   justify-content: flex-start;
+  //   scrollbar-gutter: stable;
+
+  //   padding: var(--margin-s);
+
+  //   gap: var(--margin-s);
+
+  //   .collectionType {
+  //     // min-width: 30vw;
+  //     min-width: clamp(12.5rem, 10vw, 12.6rem);
+  //   }
+  // }
 }
 
 @media (max-width: 475px) {
@@ -118,15 +136,18 @@
     justify-content: flex-start;
     scrollbar-gutter: stable;
 
-    padding: 2vw;
+    // min-height: 12.5rem;
 
-    gap: 2vw;
+    // padding: var(--margin-s);
+
+    // gap: var(--margin-s);
 
     .collectionType {
-      min-width: 29vw;
+      // min-width: clamp(10rem, 10vw, 10.5rem);
+      // height: 100%;
 
       h3 {
-        font-size: 3vw !important;
+        font-size: var(--fsp);
       }
     }
   }

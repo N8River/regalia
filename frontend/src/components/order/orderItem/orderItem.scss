@@ -13,7 +13,7 @@
 
   background-color: var(--secondary-color);
 
-  padding: var(--margin-xs);
+  padding: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
   transition: var(--transition-out);
 
   &:hover {
@@ -22,7 +22,7 @@
   }
 
   .orderItemImg {
-    height: 7.5rem;
+    height: clamp(5rem, 15vw, 7.5rem);
     border-radius: 0.5rem;
 
     overflow: hidden;
@@ -37,12 +37,12 @@
 
   .orderItemInfo {
     margin-left: var(--margin-s);
-    height: 7.5rem;
+    height: clamp(5rem, 15vw, 7.5rem);
     width: 100%;
 
     big {
-      font: var(--big);
-      font-weight: 500;
+      font-size: clamp(var(--fs-small), 2.5vw, var(--fs-big));
+      font-weight: 600;
     }
   }
 
@@ -53,40 +53,43 @@
 
     flex-direction: column;
 
-    width: 100%;
-    height: 7.5rem;
+    min-width: 5rem;
+    height: clamp(5rem, 15vw, 7.5rem);
 
     padding-right: var(--margin-xs);
 
     big {
-      width: 100%;
+      min-width: fit-content;
       text-align: right;
+      font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
 
-      font-weight: 400;
+      font-weight: 600;
     }
 
     p {
       width: 100%;
       text-align: right;
+
+      font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
     }
   }
 }
 
-@media (max-width: 1024px) {
-  .orderItem {
-    .orderItemImg {
-      height: 12vw;
-    }
+// @media (max-width: 1024px) {
+//   .orderItem {
+//     .orderItemImg {
+//       height: 12vw;
+//     }
 
-    .orderItemInfo {
-      width: 70%;
-      big {
-        font-size: 2vw;
-      }
-    }
+//     .orderItemInfo {
+//       width: 70%;
+//       big {
+//         font-size: 2vw;
+//       }
+//     }
 
-    .orderItemPriceAndQuantity {
-      width: 30%;
-    }
-  }
-}
+//     .orderItemPriceAndQuantity {
+//       width: 30%;
+//     }
+//   }
+// }

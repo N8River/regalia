@@ -35,8 +35,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/collection" element={<CollectionPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/collection" element={<CollectionPage />} />
           <Route path="/collection/trending" element={<TrendingPage />} />
           <Route
             path="/collection/new-arrivals"

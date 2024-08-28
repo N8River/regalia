@@ -5,23 +5,23 @@
   flex-direction: row;
 
   width: 100%;
-  padding: var(--margin-xxl) 0rem;
+  padding-block: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
 
   background-color: var(--primary-color);
+
+  gap: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
 
   .productImgContainer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 
-    height: 50rem;
+    height: clamp(30rem, 60vw + 0.5rem, 50rem);
     width: 50%;
 
     img {
       height: 100%;
       width: auto;
-
-      margin-right: var(--margin-xxl);
     }
   }
 
@@ -31,13 +31,15 @@
     align-items: center;
     flex-direction: column;
 
-    min-height: 50rem;
+    // min-height: 50rem;
     width: 50%;
 
     h2 {
       display: flex;
       text-align: left;
       width: 100%;
+
+      font-size: clamp(var(--fs-h4), 3vw + 0.5rem, var(--fs-h2));
 
       color: var(--text-color);
     }
@@ -47,19 +49,25 @@
       text-align: left;
       width: 100%;
 
-      font-weight: 500;
+      font-size: clamp(var(--fs-p), 2vw + 0.5rem, var(--fs-big));
+
+      font-weight: 600;
 
       svg {
         display: flex;
         height: 100%;
+
+        font-size: clamp(var(--fs-p), 2vw + 0.5rem, var(--fs-big));
         color: var(--grey30);
       }
 
       p {
         display: flex;
         height: 100%;
-        padding-left: var(--margin-xs);
+        padding-left: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
         color: var(--grey30);
+
+        font-size: clamp(var(--fs-p), 2vw + 0.5rem, var(--fs-big));
       }
     }
 
@@ -69,7 +77,8 @@
 
       font-weight: 600;
 
-      margin-top: var(--margin-xs);
+      font-size: clamp(var(--fs-big), 2vw + 0.5rem, var(--fs-h4));
+      margin-top: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
     }
 
     .infoDisplay {
@@ -79,7 +88,9 @@
       flex-direction: column;
 
       width: 100%;
-      margin: var(--margin-m) 0rem;
+      margin-block: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-s));
+
+      gap: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
 
       div {
         display: flex;
@@ -87,18 +98,26 @@
         align-items: center;
 
         padding: var(--margin-xxs);
-        border: 0.5px solid var(--shadow-secondary);
+        border: 0.5px solid var(--grey50);
 
-        width: 50%;
+        // width: 30rem;
+        width: clamp(20rem, 30vw + 0.5rem, 30rem);
+
         color: var(--grey10);
-        font-weight: 300;
+        font-weight: 400;
 
-        margin: var(--margin-xxs) 0rem;
-        background-color: var(--secondary-color);
+        // margin: var(--margin-xxs) 0rem;
+        background-color: var(--grey90);
 
         svg {
           font-size: 1.25rem;
+
           width: 2rem;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: clamp(var(--fs-small), 1vw + 0.5rem, var(--fs-p));
         }
       }
     }
@@ -110,7 +129,7 @@
       flex-direction: row;
 
       width: 100%;
-      height: 2.5rem;
+      // height: 2.5rem;
 
       button {
         display: flex;
@@ -118,14 +137,17 @@
         align-items: center;
         height: 100%;
         border: 0.5px solid var(--accent-color);
-        width: 2.5rem;
-        font-size: 1.25rem;
+        width: 3rem;
+
+        font-size: clamp(var(--fs-big), 3vw + 0.5rem, var(--fs-h4));
 
         color: var(--white);
 
         background-color: var(--accent-color);
 
-        font-weight: 500;
+        padding-block: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
+
+        font-weight: 400;
 
         cursor: pointer;
 
@@ -149,8 +171,11 @@
         border-left: 0.5px solid var(--accent-color);
         border-right: 0.5px solid var(--accent-color);
 
-        width: 2.5rem;
-        font-size: 1.25rem;
+        font-size: clamp(var(--fs-p), 3vw + 0.5rem, var(--fs-big));
+
+        padding-block: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
+
+        width: 3rem;
 
         font-weight: 500;
       }
@@ -171,14 +196,16 @@
 
       width: 100%;
 
-      margin: var(--margin-xs) 0rem;
+      margin-block: clamp(var(--margin-xxs), 3vw + 0.5rem, var(--margin-xs));
       // text-shadow: 1px 1px 2px var(--dark-grey);
 
       p {
         color: var(--green);
 
         font: var(--p);
-        font-weight: 500;
+        font-size: clamp(var(--fs-p), 3vw + 0.5rem, var(--fs-big));
+
+        font-weight: 400;
         font-style: italic;
       }
     }
@@ -189,9 +216,19 @@
       align-items: center;
 
       width: 100%;
-      height: 3rem;
+      // height: 3rem;
 
-      margin: var(--margin-s) 0rem;
+      // margin-block: var(--margin-s);
+
+      button {
+        padding-block: clamp(var(--margin-xxs), 3vw + 0.5rem, var(--margin-xs));
+        padding-inline: clamp(var(--margin-s), 3vw + 0.5rem, var(--margin-m));
+
+        font-size: clamp(var(--fs-p), 3vw + 0.5rem, var(--fs-big));
+
+        font-weight: 600;
+        height: 100%;
+      }
     }
 
     .shareLink {
@@ -204,7 +241,7 @@
       text-align: left;
       height: fit-content;
 
-      margin: var(--margin-s) 0rem;
+      margin-block: clamp(var(--margin-xxs), 3vw + 0.5rem, var(--margin-s));
 
       a {
         display: flex;
@@ -215,23 +252,26 @@
 
         color: var(--accent-color);
 
-        font-size: 1rem;
+        font-size: clamp(var(--fs-small), 3vw + 0.5rem, var(--fs-p));
         transition: var(--transition-out);
 
+        gap: var(--margin-xxs);
+
         svg {
-          font-size: 1.25rem;
+          display: flex;
+          align-items: center;
+          font-size: clamp(var(--fs-p), 3vw + 0.5rem, var(--fs-big));
           color: var(--accent-color);
 
-          margin-right: var(--margin-xxs);
           transition: var(--transition-out);
         }
 
         &:hover {
-          color: var(--black);
+          color: var(--text-color);
           transition: var(--transition-in);
 
           svg {
-            color: var(--black);
+            color: var(--text-color);
             transition: var(--transition-in);
           }
         }
@@ -242,100 +282,223 @@
       display: flex;
       width: 100%;
 
-      margin: var(--margin-s) 0rem;
+      margin-bottom: clamp(var(--margin-xxs), 3vw + 0.5rem, var(--margin-s));
+
+      p {
+        font-size: clamp(var(--fs-small), 3vw + 0.5rem, var(--fs-p));
+      }
     }
   }
 }
 
-@media (max-width: 1280px) {
+// @media (max-width: 1280px) {
+//   .productDetails {
+//     .productImgContainer {
+//       height: 55vw;
+//     }
+
+//     .productInfoContainer {
+//       min-height: 55vw;
+
+//       h2 {
+//         font-size: 3vw;
+//       }
+
+//       big {
+//         font-size: 1.5vw;
+//         margin-top: 0.5vw;
+//       }
+
+//       h4 {
+//         font-size: 2vw;
+//         margin-top: 0.5vw;
+//       }
+
+//       .infoDisplay {
+//         margin: 0.5vw 0;
+//         div {
+//           width: 27.5vw;
+//           svg {
+//             font-size: 1.5vw;
+//           }
+//           p {
+//             font-size: 1.25vw;
+//           }
+//         }
+//       }
+
+//       .quantityModifier {
+//         height: 4vw;
+
+//         button {
+//           width: 4vw;
+//         }
+
+//         p {
+//           width: 4vw;
+//         }
+//       }
+
+//       .inStock {
+//         margin: 0.5vw 0;
+//         p {
+//           font-size: 1.5vw;
+//         }
+//       }
+
+//       .addToCart {
+//         margin: 0.5vw 0;
+
+//         button {
+//           font-size: 1.75vw;
+//           padding: 0.5vw 1.5vw;
+//         }
+//       }
+
+//       .shareLink {
+//         margin: 0.5vw 0;
+//       }
+
+//       .descriptionBox {
+//         height: fit-content;
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 1024px) {
+//   .productDetails {
+//     .productImgContainer {
+//       img {
+//         margin-right: 3vw;
+//       }
+//     }
+
+//     .productInfoContainer {
+//       .descriptionBox {
+//         div {
+//           p {
+//             font-size: 1.6vw;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .productDetails {
+//     .productInfoContainer {
+//       big {
+//         p {
+//           font-size: 1.75vw;
+//           padding-left: 1vw;
+//         }
+//       }
+
+//       .infoDisplay {
+//         div {
+//           width: 35vw;
+//           svg {
+//             width: 1.5vw;
+//             margin: 0 0.5vw;
+//           }
+//           p {
+//             font-size: 1.5vw;
+//           }
+//         }
+//       }
+
+//       .quantityModifier {
+//         p {
+//           font-size: 1.75vw;
+//         }
+//       }
+
+//       .addToCart {
+//         height: fit-content;
+
+//         button {
+//           padding: 1vw 2.5vw;
+//           font-size: 2vw;
+//         }
+//       }
+
+//       .descriptionBox {
+//         margin: 1vw 0;
+//       }
+
+//       .shareLink {
+//         text {
+//           font-size: 1.5vw;
+//         }
+//       }
+//     }
+//   }
+// }
+
+@media (max-width: 1024px) {
   .productDetails {
+    gap: clamp(var(--margin-xs), 1.5vw + 0.5rem, var(--margin-l));
+
     .productImgContainer {
-      height: 55vw;
+      height: clamp(30rem, 62vw + 0.5rem, 40rem);
     }
 
     .productInfoContainer {
-      min-height: 55vw;
-
-      h2 {
-        font-size: 3vw;
-      }
-
       big {
-        font-size: 1.5vw;
-        margin-top: 0.5vw;
+        svg {
+          font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
+        }
+
+        p {
+          font-size: clamp(var(--fs-p), 1vw + 0.5rem, var(--fs-big));
+        }
       }
 
       h4 {
-        font-size: 2vw;
-        margin-top: 0.5vw;
+        font-size: clamp(var(--fs-big), 1.5vw + 0.5rem, var(--fs-h5));
+        margin-top: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
       }
 
       .infoDisplay {
-        margin: 0.5vw 0;
+        margin-block: clamp(
+          var(--margin-xxs),
+          1.5vw + 0.5rem,
+          var(--margin-xs)
+        );
+        gap: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
+
         div {
-          width: 27.5vw;
-          svg {
-            font-size: 1.5vw;
-          }
+          width: clamp(19rem, 35vw + 0.5rem, 25rem);
+
           p {
-            font-size: 1.25vw;
+            font-size: clamp(var(--fs-small), 0.8vw + 0.5rem, var(--fs-p));
           }
         }
       }
 
       .quantityModifier {
-        height: 4vw;
-
         button {
-          width: 4vw;
+          font-size: clamp(var(--fs-big), 1.5vw + 0.5rem, var(--fs-h4));
+
+          padding-block: clamp(
+            var(--margin-xxs),
+            1vw + 0.5rem,
+            var(--margin-xs)
+          );
         }
 
         p {
-          width: 4vw;
-        }
-      }
+          font-size: clamp(var(--fs-p), 1vw + 0.5rem, var(--fs-big));
 
-      .inStock {
-        margin: 0.5vw 0;
-        p {
-          font-size: 1.5vw;
-        }
-      }
+          padding-block: clamp(
+            var(--margin-xxs),
+            1vw + 0.5rem,
+            var(--margin-xs)
+          );
 
-      .addToCart {
-        margin: 0.5vw 0;
-
-        button {
-          font-size: 1.75vw;
-          padding: 0.5vw 1.5vw;
-        }
-      }
-
-      .shareLink {
-        margin: 0.5vw 0;
-      }
-
-      .descriptionBox {
-        height: fit-content;
-      }
-    }
-  }
-}
-
-@media (max-width: 1024px) {
-  .productDetails {
-    .productImgContainer {
-      img {
-        margin-right: 3vw;
-      }
-    }
-
-    .productInfoContainer {
-      .descriptionBox {
-        div {
-          p {
-            font-size: 1.6vw;
-          }
+          width: 3rem;
         }
       }
     }
@@ -344,49 +507,93 @@
 
 @media (max-width: 768px) {
   .productDetails {
+    flex-direction: column;
+
+    .productImgContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: fit-content;
+      padding-inline: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
     .productInfoContainer {
+      width: 100%;
+
+      padding-inline: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
+
       big {
-        p {
-          font-size: 1.75vw;
-          padding-left: 1vw;
-        }
+        display: flex;
+        align-items: center;
+      }
+
+      h4 {
+        margin-top: clamp(var(--margin-xxs), 1.1vw, var(--margin-xs));
+
+        // margin-top: var(--margin-xxs);
       }
 
       .infoDisplay {
+        margin-block: clamp(var(--margin-xxs), 1.1vw, var(--margin-xs));
+        display: flex;
+        gap: clamp(var(--margin-xxs), 1.1vw, var(--margin-xs));
+
         div {
-          width: 35vw;
-          svg {
-            width: 1.5vw;
-            margin: 0 0.5vw;
-          }
+          width: clamp(17.8rem, 50vw + 0.5rem, 50rem);
+
           p {
-            font-size: 1.5vw;
+            font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
           }
         }
       }
 
       .quantityModifier {
+        margin-block: clamp(var(--margin-xxs), 1.1vw, var(--margin-xs));
+
+        button {
+          font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+          padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
+          line-height: 1.6em;
+        }
+
         p {
-          font-size: 1.75vw;
+          font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+          padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
+        }
+      }
+
+      .inStock {
+        margin: 0;
+        margin-bottom: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+        p {
+          font-size: clamp(var(--fs-small), 2.5vw, var(--fs-big));
         }
       }
 
       .addToCart {
-        height: fit-content;
-
         button {
-          padding: 1vw 2.5vw;
-          font-size: 2vw;
+          padding-block: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
+          padding-inline: clamp(var(--margin-s), 2vw, var(--margin-m));
+
+          font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
         }
       }
 
-      .descriptionBox {
-        margin: 1vw 0;
+      .shareLink {
+        margin-block: clamp(var(--margin-xxs), 1.2vw, var(--margin-s));
       }
 
-      .shareLink {
-        text {
-          font-size: 1.5vw;
+      .descriptionBox {
+        margin-bottom: 0;
+
+        p {
+          font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
         }
       }
     }

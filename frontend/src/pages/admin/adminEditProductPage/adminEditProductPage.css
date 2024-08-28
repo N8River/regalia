@@ -4,6 +4,6 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  padding: 2rem 10rem;
-  gap: 1rem;
+  padding: clamp(var(--margin-m), 5vw, var(--margin-xxl));
+  gap: clamp(var(--margin-xs), 5vw, var(--margin-m));
 }/*# sourceMappingURL=adminEditProductPage.css.map */

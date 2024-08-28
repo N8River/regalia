@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: var(--margin-xl) 20rem;
-  width: 100%;
+  width: clamp(19rem, 95vw, 62rem);
+  margin: auto;
+  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
   background-color: var(--background-color);
 }
 .addressManager .goToAccount {
@@ -13,19 +14,19 @@
   flex-direction: row;
   width: -moz-fit-content;
   width: fit-content;
-  margin-bottom: var(--margin-xxs);
+  margin-bottom: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
   cursor: pointer;
 }
 .addressManager .goToAccount svg {
-  font: var(--pui);
+  font-size: clamp(var(--p), 2vw, var(--big));
   color: var(--grey30);
 }
 .addressManager .goToAccount p {
-  font: var(--pui);
+  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
   color: var(--grey30);
 }
 .addressManager h2 {
-  font: var(--h2);
+  font-size: clamp(var(--fs-h5), 3.5vw, var(--fs-h2));
   color: var(--text-color);
   display: flex;
   justify-content: flex-start;
@@ -33,53 +34,54 @@
   flex-direction: row;
   width: 100%;
   text-align: center;
-  margin-bottom: var(--margin-xs);
 }
 .addressManager button {
-  margin: var(--margin-xs) 0rem;
+  margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  height: 3rem;
+  padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
+  padding-inline: clamp(var(--margin-xs), 1.5vw, var(--margin-m));
 }
 .addressManager button svg {
   color: var(--white);
-  font-size: var(--big);
+  font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
   margin-left: var(--margin-xs);
   height: 100%;
 }
 .addressManager button big {
-  font: var(--bigui);
-  font-weight: 500;
+  font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
+  font-weight: 600;
   height: 100%;
 }
 .addressManager .addressFlex {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: var(--margin-s) 0rem;
+  margin-block: clamp(var(--margin-xxs), 3.5vw, var(--margin-s));
   flex-wrap: wrap;
-  gap: var(--margin-xxl);
-}
-.addressManager .addressFlex p {
-  font: var(--pui);
+  gap: clamp(var(--margin-m), 3.5vw, var(--margin-xxl));
 }
 .addressManager .addressForm {
   position: absolute;
+  top: clamp(5rem, 9.5vh, 7.5rem);
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--grey90);
-  padding: var(--margin-s) var(--margin-xl) var(--margin-l) var(--margin-xl);
+  box-shadow: 0px 0px 10px var(--grey30);
+  padding-inline: clamp(var(--margin-m), 3vw, var(--margin-xl));
+  padding-block: clamp(var(--margin-xs), 3vw, var(--margin-m));
+  padding-bottom: clamp(var(--margin-m), 3vw, var(--margin-xl));
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  width: 30rem;
+  width: clamp(19rem, 95vw, 30rem);
   height: -moz-fit-content;
   height: fit-content;
-  z-index: 998;
+  z-index: 1001;
   transition: var(--transition-in);
 }
 .addressManager .addressForm div {
@@ -93,6 +95,7 @@
   border: none;
   color: var(--grey90);
   background-color: transparent;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,22 +108,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: clamp(var(--fs-h3), 3vw, var(--fs-h2));
   color: var(--grey10);
   margin: 0;
 }
 .addressManager .addressForm p {
-  font: var(--p);
+  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
 }
 .addressManager .addressForm input {
   padding-left: var(--margin-xxs);
-  font: var(--p);
-  margin-bottom: var(--margin-s);
+  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+  margin-bottom: clamp(var(--margin-xs), 2vw, var(--margin-s));
   color: var(--grey30);
 }
 .addressManager .addressForm button {
   margin: auto;
-  margin-top: var(--margin-s);
+  padding-block: var(--margin-xxs);
+  padding-inline: clamp(var(--margin-xs), 3vw, var(--margin-m));
+  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
 }
 
 .overlayAddressForm {
@@ -144,118 +149,8 @@
   transition: var(--transition-in);
 }
 
-@media (max-width: 1536px) {
-  .addressManager {
-    padding: var(--margin-xl) 10vw;
-  }
-}
-@media (max-width: 1280px) {
-  .addressManager {
-    padding: var(--margin-xl) 5vw;
-  }
-}
-@media (max-width: 1024px) {
-  .addressManager {
-    padding: var(--margin-xl) 5vw;
-  }
-  .addressManager .goToAccount svg {
-    font-size: 2vw;
-  }
-  .addressManager .goToAccount p {
-    font-size: 1.5vw;
-  }
-  .addressManager h2 {
-    font-size: 4vw;
-  }
-  .addressManager button {
-    height: 5vw;
-    padding: 1vw 2vw;
-    margin: 0.5vw 0;
-  }
-  .addressManager button big {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2vw;
-  }
-  .addressManager button svg {
-    font-size: 2vw;
-  }
+@media (max-width: 782px) {
   .addressManager .addressFlex {
-    display: flex;
-    align-items: start;
-    margin: 1vw 0;
-    gap: 1vw;
-  }
-}
-@media (max-width: 768px) {
-  .addressManager {
-    padding: var(--margin-xl) 5vw;
-  }
-  .addressManager .goToAccount svg {
-    font-size: 2vw;
-  }
-  .addressManager .goToAccount p {
-    font-size: 1.5vw;
-  }
-  .addressManager h2 {
-    font-size: 3vw;
-    margin-bottom: 0.5vw;
-  }
-  .addressManager button {
-    height: 4vw;
-    padding: 1vw 1.5vw;
-    margin: 0.5vw 0;
-  }
-  .addressManager button big {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.7vw;
-  }
-  .addressManager button svg {
-    font-size: 1.7vw;
-  }
-  .addressManager .addressFlex {
-    display: flex;
-    align-items: start;
-    margin: 1vw 0;
-    gap: 1.5vw;
-  }
-}
-@media (max-width: 640px) {
-  .addressManager {
-    padding: var(--margin-xl) 5vw;
-  }
-  .addressManager .goToAccount svg {
-    font-size: 2vw;
-  }
-  .addressManager .goToAccount p {
-    font-size: 1.5vw;
-  }
-  .addressManager h2 {
-    font-size: 3vw;
-    margin-bottom: 0.5vw;
-  }
-  .addressManager button {
-    height: 4vw;
-    padding: 1vw 1.5vw;
-    margin: 0.5vw 0;
-  }
-  .addressManager button big {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.7vw;
-  }
-  .addressManager button svg {
-    font-size: 1.7vw;
-  }
-  .addressManager .addressFlex {
-    display: flex;
-    align-items: start;
-    margin: 1vw 0;
-    gap: 1.5vw;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 }/*# sourceMappingURL=addressManager.css.map */

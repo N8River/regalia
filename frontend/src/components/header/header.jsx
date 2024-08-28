@@ -51,16 +51,21 @@ function Header() {
       document.querySelector(".announcementBar").offsetHeight;
     const headerHeight = header.offsetHeight;
 
+    const stickyPadding = header.offsetHeight;
+    console.log(stickyPadding);
+
     const handleScroll = () => {
       if (window.scrollY > announcementBarHeight) {
         // setIsSticky(true);
         header.classList.add("sticky");
-        content.classList.add("sticky-padding");
+        // content.classList.add("sticky-padding");
+        content.style.paddingTop = `${stickyPadding}px`;
         searchBarDropdown.classList.add("sticky");
       } else {
         // setIsSticky(false);
         header.classList.remove("sticky");
-        content.classList.remove("sticky-padding");
+        // content.classList.remove("sticky-padding");
+        content.style.paddingTop = "0";
         searchBarDropdown.classList.remove("sticky");
       }
     };
@@ -76,7 +81,14 @@ function Header() {
     <>
       <div
         className={`overlay ${menuOpen || searchBarOpen ? "show" : ""}`}
-        onClick={toggleMenu}
+        onClick={() => {
+          if (menuOpen) {
+            toggleMenu();
+          }
+          if (searchBarOpen) {
+            toggleSearchBarDropdown();
+          }
+        }}
       ></div>
 
       <div className={`header`}>

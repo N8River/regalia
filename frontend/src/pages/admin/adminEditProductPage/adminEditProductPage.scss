@@ -5,7 +5,7 @@
   flex-wrap: wrap;
 
   width: 100%;
-  padding: 2rem 10rem;
+  padding: clamp(var(--margin-m), 5vw, var(--margin-xxl));
 
-  gap: 1rem;
+  gap: clamp(var(--margin-xs), 5vw, var(--margin-m));
 }

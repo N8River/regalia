@@ -3,16 +3,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 32rem;
-  width: 20rem;
-  margin: 1rem;
+  padding: clamp(var(--margin-xxs), 3vw, var(--margin-m));
+  background-color: var(--secondary-color);
 }
 .adminProductCard .adminProductImgContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
-  width: 100%;
+  height: clamp(15rem, 100vw, 25rem);
   overflow: hidden;
 }
 .adminProductCard .adminProductImgContainer .adminProductImg {
@@ -22,48 +20,48 @@
 .adminProductCard .adminProductName {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   width: 100%;
 }
 .adminProductCard .adminProductName h1 {
-  font-size: 1rem;
-  text-align: center;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  text-align: left;
+  margin-top: var(--margin-xs);
 }
 .adminProductCard .editDeleteBtns {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   flex-direction: row;
-  margin: 0.25rem 0rem;
+  margin-block: var(--margin-xxs);
+  gap: clamp(var(--margin-s), 5vw, var(--margin-l));
 }
 .adminProductCard .editDeleteBtns .editProductBtn {
-  width: 40%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
-  font-family: "Poppins";
-  background-color: var(--primary-color);
-  border: 0.5px solid var(--primary-color);
-  transition: all 0.15s ease-in-out;
+  background-color: var(--accent-color);
+  border: 0.5px solid var(--accent-color);
+  transition: var(--transition-in);
   cursor: pointer;
 }
 .adminProductCard .editDeleteBtns .editProductBtn:hover {
   background-color: var(--black);
-  transition: all 0.15s ease-in-out;
+  transition: var(--transition-out);
 }
 .adminProductCard .editDeleteBtns .editProductBtn a {
   color: var(--white);
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
 }
 .adminProductCard .editDeleteBtns .deleteProductBtn {
-  width: 40%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
-  font-family: "Poppins";
+  font-family: var(--ff);
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
   background-color: var(--red);
   border: 0.5px solid var(--red);
   color: var(--white);

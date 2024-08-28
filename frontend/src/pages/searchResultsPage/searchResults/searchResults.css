@@ -3,14 +3,16 @@
   align-items: center;
   width: 100%;
   flex-direction: column;
-  padding: var(--margin-xxl);
+  padding-inline: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+  padding-bottom: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
   min-height: 50vh;
 }
 .searchResultsContainer h4 {
-  margin-bottom: var(--margin-xxl);
   width: 100%;
   text-align: center;
   font-weight: 600;
+  padding-block: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+  font-size: clamp(var(--fs-h5), 3vw + 0.5rem, var(--fs-h2));
 }
 .searchResultsContainer .searchResults {
   display: flex;
@@ -18,18 +20,8 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  gap: var(--margin-l);
+  gap: clamp(var(--margin-m), 3vw, var(--margin-xl));
 }
 .searchResultsContainer big {
-  font: var(--big);
-  width: 100%;
-  text-align: center;
-  font-weight: 500;
-}
-
-@media (max-width: 1024px) {
-  .searchResultsContainer {
-    padding-left: 5vw;
-    padding-right: 5vw;
-  }
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
 }/*# sourceMappingURL=searchResults.css.map */

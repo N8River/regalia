@@ -3,74 +3,92 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  padding: 1rem 0rem;
+  margin-inline: auto;
+  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xl));
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: clamp(var(--margin-xs), 5vw, var(--margin-m));
 }
 .addProductForm div {
-  width: 20rem;
+  width: clamp(19rem, 95vw, 40rem);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0.25rem 0rem;
+}
+.addProductForm div h1 {
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+}
+.addProductForm div input {
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  margin-top: var(--margin-xxs);
+  border: 0.5px solid var(--grey50);
+  padding-inline: var(--margin-xs);
+  padding-block: var(--margin-xxs);
+  width: 100%;
 }
 .addProductForm h1 {
-  font-size: 1.5rem;
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
 }
 .addProductForm input {
-  height: 2rem;
-  font-size: 1rem;
-  margin: 0.25rem 0rem;
-  border: 0.5px solid var(--grey);
-  padding: 0.5rem;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  margin-top: var(--margin-xxs);
+  border: 0.5px solid var(--grey50);
+  padding-inline: var(--margin-xs);
+  padding-block: var(--margin-xxs);
+  width: 100%;
+}
+.addProductForm .quill .ql-toolbar {
+  display: block;
+  border: 1px solid var(--grey50);
+}
+.addProductForm .quill .ql-container {
+  display: block;
+  border: 1px solid var(--grey50);
 }
 .addProductForm .addProductBtn {
-  height: 2rem;
-  font-size: 1rem;
-  margin: 0.25rem 0rem;
-  border: 0.5px solid var(--grey);
-  font-family: "Poppins";
-  padding: 0rem 2rem;
-  background-color: var(--background-color);
-  transition: all 0.15s ease-out;
+  font-size: clamp(var(--fs-p), 4vw, var(--fs-big));
+  border: 0.5px solid var(--accent-color);
+  font-family: var(--ff);
+  font-weight: 600;
+  color: var(--white);
+  padding-inline: clamp(var(--margin-m), 5vw, var(--margin-l));
+  padding-block: var(--margin-xxs);
+  background-color: var(--accent-color);
+  transition: var(--transition-out);
 }
 .addProductForm .addProductBtn:hover {
-  background-color: var(--dark-grey);
+  background-color: var(--black);
   color: var(--white);
-  border: 0.5px solid var(--dark-grey);
-  transition: all 0.2s ease-in;
+  border: 0.5px solid var(--black);
+  transition: var(--transition-in);
 }
 .addProductForm div:nth-child(5) {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  gap: 2rem;
-}
-.addProductForm div:nth-child(5) h1 {
-  width: 50%;
+  gap: clamp(var(--margin-xs), 3vw, var(--margin-m));
 }
 .addProductForm div:nth-child(5) select {
-  height: 2rem;
-  padding: 0rem 0.5rem;
-  font-size: 1rem;
-  font-family: "Poppins";
-  width: 50%;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-family: var(--ff);
+  width: auto;
+  padding-inline: var(--margin-xs);
 }
 .addProductForm div:nth-child(4) {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  gap: 2rem;
+  gap: clamp(var(--margin-xs), 3vw, var(--margin-m));
 }
 .addProductForm div:nth-child(4) h1 {
   width: 50%;
 }
 .addProductForm div:nth-child(4) select {
-  height: 2rem;
-  padding: 0rem 0.5rem;
-  font-size: 1rem;
-  font-family: "Poppins";
-  width: 50%;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-family: var(--ff);
+  width: auto;
+  padding-inline: var(--margin-xs);
 }/*# sourceMappingURL=productForm.css.map */

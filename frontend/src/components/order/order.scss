@@ -4,9 +4,11 @@
   align-items: center;
   flex-direction: column;
 
-  width: 100%;
+  width: clamp(19rem, 95vw, 62rem);
 
-  padding: var(--margin-xxl) 30rem;
+  margin: auto;
+
+  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
 
   .orderHeader {
     display: flex;
@@ -16,9 +18,10 @@
     width: 100%;
 
     height: fit-content;
+    flex-wrap: wrap;
 
     h4 {
-      font: var(--h4);
+      font-size: clamp(var(--fs-big), 2.5vw, var(--fs-h4));
     }
 
     button {
@@ -36,6 +39,8 @@
 
       height: 100%;
 
+      margin-block: auto;
+
       cursor: pointer;
 
       p {
@@ -44,12 +49,12 @@
         align-items: center;
 
         flex-direction: row;
-        font: var(--p);
+        font-size: clamp(var(--fs-small), 2vw, var(--fs-big));
         height: 100%;
 
         color: var(--grey30);
 
-        p {
+        &:hover {
           color: var(--grey10);
         }
       }
@@ -60,7 +65,7 @@
         align-items: center;
 
         flex-direction: row;
-        font: var(--h4);
+        font-size: clamp(var(--fs-big), 3vw, var(--fs-h4));
         padding-left: var(--margin-xxs);
 
         margin: none;
@@ -78,16 +83,18 @@
 
     width: 100%;
 
-    padding-bottom: var(--margin-xs);
+    padding-bottom: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
 
     border-bottom: 1px solid var(--grey70);
 
-    gap: var(--margin-xxl);
+    gap: clamp(var(--margin-m), 3vw, var(--margin-xxl));
 
     p {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      font-size: clamp(var(--fs-small), 2vw, var(--fs-p));
     }
   }
 
@@ -100,12 +107,12 @@
 
     width: 100%;
 
-    margin-top: var(--margin-s);
-    padding-bottom: var(--margin-s);
+    margin-top: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+    padding-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-s));
 
     border-bottom: 1px solid var(--grey70);
 
-    gap: var(--margin-xs);
+    gap: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
   }
 
   .orderPaymentAndDelivery {
@@ -115,7 +122,7 @@
 
     height: fit-content;
 
-    margin: var(--margin-s) 0rem;
+    margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
 
     .payment {
       width: 50%;
@@ -123,6 +130,13 @@
 
       big {
         font-weight: 600;
+        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+      }
+
+      div {
+        p {
+          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+        }
       }
     }
 
@@ -137,10 +151,12 @@
 
       big {
         font-weight: 600;
+        font-size: clamp(var(--fs-small), 3vw, var(--fs-big));
       }
 
       p {
         color: var(--text-color);
+        font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
       }
     }
   }
@@ -153,7 +169,7 @@
 
     height: fit-content;
 
-    margin: var(--margin-s) 0rem;
+    margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
 
     .orderHelp {
       display: flex;
@@ -165,8 +181,9 @@
       flex-direction: column;
 
       big {
-        margin-bottom: var(--margin-xs);
-        font-weight: 500;
+        // margin-bottom: var(--margin-xxs);
+        font-weight: 600;
+        font-size: clamp(var(--fs-small), 3vw, var(--fs-big));
       }
 
       button {
@@ -186,8 +203,12 @@
         cursor: pointer;
         color: var(--grey30);
 
+        p {
+          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+        }
+
         svg {
-          font-size: 1.25rem;
+          font-size: clamp(var(--fs-big), 4vw, var(--fs-h5));
 
           margin-right: var(--margin-xxs);
           color: var(--grey50);
@@ -213,8 +234,9 @@
       flex-direction: column;
 
       big {
-        margin-bottom: var(--margin-xs);
-        font-weight: 500;
+        // margin-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+        font-weight: 600;
+        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
       }
 
       .orderSubTotal {
@@ -223,8 +245,9 @@
         width: 100%;
         // margin-bottom: var(--margin-xxs);
 
-        big {
+        p {
           font-weight: 400;
+          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
         }
       }
 
@@ -233,6 +256,11 @@
         justify-content: space-between;
         width: 100%;
         // margin-bottom: var(--margin-xxs);
+
+        p {
+          font-weight: 400;
+          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+        }
       }
 
       .deliveryCharges {
@@ -240,6 +268,11 @@
         justify-content: space-between;
         width: 100%;
         // margin-bottom: var(--margin-xxs);
+
+        p {
+          font-weight: 400;
+          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+        }
       }
 
       .orderTotal {
@@ -248,47 +281,98 @@
         width: 100%;
         margin-top: var(--margin-xxs);
         margin-bottom: 0rem;
-      }
-    }
-  }
-}
 
-@media (max-width: 1536px) {
-  .order {
-    padding: var(--margin-xxl) 25vw;
-  }
-}
-
-@media (max-width: 1280px) {
-  .order {
-    padding: var(--margin-xxl) 20vw;
-  }
-}
-
-@media (max-width: 1024px) {
-  .order {
-    padding: var(--margin-xxl) 10vw;
-
-    .orderHeader {
-      h4 {
-        font-size: 3vw;
-      }
-
-      button {
-        p {
-          font-size: 1.7vw;
+        big {
+          font-weight: 600;
+          font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
         }
       }
     }
+  }
+}
+
+// @media (max-width: 1536px) {
+//   .order {
+//     padding: var(--margin-xxl) 25vw;
+//   }
+// }
+
+// @media (max-width: 1280px) {
+//   .order {
+//     padding: var(--margin-xxl) 20vw;
+//   }
+// }
+
+// @media (max-width: 1024px) {
+//   .order {
+//     padding: var(--margin-xxl) 10vw;
+
+//     .orderHeader {
+//       h4 {
+//         font-size: 3vw;
+//       }
+
+//       button {
+//         p {
+//           font-size: 1.7vw;
+//         }
+//       }
+//     }
+
+//     .orderSubHeader {
+//       p {
+//         font-size: 1.7vw;
+//       }
+//     }
+
+//     .orderItems{
+
+//     }
+//   }
+// }
+
+@media (max-width: 640px) {
+  .order {
+    .orderHeader {
+      margin-bottom: var(--margin-xs);
+    }
 
     .orderSubHeader {
-      p {
-        font-size: 1.7vw;
+      justify-content: space-between;
+    }
+
+    .orderPaymentAndDelivery {
+      flex-direction: column;
+
+      .payment {
+        width: 100%;
+
+        padding-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+        border-bottom: 1px solid var(--grey70);
+      }
+
+      .delivery {
+        width: 100%;
+        padding-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+        border-bottom: 1px solid var(--grey70);
       }
     }
 
-    .orderItems{
-      
+    .helpAndSummary {
+      margin: 0;
+      flex-direction: column-reverse;
+
+      .orderSummary {
+        width: 100%;
+        padding-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+        border-bottom: 1px solid var(--grey70);
+      }
+
+      .orderHelp {
+        width: 100%;
+        padding-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+        // border-bottom: 1px solid var(--grey70);
+      }
     }
   }
 }

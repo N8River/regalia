@@ -9,10 +9,10 @@
 
   height: fit-content;
 
-  padding: var(--margin-xs);
+  padding: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
 
   background-color: var(--secondary-color);
-  margin-top: var(--margin-xs);
+  margin-top: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
   transition: var(--transition-out);
 
   border: 0.5px solid var(--secondary-hover);
@@ -35,11 +35,17 @@
     overflow: hidden;
 
     height: 7rem;
-    max-width: 84px;
+    max-width: 5.6rem;
+
+    .slide {
+      img {
+        max-height: 7rem;
+      }
+    }
 
     img {
       height: 100%;
-      width: auto;
+      width: 100%;
     }
   }
 
@@ -47,27 +53,29 @@
     display: flex;
     justify-content: space-between;
 
-    flex-direction: column;
+    // flex-direction: column;
 
     padding-left: var(--margin-s);
     padding-right: var(--margin-xxs);
 
     // padding: var(--margin-xxs) 0rem;
 
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     height: 100%;
     width: 100%;
 
     height: 7rem;
 
-    div {
-      width: 50%;
-      height: 100%;
-    }
+    // div {
+    //   width: 50%;
+    //   height: 100%;
+    // }
 
     div:nth-child(1) {
       display: flex;
       flex-direction: column;
+
+      width: fit-content;
 
       p {
         margin: 0;
@@ -75,13 +83,14 @@
       }
 
       p:nth-child(1) {
-        font: var(--big);
+        // font: var(--big);
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
         font-weight: 600;
       }
 
       p:nth-child(2) {
-        font: var(--p);
-        font-weight: 500;
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+        font-weight: 400;
       }
     }
 
@@ -90,14 +99,16 @@
       flex-direction: column;
       align-items: end;
 
+      width: fit-content;
+
       p {
         margin: 0;
         text-align: right;
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
       }
 
       p {
-        font: var(--p);
-        font-weight: 600;
+        font-weight: 400;
       }
 
       button {
@@ -115,6 +126,8 @@
         small {
           color: var(--accent-color);
           transition: var(--transition-out);
+
+          font-size: clamp(var(--fs-small), 2vw, var(--fs-p));
         }
 
         &:hover {
@@ -129,132 +142,199 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .accountOrder {
-    .accountOrderDetails {
-      div:nth-child(1) {
-        width: 60%;
-        p:nth-child(1) {
-          font-size: 1.85vw;
-        }
+// @media (max-width: 1024px) {
+//   .accountOrder {
+//     .accountOrderDetails {
+//       div:nth-child(1) {
+//         width: 60%;
+//         p:nth-child(1) {
+//           font-size: 1.85vw;
+//         }
 
-        p:nth-child(2) {
-          font-size: 1.75vw;
-          font-weight: 500;
-        }
-      }
+//         p:nth-child(2) {
+//           font-size: 1.75vw;
+//           font-weight: 500;
+//         }
+//       }
 
-      div:nth-child(2) {
-        width: fit-content;
-        p:nth-child(1) {
-          font-size: 1.85vw;
-          font-weight: 500;
-        }
+//       div:nth-child(2) {
+//         width: fit-content;
+//         p:nth-child(1) {
+//           font-size: 1.85vw;
+//           font-weight: 500;
+//         }
 
-        button {
-          small {
-            font-size: 1.7vw;
-          }
-        }
-      }
-    }
-  }
-}
+//         button {
+//           small {
+//             font-size: 1.7vw;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .accountOrder {
+//     .accountOrderDetails {
+//       div:nth-child(1) {
+//         width: 60%;
+//         p:nth-child(1) {
+//           font-size: 1.85vw;
+//         }
+
+//         p:nth-child(2) {
+//           font-size: 1.75vw;
+//           font-weight: 500;
+//         }
+//       }
+
+//       div:nth-child(2) {
+//         width: fit-content;
+//         p:nth-child(1) {
+//           font-size: 1.85vw;
+//           font-weight: 500;
+//         }
+
+//         button {
+//           small {
+//             font-size: 1.7vw;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 640px) {
+//   .accountOrder {
+//     .accountOrderDetails {
+//       div:nth-child(1) {
+//         width: 75%;
+//         p:nth-child(1) {
+//           font-size: 2.25vw;
+//         }
+
+//         p:nth-child(2) {
+//           font-size: 2vw;
+//           font-weight: 500;
+//         }
+//       }
+
+//       div:nth-child(2) {
+//         width: fit-content;
+//         p:nth-child(1) {
+//           font-size: 2.25vw;
+//           font-weight: 500;
+//         }
+
+//         button {
+//           small {
+//             font-size: 2vw;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 475px) {
+//   .accountOrder {
+//     .orderItemImages {
+//       height: 20vw;
+//     }
+
+//     .accountOrderDetails {
+//       height: 20vw;
+//       div:nth-child(1) {
+//         width: 70%;
+//         p:nth-child(1) {
+//           font-size: 2.5vw;
+//         }
+
+//         p:nth-child(2) {
+//           font-size: 2.25vw;
+//           font-weight: 500;
+//         }
+//       }
+
+//       div:nth-child(2) {
+//         width: fit-content;
+//         p:nth-child(1) {
+//           font-size: 2.5vw;
+//           font-weight: 500;
+//         }
+
+//         button {
+//           small {
+//             font-size: 2.25vw;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 @media (max-width: 768px) {
-  .accountOrder {
-    .accountOrderDetails {
-      div:nth-child(1) {
-        width: 60%;
-        p:nth-child(1) {
-          font-size: 1.85vw;
-        }
+  .account {
+    .accountToolbar {
+      width: clamp(19rem, 96vw, 46rem);
 
-        p:nth-child(2) {
-          font-size: 1.75vw;
-          font-weight: 500;
-        }
+      h4 {
+        font-size: clamp(var(--fs-p), 2.5vw, var(--fs-h4));
       }
+    }
 
-      div:nth-child(2) {
-        width: fit-content;
-        p:nth-child(1) {
-          font-size: 1.85vw;
-          font-weight: 500;
+    .accountInfo {
+      flex-direction: column;
+
+      width: clamp(19rem, 96vw, 46rem);
+
+      .orders {
+        width: 100%;
+        min-height: fit-content;
+
+        big {
+          font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
         }
 
-        button {
-          small {
-            font-size: 1.7vw;
+        p {
+          margin-block: clamp(var(--margin-xs), 2vw, var(--margin-m));
+          font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
+
+          font-weight: 600;
+        }
+
+        .btn {
+          background-color: var(--accent-color);
+          padding-block: var(--margin-xxs);
+          padding-inline: clamp(var(--margin-xs), 2vw, var(--margin-m));
+          a {
+            font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
           }
         }
       }
-    }
-  }
-}
 
-@media (max-width: 640px) {
-  .accountOrder {
-    .accountOrderDetails {
-      div:nth-child(1) {
-        width: 75%;
-        p:nth-child(1) {
-          font-size: 2.25vw;
+      .address {
+        width: 100%;
+        min-height: fit-content;
+
+        big {
+          font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
         }
 
-        p:nth-child(2) {
-          font-size: 2vw;
-          font-weight: 500;
-        }
-      }
+        div {
+          display: flex;
+          justify-content: center;
+          margin-top: var(--margin-m);
 
-      div:nth-child(2) {
-        width: fit-content;
-        p:nth-child(1) {
-          font-size: 2.25vw;
-          font-weight: 500;
-        }
-
-        button {
-          small {
-            font-size: 2vw;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 475px) {
-  .accountOrder {
-    .orderItemImages {
-      height: 20vw;
-    }
-
-    .accountOrderDetails {
-      height: 20vw;
-      div:nth-child(1) {
-        width: 70%;
-        p:nth-child(1) {
-          font-size: 2.5vw;
-        }
-
-        p:nth-child(2) {
-          font-size: 2.25vw;
-          font-weight: 500;
-        }
-      }
-
-      div:nth-child(2) {
-        width: fit-content;
-        p:nth-child(1) {
-          font-size: 2.5vw;
-          font-weight: 500;
-        }
-
-        button {
-          small {
-            font-size: 2.25vw;
+          .btn {
+            background-color: var(--accent-color);
+            padding-block: var(--margin-xxs);
+            padding-inline: clamp(var(--margin-xs), 2vw, var(--margin-m));
+            a {
+              font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
+            }
           }
         }
       }

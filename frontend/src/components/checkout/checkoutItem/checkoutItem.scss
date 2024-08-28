@@ -1,5 +1,5 @@
 .checkoutItem {
-  height: 6.5rem !important;
+  // height: 6.5rem !important;
 
   display: flex;
   // justify-content: center;
@@ -12,7 +12,7 @@
   gap: var(--margin-s);
 
   .checkoutItemImg {
-    height: 6.5rem !important;
+    height: 6.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,16 +25,33 @@
 
   .checkoutItemNameQuantity {
     height: 100%;
+    margin-bottom: auto;
 
-    h3 {
+    p {
+      font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
     }
 
-    h4 {
+    small {
+      font-size: var(--fs-small);
+      font-weight: 600;
     }
   }
 
   .checkoutItemPrice {
     height: 100%;
     margin-left: auto;
+    margin-bottom: auto;
+
+    p {
+      font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .checkoutItem {
+    .checkoutItemImg {
+      height: clamp(4rem, 20vw, 6.5rem);
+    }
   }
 }

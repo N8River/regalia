@@ -7,8 +7,9 @@
   background-color: var(--primary-color);
 }
 .productCollection h1 {
-  padding: var(--margin-xxl) 0rem;
+  padding-block: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
   width: 100%;
+  font-size: clamp(var(--fs-h4), 2vw + 0.5rem, var(--fs-h2));
   text-align: center;
 }
 .productCollection .collectionToolbar {
@@ -16,17 +17,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem var(--margin-s);
-  height: 4rem;
-  border: 0.5px solid var(--grey70);
+  padding-inline: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+  border: 1px solid var(--grey70);
   background-color: var(--primary-color);
   border-left: none;
   border-right: none;
   z-index: 990;
-}
-.productCollection .collectionToolbar.sticky {
-  position: fixed;
-  top: 6rem;
 }
 .productCollection .collectionToolbar .toolbarNav {
   display: flex;
@@ -34,10 +30,9 @@
   align-items: center;
   width: -moz-fit-content;
   width: fit-content;
-  height: 100%;
-  padding-right: var(--margin-l);
+  padding-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+  padding-right: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
   border-right: 0.5px solid var(--grey50);
-  gap: var(--margin-s);
 }
 .productCollection .collectionToolbar .toolbarNav div {
   display: flex;
@@ -49,7 +44,7 @@
 .productCollection .collectionToolbar .toolbarNav div svg {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: clamp(var(--fs-big), 1.5vw + 0.5rem, var(--fs-h5));
   color: var(--grey30);
   cursor: pointer;
   transition: var(--transition-out);
@@ -64,6 +59,8 @@
   align-items: center;
   color: var(--grey30);
   transition: var(--transition-out);
+  font-size: clamp(var(--fs-s), 1.5vw + 0.5rem, var(--fs-big));
+  font-weight: 500;
   height: 100%;
 }
 .productCollection .collectionToolbar .toolbarNav div:hover svg {
@@ -80,7 +77,8 @@
   align-items: center;
   height: 100%;
   width: 5rem;
-  padding-left: 0.5rem;
+  padding-left: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+  padding-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
   border-left: 0.5px solid var(--grey50);
   color: var(--grey30);
   cursor: pointer;
@@ -91,14 +89,16 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
+  font-weight: 500;
 }
 .productCollection .productCollectionContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: var(--margin-xxl);
-  gap: var(--margin-xxl);
+  padding: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+  gap: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
 }
 
 .toolbarFilter {
@@ -274,10 +274,6 @@
   margin-bottom: var(--margin-xxl);
 }
 
-.productCollectionContainer.sticky-padding2 {
-  padding-top: 6.5rem;
-}
-
 @media (max-width: 1024px) {
   .productCollection .collectionToolbar.sticky {
     top: 5rem;
@@ -286,37 +282,12 @@
     width: 50vw;
   }
 }
-@media (max-width: 768px) {
-  .productCollection .productCollectionContainer {
-    padding: var(--margin-m);
-    gap: 4vw;
-  }
-}
 @media (max-width: 640px) {
   .toolbarFilter {
     width: 70vw;
   }
 }
 @media (max-width: 475px) {
-  .productCollection .collectionToolbar {
-    height: 10vw;
-  }
-  .productCollection .collectionToolbar .toolbarNav div svg {
-    font-size: 5vw;
-  }
-  .productCollection .collectionToolbar .toolbarNav div p {
-    font-size: 4.5vw;
-  }
-  .productCollection .collectionToolbar .toolbarFilterBtn div {
-    font-size: 4.5vw;
-  }
-  .productCollection .collectionToolbar.sticky {
-    top: 4rem;
-  }
-  .productCollection .productCollectionContainer {
-    padding: var(--margin-m) 0;
-    gap: 3.5vw;
-  }
   .toolbarFilter {
     width: 100vw;
   }

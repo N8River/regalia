@@ -105,6 +105,7 @@ function ProductCollection({ collectionName }) {
     const collectionToolbar = document.querySelector(".collectionToolbar");
     const collectionToolbarHeight =
       document.querySelector(".collectionToolbar").offsetHeight;
+    // console.log(collectionToolbarHeight);
     const headerHeight = document.querySelector(".header").offsetHeight;
     // console.log("headerHeight", headerHeight);
     const collectionNameH1Height =
@@ -119,18 +120,30 @@ function ProductCollection({ collectionName }) {
       ".productCollectionContainer"
     );
 
-    const scrollThreshold =
-      headerHeight + collectionNameH1Height - collectionToolbarHeight;
+    const stickyPadding = headerHeight;
+    const contentPadding = collectionToolbarHeight;
+
+    const scrollThreshold = announcementBarHeight + collectionNameH1Height - 1;
 
     console.log(scrollThreshold);
 
     const handleScroll = () => {
       if (window.scrollY > scrollThreshold) {
-        collectionToolbar.classList.add("sticky");
-        productCollectionContainer.classList.add("sticky-padding2");
+        // collectionToolbar.classList.add("sticky");
+        collectionToolbar.style.position = `fixed`;
+        collectionToolbar.style.top = `${stickyPadding + 1}px`;
+        // productCollectionContainer.classList.add("sticky-padding2");
+        document.querySelector(
+          ".productCollectionContent"
+        ).style.paddingTop = `${contentPadding}px`;
       } else {
-        collectionToolbar.classList.remove("sticky");
-        productCollectionContainer.classList.remove("sticky-padding2");
+        collectionToolbar.style.position = ``;
+        collectionToolbar.style.top = ``;
+        // collectionToolbar.classList.remove("sticky");
+        // productCollectionContainer.classList.remove("sticky-padding2");
+        document.querySelector(
+          ".productCollectionContent"
+        ).style.paddingTop = ``;
       }
     };
 
@@ -175,6 +188,7 @@ function ProductCollection({ collectionName }) {
     }
 
     navigate(`${location.pathname}?${queryParams.toString()}`);
+    toggleFilterToolbar();
   };
 
   const handleNavigateBack = () => {
@@ -197,12 +211,14 @@ function ProductCollection({ collectionName }) {
           </div>
         </div>
 
-        <div className="productCollectionContainer">
-          {products.length > 0
-            ? products.map((p) => {
-                return <ProductCard key={p._id} product={p} />;
-              })
-            : ""}
+        <div className="productCollectionContent">
+          <div className="productCollectionContainer">
+            {products.length > 0
+              ? products.map((p) => {
+                  return <ProductCard key={p._id} product={p} />;
+                })
+              : ""}
+          </div>
         </div>
       </div>
       {/* Filter Toolbar */}

@@ -5,19 +5,17 @@
   width: 100%;
   flex-direction: column;
 
-  padding: var(--margin-xxl) 25rem;
+  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
 
-  gap: var(--margin-l);
-
-  div {
-    width: 100%;
-  }
+  gap: clamp(var(--margin-s), 5vw, var(--margin-m));
 
   .accountToolbar {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    width: 60rem;
 
     .logOutBtn {
       display: flex;
@@ -26,7 +24,7 @@
 
       width: 100%;
 
-      margin-bottom: var(--margin-s);
+      margin-bottom: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
 
       button {
         background-color: transparent;
@@ -36,19 +34,24 @@
         justify-content: flex-start;
         align-items: center;
 
-        font-weight: 500;
+        // font-weight: 500;
 
         width: 100%;
+        font-family: var(--ff);
 
         color: var(--grey30);
-        font: var(--pui);
+        // font: var(--pui);
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
 
         cursor: pointer;
         transition: var(--transition-out);
 
         svg {
           display: flex;
-          height: 100%;
+          align-items: center;
+          // height: 100%;
+
+          font-size: clamp(var(--p), 2vw, var(--big));
         }
 
         &:hover {
@@ -65,6 +68,8 @@
 
       width: 100%;
       color: var(--text-color);
+
+      font-size: clamp(var(--fs-h5), 3.5vw, var(--fs-h2));
     }
 
     h4 {
@@ -73,6 +78,8 @@
 
       width: 100%;
       color: var(--text-color);
+
+      font-size: clamp(var(--fs-big), 2.5vw, var(--fs-h4));
 
       font-weight: 600;
     }
@@ -84,18 +91,34 @@
 
     flex-direction: row;
 
-    width: 100%;
+    gap: clamp(var(--margin-m), 2.5vw, var(--margin-xxl));
 
-    gap: var(--margin-xxl);
+    width: 60rem;
 
     .orders {
       width: 60%;
       min-height: 15rem;
+
+      big {
+        width: 100%;
+        font-weight: 400;
+
+        border-bottom: 0.5px solid var(--grey50);
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+      }
     }
 
     .address {
       width: 40%;
       min-height: 15rem;
+
+      big {
+        width: 100%;
+        font-weight: 400;
+
+        border-bottom: 0.5px solid var(--grey50);
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+      }
     }
 
     .orders {
@@ -111,6 +134,7 @@
         font-weight: 400;
 
         border-bottom: 0.5px solid var(--grey50);
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
       }
 
       p {
@@ -169,11 +193,14 @@
         color: var(--text-color);
         width: 100%;
 
-        font: var(--big);
+        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
 
         text-align: center;
 
-        margin: var(--margin-xxs) 0rem;
+        margin-block: var(--margin-xxs);
+        margin-bottom: 0;
+
+        font-weight: 400;
       }
 
       .addressList {
@@ -181,22 +208,32 @@
         flex-direction: column;
 
         width: 100%;
-        margin: var(--margin-xxs) 0rem;
+        margin: 0;
+        margin-bottom: var(--margin-xxs);
 
         p {
-          font: var(--p);
+          font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
           margin: 0;
+
+          font-weight: 400;
         }
       }
 
       div {
-        margin: var(--margin-s) 0rem;
+        margin-block: var(--margin-xxs);
+        width: 100%;
+
         button {
           transition: var(--transition-out);
+
+          padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
+          padding-inline: clamp(var(--margin-xs), 1.5vw, var(--margin-m));
 
           a {
             color: var(--white);
             font-family: "Poppins";
+
+            font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
 
             letter-spacing: 1px;
           }
@@ -213,285 +250,319 @@
   }
 }
 
-@media (max-width: 1536px) {
-  .account {
-    padding: var(--margin-xxl) 10vw;
-  }
-}
+// @media (max-width: 1536px) {
+//   .account {
+//     padding: var(--margin-xxl) 10vw;
+//   }
+// }
 
-@media (max-width: 1280px) {
-  .account {
-    padding: var(--margin-xxl) 5vw;
-  }
-}
+// @media (max-width: 1280px) {
+//   .account {
+//     padding: var(--margin-xxl) 5vw;
+//   }
+// }
+
+// @media (max-width: 1024px) {
+//   .account {
+//     .accountToolbar {
+//       .logOutBtn {
+//         margin-bottom: 0.5vw;
+
+//         button {
+//           font-size: 1.75vw;
+//           svg {
+//             font-size: 2.25vw;
+//           }
+//         }
+//       }
+
+//       h2 {
+//         font-size: 4vw;
+//       }
+
+//       h4 {
+//         font-size: 2vw;
+//       }
+//     }
+
+//     .accountInfo {
+//       .orders {
+//         big {
+//           font-size: 2vw;
+//         }
+//       }
+
+//       .address {
+//         big {
+//           font-size: 2vw;
+//         }
+
+//         p {
+//           font-size: 2vw;
+//           font-weight: 500;
+//         }
+
+//         .addressList {
+//           p {
+//             font-size: 1.7vw;
+//           }
+//         }
+
+//         div {
+//           margin: 0.75vw 0;
+
+//           button {
+//             padding: 0.5vw 1.5vw;
+//             a {
+//               font-size: 1.75vw;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .account {
+//     gap: 2vw;
+
+//     .accountToolbar {
+//       .logOutBtn {
+//         margin-bottom: 0.5vw;
+
+//         button {
+//           font-size: 2.2vw;
+//           svg {
+//             font-size: 2.5vw;
+//           }
+//         }
+//       }
+
+//       h2 {
+//         font-size: 4vw;
+//       }
+
+//       h4 {
+//         font-size: 2.2vw;
+//       }
+//     }
+
+//     .accountInfo {
+//       flex-direction: column;
+//       gap: 2.5vw;
+
+//       .orders {
+//         min-height: fit-content;
+//         width: auto;
+
+//         big {
+//           font-size: 2vw;
+//         }
+//       }
+
+//       .address {
+//         width: auto;
+//         min-height: fit-content;
+//         big {
+//           font-size: 2vw;
+//         }
+
+//         p {
+//           font-size: 2vw;
+//           font-weight: 500;
+//         }
+
+//         .addressList {
+//           p {
+//             font-size: 1.7vw;
+//           }
+//         }
+
+//         div {
+//           margin: 0.75vw 0;
+
+//           button {
+//             padding: 0.5vw 1.5vw;
+//             a {
+//               font-size: 1.75vw;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 640px) {
+//   .account {
+//     gap: 2vw;
+
+//     .accountToolbar {
+//       .logOutBtn {
+//         margin-bottom: 0.5vw;
+
+//         button {
+//           font-size: 2.2vw;
+//           svg {
+//             font-size: 2.5vw;
+//           }
+//         }
+//       }
+
+//       h2 {
+//         font-size: 4vw;
+//       }
+
+//       h4 {
+//         font-size: 2.2vw;
+//       }
+//     }
+
+//     .accountInfo {
+//       flex-direction: column;
+//       gap: 2.5vw;
+
+//       .orders {
+//         min-height: fit-content;
+//         width: auto;
+
+//         big {
+//           font-size: 2vw;
+//         }
+//       }
+
+//       .address {
+//         width: auto;
+//         min-height: fit-content;
+//         big {
+//           font-size: 2vw;
+//         }
+
+//         p {
+//           font-size: 2.25vw;
+//           font-weight: 500;
+//         }
+
+//         .addressList {
+//           p {
+//             font-size: 2vw;
+//           }
+//         }
+
+//         div {
+//           margin: 0.75vw 0;
+
+//           button {
+//             padding: 0.5vw 1.5vw;
+//             a {
+//               font-size: 2vw;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 475px) {
+//   .account {
+//     gap: 2vw;
+
+//     .accountToolbar {
+//       .logOutBtn {
+//         margin-bottom: 0.5vw;
+
+//         button {
+//           font-size: 2.2vw;
+//           svg {
+//             font-size: 2.5vw;
+//           }
+//         }
+//       }
+
+//       h2 {
+//         font-size: 4vw;
+//       }
+
+//       h4 {
+//         font-size: 2.2vw;
+//       }
+//     }
+
+//     .accountInfo {
+//       flex-direction: column;
+//       gap: 2.5vw;
+
+//       .orders {
+//         min-height: fit-content;
+//         width: auto;
+
+//         big {
+//           font-size: 2.5vw;
+//         }
+//       }
+
+//       .address {
+//         width: auto;
+//         min-height: fit-content;
+//         big {
+//           font-size: 2.5vw;
+//         }
+
+//         p {
+//           font-size: 2.5vw;
+//           font-weight: 500;
+//         }
+
+//         .addressList {
+//           p {
+//             font-size: 2.25vw;
+//           }
+//         }
+
+//         div {
+//           margin: 0.75vw 0;
+
+//           button {
+//             display: flex;
+//             padding: 1.25vw 2.5vw;
+//             a {
+//               font-size: 2.5vw;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 @media (max-width: 1024px) {
   .account {
     .accountToolbar {
-      .logOutBtn {
-        margin-bottom: 0.5vw;
-
-        button {
-          font-size: 1.75vw;
-          svg {
-            font-size: 2.25vw;
-          }
-        }
-      }
-
-      h2 {
-        font-size: 4vw;
-      }
-
-      h4 {
-        font-size: 2vw;
-      }
+      width: clamp(45rem, 95vw, 60rem);
+      margin-inline: auto;
     }
 
     .accountInfo {
-      .orders {
-        big {
-          font-size: 2vw;
-        }
-      }
+      width: clamp(45rem, 95vw, 60rem);
+      margin-inline: auto;
 
       .address {
-        big {
-          font-size: 2vw;
-        }
-
         p {
-          font-size: 2vw;
-          font-weight: 500;
+          font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
         }
 
         .addressList {
           p {
-            font-size: 1.7vw;
+            font-size: clamp(var(--fs-p), 1.75vw, var(--fs-big));
           }
         }
 
         div {
-          margin: 0.75vw 0;
-
           button {
-            padding: 0.5vw 1.5vw;
             a {
-              font-size: 1.75vw;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .account {
-    gap: 2vw;
-
-    .accountToolbar {
-      .logOutBtn {
-        margin-bottom: 0.5vw;
-
-        button {
-          font-size: 2.2vw;
-          svg {
-            font-size: 2.5vw;
-          }
-        }
-      }
-
-      h2 {
-        font-size: 4vw;
-      }
-
-      h4 {
-        font-size: 2.2vw;
-      }
-    }
-
-    .accountInfo {
-      flex-direction: column;
-      gap: 2.5vw;
-
-      .orders {
-        min-height: fit-content;
-        width: auto;
-
-        big {
-          font-size: 2vw;
-        }
-      }
-
-      .address {
-        width: auto;
-        min-height: fit-content;
-        big {
-          font-size: 2vw;
-        }
-
-        p {
-          font-size: 2vw;
-          font-weight: 500;
-        }
-
-        .addressList {
-          p {
-            font-size: 1.7vw;
-          }
-        }
-
-        div {
-          margin: 0.75vw 0;
-
-          button {
-            padding: 0.5vw 1.5vw;
-            a {
-              font-size: 1.75vw;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 640px) {
-  .account {
-    gap: 2vw;
-
-    .accountToolbar {
-      .logOutBtn {
-        margin-bottom: 0.5vw;
-
-        button {
-          font-size: 2.2vw;
-          svg {
-            font-size: 2.5vw;
-          }
-        }
-      }
-
-      h2 {
-        font-size: 4vw;
-      }
-
-      h4 {
-        font-size: 2.2vw;
-      }
-    }
-
-    .accountInfo {
-      flex-direction: column;
-      gap: 2.5vw;
-
-      .orders {
-        min-height: fit-content;
-        width: auto;
-
-        big {
-          font-size: 2vw;
-        }
-      }
-
-      .address {
-        width: auto;
-        min-height: fit-content;
-        big {
-          font-size: 2vw;
-        }
-
-        p {
-          font-size: 2.25vw;
-          font-weight: 500;
-        }
-
-        .addressList {
-          p {
-            font-size: 2vw;
-          }
-        }
-
-        div {
-          margin: 0.75vw 0;
-
-          button {
-            padding: 0.5vw 1.5vw;
-            a {
-              font-size: 2vw;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 475px) {
-  .account {
-    gap: 2vw;
-
-    .accountToolbar {
-      .logOutBtn {
-        margin-bottom: 0.5vw;
-
-        button {
-          font-size: 2.2vw;
-          svg {
-            font-size: 2.5vw;
-          }
-        }
-      }
-
-      h2 {
-        font-size: 4vw;
-      }
-
-      h4 {
-        font-size: 2.2vw;
-      }
-    }
-
-    .accountInfo {
-      flex-direction: column;
-      gap: 2.5vw;
-
-      .orders {
-        min-height: fit-content;
-        width: auto;
-
-        big {
-          font-size: 2.5vw;
-        }
-      }
-
-      .address {
-        width: auto;
-        min-height: fit-content;
-        big {
-          font-size: 2.5vw;
-        }
-
-        p {
-          font-size: 2.5vw;
-          font-weight: 500;
-        }
-
-        .addressList {
-          p {
-            font-size: 2.25vw;
-          }
-        }
-
-        div {
-          margin: 0.75vw 0;
-
-          button {
-            display: flex;
-            padding: 1.25vw 2.5vw;
-            a {
-              font-size: 2.5vw;
+              font-size: clamp(var(--fs-p), 1.75vw, var(--fs-big));
             }
           }
         }

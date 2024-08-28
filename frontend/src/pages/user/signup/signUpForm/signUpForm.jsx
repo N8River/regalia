@@ -84,7 +84,7 @@ function SignUpForm() {
           required
         />
         <button type="submit" className="btn">
-          CREATE ACCOUNT
+          <big>CREATE ACCOUNT</big>
         </button>
       </form>
       <small>

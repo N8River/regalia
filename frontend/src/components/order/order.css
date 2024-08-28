@@ -3,8 +3,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  padding: var(--margin-xxl) 30rem;
+  width: clamp(19rem, 95vw, 62rem);
+  margin: auto;
+  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
 }
 .order .orderHeader {
   display: flex;
@@ -13,9 +14,10 @@
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
+  flex-wrap: wrap;
 }
 .order .orderHeader h4 {
-  font: var(--h4);
+  font-size: clamp(var(--fs-big), 2.5vw, var(--fs-h4));
 }
 .order .orderHeader button {
   display: flex;
@@ -26,6 +28,7 @@
   padding: var(--margin-xxs) var(--margin-xs);
   background-color: var(--white);
   height: 100%;
+  margin-block: auto;
   cursor: pointer;
 }
 .order .orderHeader button p {
@@ -33,11 +36,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  font: var(--p);
+  font-size: clamp(var(--fs-small), 2vw, var(--fs-big));
   height: 100%;
   color: var(--grey30);
 }
-.order .orderHeader button p p {
+.order .orderHeader button p:hover {
   color: var(--grey10);
 }
 .order .orderHeader button svg {
@@ -45,7 +48,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  font: var(--h4);
+  font-size: clamp(var(--fs-big), 3vw, var(--fs-h4));
   padding-left: var(--margin-xxs);
   margin: none;
   height: 100%;
@@ -56,14 +59,15 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  padding-bottom: var(--margin-xs);
+  padding-bottom: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
   border-bottom: 1px solid var(--grey70);
-  gap: var(--margin-xxl);
+  gap: clamp(var(--margin-m), 3vw, var(--margin-xxl));
 }
 .order .orderSubHeader p {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: clamp(var(--fs-small), 2vw, var(--fs-p));
 }
 .order .orderItems {
   display: flex;
@@ -71,10 +75,10 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  margin-top: var(--margin-s);
-  padding-bottom: var(--margin-s);
+  margin-top: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+  padding-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-s));
   border-bottom: 1px solid var(--grey70);
-  gap: var(--margin-xs);
+  gap: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
 }
 .order .orderPaymentAndDelivery {
   display: flex;
@@ -82,7 +86,7 @@
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
-  margin: var(--margin-s) 0rem;
+  margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
 }
 .order .orderPaymentAndDelivery .payment {
   width: 50%;
@@ -90,6 +94,10 @@
 }
 .order .orderPaymentAndDelivery .payment big {
   font-weight: 600;
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+}
+.order .orderPaymentAndDelivery .payment div p {
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
 }
 .order .orderPaymentAndDelivery .delivery {
   display: flex;
@@ -100,9 +108,11 @@
 }
 .order .orderPaymentAndDelivery .delivery big {
   font-weight: 600;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-big));
 }
 .order .orderPaymentAndDelivery .delivery p {
   color: var(--text-color);
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
 }
 .order .helpAndSummary {
   display: flex;
@@ -110,7 +120,7 @@
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
-  margin: var(--margin-s) 0rem;
+  margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
 }
 .order .helpAndSummary .orderHelp {
   display: flex;
@@ -120,8 +130,8 @@
   flex-direction: column;
 }
 .order .helpAndSummary .orderHelp big {
-  margin-bottom: var(--margin-xs);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-big));
 }
 .order .helpAndSummary .orderHelp button {
   display: flex;
@@ -135,8 +145,11 @@
   cursor: pointer;
   color: var(--grey30);
 }
+.order .helpAndSummary .orderHelp button p {
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+}
 .order .helpAndSummary .orderHelp button svg {
-  font-size: 1.25rem;
+  font-size: clamp(var(--fs-big), 4vw, var(--fs-h5));
   margin-right: var(--margin-xxs);
   color: var(--grey50);
   transition: var(--transition-out);
@@ -153,26 +166,35 @@
   flex-direction: column;
 }
 .order .helpAndSummary .orderSummary big {
-  margin-bottom: var(--margin-xs);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
 }
 .order .helpAndSummary .orderSummary .orderSubTotal {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.order .helpAndSummary .orderSummary .orderSubTotal big {
+.order .helpAndSummary .orderSummary .orderSubTotal p {
   font-weight: 400;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
 }
 .order .helpAndSummary .orderSummary .orderDiscount {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+.order .helpAndSummary .orderSummary .orderDiscount p {
+  font-weight: 400;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+}
 .order .helpAndSummary .orderSummary .deliveryCharges {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+.order .helpAndSummary .orderSummary .deliveryCharges p {
+  font-weight: 400;
+  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
 }
 .order .helpAndSummary .orderSummary .orderTotal {
   display: flex;
@@ -181,28 +203,42 @@
   margin-top: var(--margin-xxs);
   margin-bottom: 0rem;
 }
+.order .helpAndSummary .orderSummary .orderTotal big {
+  font-weight: 600;
+  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+}
 
-@media (max-width: 1536px) {
-  .order {
-    padding: var(--margin-xxl) 25vw;
+@media (max-width: 640px) {
+  .order .orderHeader {
+    margin-bottom: var(--margin-xs);
   }
-}
-@media (max-width: 1280px) {
-  .order {
-    padding: var(--margin-xxl) 20vw;
+  .order .orderSubHeader {
+    justify-content: space-between;
   }
-}
-@media (max-width: 1024px) {
-  .order {
-    padding: var(--margin-xxl) 10vw;
+  .order .orderPaymentAndDelivery {
+    flex-direction: column;
   }
-  .order .orderHeader h4 {
-    font-size: 3vw;
+  .order .orderPaymentAndDelivery .payment {
+    width: 100%;
+    padding-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+    border-bottom: 1px solid var(--grey70);
   }
-  .order .orderHeader button p {
-    font-size: 1.7vw;
+  .order .orderPaymentAndDelivery .delivery {
+    width: 100%;
+    padding-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+    border-bottom: 1px solid var(--grey70);
   }
-  .order .orderSubHeader p {
-    font-size: 1.7vw;
+  .order .helpAndSummary {
+    margin: 0;
+    flex-direction: column-reverse;
+  }
+  .order .helpAndSummary .orderSummary {
+    width: 100%;
+    padding-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+    border-bottom: 1px solid var(--grey70);
+  }
+  .order .helpAndSummary .orderHelp {
+    width: 100%;
+    padding-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
   }
 }/*# sourceMappingURL=order.css.map */

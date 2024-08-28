@@ -4,19 +4,20 @@ function UnauthorizedPage() {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    width: "100%",
-    margin: "2rem",
+    width: "fit-content",
+    marginTop: "2rem",
+    marginInline: "auto",
   };
 
   const h1Style = {
     color: "var(--red)",
-    fontSize: "2rem",
+    fontSize: "clamp(var(--fs-h4), 3vw, var(--fs-h2)",
     textAlign: "center",
   };
 
   const pStyle = {
     color: "var(--text-color)",
-    fontSize: "1rem",
+    fontSize: "clamp(var(--fs-small), 3vw, var(--fs-p)",
     textAlign: "center",
   };
 

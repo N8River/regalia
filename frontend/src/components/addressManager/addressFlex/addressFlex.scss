@@ -5,20 +5,25 @@
   flex-direction: column;
 
   height: fit-content;
-  width: 24.5rem;
+  min-width: 30%;
 
   flex: 1;
 
   h2 {
-    padding-bottom: 0rem;
-    margin-bottom: var(--margin-xs);
-    font: var(--h4ui);
+    margin-bottom: clamp(var(--margin-xxs), 3.5vw, var(--margin-xs));
+    font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+
+    font-weight: 600;
 
     border-bottom: 0.5px solid var(--grey70);
   }
 
   .addressInfo {
     width: 100%;
+
+    p {
+      font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+    }
   }
 
   .addressBtns {
@@ -28,16 +33,17 @@
 
     width: 100%;
 
-    gap: var(--margin-m);
+    gap: clamp(var(--margin-s), 3vw, var(--margin-l));
 
-    margin-top: var(--margin-xs);
+    margin-top: clamp(var(--margin-xxs), 3.5vw, var(--margin-xs));
 
     button {
       margin: 0;
+      padding: 0;
       height: fit-content;
 
       p {
-        font: var(--p);
+        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
         color: var(--accent-color);
         transition: var(--transition-out);
       }
@@ -52,101 +58,113 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .addressCard {
-    min-height: 25vw;
-    // justify-content: space-between;
+// @media (max-width: 1024px) {
+//   .addressCard {
+//     min-height: 25vw;
+//     // justify-content: space-between;
 
-    h2 {
-      font-size: 2vw;
-      margin-bottom: 0.75vw;
-    }
+//     h2 {
+//       font-size: 2vw;
+//       margin-bottom: 0.75vw;
+//     }
+
+//     .addressInfo {
+//       margin-bottom: auto;
+
+//       p {
+//         font-size: 1.5vw;
+//       }
+//     }
+
+//     .addressBtns {
+//       margin-top: 1vw;
+//       gap: 1.5vw;
+
+//       button {
+//         padding: 0vw 0.5vw;
+
+//         p {
+//           font-size: 1.6vw;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .addressCard {
+//     min-height: 20vw;
+//     // justify-content: space-between;
+
+//     h2 {
+//       font-size: 2vw;
+//       margin-bottom: 0.75vw;
+//     }
+
+//     .addressInfo {
+//       margin-bottom: auto;
+
+//       p {
+//         font-size: 1.5vw;
+//       }
+//     }
+
+//     .addressBtns {
+//       margin-top: 1vw;
+//       gap: 1.5vw;
+
+//       button {
+//         padding: 0vw 0.5vw;
+
+//         p {
+//           font-size: 1.6vw;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 640px) {
+//   .addressCard {
+//     min-height: 20vw;
+//     min-width: 45vw;
+//     // justify-content: space-between;
+
+//     h2 {
+//       font-size: 2vw;
+//       margin-bottom: 0.75vw;
+//     }
+
+//     .addressInfo {
+//       margin-bottom: auto;
+
+//       p {
+//         font-size: 1.5vw;
+//       }
+//     }
+
+//     .addressBtns {
+//       margin-top: 1vw;
+//       gap: 1.5vw;
+
+//       button {
+//         padding: 0vw 0.5vw;
+
+//         p {
+//           font-size: 1.6vw;
+//         }
+//       }
+//     }
+//   }
+// }
+
+@media (max-width: 782px) {
+  .addressCard {
+    min-width: 0;
+    width: 100%;
 
     .addressInfo {
-      margin-bottom: auto;
-
       p {
-        font-size: 1.5vw;
-      }
-    }
-
-    .addressBtns {
-      margin-top: 1vw;
-      gap: 1.5vw;
-
-      button {
-        padding: 0vw 0.5vw;
-
-        p {
-          font-size: 1.6vw;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .addressCard {
-    min-height: 20vw;
-    // justify-content: space-between;
-
-    h2 {
-      font-size: 2vw;
-      margin-bottom: 0.75vw;
-    }
-
-    .addressInfo {
-      margin-bottom: auto;
-
-      p {
-        font-size: 1.5vw;
-      }
-    }
-
-    .addressBtns {
-      margin-top: 1vw;
-      gap: 1.5vw;
-
-      button {
-        padding: 0vw 0.5vw;
-
-        p {
-          font-size: 1.6vw;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 640px) {
-  .addressCard {
-    min-height: 20vw;
-    min-width: 45vw;
-    // justify-content: space-between;
-
-    h2 {
-      font-size: 2vw;
-      margin-bottom: 0.75vw;
-    }
-
-    .addressInfo {
-      margin-bottom: auto;
-
-      p {
-        font-size: 1.5vw;
-      }
-    }
-
-    .addressBtns {
-      margin-top: 1vw;
-      gap: 1.5vw;
-
-      button {
-        padding: 0vw 0.5vw;
-
-        p {
-          font-size: 1.6vw;
-        }
       }
     }
   }
