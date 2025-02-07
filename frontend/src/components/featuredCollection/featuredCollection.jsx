@@ -7,7 +7,11 @@ function FeaturedCollection() {
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products`)
+    fetch(
+      `${
+        import.meta.env.VITE_BACKEND_URL
+      }/api/products?status=new-arrival&limit=4`
+    )
       .then((response) => response.json())
       .then((data) => {
         const newArrivalsProducts = data.filter((p) => {
@@ -19,7 +23,9 @@ function FeaturedCollection() {
   }, []);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products`)
+    fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/products?status=trending&limit=4`
+    )
       .then((response) => response.json())
       .then((data) => {
         const trendingProducts = data.filter((p) => {
@@ -36,8 +42,14 @@ function FeaturedCollection() {
         <h2 className="h2ui">NEW ARRIVALS</h2>
         <div className="productListContainer">
           {newArrivals.length > 0
-            ? newArrivals.map((p) => {
-                return <ProductCard product={p} key={p._id} />;
+            ? newArrivals.map((p, index) => {
+                return (
+                  <ProductCard
+                    product={p}
+                    key={p._id}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  />
+                );
               })
             : ""}
         </div>

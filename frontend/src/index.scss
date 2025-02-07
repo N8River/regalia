@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+
+@font-face {
+  font-family: CinzelDecorative;
+  src: url("assets/fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: var(--ff);
+  color: var(--black);
+}
+
+:root {
+  /* Font */
+  // --ff: "Poppins";
+  --ff: "Montserrat";
+  --ff-logo: "Pattaya";
+  // --ff2: "Montserrat";
+
+  /* Colors */
+  --primary-color: hsl(204, 100%, 97%);
+  --secondary-color1: hsl(250, 60%, 50%);
+  --secondary-color2: hsl(190, 60%, 50%);
+  --accent-color: hsl(220, 60%, 50%);
+  --background-color: hsl(0, 0%, 100%);
+
+  --text-color: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+
+  --secondary-hover: hsl(204, 60%, 85%);
+
+  --border-gradient: linear-gradient(#d4ad2b, #d42b53);
+  --green: hsl(131, 100%, 35%);
+  --red: hsl(0, 90%, 40%);
+  --grey10: hsl(0, 0%, 10%);
+  --grey20: hsl(0, 0%, 20%);
+  --grey30: hsl(0, 0%, 30%);
+  --grey40: hsl(0, 0%, 40%);
+  --grey50: hsl(0, 0%, 50%);
+  --grey60: hsl(0, 0%, 60%);
+  --grey70: hsl(0, 0%, 70%);
+  --grey80: hsl(0, 0%, 80%);
+  --grey85: hsl(0, 0%, 85%);
+  --grey90: hsl(0, 0%, 90%);
+  --grey95: hsl(0, 0%, 95%);
+  --shadow-primary: hsl(204, 50%, 80%);
+  --shadow-secondary: hsl(204, 10%, 50%);
+
+  --info-text: hsl(207, 100%, 30%);
+  --info-background: hsl(195, 100%, 87%);
+
+  --success-text: hsl(103, 100%, 23%);
+  --success-background: hsl(81, 66%, 85%);
+
+  --warning-text: hsl(36, 100%, 31%);
+  --warning-background: hsl(48, 97%, 85%);
+
+  --error-text: hsl(357, 100%, 42%);
+  --error-background: hsl(0, 100%, 86%);
+
+  /* Margins */
+  --margin-xxs: 0.25rem;
+  --margin-xs: 0.5rem;
+  --margin-s: 0.75rem;
+  --margin-m: 1rem;
+  --margin-l: 1.25rem;
+  --margin-xl: 1.75rem;
+  --margin-xxl: 2.5rem;
+
+  /* Landing page */
+  --h1: bold 3rem/1em var(--ff);
+  --h2: bold 2.5rem/1.2em var(--ff);
+  --h3: bold 2rem/1.2em var(--ff);
+  --h4: bold 1.7rem/1.6em var(--ff);
+  --big: 1.2rem/1.6em var(--ff);
+  --p: 1rem/1.6em var(--ff);
+  --small: 0.83rem/2em var(--ff);
+
+  /* FONT SIZE */
+  --fs-h1: 2.986rem;
+  --fs-h2: 2.488rem;
+  --fs-h3: 2.074rem;
+  --fs-h4: 1.728rem;
+  --fs-h5: 1.44rem;
+  --fs-big: 1.2rem;
+  --fs-p: 1rem;
+  --fs-small: 0.833rem;
+
+  --fs-h1-ui: 2.027rem;
+  --fs-h2-ui: 1.802rem;
+  --fs-h3-ui: 1.602rem;
+  --fs-h4-ui: 1.424rem;
+  --fs-h5-ui: 1.266rem;
+  --fs-big-ui: 1.125rem;
+  --fs-p-ui: 1rem;
+  --fs-small-ui: 0.875rem;
+
+  /* UI */
+  --h1ui: bold 2rem/1.2em var(--ff);
+  --h2ui: bold 1.8rem/1.2em var(--ff);
+  --h3ui: bold 1.6rem/1.2em var(--ff);
+  --h4ui: bold 1.42rem/1.6em var(--ff);
+  --bigui: 1.125rem/1.6em var(--ff);
+  --pui: 1rem/1.6em var(--ff);
+  --smallui: 0.9rem/1.8em var(--ff);
+
+  /* Transition */
+  --transition-in: all ease-in 0.15s;
+  --transition-out: all ease-out 0.1s;
+  --transition-in-slow: all ease-in 0.4s;
+  --transition-out-slow: all ease-out 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  // font-family: var(--ff);
+}
+
+.btn {
+  font: var(--bigui);
+
+  border: 0.5px solid var(--accent-color);
+  padding: var(--margin-xs) var(--margin-l);
+
+  background-color: var(--accent-color);
+  color: var(--white);
+
+  transition: var(--transition-out);
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+.btn a {
+  color: var(--white);
+  font: var(--bigui);
+  font-weight: 500;
+
+  letter-spacing: 1px;
+
+  transition: var(--transition-out);
+}
+
+.btn:hover {
+  background-color: var(--black);
+  border: 0.5px solid var(--black);
+
+  transition: var(--transition-in);
+}
+
+.btn a:hover {
+  transition: var(--transition-in);
+}
+
+.linkBtn {
+  font: var(--pui) !important;
+  border: none;
+  border-bottom: 0.5px solid var(--accent-color);
+  color: var(--accent-color);
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  transition: var(--transition-out);
+}
+
+.linkBtn:hover {
+  border-bottom: 0.5px solid var(--text-color);
+  color: var(--text-color);
+
+  transition: var(--transition-in);
+}
+
+h1 {
+  font: var(--h1);
+}
+h2 {
+  font: var(--h2);
+}
+h3 {
+  font: var(--h3);
+}
+h4 {
+  font: var(--h4);
+}
+big {
+  font: var(--big);
+}
+p {
+  font: var(--p);
+}
+small {
+  font: var(--small);
+}
+
+input {
+  font: var(--p);
+  padding-left: var(--margin-xxs);
+  background-color: var(--white);
+  border: 1px solid var(--grey50);
+  font: var(--p);
+}
+input::placeholder {
+  font: var(--p);
+}
+
+.h1ui {
+  font: var(--h1ui);
+}
+.h2ui {
+  font: var(--h2ui);
+}
+.h3ui {
+  font: var(--h3ui);
+}
+.h4ui {
+  font: var(--h4ui);
+}
+.bigui {
+  font: var(--bigui);
+}
+.pui {
+  font: var(--pui);
+}
+.smallui {
+  font: var(--smallui);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    // transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    // transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    // transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    // transform: translateY(20px);
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease-out forwards;
+}

@@ -64,24 +64,28 @@ function Account() {
       <div className="accountInfo">
         <div className="orders">
           <big>YOUR ORDERS</big>
-          {orders ? (
-            orders.map((order, index) => {
-              return <AccountOrder key={index} order={order} />;
-            })
-          ) : (
-            <>
-              <p>You haven't placed any orders yet.</p>
-              <button className="btn">
-                <a href="/collection/all-products">CONTINUE SHOPPING</a>
-              </button>
-            </>
-          )}
+          <div className="ordersList">
+            {orders ? (
+              orders.map((order, index) => {
+                return <AccountOrder key={index} order={order} />;
+              })
+            ) : (
+              <>
+                <p className="noOrdersMessage">
+                  You haven't placed any orders yet.
+                </p>
+                <button className="btn">
+                  <a href="/collection/all-products">CONTINUE SHOPPING</a>
+                </button>
+              </>
+            )}
+          </div>
         </div>
         <div className="address">
           <big>DEFAULT ADDRESS</big>
           {userInfo ? (
             <>
-              <p>
+              <p className="usernameAddress">
                 {userInfo.firstName} {userInfo.lastName}
               </p>
 
@@ -100,17 +104,18 @@ function Account() {
                     </div>
                   ))
               ) : (
-                <p>You have no addresses saved for now!</p>
+                <p className="noAddressSavedMessage">
+                  You have no addresses saved for now!
+                </p>
               )}
             </>
           ) : (
             ""
           )}
-          <div>
-            <button className="btn">
-              <a href="/account/address">MANAGE</a>
-            </button>
-          </div>
+
+          <button className="btn">
+            <a href="/account/address">MANAGE</a>
+          </button>
         </div>
       </div>
     </div>

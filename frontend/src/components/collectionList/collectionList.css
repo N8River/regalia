@@ -5,17 +5,25 @@
   width: 100%;
   gap: clamp(var(--margin-s), 1vw, var(--margin-xl));
   padding: var(--margin-xl);
-  background-color: var(--secondary-color);
+  background-color: var(--grey90);
 }
 .collectionList .collectionType {
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
+.collectionList .collectionType:hover .circleImg img {
+  transform: scale(1.1);
+  transition: var(--transition-in-slow);
+}
+.collectionList .collectionType:hover h3 {
+  color: var(--black);
+}
 .collectionList .collectionType .circleImg {
   display: flex;
   overflow: hidden; /* Ensures the image stays within the circle */
   border-radius: 50%;
+  aspect-ratio: 1/1;
   box-shadow: 0px 1px 5px var(--shadow-secondary);
 }
 .collectionList .collectionType .circleImg img {
@@ -25,20 +33,21 @@
      object-fit: cover; /* Maintains the aspect ratio and covers the container */
   transition: var(--transition-out-slow);
 }
-.collectionList .collectionType .circleImg img:hover {
-  transform: scale(1.1);
-  transition: var(--transition-in-slow);
-}
 .collectionList .collectionType h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: var(--margin-s);
-  color: var(--text-color);
-  font-size: clamp(0.9rem, 5vw + 1rem, 1.25rem);
-  font-weight: 500;
+  margin-top: var(--margin-m);
+  color: var(--grey20);
+  font-size: var(--fs-h5);
+  font-weight: 600;
 }
 
+@media (max-width: 1280px) {
+  .collectionList .collectionType h3 {
+    margin-top: var(--margin-xs);
+  }
+}
 @media (max-width: 1024px) {
   .collectionList {
     padding: var(--margin-m) var(--margin-s);
@@ -49,11 +58,11 @@
     width: auto;
   }
   .collectionList .collectionType .circleImg {
-    box-shadow: 0px 1px 3px var(--shadow-secondary);
+    box-shadow: 0px 1px 3px var(--grey40);
   }
   .collectionList .collectionType h3 {
     margin-top: var(--margin-xxs);
-    font-size: vaR(--fsp);
+    font-size: var(--fs-big);
   }
 }
 @media (max-width: 768px) {
@@ -64,8 +73,11 @@
     scrollbar-gutter: stable;
   }
   .collectionList .collectionType {
-    min-width: 50vw;
     min-width: clamp(10rem, 50vw, 14rem);
+  }
+  .collectionList .collectionType h3 {
+    margin-top: var(--margin-xs);
+    font-weight: 600;
   }
 }
 @media (max-width: 475px) {
@@ -76,6 +88,6 @@
     scrollbar-gutter: stable;
   }
   .collectionList .collectionType h3 {
-    font-size: var(--fsp);
+    font-size: var(--fs-big-ui);
   }
 }/*# sourceMappingURL=collectionList.css.map */

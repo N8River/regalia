@@ -6,15 +6,15 @@
   border-radius: 0.5rem;
   height: -moz-fit-content;
   height: fit-content;
-  padding: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
-  background-color: var(--secondary-color);
-  margin-top: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
+  padding-block: var(--margin-xs);
+  padding-inline: var(--margin-xs);
+  background-color: var(--grey90);
+  margin-top: var(--margin-xs);
   transition: var(--transition-out);
-  border: 0.5px solid var(--secondary-hover);
   cursor: pointer;
 }
 .accountOrder:hover {
-  background-color: var(--secondary-hover);
+  background-color: var(--grey85);
   transition: var(--transition-in);
 }
 .accountOrder .orderItemImages {
@@ -56,11 +56,16 @@
   text-align: left;
 }
 .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(1) {
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+  font-size: var(--fs-big-ui);
   font-weight: 600;
 }
 .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(2) {
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+  font-size: var(--fs-p);
+  font-weight: 600;
+  color: var(--grey30);
+}
+.accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(3) {
+  font-size: var(--fs-p);
   font-weight: 400;
 }
 .accountOrder .accountOrderDetails div:nth-child(2) {
@@ -73,10 +78,9 @@
 .accountOrder .accountOrderDetails div:nth-child(2) p {
   margin: 0;
   text-align: right;
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
-}
-.accountOrder .accountOrderDetails div:nth-child(2) p {
-  font-weight: 400;
+  font-size: var(--fs-p);
+  font-weight: 600;
+  color: var(--grey20);
 }
 .accountOrder .accountOrderDetails div:nth-child(2) button {
   width: -moz-fit-content;
@@ -103,56 +107,21 @@
 }
 
 @media (max-width: 768px) {
-  .account .accountToolbar {
-    width: clamp(19rem, 96vw, 46rem);
+  .accountOrder .accountOrderDetails {
+    gap: var(--margin-s);
   }
-  .account .accountToolbar h4 {
-    font-size: clamp(var(--fs-p), 2.5vw, var(--fs-h4));
+}
+@media (max-width: 475px) {
+  .accountOrder .accountOrderDetails div:nth-child(1) p {
+    font-size: var(--fs-small-ui);
   }
-  .account .accountInfo {
-    flex-direction: column;
-    width: clamp(19rem, 96vw, 46rem);
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(1) {
+    font-size: var(--fs-small-ui);
   }
-  .account .accountInfo .orders {
-    width: 100%;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
+  .accountOrder .accountOrderDetails div:nth-child(1) p:nth-child(2) {
+    font-size: var(--fs-small-ui);
   }
-  .account .accountInfo .orders big {
-    font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
-  }
-  .account .accountInfo .orders p {
-    margin-block: clamp(var(--margin-xs), 2vw, var(--margin-m));
-    font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
-    font-weight: 600;
-  }
-  .account .accountInfo .orders .btn {
-    background-color: var(--accent-color);
-    padding-block: var(--margin-xxs);
-    padding-inline: clamp(var(--margin-xs), 2vw, var(--margin-m));
-  }
-  .account .accountInfo .orders .btn a {
-    font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
-  }
-  .account .accountInfo .address {
-    width: 100%;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-  }
-  .account .accountInfo .address big {
-    font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
-  }
-  .account .accountInfo .address div {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--margin-m);
-  }
-  .account .accountInfo .address div .btn {
-    background-color: var(--accent-color);
-    padding-block: var(--margin-xxs);
-    padding-inline: clamp(var(--margin-xs), 2vw, var(--margin-m));
-  }
-  .account .accountInfo .address div .btn a {
-    font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
+  .accountOrder .accountOrderDetails div:nth-child(2) p {
+    font-size: var(--fs-small-ui);
   }
 }/*# sourceMappingURL=accountOrder.css.map */

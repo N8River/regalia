@@ -14,8 +14,28 @@
   z-index: 999;
 
   .logoLogoHeader {
-    font-family: "CinzelDecorative";
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    color: var(--text-color);
+    font-size: var(--fs-h1);
+    font-weight: 500;
+    flex: 1;
+
+    letter-spacing: 1px;
+
+    height: 100%;
+
+    font-family: var(--ff-logo);
+  }
+}
+
+@media (max-width: 475px) {
+  .logoHeader {
+    height: 5rem;
+
+    .logoLogoHeader {
+      font-size: var(--fs-h3);
+    }
   }
 }

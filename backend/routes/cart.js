@@ -21,6 +21,12 @@ router.post(
   cartController.updateCart
 );
 
+router.get(
+  "/cart-item-count",
+  Middleware.authMiddleware,
+  cartController.getCartItemCount
+);
+
 router.delete(
   "/:productId",
   Middleware.authMiddleware,

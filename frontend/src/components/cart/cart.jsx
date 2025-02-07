@@ -18,34 +18,8 @@ function Cart() {
       setTotalPrice(cartInfo.totalPrice);
       setCart(cartInfo);
     }
-    console.log(cartInfo);
+    // console.log(cartInfo);
   }, [cartInfo]);
-
-  // const fetchCartInfo = async () => {
-  //   try {
-  //     const token = localStorage.getItem("token");
-  //     const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cart/`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error("Failed to fetch cart info");
-  //     }
-
-  //     const responseData = await response.json();
-  //     setCart(responseData);
-
-  //     console.log(cart);
-  //   } catch (error) {
-  //     console.log("Error fetching cart info:", error);
-  //   }
-  // };
-
-  // fetchCartInfo();
 
   const handleDelete = (productId) => {
     setCart((prevCart) => ({
@@ -67,7 +41,7 @@ function Cart() {
           <p>
             {totalPrice > 499
               ? "You are eligible for free shipping."
-              : `Spend Rs. ${(500 - totalPrice).toFixed(
+              : `Spend ₹ ${(500 - totalPrice).toFixed(
                   2
                 )} to get free shipping on this order!`}
           </p>
@@ -97,12 +71,17 @@ function Cart() {
 
             {cartInfo && cartInfo.items.length > 0 ? (
               <div className="cartDetails">
-                <big>SubTotal: Rs. {totalPrice}</big>
+                <big>Subtotal: ₹ {totalPrice}</big>
                 <small>Apply coupons at checkout!</small>
 
                 <div className="orderNow">
                   {cartInfo && cartInfo.items.length > 0 ? (
-                    <button className="btn">
+                    <button
+                      className="btn"
+                      onClick={() => {
+                        navigate("/checkout");
+                      }}
+                    >
                       <a href="./checkout">PROCEED TO CHECKOUT</a>
                     </button>
                   ) : (
@@ -117,7 +96,6 @@ function Cart() {
         </div>
       ) : (
         <div className="cart empty">
-          <h2>Cart</h2>
           <h5>YOUR CART IS EMPTY</h5>
           <button
             className="btn"

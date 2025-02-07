@@ -20,10 +20,10 @@
   margin-bottom: auto;
 }
 .checkoutItem .checkoutItemNameQuantity p {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
 }
 .checkoutItem .checkoutItemNameQuantity small {
-  font-size: var(--fs-small);
+  font-size: var(--fs-small-ui);
   font-weight: 600;
 }
 .checkoutItem .checkoutItemPrice {
@@ -32,11 +32,17 @@
   margin-bottom: auto;
 }
 .checkoutItem .checkoutItemPrice p {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
+  font-weight: 600;
 }
 
 @media (max-width: 640px) {
   .checkoutItem .checkoutItemImg {
     height: clamp(4rem, 20vw, 6.5rem);
+  }
+}
+@media (max-width: 475px) {
+  .checkoutItem .checkoutItemPrice p {
+    text-wrap: nowrap;
   }
 }/*# sourceMappingURL=checkoutItem.css.map */

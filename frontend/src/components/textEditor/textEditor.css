@@ -1,0 +1,41 @@
+.textEditor {
+  display: flex;
+  flex-direction: column;
+}
+.textEditor .toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--margin-m);
+}
+.textEditor .toolbar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-wrap: nowrap;
+  border: none;
+  background-color: transparent;
+  font-size: var(--fs-small-ui);
+  font-family: var(--ff);
+  color: var(--grey40);
+  padding-inline: var(--margin-xs);
+  padding-block: var(--margin-xxs);
+  gap: var(--margin-xxs);
+  transition: var(--transition-out);
+  border-radius: 0.33rem;
+  cursor: pointer;
+}
+.textEditor .toolbar button svg {
+  font-size: var(--fs-p);
+}
+.textEditor .toolbar button:hover {
+  background-color: var(--grey85);
+  color: var(--black);
+  transition: var(--transition-in);
+}
+.textEditor .toolbar button.active {
+  background-color: var(--grey85);
+  color: var(--black);
+  transition: var(--transition-in);
+}/*# sourceMappingURL=textEditor.css.map */

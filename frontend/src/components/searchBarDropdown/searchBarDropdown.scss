@@ -1,0 +1,156 @@
+.searchBarDropdown {
+  position: absolute;
+  top: 8rem;
+  left: 0;
+
+  width: 100%;
+
+  background-color: var(--grey90);
+
+  padding: var(--margin-m) var(--margin-l);
+  padding-bottom: var(--margin-xxl);
+
+  display: flex;
+  justify-content: space-between;
+
+  height: fit-content;
+  transform: translateY(-100%); /* Initially hidden */
+  transition: var(--transition-out);
+
+  z-index: 999; /* Make sure it's above other content */
+  opacity: 0;
+
+  &.show {
+    transition: var(--transition-in);
+    display: flex;
+    transform: translateY(0); /* Slide down */
+    box-shadow: 0px 1px 2px var(--shadow-secondary);
+    padding-bottom: var(--margin-m);
+    opacity: 1;
+  }
+
+  &.sticky {
+    position: fixed;
+    top: 6rem; /* Reset top to align with sticky header */
+  }
+
+  .searchForm {
+    display: flex;
+    width: 100%;
+
+    height: 2rem;
+
+    .searchInput {
+      width: 50%;
+      height: 2rem;
+      padding-inline: var(--margin-xs);
+
+      font-family: var(--ff);
+      font-weight: 400;
+
+      border: 1px solid var(--grey70);
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        font-family: var(--ff);
+        font-weight: 400;
+      }
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      margin-left: var(--margin-xs);
+
+      height: 100%;
+
+      cursor: pointer;
+
+      svg {
+        font-size: var(--fs-h4);
+        color: var(--grey30);
+      }
+    }
+  }
+
+  .closeSearchBarDropdown {
+    width: fit-content;
+    height: 2rem;
+
+    button {
+      border: none;
+      background-color: transparent;
+      height: 100%;
+
+      display: flex;
+      cursor: pointer;
+
+      svg {
+        font-size: var(--fs-h4);
+        color: var(--grey30);
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .searchBarDropdown {
+    top: 8rem;
+
+    &.sticky {
+      top: 6rem;
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .searchBarDropdown {
+    top: 7rem;
+    padding: var(--margin-s);
+
+    .searchForm {
+      display: flex;
+      align-items: center;
+
+      .searchInput {
+        font-size: var(--fs-small-ui);
+        padding-block: var(--margin-xxs);
+        height: fit-content;
+
+        &::placeholder {
+          font-size: var(--fs-small-ui);
+        }
+      }
+
+      button {
+        svg {
+          font-size: var(--fs-h5);
+        }
+      }
+    }
+
+    .closeSearchBarDropdown {
+      button {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        svg {
+          font-size: var(--fs-h5);
+        }
+      }
+    }
+
+    &.show {
+      padding-bottom: var(--margin-s);
+    }
+
+    &.sticky {
+      top: 5rem;
+    }
+  }
+}

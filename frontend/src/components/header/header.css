@@ -1,15 +1,3 @@
-.headerLogo {
-  display: flex;
-  align-items: center;
-  font: var(--h1);
-  font-size: var(--fs-h1);
-  flex: 1;
-  color: var(--text-color);
-  letter-spacing: 1px;
-  height: 100%;
-  font-family: "CinzelDecorative";
-}
-
 .no-scroll {
   overflow: hidden; /* Prevents scrolling */
 }
@@ -52,12 +40,22 @@
   flex: 1;
   height: 100%;
 }
+.header .headerLeft .headerLogo {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  flex: 1;
+  letter-spacing: 1px;
+  height: 100%;
+  font-family: var(--ff-logo);
+}
 .header .headerMiddle {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: var(--margin-xs);
   height: 100%;
   flex: 1;
 }
@@ -76,6 +74,23 @@
 .header .headerRight .headerBtn {
   margin: 0 var(--margin-s);
   transition: all 150ms ease-in-out;
+  position: relative;
+}
+.header .headerRight .headerBtn .cartCountIndicator {
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-25%) translateX(25%);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  border-radius: 50%;
+  height: 1rem;
+  width: 1rem;
 }
 .header .headerRight .headerBtn a {
   display: flex;
@@ -94,82 +109,6 @@
 .header .headerRight .headerBtn .searchBtn svg {
   font: var(--h2ui);
   font-weight: 200;
-}
-
-.searchBarDropdown {
-  position: absolute;
-  top: 8rem;
-  left: 0;
-  width: 100%;
-  background-color: var(--primary-color);
-  padding: var(--margin-m) var(--margin-l);
-  padding-bottom: var(--margin-xxl);
-  display: flex;
-  justify-content: space-between;
-  height: -moz-fit-content;
-  height: fit-content;
-  transform: translateY(-100%); /* Initially hidden */
-  transition: var(--transition-out);
-  z-index: 999; /* Make sure it's above other content */
-  opacity: 0;
-}
-.searchBarDropdown.show {
-  transition: var(--transition-in);
-  display: flex;
-  transform: translateY(0); /* Slide down */
-  box-shadow: 0px 1px 2px var(--shadow-secondary);
-  padding-bottom: var(--margin-m);
-  opacity: 1;
-}
-.searchBarDropdown.sticky {
-  position: fixed;
-  top: 6rem; /* Reset top to align with sticky header */
-}
-.searchBarDropdown .searchForm {
-  display: flex;
-  width: 100%;
-  height: 2rem;
-}
-.searchBarDropdown .searchForm .searchInput {
-  width: 50%;
-  height: 2rem;
-  padding-left: var(--margin-xs);
-  font-family: var(--ff);
-  font-weight: 400;
-}
-.searchBarDropdown .searchForm .searchInput::-moz-placeholder {
-  font-family: var(--ff);
-  font-weight: 400;
-}
-.searchBarDropdown .searchForm .searchInput::placeholder {
-  font-family: var(--ff);
-  font-weight: 400;
-}
-.searchBarDropdown .searchForm button {
-  border: none;
-  background-color: transparent;
-  margin-left: var(--margin-xs);
-  height: 100%;
-  cursor: pointer;
-}
-.searchBarDropdown .searchForm button svg {
-  font-size: 1.6rem;
-}
-.searchBarDropdown .closeSearchBarDropdown {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 2rem;
-}
-.searchBarDropdown .closeSearchBarDropdown button {
-  border: none;
-  background-color: transparent;
-  height: 100%;
-  display: flex;
-  cursor: pointer;
-}
-.searchBarDropdown .closeSearchBarDropdown button svg {
-  font-size: 1.6rem;
-  height: 100%;
 }
 
 .overlay {
@@ -199,7 +138,7 @@
 }
 @media (max-width: 1024px) {
   .header {
-    padding: clamp(var(--margin-xs), 1vw + 0.5rem, var(--margin-s)) clamp(var(--margin-m), 1vw + 0.5rem, var(--margin-l));
+    padding-inline: var(--margin-xl);
   }
   .header div {
     width: 33%;
@@ -222,7 +161,7 @@
     padding: 0 var(--margin-xs);
   }
   .header .hamburgerMenu .menu-toggle svg {
-    font-size: clamp(var(--fs-h5), 3vw + 0.5rem, var(--fs-h4));
+    font-size: var(--fs-h2-ui);
     transition: var(--transition-in);
   }
   .header .headerMenu {
@@ -239,6 +178,10 @@
     min-width: 40vw;
     padding: var(--margin-m);
     z-index: 999;
+  }
+  .header .headerMenu.open {
+    transform: translateX(0);
+    box-shadow: 0px 1px 7.5px var(--grey20);
   }
   .header .headerMenu .menu-toggle-container {
     width: 100%;
@@ -259,9 +202,9 @@
     text-align: left;
     width: 100%;
     padding-bottom: var(--margin-xxs);
-    margin-top: var(--margin-xs);
+    margin-top: var(--margin-m);
     font-weight: 500;
-    border-bottom: 0.5px solid var(--grey70);
+    border-bottom: 1px solid var(--grey80);
     transition: all 150ms ease-in-out;
   }
   .header .headerMenu .headerBtn a {
@@ -274,42 +217,30 @@
   .header .headerMenu .headerBtn.lastChild a {
     height: -moz-fit-content;
     height: fit-content;
-  }
-  .header .headerMenu.open {
-    transform: translateX(0);
-    box-shadow: 0px 1px 7.5px var(--grey30);
+    display: flex;
+    align-items: center;
+    gap: var(--margin-xs);
+    font-size: var(--fs-p);
   }
   .header .headerMiddle {
     display: none;
   }
   .header .headerRight {
     justify-content: flex-end;
+    gap: var(--margin-l);
+    padding-right: var(--margin-xs);
   }
   .header .headerRight .headerBtn {
     width: -moz-fit-content;
     width: fit-content;
     margin: 0;
-    margin-right: clamp(var(--margin-xs), 2vw + 0.5rem, var(--margin-s));
-  }
-  .header .headerRight .headerBtn a svg {
-    font-size: clamp(var(--fs-h5), 3vw + 0.5rem, var(--fs-h4));
   }
   .header .headerRight .headerBtn .searchBtn {
     width: 100%;
   }
-  .header .headerRight .headerBtn .searchBtn svg {
-    font-size: clamp(var(--fs-h5), 3vw + 0.5rem, var(--fs-h4));
-  }
   .header .headerLeft .headerLogo {
     justify-content: center;
-    font-size: var(--fs-h1);
-    font-size: clamp(var(--fs-h4), 3vw + 1rem, var(--fs-h2));
-  }
-  .searchBarDropdown {
-    top: 8rem;
-  }
-  .searchBarDropdown.sticky {
-    top: 6rem;
+    font-size: var(--fs-h2);
   }
 }
 @media (max-width: 640px) {
@@ -324,13 +255,17 @@
   .header {
     justify-content: space-between;
     min-height: 5rem;
+    padding-inline: var(--margin-m);
   }
   .header div {
     width: -moz-fit-content;
     width: fit-content;
   }
   .header .hamburgerMenu {
-    min-width: 4.5rem;
+    min-width: 6rem;
+  }
+  .header .hamburgerMenu .menu-toggle svg {
+    font-size: var(--fs-h3-ui);
   }
   .header .headerMenu {
     min-width: 80vw;
@@ -340,44 +275,18 @@
     flex-grow: 0;
   }
   .header .headerLeft .headerLogo {
-    font-size: clamp(var(--fs-h4), 3vw + 1rem, var(--fs-h2));
+    font-size: var(--fs-h3);
   }
   .header .headerRight {
-    min-width: 4.5rem;
+    min-width: 6rem;
     flex-shrink: 1;
     flex-grow: 0;
+    gap: var(--margin-m);
   }
-  .header .headerRight .headerBtn {
-    margin-right: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
+  .header .headerRight .headerBtn a svg {
+    font-size: var(--fs-h3-ui);
   }
-  .searchBarDropdown {
-    top: 7rem;
-    padding: var(--margin-s);
-  }
-  .searchBarDropdown .searchForm {
-    display: flex;
-    align-items: center;
-  }
-  .searchBarDropdown .searchForm .searchInput {
-    font-size: var(--fsp);
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .searchBarDropdown .searchForm svg {
-    font-size: var(--fsbig) !important;
-  }
-  .searchBarDropdown .closeSearchBarDropdown button {
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  .searchBarDropdown .closeSearchBarDropdown button svg {
-    font-size: var(--fsbig);
-  }
-  .searchBarDropdown.show {
-    padding-bottom: var(--margin-s);
-  }
-  .searchBarDropdown.sticky {
-    top: 5rem;
+  .header .headerRight .headerBtn .searchBtn svg {
+    font-size: var(--fs-h3-ui);
   }
 }/*# sourceMappingURL=header.css.map */

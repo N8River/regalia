@@ -10,6 +10,22 @@
   z-index: 999;
 }
 .logoHeader .logoLogoHeader {
-  font-family: "CinzelDecorative";
-  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  flex: 1;
+  letter-spacing: 1px;
+  height: 100%;
+  font-family: var(--ff-logo);
+}
+
+@media (max-width: 475px) {
+  .logoHeader {
+    height: 5rem;
+  }
+  .logoHeader .logoLogoHeader {
+    font-size: var(--fs-h3);
+  }
 }/*# sourceMappingURL=logoHeader.css.map */

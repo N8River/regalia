@@ -1,0 +1,168 @@
+.addProductModal {
+  position: absolute;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px var(--grey30);
+  z-index: 1001;
+}
+.addProductModal .addProductModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-inline: var(--margin-s);
+  padding-block: var(--margin-xs);
+  padding-top: var(--margin-xs);
+  border-bottom: 1px solid var(--grey70);
+}
+.addProductModal .addProductModalHeader .addProductBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--white);
+  font-family: var(--ff);
+  font-weight: 600;
+  padding-block: var(--margin-xs);
+  padding-inline: var(--margin-s);
+  border-radius: 0.33rem;
+  cursor: pointer;
+  transition: var(--transition-out);
+}
+.addProductModal .addProductModalHeader .addProductBtn:hover {
+  background-color: var(--black);
+  transition: var(--transition-in);
+}
+.addProductModal .addProductModalHeader .addProductModalClose-button {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  font-size: var(--fs-h4);
+  cursor: pointer;
+}
+.addProductModal .addProductModalForm {
+  padding-inline: var(--margin-l);
+  padding-block: var(--margin-s);
+  padding-bottom: var(--margin-m);
+  display: flex;
+  flex-direction: row;
+  gap: var(--margin-xs);
+}
+.addProductModal .addProductModalForm .addImageModalPreview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  background: linear-gradient(var(--background-color), var(--background-color)) padding-box, linear-gradient(0deg, var(--secondary-color1) 0%, var(--accent-color) 50%, var(--secondary-color2) 100%) border-box;
+  border: solid 2px transparent;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.addProductModal .addProductModalForm .addImageModalPreview svg {
+  font-size: 7.5rem;
+  color: var(--grey40);
+}
+.addProductModal .addProductModalForm .addImageModalPreview img {
+  height: 100%;
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-xxs);
+  width: 30rem;
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields input {
+  border: 1px solid var(--grey50);
+  font-size: var(--fs-p);
+  color: var(--black);
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-xs);
+  font-size: var(--fs-small-ui);
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields input:focus {
+  outline: none;
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields input::-moz-placeholder {
+  font-size: var(--fs-small-ui);
+  color: var(--grey10);
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields input::placeholder {
+  font-size: var(--fs-small-ui);
+  color: var(--grey10);
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields select {
+  border: 1px solid var(--grey50);
+  font-size: var(--fs-p);
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-xxs);
+  font-size: var(--fs-small-ui);
+  font-family: var(--ff);
+  color: var(--grey10);
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields .textEditor {
+  border: 1px solid var(--grey50);
+  height: 100%;
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields .textEditor .toolbar {
+  border-bottom: 1px solid var(--grey70);
+  padding: var(--margin-xxs);
+  gap: var(--margin-xs);
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields .textEditor .toolbar button svg {
+  font-size: var(--fs-big-ui);
+}
+.addProductModal .addProductModalForm .addProductModalFormInputFields .textEditor .DraftEditor-root .DraftEditor-editorContainer {
+  border: none;
+  padding-inline: var(--margin-xs);
+  padding-top: var(--margin-xxs);
+  text-wrap: wrap;
+  word-wrap: break-word;
+}
+
+.addProductModal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+@media (max-width: 1024px) {
+  .addProductModal {
+    --component-width: 22rem;
+  }
+  .addProductModal .addProductModalForm .addImageModalPreview {
+    width: var(--component-width);
+  }
+  .addProductModal .addProductModalForm .addProductModalFormInputFields {
+    width: var(--component-width);
+  }
+}
+@media (max-width: 768px) {
+  .addProductModal {
+    --component-width: clamp(18rem, 100vw, 22rem);
+  }
+  .addProductModal .addProductModalForm {
+    flex-direction: column;
+  }
+  .addProductModal .addProductModalForm .addImageModalPreview {
+    width: var(--component-width);
+  }
+  .addProductModal .addProductModalForm .addProductModalFormInputFields {
+    width: var(--component-width);
+  }
+  .addProductModal .addProductModalForm .addProductModalFormInputFields .textEditor .toolbar button span {
+    display: none;
+  }
+  .addProductModal .addProductModalForm .addProductModalFormInputFields .textEditor .DraftEditor-editorContainer {
+    min-height: 3rem;
+  }
+}/*# sourceMappingURL=addProductModal.css.map */

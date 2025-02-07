@@ -28,11 +28,11 @@
     margin-bottom: auto;
 
     p {
-      font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+      font-size: var(--fs-p);
     }
 
     small {
-      font-size: var(--fs-small);
+      font-size: var(--fs-small-ui);
       font-weight: 600;
     }
   }
@@ -43,7 +43,8 @@
     margin-bottom: auto;
 
     p {
-      font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+      font-size: var(--fs-p);
+      font-weight: 600;
     }
   }
 }
@@ -52,6 +53,16 @@
   .checkoutItem {
     .checkoutItemImg {
       height: clamp(4rem, 20vw, 6.5rem);
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .checkoutItem {
+    .checkoutItemPrice {
+      p {
+        text-wrap: nowrap;
+      }
     }
   }
 }

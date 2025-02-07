@@ -12,10 +12,13 @@ import { FaStar } from "react-icons/fa6";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 
 import { useToast } from "../../context/ToastContext";
+import { useCart } from "../../context/CartContext";
 
 function ProductDetails({ product }) {
   const navigate = useNavigate();
   const addToast = useToast();
+
+  const { updateCartCount } = useCart();
 
   const productId = product._id;
   const token = localStorage.getItem("token");
@@ -52,9 +55,11 @@ function ProductDetails({ product }) {
       }
 
       const responseData = await response.json();
-      console.log(responseData);
+      // console.log(responseData);
 
       addToast("Product added to cart successfully!", "success");
+
+      await updateCartCount();
     } catch (error) {
       console.log(error);
 
@@ -87,7 +92,7 @@ function ProductDetails({ product }) {
           <FaRegStarHalfStroke />
           <p>4 Reviews</p>
         </big>
-        <h4>Rs. {product.price}</h4>
+        <h4>₹ {product.price}</h4>
         <div className="infoDisplay">
           <div>
             <MdLocalShipping /> <p>Free Shipping above ₹499</p>
@@ -100,9 +105,13 @@ function ProductDetails({ product }) {
           </div>
         </div>
         <div className="quantityModifier">
-          <button onClick={decreaseQuantity}>-</button>
+          <button className="decreaseQuantity" onClick={decreaseQuantity}>
+            -
+          </button>
           <p>{quantity}</p>
-          <button onClick={increaseQuantity}>+</button>
+          <button className="increaseQuantity" onClick={increaseQuantity}>
+            +
+          </button>
         </div>
         <div className="inStock">
           <p>IN STOCK</p>

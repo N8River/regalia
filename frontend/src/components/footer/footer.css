@@ -3,8 +3,9 @@
   justify-content: space-between;
   flex-direction: row;
   padding: var(--margin-l) var(--margin-xl);
+  padding-bottom: var(--margin-xxl);
   background-color: var(--white);
-  gap: var(--margin-m);
+  gap: var(--margin-xxl);
 }
 .footer .about {
   display: flex;
@@ -16,26 +17,27 @@
 .footer .about h4 {
   width: 100%;
   text-align: left;
-  color: var(--text-color);
+  color: var(--grey10);
+  font-size: var(--fs-h5);
 }
 .footer .about p {
-  color: var(--text-color);
+  color: var(--grey10);
 }
 .footer .about .socials {
   width: 100%;
-  margin-top: var(--margin-xxs);
+  margin-top: var(--margin-xs);
   height: 2rem;
   display: flex;
   justify-content: start;
   align-items: center;
 }
 .footer .about .socials a {
-  margin-right: var(--margin-xs);
+  margin-right: var(--margin-s);
   height: 100%;
   display: flex;
 }
 .footer .about .socials a svg {
-  font-size: 1.5rem;
+  font-size: var(--fs-h3-ui);
   height: 100%;
   color: var(--accent-color);
   transition: var(--transition-out);
@@ -48,19 +50,19 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  flex: 1;
 }
 .footer .help h4 {
   width: 100%;
   text-align: left;
-  color: var(--text-color);
+  color: var(--grey10);
+  font-size: var(--fs-h5);
 }
 .footer .help p {
   width: -moz-fit-content;
   width: fit-content;
   text-align: left;
   color: var(--accent-color);
-  margin: var(--margin-xxs) 0rem;
+  margin-bottom: var(--margin-xs);
   border-bottom: 1px solid var(--accent-color);
   cursor: pointer;
   transition: var(--transition-out);
@@ -79,10 +81,11 @@
 .footer .newsletter h4 {
   width: 100%;
   text-align: left;
-  color: var(--text-color);
+  color: var(--grey10);
+  font-size: var(--fs-h5);
 }
 .footer .newsletter p {
-  color: var(--text-color);
+  color: var(--grey10);
 }
 .footer .newsletter form {
   width: 100%;
@@ -92,13 +95,16 @@
   margin-top: var(--margin-xxs);
 }
 .footer .newsletter form input {
-  height: 2rem;
   width: 100%;
   margin-bottom: 0.5rem;
-  border: 1px solid var(--grey50);
-  padding-left: var(--margin-xs);
-  font-size: var(--p);
+  border: 1px solid var(--grey60);
+  padding-inline: var(--margin-xs);
+  padding-block: var(--margin-xxs);
+  font-size: var(--fs-p);
   font-family: var(--ff);
+}
+.footer .newsletter form input:focus {
+  outline: none;
 }
 .footer .newsletter form input::-moz-placeholder {
   font-size: var(--p);
@@ -108,69 +114,25 @@
   font-size: var(--p);
   font-family: var(--ff);
 }
-.footer .newsletter form div {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-.footer .newsletter form div button {
+.footer .newsletter form button {
   height: 2.5rem;
   width: 50%;
+  min-width: 12.5rem;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.footer .newsletter form div button p {
-  font: var(--bigui);
+.footer .newsletter form button p {
+  font-size: var(--fs-p);
   color: var(--white);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @media (max-width: 1024px) {
   .footer {
-    padding: clamp(var(--margin-m), 2vw + 0.5rem, var(--margin-l));
-    gap: clamp(var(--margin-s), 2vw + 0.5rem, var(--margin-m));
-  }
-  .footer .about h4 {
-    margin-bottom: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
-    font-size: clamp(var(--fs-h5-ui), 1.5vw + 0.5rem, var(--fs-h4-ui));
-  }
-  .footer .about p {
-    font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
-  }
-  .footer .about .socials a {
-    margin-right: var(--margin-xs);
-  }
-  .footer .about .socials a svg {
-    font-size: clamp(var(--fs-big-ui), 1.5vw + 0.5rem, var(--fs-h4-ui));
-  }
-  .footer .help {
-    width: -moz-fit-content;
-    width: fit-content;
-  }
-  .footer .help h4 {
-    margin-bottom: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
-    font-size: clamp(var(--fs-h5-ui), 1.5vw + 0.5rem, var(--fs-h4-ui));
-  }
-  .footer .help p {
-    font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
-  }
-  .footer .newsletter h4 {
-    margin-bottom: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
-    font-size: clamp(var(--fs-h5-ui), 1.5vw + 0.5rem, var(--fs-h4-ui));
-  }
-  .footer .newsletter p {
-    font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
-  }
-  .footer .newsletter form input {
-    margin-bottom: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
-  }
-  .footer .newsletter form div button {
-    width: 100%;
-    padding: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
-  }
-  .footer .newsletter form div button p {
-    font-size: clamp(var(--fs-big-ui), 1.5vw + 0.5rem, var(--fs-h5-ui));
+    padding: var(--margin-l);
+    gap: var(--margin-xl);
   }
 }
 @media (max-width: 768px) {
@@ -188,13 +150,45 @@
   .footer .help h4 {
     margin-bottom: 0;
   }
-  .footer .newsletter form div {
-    justify-content: center;
+}
+@media (max-width: 475px) {
+  .footer {
+    gap: var(--margin-s);
   }
-  .footer .newsletter form div button {
-    width: 62.5%;
+  .footer .about h4 {
+    font-size: var(--fs-big-ui);
   }
-  .footer .newsletter form div button p {
-    text-align: center;
+  .footer .about p {
+    font-size: var(--fs-small-ui);
+  }
+  .footer .about .socials {
+    margin-top: var(--margin-xxs);
+  }
+  .footer .about .socials a svg {
+    font-size: var(--fs-h5-ui);
+  }
+  .footer .help h4 {
+    font-size: var(--fs-big-ui);
+  }
+  .footer .help p {
+    font-size: var(--fs-small-ui);
+  }
+  .footer .newsletter h4 {
+    font-size: var(--fs-big-ui);
+  }
+  .footer .newsletter p {
+    font-size: var(--fs-small-ui);
+  }
+  .footer .newsletter form input {
+    font-size: var(--fs-small-ui);
+  }
+  .footer .newsletter form input::-moz-placeholder {
+    font-size: var(--fs-small-ui);
+  }
+  .footer .newsletter form input::placeholder {
+    font-size: var(--fs-small-ui);
+  }
+  .footer .newsletter form button p {
+    font-size: var(--fs-small-ui);
   }
 }/*# sourceMappingURL=footer.css.map */

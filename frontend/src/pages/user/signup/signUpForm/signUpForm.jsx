@@ -88,7 +88,14 @@ function SignUpForm() {
         </button>
       </form>
       <small>
-        Already have an account? <a href="/account/login">Login</a>
+        Already have an account?{" "}
+        <p
+          onClick={() => {
+            navigate("/account/login");
+          }}
+        >
+          Login
+        </p>
       </small>
     </div>
   );

@@ -1,19 +1,34 @@
+import { useLocation } from "react-router-dom";
 import AdminHeader from "../../components/adminHeader/adminHeader";
 import "./admin.css";
+import Dashboard from "./dashboard/dashboard";
+import Orders from "./orders/orders";
+import Users from "./users/users";
+import Products from "./products/products";
 
 function adminPage() {
-  let isAuth = true;
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const section = queryParams.get("section") || "dashboard"; // Default to 'dashboard'
+
+  // Render the correct section based on the query param
+  const renderSection = () => {
+    switch (section) {
+      case "orders":
+        return <Orders />;
+      case "users":
+        return <Users />;
+      case "products":
+        return <Products />;
+      default:
+        return <Dashboard />;
+    }
+  };
+
   return (
     <>
-      {isAuth || (
-        <form action="">
-          <h1>Enter admin username:</h1>
-          <input type="text" name="adminUsername" />
-          <h1>Enter admin password:</h1>
-          <input type="text" name="adminPassword" />
-        </form>
-      )}
       <AdminHeader />
+      <div className="adminSectionWrapper">{renderSection()}</div>
     </>
   );
 }

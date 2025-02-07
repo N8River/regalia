@@ -38,11 +38,10 @@ function Footer() {
         <p>Sign up to our newsletter to receive exclusive offers.</p>
         <form action="">
           <input type="email" placeholder="Enter your e-email" />
-          <div>
-            <button type="submit" className="btn">
-              <p>SUBSCRIBE</p>
-            </button>
-          </div>
+
+          <button type="submit" className="btn">
+            <p>SUBSCRIBE</p>
+          </button>
         </form>
       </div>
     </div>

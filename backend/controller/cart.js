@@ -3,15 +3,23 @@ const CartItem = require("../model/cartItem");
 const Product = require("../model/product");
 const User = require("../model/user");
 
+const calculateCartTotalPrice = (cart) => {
+  let totalPrice = 0;
+  cart.items.forEach((item) => {
+    totalPrice += item.productId.price * item.quantity;
+  });
+  return totalPrice;
+};
+
 exports.addToCart = async (req, res, next) => {
   try {
     const { productId, quantity } = req.body;
     const userId = req.user.userId;
-    console.log("🔴 User Id:", userId);
+    // console.log("🔴 User Id:", userId);
 
     // Find the cart for the user
     let cart = await Cart.findOne({ userId }).populate("items");
-    console.log("🔴 Cart:", cart);
+    // console.log("🔴 Cart:", cart);
 
     // If no cart exists, create a new one
     if (!cart) {
@@ -36,7 +44,16 @@ exports.addToCart = async (req, res, next) => {
 
     // Update the total price in the cart
     const product = await Product.findById(productId);
-    cart.totalPrice += product.price * quantity;
+
+    await cart.populate({
+      path: "items",
+      populate: {
+        path: "productId",
+        model: "Product",
+      },
+    });
+
+    cart.totalPrice = calculateCartTotalPrice(cart);
 
     // Save the cart
     await cart.save();
@@ -100,6 +117,7 @@ exports.updateCart = async (req, res, next) => {
     }
 
     cartItem.quantity = quantity;
+    await cartItem.save();
 
     const product = await Product.findById(productId);
     // console.log("🔴 Product:", product);
@@ -110,13 +128,21 @@ exports.updateCart = async (req, res, next) => {
     cart.items.forEach((i) => {
       cartItemPrice += i.productId.price * i.quantity;
     });
-    cart.totalPrice = cartItemPrice;
+
+    await cart.populate({
+      path: "items",
+      populate: {
+        path: "productId",
+        model: "Product",
+      },
+    });
+
+    cart.totalPrice = calculateCartTotalPrice(cart);
+
     // console.log("🔴 Cart Item Price:", cartItemPrice);
 
-    // Mark the cartItem as modified
     cart.markModified("items");
 
-    // Save the modified cart item directly
     await CartItem.findByIdAndUpdate(cartItem._id, { quantity });
 
     await cart.save();
@@ -131,10 +157,10 @@ exports.updateCart = async (req, res, next) => {
 exports.deleteItem = async (req, res, next) => {
   try {
     const userId = req.user.userId;
-    console.log("🔴 USER ID:", userId);
+    // console.log("🔴 USER ID:", userId);
 
     const { productId } = req.params;
-    console.log("🔴 PRODUCT ID:", productId);
+    // console.log("🔴 PRODUCT ID:", productId);
 
     const cart = await Cart.findOne({ userId }).populate({
       path: "items",
@@ -144,19 +170,19 @@ exports.deleteItem = async (req, res, next) => {
       },
     });
 
-    console.log("🔴 CART:", cart.items[0]);
+    // console.log("🔴 CART:", cart.items[0]);
 
-    console.log(
-      "🔴 Boolean:",
-      cart.items[0].productId._id.toString() === productId.toString()
-    );
+    // console.log(
+    //   "🔴 Boolean:",
+    //   cart.items[0].productId._id.toString() === productId.toString()
+    // );
 
-    console.log(
-      "🔴:",
-      cart.items.find(
-        (i) => i.productId._id.toString() === productId.toString()
-      )
-    );
+    // console.log(
+    //   "🔴:",
+    //   cart.items.find(
+    //     (i) => i.productId._id.toString() === productId.toString()
+    //   )
+    // );
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
@@ -165,7 +191,7 @@ exports.deleteItem = async (req, res, next) => {
     const cartItemToDelete = cart.items.find(
       (i) => i.productId._id.toString() === productId.toString()
     );
-    console.log("🔴 CART ITEM TO DELETE:", cartItemToDelete);
+    // console.log("🔴 CART ITEM TO DELETE:", cartItemToDelete);
 
     if (!cartItemToDelete) {
       return res.status(404).json({ message: "Item not found in cart" });
@@ -178,10 +204,42 @@ exports.deleteItem = async (req, res, next) => {
     // Remove the cart item from the CartItem collection
     await CartItem.findByIdAndDelete(cartItemToDelete._id);
 
+    await cart.populate({
+      path: "items",
+      populate: {
+        path: "productId",
+        model: "Product",
+      },
+    });
+
+    cart.totalPrice = calculateCartTotalPrice(cart);
+
     await cart.save();
 
     res.status(200).json({ message: "Cart item deleted successfully" });
   } catch (error) {
     console.log("Failed to delete item from the cart", error);
+  }
+};
+
+exports.getCartItemCount = async (req, res, next) => {
+  const userId = req.user.userId;
+
+  try {
+    const cart = await Cart.findOne({ userId }).populate("items");
+
+    if (!cart) {
+      return res.status(200).json({ itemCount: 0 }); // Instead of 404, return 0
+    }
+
+    const totalItemCount = cart.items.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+
+    res.status(200).json({ itemCount: totalItemCount });
+  } catch (error) {
+    console.error("Error fetching cart:", error);
+    res.status(500).json({ message: "Failed to fetch cart item count" });
   }
 };

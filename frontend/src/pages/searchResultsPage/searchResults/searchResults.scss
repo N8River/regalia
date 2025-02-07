@@ -1,6 +1,6 @@
 .searchResultsContainer {
   display: flex;
-  // justify-content: center;
+
   align-items: center;
   width: 100%;
 
@@ -15,9 +15,8 @@
     text-align: center;
 
     font-weight: 600;
-    padding-block: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
-
-    font-size: clamp(var(--fs-h5), 3vw + 0.5rem, var(--fs-h2));
+    margin-block: var(--margin-xl);
+    font-size: var(--fs-h3);
   }
 
   .searchResults {
@@ -35,9 +34,10 @@
   }
 }
 
-// @media (max-width: 1024px) {
-//   .searchResultsContainer {
-//     padding-left: 5vw;
-//     padding-right: 5vw;
-//   }
-// }
+@media (max-width: 1024px) {
+  .searchResultsContainer {
+    h4 {
+      font-size: clamp(var(--fs-big), 4vw, var(--fs-h4));
+    }
+  }
+}

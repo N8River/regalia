@@ -1,31 +1,32 @@
 .cartProduct {
+  --cartProduct-height: 7.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: clamp(var(--margin-xxs), 3vw, var(--margin-s));
-  padding: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+  margin-top: var(--margin-xs);
+  padding: var(--margin-s);
   height: -moz-fit-content;
   height: fit-content;
-  border-radius: 0.5rem;
-  background-color: var(--secondary-color);
+  border-radius: 0.75rem;
+  background-color: var(--grey90);
 }
 .cartProduct.mobile {
   display: none;
 }
 .cartProduct .cartProductInfo {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 60%;
+  width: 60.4%;
 }
 .cartProduct .cartProductInfo .cartProductImg {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  min-width: 7.5rem;
-  height: 10rem;
+  height: var(--cartProduct-height);
+  background-color: var(--grey80);
+  aspect-ratio: 3/4;
   padding: 0rem;
   border-radius: 0.5rem;
 }
@@ -34,32 +35,32 @@
   height: 100%;
 }
 .cartProduct .cartProductInfo .cartProductTitlePrice {
-  height: 10rem;
+  height: var(--cartProduct-height);
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  margin-left: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+  margin-left: var(--margin-s);
+  width: -moz-max-content;
+  width: max-content;
 }
 .cartProduct .cartProductInfo .cartProductTitlePrice h4 {
-  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+  font-size: var(--fs-p);
   width: 100%;
   font-weight: 600;
 }
 .cartProduct .cartProductInfo .cartProductTitlePrice big {
   display: flex;
-  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+  font-size: var(--fs-p);
   margin-top: 0 !important;
   width: 100%;
 }
 .cartProduct .quantityCart {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  gap: clamp(var(--margin-xs), 3vw, var(--margin-m));
-  width: 20%;
-  height: 10rem;
+  width: 20.4%;
+  height: var(--cartProduct-height);
 }
 .cartProduct .quantityCart div {
   display: flex;
@@ -70,21 +71,25 @@
 .cartProduct .quantityCart .changeQuantityCart {
   display: flex;
   width: 75%;
+  margin-top: var(--margin-xxs);
 }
 .cartProduct .quantityCart .changeQuantityCart button {
   flex: 1;
-  padding: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+  padding: var(--margin-xs);
+  font-weight: 600;
   height: 100%;
 }
 .cartProduct .quantityCart .changeQuantityCart p {
   flex: 1;
   display: flex;
   align-items: center;
-  padding: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
-  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+  padding: var(--margin-xs);
+  font-size: var(--fs-p);
+  font-weight: 600;
+  margin: 0;
   height: 100%;
-  border-top: 0.5px solid var(--accent-color);
-  border-bottom: 0.5px solid var(--accent-color);
+  border-top: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
 }
 .cartProduct .quantityCart .deleteProductCart button {
   border: none;
@@ -93,7 +98,7 @@
 }
 .cartProduct .quantityCart .deleteProductCart button p {
   color: var(--accent-color);
-  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+  font-weight: 500;
   padding: 0;
   border-bottom: 0.5px solid var(--accent-color);
   transition: var(--transition-out);
@@ -105,98 +110,66 @@
 }
 .cartProduct .subSubTotal {
   display: flex;
-  width: 20%;
-  height: 10rem;
+  margin-left: auto;
+  height: var(--cartProduct-height);
+  padding-right: var(--margin-xxs);
 }
 .cartProduct .subSubTotal big {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   margin-top: 0 !important;
-  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+  font-size: var(--fs-big);
   width: 100%;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 @media (max-width: 1024px) {
   .cartProduct {
-    margin-top: clamp(var(--margin-xxs), 1.5vw, var(--margin-s));
-    padding: clamp(var(--margin-xxs), 1.5vw, var(--margin-s));
-  }
-  .cartProduct .cartProductInfo .cartProductImg {
-    height: clamp(7.5rem, 16vw, 10rem);
-    min-width: -moz-max-content;
-    min-width: max-content;
-  }
-  .cartProduct .cartProductInfo .cartProductTitlePrice {
-    height: clamp(7.5rem, 16vw, 10rem);
-  }
-  .cartProduct .cartProductInfo .cartProductTitlePrice h4 {
-    font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
-  }
-  .cartProduct .cartProductInfo .cartProductTitlePrice big {
-    font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+    --button-size: 2.5rem;
   }
   .cartProduct .quantityCart {
-    width: 27%;
-    height: clamp(7.5rem, 16vw, 10rem);
+    width: 25.5%;
   }
   .cartProduct .quantityCart .changeQuantityCart {
-    width: clamp(5rem, 16vw, 10rem);
+    width: -moz-fit-content;
+    width: fit-content;
   }
   .cartProduct .quantityCart .changeQuantityCart button {
-    padding: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
-    font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--button-size);
+    height: var(--button-size);
   }
   .cartProduct .quantityCart .changeQuantityCart p {
-    padding: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
-    font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
-    font-weight: 600;
-  }
-  .cartProduct .quantityCart .deleteProductCart button p {
-    font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
-  }
-  .cartProduct .subSubTotal {
-    height: clamp(7.5rem, 16vw, 10rem);
-    width: 13%;
-  }
-  .cartProduct .subSubTotal big {
-    font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--button-size);
+    height: var(--button-size);
   }
 }
 @media (max-width: 640px) {
-  .cartProduct {
-    display: none;
-  }
   .cartProduct.mobile {
+    --cartProduct-height: 9rem;
+    --button-size: 2.25rem;
     display: flex;
-    gap: var(--margin-s);
-    padding: clamp(var(--margin-xs), 1.5vw, var(--margin-s));
   }
   .cartProduct.mobile .cartProductInfo {
-    width: auto;
-    flex: 1;
+    width: 100%;
   }
   .cartProduct.mobile .cartProductInfo .cartProductTitlePrice {
     align-items: flex-start;
     justify-content: flex-start;
+    width: 82%;
   }
   .cartProduct.mobile .cartProductInfo .cartProductTitlePrice h4 {
-    line-height: 1.5em;
-    font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
+    font-size: clamp(var(--fs-small-ui), 3vw, var(--fs-p));
+    text-wrap: wrap;
   }
   .cartProduct.mobile .cartProductInfo .cartProductTitlePrice big {
-    line-height: 1.5em;
-    font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
-  }
-  .cartProduct.mobile .cartProductInfo .cartProductTitlePrice .deleteProductCart {
-    width: 100%;
-    margin-top: auto;
-  }
-  .cartProduct.mobile .cartProductInfo .cartProductTitlePrice .deleteProductCart button p {
-    font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
-    padding: 0;
-    color: var(--accent-color);
+    font-size: clamp(var(--fs-small-ui), 3vw, var(--fs-p));
   }
   .cartProduct.mobile .cartProductInfo .cartProductTitlePrice .quantityCart {
     width: -moz-fit-content;
@@ -208,18 +181,17 @@
   .cartProduct.mobile .cartProductInfo .cartProductTitlePrice .quantityCart .changeQuantityCart {
     height: -moz-fit-content;
     height: fit-content;
+    margin-top: 0;
   }
-  .cartProduct.mobile .cartProductInfo .cartProductTitlePrice .quantityCart .changeQuantityCart .btn {
-    height: -moz-fit-content;
-    height: fit-content;
-    padding: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
-    font-size: clamp(var(--fs-small), 1.5vw, var(--fs-p));
+  .cartProduct.mobile .cartProductInfo .cartProductTitlePrice .deleteProductCart {
+    width: -moz-fit-content;
+    width: fit-content;
   }
-  .cartProduct.mobile .cartProductInfo .cartProductTitlePrice .quantityCart .changeQuantityCart p {
-    height: -moz-fit-content;
-    height: fit-content;
-    padding: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
-    font-size: clamp(var(--fs-small), 1.5vw, var(--fs-p));
+  .cartProduct.mobile .cartProductInfo .cartProductTitlePrice .deleteProductCart p {
+    font-size: clamp(var(--fs-small), 2vw, var(--fs-p));
+    padding: 0;
+    margin: 0;
+    color: var(--accent-color);
   }
   .cartProduct.mobile .quantityAndSubSubTotal {
     display: flex;

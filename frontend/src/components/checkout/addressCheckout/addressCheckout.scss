@@ -11,34 +11,32 @@
   padding-block: clamp(var(--margin-xxs), 2.5vw, var(--margin-xs));
   padding-inline: clamp(var(--margin-xs), 3vw, var(--margin-m));
 
-  border: 0.5px solid var(--grey90);
-
   margin-block: var(--margin-xxs);
   transition: var(--transition-out);
 
-  background-color: var(--secondary-color);
-  border: 1px solid var(--secondary-hover);
+  background-color: var(--grey90);
+  border: 1px solid var(--grey90);
 
   cursor: pointer;
 
   &.selected {
-    border: 1px solid var(--shadow-secondary);
+    border: 1px solid var(--grey80);
 
-    background-color: var(--secondary-hover);
+    background-color: var(--grey85);
 
     transition: var(--transition-in);
   }
 
   &:hover {
-    border: 1px solid var(--shadow-secondary);
+    border: 1px solid var(--grey80);
 
-    background-color: var(--secondary-hover);
+    background-color: var(--grey85);
 
     transition: var(--transition-in);
   }
 
   p {
-    font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+    font-size: var(--fs-p);
   }
 }
 
@@ -63,5 +61,14 @@
 
   p {
     font: var(--p);
+  }
+}
+
+@media (max-width: 475px) {
+  .addressCheckout.reviewPage {
+  }
+
+  .addressCheckout.shippingPage {
+    padding: var(--margin-xs);
   }
 }

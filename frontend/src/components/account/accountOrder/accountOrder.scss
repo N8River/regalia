@@ -9,18 +9,17 @@
 
   height: fit-content;
 
-  padding: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
+  padding-block: var(--margin-xs);
+  padding-inline: var(--margin-xs);
 
-  background-color: var(--secondary-color);
-  margin-top: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
+  background-color: var(--grey90);
+  margin-top: var(--margin-xs);
   transition: var(--transition-out);
-
-  border: 0.5px solid var(--secondary-hover);
 
   cursor: pointer;
 
   &:hover {
-    background-color: var(--secondary-hover);
+    background-color: var(--grey85);
     transition: var(--transition-in);
   }
 
@@ -53,23 +52,13 @@
     display: flex;
     justify-content: space-between;
 
-    // flex-direction: column;
-
     padding-left: var(--margin-s);
     padding-right: var(--margin-xxs);
 
-    // padding: var(--margin-xxs) 0rem;
-
-    // flex-wrap: wrap;
     height: 100%;
     width: 100%;
 
     height: 7rem;
-
-    // div {
-    //   width: 50%;
-    //   height: 100%;
-    // }
 
     div:nth-child(1) {
       display: flex;
@@ -83,13 +72,19 @@
       }
 
       p:nth-child(1) {
-        // font: var(--big);
-        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+        font-size: var(--fs-big-ui);
         font-weight: 600;
       }
 
       p:nth-child(2) {
-        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+        font-size: var(--fs-p);
+        font-weight: 600;
+
+        color: var(--grey30);
+      }
+
+      p:nth-child(3) {
+        font-size: var(--fs-p);
         font-weight: 400;
       }
     }
@@ -104,11 +99,11 @@
       p {
         margin: 0;
         text-align: right;
-        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
-      }
+        // font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+        font-size: var(--fs-p);
+        font-weight: 600;
 
-      p {
-        font-weight: 400;
+        color: var(--grey20);
       }
 
       button {
@@ -142,199 +137,35 @@
   }
 }
 
-// @media (max-width: 1024px) {
-//   .accountOrder {
-//     .accountOrderDetails {
-//       div:nth-child(1) {
-//         width: 60%;
-//         p:nth-child(1) {
-//           font-size: 1.85vw;
-//         }
-
-//         p:nth-child(2) {
-//           font-size: 1.75vw;
-//           font-weight: 500;
-//         }
-//       }
-
-//       div:nth-child(2) {
-//         width: fit-content;
-//         p:nth-child(1) {
-//           font-size: 1.85vw;
-//           font-weight: 500;
-//         }
-
-//         button {
-//           small {
-//             font-size: 1.7vw;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 768px) {
-//   .accountOrder {
-//     .accountOrderDetails {
-//       div:nth-child(1) {
-//         width: 60%;
-//         p:nth-child(1) {
-//           font-size: 1.85vw;
-//         }
-
-//         p:nth-child(2) {
-//           font-size: 1.75vw;
-//           font-weight: 500;
-//         }
-//       }
-
-//       div:nth-child(2) {
-//         width: fit-content;
-//         p:nth-child(1) {
-//           font-size: 1.85vw;
-//           font-weight: 500;
-//         }
-
-//         button {
-//           small {
-//             font-size: 1.7vw;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 640px) {
-//   .accountOrder {
-//     .accountOrderDetails {
-//       div:nth-child(1) {
-//         width: 75%;
-//         p:nth-child(1) {
-//           font-size: 2.25vw;
-//         }
-
-//         p:nth-child(2) {
-//           font-size: 2vw;
-//           font-weight: 500;
-//         }
-//       }
-
-//       div:nth-child(2) {
-//         width: fit-content;
-//         p:nth-child(1) {
-//           font-size: 2.25vw;
-//           font-weight: 500;
-//         }
-
-//         button {
-//           small {
-//             font-size: 2vw;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 475px) {
-//   .accountOrder {
-//     .orderItemImages {
-//       height: 20vw;
-//     }
-
-//     .accountOrderDetails {
-//       height: 20vw;
-//       div:nth-child(1) {
-//         width: 70%;
-//         p:nth-child(1) {
-//           font-size: 2.5vw;
-//         }
-
-//         p:nth-child(2) {
-//           font-size: 2.25vw;
-//           font-weight: 500;
-//         }
-//       }
-
-//       div:nth-child(2) {
-//         width: fit-content;
-//         p:nth-child(1) {
-//           font-size: 2.5vw;
-//           font-weight: 500;
-//         }
-
-//         button {
-//           small {
-//             font-size: 2.25vw;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
 @media (max-width: 768px) {
-  .account {
-    .accountToolbar {
-      width: clamp(19rem, 96vw, 46rem);
-
-      h4 {
-        font-size: clamp(var(--fs-p), 2.5vw, var(--fs-h4));
-      }
+  .accountOrder {
+    .accountOrderDetails {
+      gap: var(--margin-s);
     }
+  }
+}
 
-    .accountInfo {
-      flex-direction: column;
+@media (max-width: 475px) {
+  .accountOrder {
+    .accountOrderDetails {
+      div {
+        &:nth-child(1) {
+          p {
+            font-size: var(--fs-small-ui);
 
-      width: clamp(19rem, 96vw, 46rem);
+            &:nth-child(1) {
+              font-size: var(--fs-small-ui);
+            }
 
-      .orders {
-        width: 100%;
-        min-height: fit-content;
-
-        big {
-          font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
-        }
-
-        p {
-          margin-block: clamp(var(--margin-xs), 2vw, var(--margin-m));
-          font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
-
-          font-weight: 600;
-        }
-
-        .btn {
-          background-color: var(--accent-color);
-          padding-block: var(--margin-xxs);
-          padding-inline: clamp(var(--margin-xs), 2vw, var(--margin-m));
-          a {
-            font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
+            &:nth-child(2) {
+              font-size: var(--fs-small-ui);
+            }
           }
         }
-      }
 
-      .address {
-        width: 100%;
-        min-height: fit-content;
-
-        big {
-          font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
-        }
-
-        div {
-          display: flex;
-          justify-content: center;
-          margin-top: var(--margin-m);
-
-          .btn {
-            background-color: var(--accent-color);
-            padding-block: var(--margin-xxs);
-            padding-inline: clamp(var(--margin-xs), 2vw, var(--margin-m));
-            a {
-              font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
-            }
+        &:nth-child(2) {
+          p {
+            font-size: var(--fs-small-ui);
           }
         }
       }

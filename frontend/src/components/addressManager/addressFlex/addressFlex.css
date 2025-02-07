@@ -9,24 +9,25 @@
   flex: 1;
 }
 .addressCard h2 {
-  margin-bottom: clamp(var(--margin-xxs), 3.5vw, var(--margin-xs));
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+  margin-bottom: var(--margin-xxs);
+  padding-bottom: var(--margin-xxs);
+  font-size: var(--fs-p);
   font-weight: 600;
-  border-bottom: 0.5px solid var(--grey70);
+  border-bottom: 1px solid var(--grey80);
 }
 .addressCard .addressInfo {
   width: 100%;
 }
 .addressCard .addressInfo p {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
 }
 .addressCard .addressBtns {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  gap: clamp(var(--margin-s), 3vw, var(--margin-l));
-  margin-top: clamp(var(--margin-xxs), 3.5vw, var(--margin-xs));
+  gap: var(--margin-l);
+  margin-top: var(--margin-xxs);
 }
 .addressCard .addressBtns button {
   margin: 0;
@@ -35,16 +36,16 @@
   height: fit-content;
 }
 .addressCard .addressBtns button p {
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
   color: var(--accent-color);
   transition: var(--transition-out);
+  text-wrap: nowrap;
 }
 .addressCard .addressBtns button:hover p {
   color: var(--text-color);
   transition: var(--transition-in);
 }
 
-@media (max-width: 782px) {
+@media (max-width: 768px) {
   .addressCard {
     min-width: 0;
     width: 100%;

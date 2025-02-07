@@ -1,155 +1,133 @@
-.toast-container {
-  position: fixed; /* Changed from sticky to fixed */
-  top: 40vh;
-  right: 50%;
-  transform: translateX(50%);
-  z-index: 9999; /* Ensure it's on top of most elements */
-  display: flex;
-  flex-direction: column;
-  gap: var(--margin-m); /* Space between multiple toasts */
-}
-
-.toast-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  z-index: 9998; /* One level below the toast notification */
-  opacity: 0; /* Start fully transparent */
-  animation: fadeInOutOverlay 3s ease-in-out; /* Combined fade in and out */
-}
+// .toast-container {
+//   position: fixed;
+//   top: 50%;
+//   right: 50%;
+//   transform: translateX(50%) translateY(-50%);
+//   z-index: 9999;
+//   display: flex;
+//   flex-direction: column;
+//   gap: var(--margin-m);
+// }
 
 .toastNotification {
-  // position: fixed;
+  --border-w: 2px;
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
+  z-index: 9999;
 
   background-color: var(--white);
-
   padding-block: clamp(var(--margin-xs), 5vw, var(--margin-m));
   padding-inline: clamp(var(--margin-m), 5vw, var(--margin-l));
-
   border-radius: 0.5rem;
   box-shadow: 0px 0px 10px var(--grey10);
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-  animation: slideIn 0.3s ease-in, slideOut 0.3s ease-out 2.7s forwards; /* Sync slide in/out */
-
   font-family: var(--ff);
 
-  opacity: 0.9;
-  max-width: 300px;
-  word-wrap: break-word; /* Ensures long messages are wrapped */
-
+  // max-width: 300px;
+  word-wrap: break-word;
   gap: clamp(var(--margin-xxs), 3vw, var(--margin-s));
 
+  opacity: 0;
+  animation: 0.25s ease-in fadeIn forwards;
+
   p {
-    font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
+    font-size: clamp(var(--fs-small-ui), 2.5vw, var(--fs-p));
+    font-weight: 500;
+    margin-right: var(--margin-m);
   }
 
   .closeBtnToast {
     border: none;
     background-color: transparent;
-
-    height: 100%;
     display: flex;
-
-    padding-bottom: auto;
-
+    align-items: center;
+    justify-self: center;
     cursor: pointer;
 
+    position: absolute;
+    right: calc(var(--margin-xxs));
+    top: calc(var(--margin-xxs));
+
     svg {
-      font-size: clamp(var(--fs-h5), 5vw, var(--fs-h3));
-      color: var(--black);
+      font-size: clamp(var(--fs-big), 5vw, var(--fs-h4));
     }
   }
 
+  // Notification Types
   &.success {
-    border: 3px solid var(--green);
-    color: var(--green);
-
-    .closeBtnToast {
-      border: none;
-      background-color: transparent;
-      display: flex;
-      height: 100%;
-
-      svg {
-        color: var(--text-color);
-      }
+    border: var(--border-w) solid var(--success-text);
+    color: var(--success-text);
+    background-color: var(--success-background);
+    .closeBtnToast svg {
+      color: var(--success-text);
     }
   }
 
   &.error {
-    border: 3px solid var(--red);
-    color: var(--red);
+    border: var(--border-w) solid var(--error-text);
+    color: var(--error-text);
+    background-color: var(--error-background);
+    .closeBtnToast svg {
+      color: var(--error-text);
+    }
+  }
 
-    .closeBtnToast {
-      border: none;
-      background-color: transparent;
-      display: flex;
-      height: 100%;
+  &.warning {
+    border: var(--border-w) solid var(--warning-text);
+    color: var(--warning-text);
+    background-color: var(--warning-background);
+    .closeBtnToast svg {
+      color: var(--warning-text);
+    }
+  }
 
-      svg {
-        color: var(--black);
-      }
+  &.info {
+    border: var(--border-w) solid var(--info-text);
+    color: var(--info-text);
+    background-color: var(--info-background);
+    .closeBtnToast svg {
+      color: var(--info-text);
     }
   }
 }
 
+.toastNotification-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: hsla(0, 0, 0, 0.6);
+
+  opacity: 0;
+  animation: 0.25s ease fadeIn forwards;
+}
+
+// Animations for slide in/out and fade overlay
 @keyframes slideIn {
   from {
     transform: translateY(-100%);
-    opacity: 0; /* Start fully transparent */
+    opacity: 0;
   }
   to {
     transform: translateY(0);
-    opacity: 1; /* End fully opaque */
+    opacity: 1;
   }
 }
 
 @keyframes slideOut {
   from {
     transform: translateY(0);
-    opacity: 1; /* Start fully opaque */
+    opacity: 1;
   }
   to {
     transform: translateY(100%);
-    opacity: 0; /* End fully transparent */
-  }
-}
-
-@keyframes fadeOverlayIn {
-  from {
-    opacity: 0; /* Start fully transparent */
-  }
-  to {
-    opacity: 1; /* Fully opaque at the end of the animation */
-  }
-}
-
-@keyframes fadeOverlayOut {
-  from {
-    opacity: 1; /* Start fully opaque */
-  }
-  to {
-    opacity: 0; /* Fully transparent at the end of the animation */
-  }
-}
-
-@keyframes fadeInOutOverlay {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
     opacity: 0;
   }
 }

@@ -2,10 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-inline: auto;
   flex-direction: column;
-  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
-  gap: clamp(var(--margin-s), 5vw, var(--margin-m));
+  padding-block: var(--margin-xxl);
+  gap: var(--margin-m);
 }
 .account .accountToolbar {
   display: flex;
@@ -19,7 +21,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  margin-bottom: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+  margin-bottom: var(--margin-xxs);
 }
 .account .accountToolbar .logOutBtn button {
   background-color: transparent;
@@ -29,15 +31,16 @@
   align-items: center;
   width: 100%;
   font-family: var(--ff);
-  color: var(--grey30);
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+  color: var(--grey40);
+  font-size: var(--fs-p);
+  font-weight: 500;
   cursor: pointer;
   transition: var(--transition-out);
 }
 .account .accountToolbar .logOutBtn button svg {
   display: flex;
   align-items: center;
-  font-size: clamp(var(--p), 2vw, var(--big));
+  font-size: var(--fs-big);
 }
 .account .accountToolbar .logOutBtn button:hover {
   color: var(--text-color);
@@ -48,134 +51,95 @@
   align-items: center;
   width: 100%;
   color: var(--text-color);
-  font-size: clamp(var(--fs-h5), 3.5vw, var(--fs-h2));
+  font-size: var(--fs-h2);
+  font-weight: 700;
 }
 .account .accountToolbar h4 {
   display: flex;
   align-items: center;
   width: 100%;
-  color: var(--text-color);
-  font-size: clamp(var(--fs-big), 2.5vw, var(--fs-h4));
+  color: var(--grey30);
+  font-size: var(--fs-h5);
   font-weight: 600;
 }
 .account .accountInfo {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  gap: clamp(var(--margin-m), 2.5vw, var(--margin-xxl));
+  gap: var(--margin-xxl);
   width: 60rem;
 }
 .account .accountInfo .orders {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   width: 60%;
   min-height: 15rem;
+  max-height: 30rem;
+}
+.account .accountInfo .orders .ordersList {
+  overflow-y: scroll;
+  width: 100%;
+  padding-right: var(--margin-xs);
+  /* Define the scrollbar styling */
+  /* When the container is hovered, show the scrollbar */
+  /* Customize the track (optional) */
+  /* Customize the thumb */
+  /* Thumb hover state */
+}
+.account .accountInfo .orders .ordersList::-webkit-scrollbar {
+  width: 8px;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease; /* Smooth fade */
+  opacity: 0; /* Hide by default */
+}
+.account .accountInfo .orders .ordersList:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+.account .accountInfo .orders .ordersList::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 4px;
+}
+.account .accountInfo .orders .ordersList::-webkit-scrollbar-thumb {
+  background: var(--grey90);
+  border-radius: 4px;
+}
+.account .accountInfo .orders .ordersList::-webkit-scrollbar-thumb:hover {
+  background: var(--grey70);
 }
 .account .accountInfo .orders big {
   width: 100%;
   font-weight: 400;
-  border-bottom: 0.5px solid var(--grey50);
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+  border-bottom: 1px solid var(--grey70);
+}
+.account .accountInfo .orders .noOrdersMessage {
+  margin-block: var(--margin-m);
 }
 .account .accountInfo .address {
+  display: flex;
+  justify-self: flex-start;
+  flex-direction: column;
   width: 40%;
   min-height: 15rem;
 }
 .account .accountInfo .address big {
   width: 100%;
   font-weight: 400;
-  border-bottom: 0.5px solid var(--grey50);
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
-}
-.account .accountInfo .orders {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  text-align: left;
-}
-.account .accountInfo .orders big {
-  width: 100%;
-  font-weight: 400;
-  border-bottom: 0.5px solid var(--grey50);
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
-}
-.account .accountInfo .orders p {
-  color: var(--text-color);
-  width: 100%;
-  text-align: center;
-  margin: 0.75rem 0rem;
-}
-.account .accountInfo .orders .btn {
-  background-color: var(--primary-color);
-  border: 0.5px solid var(--primary-color);
-  font-size: 1rem;
-  padding: 0.4rem 1.25rem;
-  transition: all 0.15s ease-out;
-}
-.account .accountInfo .orders .btn a {
-  color: var(--white);
-  font-family: "Poppins";
-  letter-spacing: 1px;
-}
-.account .accountInfo .orders .btn:hover {
-  background-color: var(--black);
-  border: 0.5px solid var(--black);
-  transition: all 0.2s ease-in;
-}
-.account .accountInfo .address {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  text-align: left;
-}
-.account .accountInfo .address big {
-  color: var(--text-color);
-  width: 100%;
-  text-align: left;
-  font-weight: 400;
-  border-bottom: 0.5px solid var(--grey50);
-}
-.account .accountInfo .address p {
-  display: flex;
-  color: var(--text-color);
-  width: 100%;
-  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
-  text-align: center;
-  margin-block: var(--margin-xxs);
-  margin-bottom: 0;
-  font-weight: 400;
-}
-.account .accountInfo .address .addressList {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0;
+  border-bottom: 1px solid var(--grey70);
   margin-bottom: var(--margin-xxs);
 }
-.account .accountInfo .address .addressList p {
-  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
-  margin: 0;
-  font-weight: 400;
+.account .accountInfo .address .usernameAddress {
+  font-weight: 500;
 }
-.account .accountInfo .address div {
-  margin-block: var(--margin-xxs);
-  width: 100%;
+.account .accountInfo .address .addressList {
+  font-size: var(--fs-p);
 }
-.account .accountInfo .address div button {
-  transition: var(--transition-out);
-  padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
-  padding-inline: clamp(var(--margin-xs), 1.5vw, var(--margin-m));
-}
-.account .accountInfo .address div button a {
-  color: var(--white);
-  font-family: "Poppins";
-  font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
-  letter-spacing: 1px;
-}
-.account .accountInfo .address div button:hover {
-  background-color: var(--black);
-  border: 0.5px solid var(--black);
-  transition: var(--transition-in);
+.account .accountInfo .address .btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: var(--margin-xs);
+  font-weight: 600;
 }
 
 @media (max-width: 1024px) {
@@ -186,14 +150,79 @@
   .account .accountInfo {
     width: clamp(45rem, 95vw, 60rem);
     margin-inline: auto;
+    gap: var(--margin-xl);
   }
-  .account .accountInfo .address p {
-    font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+}
+@media (max-width: 768px) {
+  .account {
+    padding-block: clamp(var(--margin-m), 5vw, var(--margin-xl));
   }
-  .account .accountInfo .address .addressList p {
-    font-size: clamp(var(--fs-p), 1.75vw, var(--fs-big));
+  .account .accountToolbar {
+    width: clamp(19rem, 96vw, 46rem);
+    padding-inline: var(--margin-xxs);
   }
-  .account .accountInfo .address div button a {
-    font-size: clamp(var(--fs-p), 1.75vw, var(--fs-big));
+  .account .accountToolbar h2 {
+    font-size: clamp(var(--fs-h4), 5vw, var(--fs-h2));
+  }
+  .account .accountToolbar h4 {
+    font-size: clamp(var(--fs-p), 2.5vw, var(--fs-h4));
+  }
+  .account .accountInfo {
+    flex-direction: column;
+    width: clamp(19rem, 96vw, 46rem);
+    padding-inline: var(--margin-xxs);
+    gap: var(--margin-m);
+  }
+  .account .accountInfo .orders {
+    width: 100%;
+    max-height: 30rem;
+  }
+  .account .accountInfo .orders .ordersList {
+    overflow-y: scroll;
+    width: 100%;
+    padding-right: var(--margin-xs);
+    /* Define the scrollbar styling */
+    /* When the container is hovered, show the scrollbar */
+    /* Customize the track (optional) */
+    /* Customize the thumb */
+    /* Thumb hover state */
+  }
+  .account .accountInfo .orders .ordersList::-webkit-scrollbar {
+    width: 8px;
+    -webkit-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease; /* Smooth fade */
+    opacity: 0; /* Hide by default */
+  }
+  .account .accountInfo .orders .ordersList:hover::-webkit-scrollbar {
+    opacity: 1;
+  }
+  .account .accountInfo .orders .ordersList::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 4px;
+  }
+  .account .accountInfo .orders .ordersList::-webkit-scrollbar-thumb {
+    background: var(--grey90);
+    border-radius: 4px;
+  }
+  .account .accountInfo .orders .ordersList::-webkit-scrollbar-thumb:hover {
+    background: var(--grey70);
+  }
+  .account .accountInfo .address {
+    width: 100%;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  .account .accountInfo .address .addressList {
+    flex-direction: column;
+  }
+}
+@media (max-width: 475px) {
+  .account .accountInfo .address button {
+    padding-block: var(--margin-xxs);
+    padding-inline: var(--margin-s);
+  }
+  .account .accountInfo .address button a {
+    font-size: var(--fs-small-ui);
+    font-weight: 600;
   }
 }/*# sourceMappingURL=account.css.map */

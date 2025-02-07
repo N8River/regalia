@@ -3,6 +3,8 @@ import { useState, useEffect, useCallback } from "react";
 const useCartInfo = () => {
   const [cartInfo, setCartInfo] = useState(null);
 
+  const token = localStorage.getItem("token");
+
   const fetchCartInfo = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
@@ -29,7 +31,7 @@ const useCartInfo = () => {
   }, []);
 
   useEffect(() => {
-    fetchCartInfo();
+    token && fetchCartInfo();
   }, [fetchCartInfo]);
 
   return { cartInfo, fetchCartInfo };

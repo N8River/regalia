@@ -1,0 +1,176 @@
+.ordersSelectAdmin {
+  margin-block: var(--margin-m);
+  margin-top: var(--margin-xxl);
+  font-family: var(--ff);
+  width: 10rem;
+  font-size: var(--fs-small-ui);
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-xxs);
+  border: 1px solid var(--grey50);
+}
+
+.ordersAdminTable {
+  --border-r: 0.75rem;
+  --top-border-r: var(--border-r) var(--border-r) 0rem 0rem;
+  --bottom-border-r: 0rem 0rem var(--border-r) var(--border-r);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+.ordersAdminTable thead {
+  display: flex;
+  padding-block: var(--margin-xs);
+  padding-inline: var(--margin-s);
+  border-bottom: 1px solid var(--grey70);
+  border-radius: var(--top-border-r);
+  background-color: var(--grey85);
+  font-weight: 600;
+}
+.ordersAdminTable thead tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--margin-l);
+}
+.ordersAdminTable thead tr th {
+  flex: 1;
+  overflow: hidden;
+  text-align: left;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.ordersAdminTable thead tr th.sorted-column-asc {
+  font-weight: 800;
+  color: var(--accent-color);
+}
+.ordersAdminTable thead tr th.sorted-column-desc {
+  font-weight: 800;
+  color: var(--accent-color);
+}
+.ordersAdminTable tbody {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--grey85);
+  border-radius: var(--bottom-border-r);
+}
+.ordersAdminTable tbody tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-block: var(--margin-xs);
+  border-bottom: 1px solid var(--grey85);
+  padding-inline: var(--margin-s);
+  gap: var(--margin-l);
+}
+.ordersAdminTable tbody tr:last-child {
+  border-bottom: none;
+}
+.ordersAdminTable tbody tr td {
+  flex: 1;
+  line-height: 1.6;
+  overflow: hidden;
+  text-wrap: nowrap;
+  display: flex;
+  align-items: center;
+}
+.ordersAdminTable tbody tr td select {
+  font-family: var(--ff);
+  font-size: var(--fs-small-ui);
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-xxs);
+  border: 1px solid var(--grey60);
+}
+
+.ordersAdminPageToolbox {
+  display: flex;
+  justify-content: center;
+  gap: var(--margin-m);
+  margin-block: var(--margin-s);
+  position: relative;
+}
+.ordersAdminPageToolbox p {
+  position: absolute;
+  font-size: var(--fs-small-ui);
+  font-weight: 600;
+  color: var(--grey30);
+  right: 0;
+  margin-inline: var(--margin-xxs);
+}
+.ordersAdminPageToolbox button {
+  display: flex;
+  justify-content: center;
+  font-family: var(--ff);
+  font-size: var(--fs-small-ui);
+  border: none;
+  background-color: var(--accent-color);
+  font-weight: 600;
+  color: var(--white);
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-s);
+  border-radius: 0.5rem;
+  width: 6rem;
+  cursor: pointer;
+  transition: var(--transition-out);
+}
+.ordersAdminPageToolbox button:hover {
+  background-color: var(--black);
+  transition: var(--transition-in);
+}
+.ordersAdminPageToolbox button:disabled {
+  background-color: var(--grey40);
+  cursor: default;
+}
+
+@media (max-width: 1024px) {
+  .ordersAdminTable {
+    font-size: var(--fs-small-ui);
+  }
+  .ordersAdminTable thead {
+    padding-block: var(--margin-xxs);
+    padding-inline: var(--margin-xs);
+  }
+  .ordersAdminTable thead tr {
+    gap: var(--margin-s);
+    text-wrap: nowrap;
+    overflow: hidden;
+  }
+  .ordersAdminTable tbody tr {
+    gap: var(--margin-s);
+    padding-block: var(--margin-xxs);
+    padding-inline: var(--margin-xs);
+  }
+  .ordersAdminTable tbody tr td {
+    overflow-x: auto;
+    text-wrap: nowrap;
+  }
+  .ordersAdminTable tbody tr td::-webkit-scrollbar {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .ordersAdminTable thead .actionsTable {
+    min-width: 6rem;
+  }
+  .ordersAdminTable tbody tr td select {
+    width: 100%;
+  }
+  .ordersAdminTable tbody tr .actionsTable {
+    min-width: 6rem;
+  }
+}
+@media (max-width: 475px) {
+  .ordersAdminTable tbody tr td select {
+    padding-inline: 2px;
+    padding-block: 2px;
+  }
+  .ordersAdminPageToolbox p {
+    font-size: var(--fs-small-ui);
+  }
+  .ordersAdminPageToolbox button {
+    font-size: var(--fs-small-ui);
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}/*# sourceMappingURL=orders.css.map */

@@ -35,10 +35,10 @@ function LoginForm() {
 
       localStorage.setItem("token", responseData.token);
 
-      const decodedToken = JSON.parse(atob(responseData.token.split(".")[1]));
-      localStorage.setItem("isAdmin", decodedToken.isAdmin);
+      // const decodedToken = JSON.parse(atob(responseData.token.split(".")[1]));
+      // localStorage.setItem("isAdmin", decodedToken.isAdmin);
 
-      console.log("User logged in successfully:", responseData);
+      // console.log("User logged in successfully:", responseData);
 
       // addToast("User logged in successfully!", "success");
 
@@ -73,7 +73,14 @@ function LoginForm() {
         </button>
       </form>
       <small>
-        Don't have an account? <a href="/account/signup">Sign Up</a>
+        Don't have an account?{" "}
+        <p
+          onClick={() => {
+            navigate("/account/signup");
+          }}
+        >
+          Sign Up
+        </p>
       </small>
     </div>
   );

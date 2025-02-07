@@ -1,13 +1,16 @@
 .addressManager {
+  --width: 60rem;
+
   display: flex;
   justify-content: center;
   // align-items: center;
 
   flex-direction: column;
 
-  width: clamp(19rem, 95vw, 62rem);
-  margin: auto;
-  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
+  width: var(--width);
+  margin-inline: auto;
+
+  padding-block: var(--margin-xxl);
 
   background-color: var(--background-color);
 
@@ -19,24 +22,29 @@
     flex-direction: row;
     width: fit-content;
 
-    margin-bottom: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+    margin-bottom: var(--margin-xxs);
 
     cursor: pointer;
 
     svg {
-      font-size: clamp(var(--p), 2vw, var(--big));
-      color: var(--grey30);
+      color: var(--grey40);
+
+      font-size: var(--fs-big);
+      font-weight: 500;
     }
 
     p {
-      font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
-      color: var(--grey30);
+      color: var(--grey40);
+
+      font-size: var(--fs-p);
+      font-weight: 500;
     }
   }
 
   h2 {
-    font-size: clamp(var(--fs-h5), 3.5vw, var(--fs-h2));
-    color: var(--text-color);
+    font-size: var(--fs-h2);
+    font-weight: 700;
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -49,7 +57,10 @@
   }
 
   button {
-    margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+    // margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+
+    margin-block: var(--margin-xxs);
+    margin-top: var(--margin-xs);
 
     width: fit-content;
 
@@ -59,19 +70,16 @@
 
     flex-direction: row;
 
-    padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
-    padding-inline: clamp(var(--margin-xs), 1.5vw, var(--margin-m));
-
     svg {
       color: var(--white);
-      font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
+      font-size: var(--fs-h5);
 
       margin-left: var(--margin-xs);
       height: 100%;
     }
 
     big {
-      font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
+      font-size: var(--fs-big);
       font-weight: 600;
       height: 100%;
     }
@@ -82,7 +90,8 @@
     justify-content: flex-start;
     align-items: center;
 
-    margin-block: clamp(var(--margin-xxs), 3.5vw, var(--margin-s));
+    // margin-block: clamp(var(--margin-xxs), 3.5vw, var(--margin-s));
+    margin-block: var(--margin-s);
 
     flex-wrap: wrap;
     gap: clamp(var(--margin-m), 3.5vw, var(--margin-xxl));
@@ -196,157 +205,46 @@
   transition: var(--transition-in);
 }
 
-// @media (max-width: 1536px) {
-//   .addressManager {
-//     padding: var(--margin-xl) 10vw;
-//   }
-// }
-
-// @media (max-width: 1280px) {
-//   .addressManager {
-//     padding: var(--margin-xl) 5vw;
-//   }
-// }
-
-// @media (max-width: 1024px) {
-//   .addressManager {
-//     padding: var(--margin-xl) 5vw;
-
-//     .goToAccount {
-//       svg {
-//         font-size: 2vw;
-//       }
-
-//       p {
-//         font-size: 1.5vw;
-//       }
-//     }
-
-//     h2 {
-//       font-size: 4vw;
-//     }
-
-//     button {
-//       height: 5vw;
-//       padding: 1vw 2vw;
-//       margin: 0.5vw 0;
-
-//       big {
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         font-size: 2vw;
-//       }
-
-//       svg {
-//         font-size: 2vw;
-//       }
-//     }
-
-//     .addressFlex {
-//       display: flex;
-//       align-items: start;
-//       margin: 1vw 0;
-//       gap: 1vw;
-//     }
-//   }
-// }
-
-// @media (max-width: 768px) {
-//   .addressManager {
-//     padding: var(--margin-xl) 5vw;
-
-//     .goToAccount {
-//       svg {
-//         font-size: 2vw;
-//       }
-
-//       p {
-//         font-size: 1.5vw;
-//       }
-//     }
-
-//     h2 {
-//       font-size: 3vw;
-//       margin-bottom: 0.5vw;
-//     }
-
-//     button {
-//       height: 4vw;
-//       padding: 1vw 1.5vw;
-//       margin: 0.5vw 0;
-
-//       big {
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         font-size: 1.7vw;
-//       }
-
-//       svg {
-//         font-size: 1.7vw;
-//       }
-//     }
-
-//     .addressFlex {
-//       display: flex;
-//       align-items: start;
-//       margin: 1vw 0;
-//       gap: 1.5vw;
-//     }
-//   }
-// }
-
-// @media (max-width: 640px) {
-//   .addressManager {
-//     padding: var(--margin-xl) 5vw;
-
-//     .goToAccount {
-//       svg {
-//         font-size: 2vw;
-//       }
-
-//       p {
-//         font-size: 1.5vw;
-//       }
-//     }
-
-//     h2 {
-//       font-size: 3vw;
-//       margin-bottom: 0.5vw;
-//     }
-
-//     button {
-//       height: 4vw;
-//       padding: 1vw 1.5vw;
-//       margin: 0.5vw 0;
-
-//       big {
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         font-size: 1.7vw;
-//       }
-
-//       svg {
-//         font-size: 1.7vw;
-//       }
-//     }
-
-//     .addressFlex {
-//       display: flex;
-//       align-items: start;
-//       margin: 1vw 0;
-//       gap: 1.5vw;
-//       flex-wrap: wrap;
-//     }
-//   }
-// }
-
-@media (max-width: 782px) {
+@media (max-width: 1024px) {
   .addressManager {
+    width: clamp(20rem, 95vw, 60rem);
+
+    h2 {
+      font-size: clamp(var(--fs-h4), 5vw, var(--fs-h2));
+    }
+
+    .btn {
+      big {
+        font-size: var(--fs-p);
+      }
+
+      svg {
+        font-size: var(--fs-big);
+      }
+    }
+
+    .addressFlex {
+      align-items: start;
+      gap: var(--margin-m);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .addressManager {
+    .goToAccount {
+      margin: 0;
+    }
+    .btn {
+      // padding-block: var(--margin-xs);
+      big {
+        font-size: clamp(var(--fs-small-ui), 3vw, var(--fs-p));
+      }
+    }
+
     .addressFlex {
       flex-direction: column;
+      gap: var(--margin-l);
     }
   }
 }

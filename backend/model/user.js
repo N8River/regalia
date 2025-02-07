@@ -36,6 +36,7 @@ const UserSchema = new Schema({
     default: false,
   },
   address: [addressSchema],
+  isMock: { type: Boolean, default: false },
 });
 
 UserSchema.methods.comparePasswords = function (candidatePassword) {

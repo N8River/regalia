@@ -20,7 +20,7 @@ function CollectionCard({ collectionInfo }) {
           />
         </div>
         <div className="collectionCardNameContainer">
-          <h1 className="collectionCardName h2ui">{collectionInfo.name}</h1>
+          <h1 className="collectionCardName">{collectionInfo.name}</h1>
         </div>
       </div>
     </>

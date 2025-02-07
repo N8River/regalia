@@ -68,6 +68,7 @@ const orderSchema = new Schema(
       type: String,
       required: true,
     },
+    isMock: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

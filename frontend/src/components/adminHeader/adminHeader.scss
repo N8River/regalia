@@ -2,49 +2,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
 
-  // height: 5rem;
+  gap: var(--margin-xxl);
 
-  gap: clamp(var(--margin-xxs), 3vw, var(--margin-xxl));
+  width: 100%;
 
-  padding-block: clamp(var(--margin-xs), 3vw, var(--margin-l));
+  padding-block: var(--margin-xl);
 
-  box-shadow: 2px 0px 5px var(--grey50);
+  border-bottom: 1px solid var(--grey80);
 
-  a {
+  .adminHeaderBtn {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-size: clamp(var(--fs-p), 4vw, var(--fs-h5));
-    font-weight: 600;
-    height: 100%;
-
+    font-size: var(--fs-big);
     transition: var(--transition-out);
-  }
 
-  a:hover {
-    background-color: var(--grey90);
-    transition: var(--transition-in);
-  }
-
-  .adminSignOut {
-    border: none;
-    font-size: clamp(var(--fs-p), 4vw, var(--fs-h5));
-
-    font-family: "Poppins";
-    background-color: transparent;
-
-    height: 100%;
-
-    font-weight: 600;
-
-    transition: var(--transition-out);
+    cursor: pointer;
 
     &:hover {
-      background-color: var(--grey90);
+      color: var(--accent-color);
+      font-weight: 600;
       transition: var(--transition-in);
+    }
+
+    &.active {
+      color: var(--accent-color);
+      font-weight: 600;
+      transition: var(--transition-in);
+    }
+  }
+}
+
+.adminSectionWrapper {
+  width: 60rem;
+
+  margin-inline: auto;
+}
+
+@media (max-width: 1024px) {
+  .adminSectionWrapper {
+    width: clamp(20rem, 95vw, 60rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .adminHeader {
+    gap: clamp(var(--margin-m), 4vw, var(--margin-xl));
+
+    .adminHeaderBtn {
+      font-size: clamp(var(--fs-small-ui), 3vw, var(--fs-big));
     }
   }
 }

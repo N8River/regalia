@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import "./cartProduct.css";
+import useResponsive from "../../../hooks/useResponsive";
+import { useCart } from "../../../context/CartContext";
 
 function CartProduct({ item, onDelete, onUpdate }) {
   const [product, setProduct] = useState(item);
   const token = localStorage.getItem("token");
+
+  const { updateCartCount } = useCart();
+
+  const { isMobile } = useResponsive(640);
 
   useEffect(() => {
     setProduct(item);
@@ -31,7 +37,8 @@ function CartProduct({ item, onDelete, onUpdate }) {
 
       onDelete(product.productId._id);
       onUpdate();
-      console.log("Item deleted successfully");
+      updateCartCount();
+      // console.log("Item deleted successfully");
     } catch (error) {
       console.log(error);
     }
@@ -59,12 +66,13 @@ function CartProduct({ item, onDelete, onUpdate }) {
       }
 
       const responseData = await response.json();
-      console.log(responseData);
+      // console.log(responseData);
       setProduct((prevProduct) => ({
         ...prevProduct,
         quantity: newQuantity,
       }));
       onUpdate();
+      updateCartCount();
       console.log(responseData);
     } catch (error) {
       console.log(error);
@@ -72,12 +80,12 @@ function CartProduct({ item, onDelete, onUpdate }) {
   };
 
   const increaseQuantity = () => {
-    console.log("+1");
+    // console.log("+1");
     updateCartQuantity(product.quantity + 1);
   };
 
   const decreaseQuantity = () => {
-    console.log("-1");
+    // console.log("-1");
     if (product.quantity > 1) {
       updateCartQuantity(product.quantity - 1);
     }
@@ -85,87 +93,61 @@ function CartProduct({ item, onDelete, onUpdate }) {
 
   return (
     <>
-      <div className="cartProduct">
-        <div className="cartProductInfo">
-          <div className="cartProductImg">
-            <img
-              src={product.productId.imageUrl}
-              alt={product.productId.title}
-            />
-          </div>
-          <div className="cartProductTitlePrice">
-            <h4>{product.productId.title}</h4>
-            <big>Rs. {product.productId.price}</big>
-          </div>
-        </div>
-        <div className="quantityCart">
-          <div className="changeQuantityCart">
-            <button
-              onClick={decreaseQuantity}
-              style={{ cursor: "pointer" }}
-              className="btn"
-            >
-              -
-            </button>
-            <p>{product.quantity} </p>
-            <button
-              onClick={increaseQuantity}
-              style={{ cursor: "pointer" }}
-              className="btn"
-            >
-              +
-            </button>
-          </div>
-          <div className="deleteProductCart">
-            <button onClick={deleteProductHandler}>
-              <p>Delete</p>
-            </button>
-          </div>
-        </div>
-        <div className="subSubTotal">
-          <big>
-            Rs. {+(product.quantity * product.productId.price).toFixed(2)}
-          </big>
-        </div>
-      </div>
-      <div className="cartProduct mobile">
-        <div className="cartProductInfo">
-          <div className="cartProductImg">
-            <img
-              src={product.productId.imageUrl}
-              alt={product.productId.title}
-            />
-          </div>
-          <div className="cartProductTitlePrice">
-            <h4>{product.productId.title}</h4>
-            <big>Rs. {product.productId.price}</big>
-            <div className="quantityCart">
-              <div className="changeQuantityCart">
-                <button
-                  onClick={decreaseQuantity}
-                  style={{ cursor: "pointer" }}
-                  className="btn"
-                >
-                  -
-                </button>
-                <p>{product.quantity} </p>
-                <button
-                  onClick={increaseQuantity}
-                  style={{ cursor: "pointer" }}
-                  className="btn"
-                >
-                  +
-                </button>
-              </div>
+      {isMobile ? (
+        <div className="cartProduct mobile">
+          <div className="cartProductInfo">
+            <div className="cartProductImg">
+              <img
+                src={product.productId.imageUrl}
+                alt={product.productId.title}
+              />
             </div>
-            <div className="deleteProductCart">
-              <button onClick={deleteProductHandler} className="linkBtn">
+            <div className="cartProductTitlePrice">
+              <h4>{product.productId.title}</h4>
+              <big>₹ {product.productId.price}</big>
+              <div className="quantityCart">
+                <div className="changeQuantityCart">
+                  <button
+                    onClick={decreaseQuantity}
+                    style={{ cursor: "pointer" }}
+                    className="btn"
+                  >
+                    -
+                  </button>
+                  <p>{product.quantity} </p>
+                  <button
+                    onClick={increaseQuantity}
+                    style={{ cursor: "pointer" }}
+                    className="btn"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <button
+                onClick={deleteProductHandler}
+                className="linkBtn deleteProductCart"
+              >
                 <p>Delete</p>
               </button>
             </div>
           </div>
         </div>
-        {/* <div className="quantityAndSubSubTotal">
+      ) : (
+        <div className="cartProduct">
+          <div className="cartProductInfo">
+            <div className="cartProductImg">
+              <img
+                src={product.productId.imageUrl}
+                alt={product.productId.title}
+              />
+            </div>
+            <div className="cartProductTitlePrice">
+              <h4>{product.productId.title}</h4>
+              <big>₹ {product.productId.price}</big>
+            </div>
+          </div>
           <div className="quantityCart">
             <div className="changeQuantityCart">
               <button
@@ -184,14 +166,19 @@ function CartProduct({ item, onDelete, onUpdate }) {
                 +
               </button>
             </div>
+            <div className="deleteProductCart">
+              <button onClick={deleteProductHandler}>
+                <p>Delete</p>
+              </button>
+            </div>
           </div>
           <div className="subSubTotal">
             <big>
-              Rs. {+(product.quantity * product.productId.price).toFixed(2)}
+              ₹ {+(product.quantity * product.productId.price).toFixed(2)}
             </big>
           </div>
-        </div> */}
-      </div>
+        </div>
+      )}
     </>
   );
 }

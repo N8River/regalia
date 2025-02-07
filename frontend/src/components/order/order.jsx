@@ -11,9 +11,9 @@ function Order() {
   const [order, setOrder] = useState(null);
   const [formattedOrderDate, setFormattedOrderDate] = useState(null);
   const [formattedArrivalDate, setFormattedArrivalDate] = useState(null);
-
   const token = localStorage.getItem("token");
 
+  // Fetch the order only once when the component mounts
   useEffect(() => {
     const fetchOrder = async () => {
       try {
@@ -36,19 +36,21 @@ function Order() {
 
         const responseData = await response.json();
         setOrder(responseData);
-        console.log(responseData);
       } catch (error) {
         console.log("Error fetching order:", error);
       }
     };
 
     fetchOrder();
+  }, [orderId, token]); // Only depend on orderId and token
 
+  // Format dates when order is updated
+  useEffect(() => {
     if (order) {
       setFormattedOrderDate(formatOrderDate(order.orderedOn));
       setFormattedArrivalDate(formatArrivalDate(order.arrivingOn));
     }
-  }, []);
+  }, [order]);
 
   const formatOrderDate = (date) => {
     const formattedDate =
@@ -63,7 +65,6 @@ function Order() {
       date.substring(0, 10).split("-")[1] +
       " - " +
       date.substring(0, 10).split("-")[0];
-    // console.log(formattedDate);
     return formattedDate;
   };
 
@@ -79,14 +80,16 @@ function Order() {
             </button>
           </div>
 
-          <div className="orderSubHeader">
-            <p>Order Date: {formattedOrderDate}</p>
-            <p>Estimated Delivery: {formattedArrivalDate}</p>
-          </div>
+          {formattedArrivalDate && formattedOrderDate && (
+            <div className="orderSubHeader">
+              <p>Order Date: {formattedOrderDate}</p>
+              <p>Estimated Delivery: {formattedArrivalDate}</p>
+            </div>
+          )}
 
           <div className="orderItems">
-            {order.products.map((orderItem) => {
-              return <OrderItem orderItem={orderItem} />;
+            {order.products.map((orderItem, index) => {
+              return <OrderItem key={index} orderItem={orderItem} />;
             })}
           </div>
 
@@ -103,7 +106,6 @@ function Order() {
             </div>
             <div className="delivery">
               <big>Delivery Address</big>
-
               <p>
                 {order.address.line1}, {order.address.line2}
               </p>
@@ -129,12 +131,12 @@ function Order() {
               <big>Order Summary</big>
               <div className="orderSubTotal">
                 <p>Subtotal</p>
-                <p>Rs. {order.subTotal}</p>
+                <p>₹ {order.subTotal}</p>
               </div>
               <div className="orderDiscount">
                 <p>Discount</p>
                 <p>
-                  (-{order.discount}%) Rs. {order.discountAmount}
+                  (-{order.discount}%) ₹ {order.discountAmount}
                 </p>
               </div>
               <div className="deliveryCharges">
@@ -142,12 +144,12 @@ function Order() {
                 <p>
                   {order.deliveryCharge === 0
                     ? "FREE"
-                    : `Rs. ${order.deliveryCharge}`}
+                    : `₹ ${order.deliveryCharge}`}
                 </p>
               </div>
               <div className="orderTotal">
                 <big>Total</big>
-                <big>Rs. {order.finalTotal}</big>
+                <big>₹ {order.finalTotal}</big>
               </div>
             </div>
           </div>

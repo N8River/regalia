@@ -13,7 +13,7 @@ function CheckoutItem({ item }) {
         <small>Qty. {item.quantity}</small>
       </div>
       <div className="checkoutItemPrice">
-        <p>Rs. {item.productId.price}</p>
+        <p>₹ {item.productId.price}</p>
       </div>
     </div>
   );

@@ -5,14 +5,13 @@
   flex-direction: column;
 
   width: 100%;
-  background-color: var(--primary-color);
+  background-color: var(--background-color);
 
   h1 {
-    // padding-block: var(--margin-xxl);
-    padding-block: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+    margin-block: var(--margin-xl);
+    font-size: var(--fs-h3);
+    font-weight: 700;
     width: 100%;
-
-    font-size: clamp(var(--fs-h4), 2vw + 0.5rem, var(--fs-h2));
 
     text-align: center;
   }
@@ -24,20 +23,13 @@
     justify-content: space-between;
     align-items: center;
 
-    padding-inline: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+    border: 1px solid var(--grey80);
 
-    border: 1px solid var(--grey70);
-
-    background-color: var(--primary-color);
+    background-color: var(--background-color);
     border-left: none;
     border-right: none;
 
     z-index: 990;
-
-    // &.sticky {
-    //   position: fixed;
-    //   top: 6rem;
-    // }
 
     .toolbarNav {
       display: flex;
@@ -45,64 +37,55 @@
       align-items: center;
 
       width: fit-content;
-      padding-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+      padding-block: var(--margin-s);
+      padding-inline: var(--margin-m);
+      padding-left: var(--margin-xxs);
 
-      padding-right: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+      height: 100%;
 
-      border-right: 0.5px solid var(--grey50);
+      border-right: 1px solid var(--grey80);
 
-      // gap: var(--margin-s);
+      cursor: pointer;
 
-      div {
+      svg {
         display: flex;
-        justify-content: center;
         align-items: center;
-
-        // width: 50%;
-        height: 100%;
+        font-size: var(--fs-h5);
+        color: var(--grey50);
 
         cursor: pointer;
+        transition: var(--transition-out);
 
+        // margin-right: var(--margin-xxs);
+
+        height: 100%;
+
+        & path:nth-of-type(2) {
+          stroke-width: 0.1px;
+        }
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        color: var(--grey50);
+        transition: var(--transition-out);
+
+        font-size: var(--fs-p);
+        font-weight: 500;
+
+        height: 100%;
+      }
+
+      &:hover {
         svg {
-          display: flex;
-          align-items: center;
-          font-size: clamp(var(--fs-big), 1.5vw + 0.5rem, var(--fs-h5));
-          color: var(--grey30);
-
-          cursor: pointer;
-          transition: var(--transition-out);
-
-          margin-right: var(--margin-xxs);
-
-          height: 100%;
-
-          & path:nth-of-type(2) {
-            stroke-width: 0.1px;
-          }
+          color: var(--black);
+          transition: var(--transition-in);
         }
 
         p {
-          display: flex;
-          align-items: center;
-          color: var(--grey30);
-          transition: var(--transition-out);
-
-          font-size: clamp(var(--fs-s), 1.5vw + 0.5rem, var(--fs-big));
-          font-weight: 500;
-
-          height: 100%;
-        }
-
-        &:hover {
-          svg {
-            color: var(--text-color);
-            transition: var(--transition-in);
-          }
-
-          p {
-            color: var(--text-color);
-            transition: var(--transition-in);
-          }
+          color: var(--text-color);
+          transition: var(--transition-in);
         }
       }
     }
@@ -113,27 +96,36 @@
       align-items: center;
 
       height: 100%;
-      width: 5rem;
 
-      padding-left: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
-      padding-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
+      padding-block: var(--margin-s);
+      padding-inline: var(--margin-m);
       // padding-block: auto;
 
-      border-left: 0.5px solid var(--grey50);
+      border-left: 0.5px solid var(--grey70);
 
       color: var(--grey30);
 
       cursor: pointer;
 
-      div {
+      &:hover {
+        p {
+          color: var(--black);
+          transition: var(--transition-in);
+        }
+      }
+
+      p {
         display: flex;
         width: 100%;
         height: 100%;
         align-items: center;
         justify-content: center;
 
-        font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
+        color: var(--grey50);
+
+        font-size: var(--fs-p);
         font-weight: 500;
+        transition: var(--transition-out);
       }
     }
   }
@@ -145,8 +137,12 @@
 
     flex-wrap: wrap;
 
-    padding: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
-    gap: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+    // padding: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+    // gap: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+
+    padding: var(--margin-m);
+
+    gap: var(--margin-m);
   }
 }
 
@@ -166,7 +162,7 @@
 
   &.show {
     transform: translateX(0);
-    box-shadow: -1px 0px 3px var(--grey50);
+    box-shadow: -1px 0px 5px var(--grey50);
     transition: var(--transition-in);
   }
 
@@ -180,9 +176,10 @@
     padding: var(--margin-s) var(--margin-l);
     // margin-bottom: var(--margin-l);
 
-    border-bottom: 1px solid var(--grey70);
+    border-bottom: 1px solid var(--grey80);
 
     h4 {
+      font-size: var(--fs-h5);
       font-weight: 600;
     }
 
@@ -199,7 +196,7 @@
         cursor: pointer;
 
         svg {
-          font-size: 2rem;
+          font-size: var(--fs-h4);
         }
       }
     }
@@ -210,19 +207,20 @@
     justify-content: flex-start;
     flex-direction: column;
 
-    margin: 0 var(--margin-m);
+    margin-inline: var(--margin-m);
     cursor: pointer;
 
     .filterDropdownFilter {
       display: flex;
       justify-content: space-between;
 
-      padding-bottom: var(--margin-s);
-      padding-top: var(--margin-s);
+      padding-block: var(--margin-s);
+
       border-bottom: 1px solid var(--grey90);
 
       p {
-        font-weight: 500;
+        font-weight: 600;
+        font-size: var(--fs-p);
       }
 
       div {
@@ -235,7 +233,7 @@
           background-color: transparent;
 
           .filterDropdownArrow {
-            font-size: 1rem;
+            font-size: var(--fs-p);
 
             transition: var(--transition-out);
 
@@ -249,24 +247,17 @@
     }
 
     .filterDropdown {
-      // display: none;
       max-height: 0;
       overflow: hidden;
 
-      // margin: var(--margin-s) 0rem;
-
-      // transition: var(--transition-out);
-
       transition: 0.25s margin ease-out, 0.25s max-height ease-out;
 
+      display: flex;
+      flex-direction: column;
+
+      gap: var(--margin-s);
+
       &.show {
-        // display: flex;
-        // flex-direction: column;
-
-        // gap: var(--margin-s);
-        // max-height: fit-content;
-
-        // transition: var(--transition-in);
         margin: var(--margin-s) 0rem;
         max-height: 500px;
 
@@ -281,7 +272,7 @@
         .price-input {
           display: flex;
           align-items: center;
-          border: 1px solid var(--grey70); /* Style the border as you like */
+          border: 1px solid var(--grey70);
           padding: var(--margin-xs) var(--margin-s);
 
           span {
@@ -315,8 +306,7 @@
         flex-direction: column;
 
         p {
-          font: var(--p);
-          font-weight: 400;
+          font-weight: 500;
 
           margin-bottom: var(--margin-xxs);
         }
@@ -328,7 +318,7 @@
 
           border: 1px solid var(--grey50);
 
-          padding: var(--margin-xxs) var(--margin-xs);
+          padding: var(--margin-xs) var(--margin-xs);
 
           outline: none;
 
@@ -347,7 +337,7 @@
         form {
           display: flex;
           flex-direction: column;
-          gap: var(--margin-xxs);
+          gap: var(--margin-xs);
           width: 100%;
 
           div {
@@ -382,7 +372,21 @@
 
     margin-top: auto;
     margin-bottom: var(--margin-xxl);
+
+    button {
+      big {
+        font-weight: 600;
+      }
+    }
   }
+}
+
+.skibidi {
+  width: 100vw;
+
+  position: absolute;
+  border-bottom: 1px solid red;
+  top: 500px;
 }
 
 // .productCollectionContainer.sticky-padding2 {
@@ -412,13 +416,11 @@
 }
 
 @media (max-width: 768px) {
-  // .productCollection {
-  //   .productCollectionContainer {
-  //     padding: var(--margin-m);
-
-  //     gap: 4vw;
-  //   }
-  // }
+  .productCollection {
+    h1 {
+      font-size: clamp(var(--fs-h5), 6vw, var(--fs-h3));
+    }
+  }
 }
 
 @media (max-width: 640px) {
@@ -428,42 +430,6 @@
 }
 
 @media (max-width: 475px) {
-  // .productCollection {
-  //   .collectionToolbar {
-  //     height: 10vw;
-
-  //     .toolbarNav {
-  //       div {
-  //         svg {
-  //           font-size: 5vw;
-  //         }
-
-  //         p {
-  //           font-size: 4.5vw;
-  //         }
-  //       }
-  //     }
-
-  //     .toolbarFilterBtn {
-  //       div {
-  //         font-size: 4.5vw;
-  //       }
-  //     }
-  //   }
-
-  //   .collectionToolbar {
-  //     &.sticky {
-  //       top: 4rem;
-  //     }
-  //   }
-
-  //   .productCollectionContainer {
-  //     padding: var(--margin-m) 0;
-
-  //     gap: 3.5vw;
-  //   }
-  // }
-
   .toolbarFilter {
     width: 100vw;
   }

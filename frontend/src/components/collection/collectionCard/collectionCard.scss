@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
 
-  position: relative; /* Make the parent relatively positioned */
+  position: relative;
 
   cursor: pointer;
 
@@ -56,14 +56,12 @@
 }
 
 .collectionCardNameContainer {
-  position: absolute; /* Position the text absolutely */
-  bottom: 0; /* Align to the bottom of the image */
-  // height: clamp(30rem, 35vw + 0.5rem, 40rem);
-  // width: clamp(22.5rem, 35vw + 0.5rem, 30rem);
-  background: rgba(0, 0, 0, 0.5); /* Optional: Add background to the text */
+  position: absolute;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.5);
   color: var(--white);
   text-align: center;
-  // padding: 0.5rem 0;
 
   transition: var(--transition-out-slow);
 
@@ -71,67 +69,26 @@
     display: flex;
     height: 100%;
 
-    font-size: clamp(var(--fs-h5-ui), 1.5vw + 0.5rem, var(--fs-h2-ui));
+    font-weight: 600;
+    font-size: var(--fs-h5);
     font-weight: 600;
   }
 }
 
-@media (max-width: 1440px) {
-  // .collectionCard {
-  //   max-height: 40vw;
-  //   max-width: 25vw;
-
-  //   .collectionCardImgContainer {
-  //     max-height: 40vw;
-  //     max-width: 25vw;
-  //   }
-  // }
-
-  // .collectionCardNameContainer {
-  //   h1 {
-  //     font-size: 2vw;
-  //   }
-  // }
-}
-
-// @media (max-width: 1024px) {
-//   .collectionCard {
-//     height: clamp(30rem, 10vw + 0.5rem, 40rem);
-//     width: clamp(18.75rem, 10vw + 0.5rem, 25rem);
-//   }
-// }
-
-@media (max-width: 834px) {
+@media (max-width: 768px) {
   .collectionCard {
-    // height: clamp(22.5rem, 2vw + 0.5rem, 30rem);
-
-    // width: clamp(18.75rem, 10vw + 0.5rem, 25rem);
     .collectionCardImgContainer {
-      height: 54vw;
-      width: 40vw;
+      aspect-ratio: 3 / 4;
+
+      height: auto;
+      width: clamp(9.2rem, 46vw, 22rem);
+
+      overflow: hidden;
     }
 
     .collectionCardNameContainer {
-      h1 {
-        font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-h2-ui));
-      }
-    }
-  }
-}
-
-@media (max-width: 475px) {
-  .collectionCard {
-    // height: clamp(22.5rem, 2vw + 0.5rem, 30rem);
-
-    // width: clamp(18.75rem, 10vw + 0.5rem, 25rem);
-    .collectionCardImgContainer {
-      height: 100vw;
-      width: 75vw;
-    }
-
-    .collectionCardNameContainer {
-      h1 {
-        font-size: clamp(var(--fs-big), 4vw + 0.5rem, var(--fs-h4));
+      .collectionCardName {
+        font-size: clamp(var(--fs-small-ui), 3vw, var(--fs-big));
       }
     }
   }

@@ -13,18 +13,19 @@
 
   h3 {
     margin-block: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
+    margin-bottom: clamp(var(--margin-s), 3vw, var(--margin-xl));
 
-    font-size: clamp(var(--fs-h5), 3vw + 1rem, var(--fs-h2));
+    font-size: clamp(var(--fs-h5), 5vw, var(--fs-h2));
 
-    font-weight: 600;
+    font-weight: 700;
 
     color: var(--text-color);
     width: 100%;
   }
 
   big {
-    margin-bottom: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
-    font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
+    margin-bottom: var(--margin-xs);
+    font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
     width: 100%;
   }
 
@@ -35,33 +36,32 @@
     flex-direction: column;
     width: 100%;
 
-    gap: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
+    gap: var(--margin-xs);
 
-    margin-bottom: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
+    margin-bottom: var(--margin-xxs);
 
     input {
-      // height: 2.5rem;
-      // width: 30%;
       min-width: 30rem;
 
-      border: 0.5px solid var(--grey50);
-      padding: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
+      border: 1px solid var(--grey70);
+      padding: var(--margin-xxs);
       padding-inline: var(--margin-xs);
 
-      // font-family: "Poppins";
-
-      font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
+      // font-size: clamp(var(--fs-small), 1.5vw, var(--fs-p));
 
       border-radius: 0rem;
 
       &::placeholder {
-        font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
+        // font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
+        color: var(--grey50);
+      }
+
+      &:focus {
+        outline: none;
       }
     }
 
     button {
-      // margin-top: var(--margin-xxs);
-      // width: 30%;
       min-width: 30rem;
       padding-inline: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-p));
       big {
@@ -74,113 +74,29 @@
   small {
     display: flex;
     justify-content: center;
+    align-items: center;
     color: var(--grey30);
-    font-size: clamp(var(--fs-small), 2vw + 0.5rem, var(--fs-p));
+    font-size: var(--fs-p);
 
     gap: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-s));
 
     font-weight: 400;
     width: 100%;
 
-    a {
+    p {
       // margin-left: var(--margin-xxs);
       color: var(--grey10);
       font-weight: 600;
 
       border-bottom: 1px solid var(--grey10);
+
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--accent-color);
+
       // font-size: clamp(var(--fs-p), 2vw + 0.5rem, var(--fs-big));
     }
   }
 }
-
-// @media (max-width: 1536px) {
-//   .loginForm {
-//     form {
-//       input {
-//         min-width: 25vw;
-//       }
-
-//       button {
-//         min-width: 25vw;
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 1280px) {
-//   .loginForm {
-//     padding: var(--margin-xxl) 10vw;
-//   }
-// }
-
-// @media (max-width: 1024px) {
-//   .loginForm {
-//     form {
-//       input {
-//         min-width: 35vw;
-//       }
-
-//       button {
-//         min-width: 35vw;
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 1024px) {
-//   .loginForm {
-//     form {
-//       input {
-//         min-width: 40vw;
-//       }
-
-//       button {
-//         min-width: 40vw;
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 640px) {
-//   .loginForm {
-//     padding: var(--margin-xxl) 5vw;
-
-//     form {
-//       input {
-//         min-width: 50vw;
-//       }
-
-//       button {
-//         min-width: 50vw;
-//       }
-//     }
-//   }
-// }
-
-// @media (max-width: 475px) {
-//   .loginForm {
-//     padding: var(--margin-xxl) 5vw;
-
-//     h3 {
-//       margin-bottom: 2vw;
-//       font-size: 7.5vw;
-//     }
-
-//     big {
-//       font-size: 4vw;
-//     }
-
-//     form {
-//       input {
-//         min-width: 70vw;
-//       }
-
-//       button {
-//         min-width: 70vw;
-//       }
-//     }
-//   }
-// }
 
 @media (max-width: 1024px) {
   .loginForm {
@@ -200,11 +116,11 @@
   .loginForm {
     form {
       input {
-        min-width: 20rem;
+        min-width: 25rem;
       }
 
       button {
-        min-width: 20rem;
+        min-width: 25rem;
       }
     }
   }
@@ -212,13 +128,30 @@
 
 @media (max-width: 475px) {
   .loginForm {
+    min-width: clamp(19rem, 95vw, 27rem);
+
+    small {
+      font-size: var(--fs-small-ui);
+
+      a {
+        color: var(--accent-color);
+        border-bottom: 1px solid var(--accent-color);
+      }
+    }
+
     form {
       input {
-        min-width: 70vw;
+        min-width: 0;
+        padding-block: var(--margin-xs);
+        width: clamp(19rem, 95vw, 27rem);
+        font-size: var(--fs-small-ui);
       }
 
       button {
-        min-width: 70vw;
+        min-width: 0;
+        padding-block: var(--margin-xs);
+        width: clamp(19rem, 95vw, 27rem);
+        font-size: var(--fs-small-ui);
       }
     }
   }

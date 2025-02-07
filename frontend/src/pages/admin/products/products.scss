@@ -1,0 +1,356 @@
+.products-section {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: var(--margin-xxl);
+
+  .adminProductsSearchWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-block: var(--margin-xxl);
+    margin-bottom: var(--margin-l);
+
+    position: relative;
+
+    .searchIcon {
+      position: absolute;
+      left: calc(25% - var(--margin-xs));
+      transform: translateX(-100%);
+
+      font-size: var(--fs-h5-ui);
+
+      color: var(--grey40);
+    }
+
+    .adminProductsSearchInput {
+      margin-right: auto;
+
+      padding-block: var(--margin-xxs);
+      padding-inline: var(--margin-xs);
+      font-size: var(--fs-small-ui);
+
+      border: 1px solid var(--grey70);
+      color: var(--grey20);
+
+      width: 25%;
+
+      &::placeholder {
+        font-size: var(--fs-small-ui);
+        color: var(--grey30);
+      }
+    }
+
+    .adminProductsAddProductBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: var(--ff);
+
+      font-size: var(--fs-p-ui);
+      font-weight: 600;
+
+      color: var(--white);
+
+      padding-block: var(--margin-xs);
+      padding-inline: var(--margin-s);
+      padding-right: var(--margin-xs);
+
+      background-color: var(--accent-color);
+      border: none;
+
+      border-radius: 0.5rem;
+
+      cursor: pointer;
+      transition: var(--transition-out);
+
+      &:hover {
+        background-color: var(--black);
+        transition: var(--transition-in);
+      }
+
+      svg {
+        font-size: var(--fs-h4-ui);
+
+        margin-left: var(--margin-xxs);
+      }
+    }
+  }
+
+  .adminProductsTable {
+    --border-r: 0.75rem;
+    --top-border-r: var(--border-r) var(--border-r) 0rem 0rem;
+    --bottom-border-r: 0rem 0rem var(--border-r) var(--border-r);
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--background-color);
+
+    thead {
+      display: flex;
+      padding-block: var(--margin-xs);
+      padding-inline: var(--margin-s);
+
+      border-bottom: 1px solid var(--grey70);
+
+      border-radius: var(--top-border-r);
+      background-color: var(--grey85);
+
+      font-weight: 600;
+
+      tr {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: var(--margin-l);
+
+        th {
+          flex: 1;
+
+          overflow: hidden;
+          text-align: left;
+          line-height: 1.6;
+
+          cursor: pointer;
+
+          &.sorted-column-asc {
+            // background-color: #e0f7fa;
+            font-weight: 800;
+            color: var(--accent-color);
+          }
+
+          &.sorted-column-desc {
+            // background-color: #ffe0b2;
+            font-weight: 800;
+            color: var(--accent-color);
+          }
+        }
+      }
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+
+      border: 1px solid var(--grey85);
+
+      border-radius: var(--bottom-border-r);
+
+      tr {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        padding-block: var(--margin-xs);
+        border-bottom: 1px solid var(--grey85);
+        padding-inline: var(--margin-s);
+
+        gap: var(--margin-l);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          flex: 1;
+          display: flex;
+          align-items: center;
+
+          line-height: 1.6;
+
+          overflow: hidden;
+          text-wrap: nowrap;
+
+          .editAdminProductBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: var(--ff);
+
+            font-size: var(--fs-small-ui);
+            font-weight: 500;
+
+            color: var(--black);
+
+            padding-block: var(--margin-xxs);
+            padding-inline: var(--margin-s);
+
+            background-color: var(--grey85);
+            border: none;
+
+            border-radius: 0.5rem;
+
+            cursor: pointer;
+            transition: var(--transition-out);
+
+            margin-right: var(--margin-m);
+
+            &:hover {
+              background-color: var(--grey70);
+
+              transition: var(--transition-in);
+            }
+          }
+
+          .deleteAdminProductBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: var(--ff);
+
+            font-size: var(--fs-small-ui);
+            font-weight: 500;
+
+            color: var(--black);
+
+            padding-block: var(--margin-xxs);
+            padding-inline: var(--margin-s);
+
+            background-color: var(--grey85);
+            border: none;
+
+            border-radius: 0.5rem;
+
+            cursor: pointer;
+            transition: var(--transition-out);
+
+            &:hover {
+              background-color: var(--red);
+              color: var(--white);
+
+              transition: var(--transition-in);
+            }
+          }
+
+          select {
+            font-family: var(--ff);
+
+            font-size: var(--fs-small-ui);
+
+            padding-block: var(--margin-xxs);
+            padding-inline: var(--margin-xxs);
+
+            border: 1px solid var(--grey60);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .products-section {
+    .adminProductsSearchWrapper {
+      .searchIcon {
+        left: calc(12.5rem - var(--margin-xs));
+      }
+
+      .adminProductsSearchInput {
+        width: 12.5rem;
+      }
+    }
+
+    .adminProductsTable {
+      font-size: var(--fs-small-ui);
+
+      thead {
+        padding-block: var(--margin-xxs);
+        padding-inline: var(--margin-xs);
+
+        tr {
+          gap: var(--margin-s);
+          text-wrap: nowrap;
+
+          overflow: hidden;
+
+          .actionsTable {
+            min-width: 8.5rem;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          gap: var(--margin-s);
+          padding-block: var(--margin-xxs);
+          padding-inline: var(--margin-xs);
+
+          td {
+            overflow-x: auto;
+            text-wrap: nowrap;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+          }
+
+          .actionsTable {
+            min-width: 8.5rem;
+
+            .editAdminProductBtn {
+              margin-right: var(--margin-xs);
+            }
+
+            .deleteAdminProductBtn {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .products-section {
+    .adminProductsSearchWrapper {
+      .adminProductsAddProductBtn {
+        padding-block: var(--margin-xs);
+        padding-inline: var(--margin-xs);
+        padding-right: var(--margin-xxs);
+        font-size: var(--fs-small-ui);
+      }
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .products-section {
+    .adminProductsTable {
+      thead {
+        tr {
+          .actionsTable {
+            min-width: 7.5rem;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          .actionsTable {
+            min-width: 7.5rem;
+            min-width: 7.5rem;
+
+            .editAdminProductBtn {
+              padding-block: var(--margin-xxs);
+              padding-inline: var(--margin-xs);
+            }
+
+            .deleteAdminProductBtn {
+              padding-block: var(--margin-xxs);
+              padding-inline: var(--margin-xs);
+            }
+          }
+        }
+      }
+    }
+  }
+}

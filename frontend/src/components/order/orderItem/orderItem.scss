@@ -1,19 +1,21 @@
 .orderItem {
+  --orderItem-height: clamp(5rem, 15vw, 7.5rem);
+
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 
   width: 100%;
 
   height: fit-content;
 
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 
   cursor: pointer;
 
-  background-color: var(--secondary-color);
+  background-color: var(--grey90);
 
-  padding: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+  padding: var(--margin-xs);
   transition: var(--transition-out);
 
   &:hover {
@@ -22,12 +24,12 @@
   }
 
   .orderItemImg {
-    height: clamp(5rem, 15vw, 7.5rem);
+    height: var(--orderItem-height);
+    aspect-ratio: 3/4;
+
     border-radius: 0.5rem;
 
     overflow: hidden;
-
-    min-width: fit-content;
 
     img {
       height: 100%;
@@ -37,11 +39,10 @@
 
   .orderItemInfo {
     margin-left: var(--margin-s);
-    height: clamp(5rem, 15vw, 7.5rem);
-    width: 100%;
+    height: var(--orderItem-height);
 
     big {
-      font-size: clamp(var(--fs-small), 2.5vw, var(--fs-big));
+      font-size: var(--fs-p);
       font-weight: 600;
     }
   }
@@ -53,15 +54,17 @@
 
     flex-direction: column;
 
+    margin-left: auto;
+
     min-width: 5rem;
-    height: clamp(5rem, 15vw, 7.5rem);
+    height: var(--orderItem-height);
 
     padding-right: var(--margin-xs);
 
     big {
       min-width: fit-content;
       text-align: right;
-      font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
+      font-size: var(--fs-p);
 
       font-weight: 600;
     }
@@ -70,26 +73,33 @@
       width: 100%;
       text-align: right;
 
-      font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
+      font-size: var(--fs-p);
     }
   }
 }
 
-// @media (max-width: 1024px) {
-//   .orderItem {
-//     .orderItemImg {
-//       height: 12vw;
-//     }
+@media (max-width: 640px) {
+  .orderItem {
+    --orderItem-height: 7.5rem;
 
-//     .orderItemInfo {
-//       width: 70%;
-//       big {
-//         font-size: 2vw;
-//       }
-//     }
+    .orderItemImg {
+      min-width: 5.625rem;
+    }
 
-//     .orderItemPriceAndQuantity {
-//       width: 30%;
-//     }
-//   }
-// }
+    .orderItemInfo {
+      big {
+        font-size: clamp(var(--fs-small-ui), 3.5vw, var(--fs-p));
+      }
+    }
+
+    .orderItemPriceAndQuantity {
+      big {
+        font-size: clamp(var(--fs-small-ui), 3.5vw, var(--fs-p));
+      }
+
+      p {
+        font-size: clamp(var(--fs-small-ui), 3.5vw, var(--fs-p));
+      }
+    }
+  }
+}

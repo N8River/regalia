@@ -50,16 +50,15 @@ function AccountOrder({ order }) {
       <div className="accountOrderDetails">
         <div>
           <p>Ordered on: {formatOrderDate(order.orderedOn)}</p>
-          <p>
-            Total: {order.finalTotal} ({numberOfProducts} items)
-          </p>
+          <p>₹ {order.finalTotal}</p>
+          <p>{numberOfProducts} items</p>
         </div>
 
         <div>
           <p>Status: {order.status}</p>
-          <button>
+          {/* <button>
             <small className="smallui">MORE DETAILS</small>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

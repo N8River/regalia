@@ -20,7 +20,7 @@ function OrderItem({ orderItem }) {
       </div>
 
       <div className="orderItemPriceAndQuantity">
-        <big>{"Rs. " + product.price}</big>
+        <big>{"₹ " + product.price}</big>
         <p>{"Qty. " + orderItem.quantity}</p>
       </div>
     </div>

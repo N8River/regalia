@@ -105,15 +105,15 @@ function ProductCollection({ collectionName }) {
     const collectionToolbar = document.querySelector(".collectionToolbar");
     const collectionToolbarHeight =
       document.querySelector(".collectionToolbar").offsetHeight;
-    // console.log(collectionToolbarHeight);
+    console.log("collectionToolbarHeight", collectionToolbarHeight);
     const headerHeight = document.querySelector(".header").offsetHeight;
-    // console.log("headerHeight", headerHeight);
+    console.log("headerHeight", headerHeight);
     const collectionNameH1Height =
       document.querySelector(".collectionNameH1").offsetHeight;
-    // console.log("collectionNameH1Height", collectionNameH1Height);
+    console.log("collectionNameH1Height", collectionNameH1Height);
     const announcementBarHeight =
       document.querySelector(".announcementBar").offsetHeight;
-    // console.log("announcementBarHeight", announcementBarHeight);
+    console.log("announcementBarHeight", announcementBarHeight);
     const content2 = document.querySelector(".content2");
     const content1 = document.querySelector(".content");
     const productCollectionContainer = document.querySelector(
@@ -123,15 +123,18 @@ function ProductCollection({ collectionName }) {
     const stickyPadding = headerHeight;
     const contentPadding = collectionToolbarHeight;
 
-    const scrollThreshold = announcementBarHeight + collectionNameH1Height - 1;
+    const scrollThreshold =
+      announcementBarHeight + collectionNameH1Height + collectionToolbarHeight;
 
-    console.log(scrollThreshold);
+    // const scrollThreshold = 500;
+
+    console.log("💸", scrollThreshold);
 
     const handleScroll = () => {
       if (window.scrollY > scrollThreshold) {
         // collectionToolbar.classList.add("sticky");
         collectionToolbar.style.position = `fixed`;
-        collectionToolbar.style.top = `${stickyPadding + 1}px`;
+        collectionToolbar.style.top = `${stickyPadding}px`;
         // productCollectionContainer.classList.add("sticky-padding2");
         document.querySelector(
           ".productCollectionContent"
@@ -198,30 +201,34 @@ function ProductCollection({ collectionName }) {
   return (
     <>
       <div className="productCollection">
-        <h1 className="h1ui collectionNameH1">{collectionName}</h1>
+        <h1 className="collectionNameH1">{collectionName}</h1>
         <div className="collectionToolbar">
-          <div className="toolbarNav">
-            <div onClick={handleNavigateBack}>
-              <MdNavigateBefore />
-              <p className="pui">GO BACK</p>
-            </div>
+          <div className="toolbarNav" onClick={handleNavigateBack}>
+            <MdNavigateBefore />
+            <p>GO BACK</p>
           </div>
           <div className="toolbarFilterBtn" onClick={toggleFilterToolbar}>
-            <div>Filter</div>
+            <p>Filter</p>
           </div>
         </div>
 
         <div className="productCollectionContent">
           <div className="productCollectionContainer">
             {products.length > 0
-              ? products.map((p) => {
-                  return <ProductCard key={p._id} product={p} />;
+              ? products.map((p, index) => {
+                  return (
+                    <ProductCard
+                      key={p._id}
+                      product={p}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    />
+                  );
                 })
               : ""}
           </div>
         </div>
       </div>
-      {/* Filter Toolbar */}
+
       <div className={`toolbarFilter ${filterToolbarVisible ? "show" : ""}`}>
         <div className="toolbarFilterHeader">
           <h4>FILTERS</h4>
@@ -251,7 +258,7 @@ function ProductCollection({ collectionName }) {
           </div>
           <div className={`filterDropdown ${priceDropdown ? "show" : ""}`}>
             <div className="filterByMaxMinPrice">
-              <div class="price-input">
+              <div className="price-input">
                 <span>₹</span>
                 <input
                   type="number"
@@ -262,7 +269,7 @@ function ProductCollection({ collectionName }) {
               </div>
 
               <p>to</p>
-              <div class="price-input">
+              <div className="price-input">
                 <span>₹</span>
                 <input
                   type="number"

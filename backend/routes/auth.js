@@ -13,8 +13,10 @@ router.post("/signup", validate.validateUser, AuthController.signUp);
 
 router.post("/login", validate.validateLogin, AuthController.login);
 
-router.post("admin/login", validate.validateLogin, AuthController.adminLogin);
+router.post("/admin/login", validate.validateLogin, AuthController.adminLogin);
 
 router.get("/profile", Middleware.authMiddleware, AuthController.getUserInfo);
+
+router.get("/check-admin", AuthController.checkIsAdmin);
 
 module.exports = router;

@@ -1,0 +1,244 @@
+.products-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--margin-xxl);
+}
+.products-section .adminProductsSearchWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: var(--margin-xxl);
+  margin-bottom: var(--margin-l);
+  position: relative;
+}
+.products-section .adminProductsSearchWrapper .searchIcon {
+  position: absolute;
+  left: calc(25% - var(--margin-xs));
+  transform: translateX(-100%);
+  font-size: var(--fs-h5-ui);
+  color: var(--grey40);
+}
+.products-section .adminProductsSearchWrapper .adminProductsSearchInput {
+  margin-right: auto;
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-xs);
+  font-size: var(--fs-small-ui);
+  border: 1px solid var(--grey70);
+  color: var(--grey20);
+  width: 25%;
+}
+.products-section .adminProductsSearchWrapper .adminProductsSearchInput::-moz-placeholder {
+  font-size: var(--fs-small-ui);
+  color: var(--grey30);
+}
+.products-section .adminProductsSearchWrapper .adminProductsSearchInput::placeholder {
+  font-size: var(--fs-small-ui);
+  color: var(--grey30);
+}
+.products-section .adminProductsSearchWrapper .adminProductsAddProductBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff);
+  font-size: var(--fs-p-ui);
+  font-weight: 600;
+  color: var(--white);
+  padding-block: var(--margin-xs);
+  padding-inline: var(--margin-s);
+  padding-right: var(--margin-xs);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-out);
+}
+.products-section .adminProductsSearchWrapper .adminProductsAddProductBtn:hover {
+  background-color: var(--black);
+  transition: var(--transition-in);
+}
+.products-section .adminProductsSearchWrapper .adminProductsAddProductBtn svg {
+  font-size: var(--fs-h4-ui);
+  margin-left: var(--margin-xxs);
+}
+.products-section .adminProductsTable {
+  --border-r: 0.75rem;
+  --top-border-r: var(--border-r) var(--border-r) 0rem 0rem;
+  --bottom-border-r: 0rem 0rem var(--border-r) var(--border-r);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+.products-section .adminProductsTable thead {
+  display: flex;
+  padding-block: var(--margin-xs);
+  padding-inline: var(--margin-s);
+  border-bottom: 1px solid var(--grey70);
+  border-radius: var(--top-border-r);
+  background-color: var(--grey85);
+  font-weight: 600;
+}
+.products-section .adminProductsTable thead tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--margin-l);
+}
+.products-section .adminProductsTable thead tr th {
+  flex: 1;
+  overflow: hidden;
+  text-align: left;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.products-section .adminProductsTable thead tr th.sorted-column-asc {
+  font-weight: 800;
+  color: var(--accent-color);
+}
+.products-section .adminProductsTable thead tr th.sorted-column-desc {
+  font-weight: 800;
+  color: var(--accent-color);
+}
+.products-section .adminProductsTable tbody {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--grey85);
+  border-radius: var(--bottom-border-r);
+}
+.products-section .adminProductsTable tbody tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-block: var(--margin-xs);
+  border-bottom: 1px solid var(--grey85);
+  padding-inline: var(--margin-s);
+  gap: var(--margin-l);
+}
+.products-section .adminProductsTable tbody tr:last-child {
+  border-bottom: none;
+}
+.products-section .adminProductsTable tbody tr td {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  line-height: 1.6;
+  overflow: hidden;
+  text-wrap: nowrap;
+}
+.products-section .adminProductsTable tbody tr td .editAdminProductBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff);
+  font-size: var(--fs-small-ui);
+  font-weight: 500;
+  color: var(--black);
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-s);
+  background-color: var(--grey85);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-out);
+  margin-right: var(--margin-m);
+}
+.products-section .adminProductsTable tbody tr td .editAdminProductBtn:hover {
+  background-color: var(--grey70);
+  transition: var(--transition-in);
+}
+.products-section .adminProductsTable tbody tr td .deleteAdminProductBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff);
+  font-size: var(--fs-small-ui);
+  font-weight: 500;
+  color: var(--black);
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-s);
+  background-color: var(--grey85);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-out);
+}
+.products-section .adminProductsTable tbody tr td .deleteAdminProductBtn:hover {
+  background-color: var(--red);
+  color: var(--white);
+  transition: var(--transition-in);
+}
+.products-section .adminProductsTable tbody tr td select {
+  font-family: var(--ff);
+  font-size: var(--fs-small-ui);
+  padding-block: var(--margin-xxs);
+  padding-inline: var(--margin-xxs);
+  border: 1px solid var(--grey60);
+}
+
+@media (max-width: 1024px) {
+  .products-section .adminProductsSearchWrapper .searchIcon {
+    left: calc(12.5rem - var(--margin-xs));
+  }
+  .products-section .adminProductsSearchWrapper .adminProductsSearchInput {
+    width: 12.5rem;
+  }
+  .products-section .adminProductsTable {
+    font-size: var(--fs-small-ui);
+  }
+  .products-section .adminProductsTable thead {
+    padding-block: var(--margin-xxs);
+    padding-inline: var(--margin-xs);
+  }
+  .products-section .adminProductsTable thead tr {
+    gap: var(--margin-s);
+    text-wrap: nowrap;
+    overflow: hidden;
+  }
+  .products-section .adminProductsTable thead tr .actionsTable {
+    min-width: 8.5rem;
+  }
+  .products-section .adminProductsTable tbody tr {
+    gap: var(--margin-s);
+    padding-block: var(--margin-xxs);
+    padding-inline: var(--margin-xs);
+  }
+  .products-section .adminProductsTable tbody tr td {
+    overflow-x: auto;
+    text-wrap: nowrap;
+  }
+  .products-section .adminProductsTable tbody tr td::-webkit-scrollbar {
+    display: none;
+  }
+  .products-section .adminProductsTable tbody tr .actionsTable {
+    min-width: 8.5rem;
+  }
+  .products-section .adminProductsTable tbody tr .actionsTable .editAdminProductBtn {
+    margin-right: var(--margin-xs);
+  }
+}
+@media (max-width: 768px) {
+  .products-section .adminProductsSearchWrapper .adminProductsAddProductBtn {
+    padding-block: var(--margin-xs);
+    padding-inline: var(--margin-xs);
+    padding-right: var(--margin-xxs);
+    font-size: var(--fs-small-ui);
+  }
+}
+@media (max-width: 475px) {
+  .products-section .adminProductsTable thead tr .actionsTable {
+    min-width: 7.5rem;
+  }
+  .products-section .adminProductsTable tbody tr .actionsTable {
+    min-width: 7.5rem;
+    min-width: 7.5rem;
+  }
+  .products-section .adminProductsTable tbody tr .actionsTable .editAdminProductBtn {
+    padding-block: var(--margin-xxs);
+    padding-inline: var(--margin-xs);
+  }
+  .products-section .adminProductsTable tbody tr .actionsTable .deleteAdminProductBtn {
+    padding-block: var(--margin-xxs);
+    padding-inline: var(--margin-xs);
+  }
+}/*# sourceMappingURL=products.css.map */

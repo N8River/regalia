@@ -1,14 +1,15 @@
 .orderItem {
+  --orderItem-height: clamp(5rem, 15vw, 7.5rem);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   cursor: pointer;
-  background-color: var(--secondary-color);
-  padding: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+  background-color: var(--grey90);
+  padding: var(--margin-xs);
   transition: var(--transition-out);
 }
 .orderItem:hover {
@@ -16,11 +17,10 @@
   transition: var(--transition-in);
 }
 .orderItem .orderItemImg {
-  height: clamp(5rem, 15vw, 7.5rem);
+  height: var(--orderItem-height);
+  aspect-ratio: 3/4;
   border-radius: 0.5rem;
   overflow: hidden;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
 }
 .orderItem .orderItemImg img {
   height: 100%;
@@ -28,11 +28,10 @@
 }
 .orderItem .orderItemInfo {
   margin-left: var(--margin-s);
-  height: clamp(5rem, 15vw, 7.5rem);
-  width: 100%;
+  height: var(--orderItem-height);
 }
 .orderItem .orderItemInfo big {
-  font-size: clamp(var(--fs-small), 2.5vw, var(--fs-big));
+  font-size: var(--fs-p);
   font-weight: 600;
 }
 .orderItem .orderItemPriceAndQuantity {
@@ -40,19 +39,38 @@
   justify-content: flex-start;
   align-items: end;
   flex-direction: column;
+  margin-left: auto;
   min-width: 5rem;
-  height: clamp(5rem, 15vw, 7.5rem);
+  height: var(--orderItem-height);
   padding-right: var(--margin-xs);
 }
 .orderItem .orderItemPriceAndQuantity big {
   min-width: -moz-fit-content;
   min-width: fit-content;
   text-align: right;
-  font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
+  font-size: var(--fs-p);
   font-weight: 600;
 }
 .orderItem .orderItemPriceAndQuantity p {
   width: 100%;
   text-align: right;
-  font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
+  font-size: var(--fs-p);
+}
+
+@media (max-width: 640px) {
+  .orderItem {
+    --orderItem-height: 7.5rem;
+  }
+  .orderItem .orderItemImg {
+    min-width: 5.625rem;
+  }
+  .orderItem .orderItemInfo big {
+    font-size: clamp(var(--fs-small-ui), 3.5vw, var(--fs-p));
+  }
+  .orderItem .orderItemPriceAndQuantity big {
+    font-size: clamp(var(--fs-small-ui), 3.5vw, var(--fs-p));
+  }
+  .orderItem .orderItemPriceAndQuantity p {
+    font-size: clamp(var(--fs-small-ui), 3.5vw, var(--fs-p));
+  }
 }/*# sourceMappingURL=orderItem.css.map */

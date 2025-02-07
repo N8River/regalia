@@ -1,9 +1,15 @@
 const Product = require("../model/product");
 const mongoose = require("mongoose");
+const { ContentState, convertFromRaw } = require("draft-js");
+const { stateToHTML } = require("draft-js-export-html");
 
 exports.getProducts = async (req, res, next) => {
   try {
-    const products = await Product.find();
+    const { status, limit } = req.query; // Get status and limit from query params
+    const query = status ? { status } : {}; // Filter by status if provided
+    const productLimit = parseInt(limit) || 0; // Limit the number of products
+
+    const products = await Product.find(query).limit(productLimit);
     res.status(200).json(products);
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -47,6 +53,22 @@ exports.getProductById = async (req, res, next) => {
     if (!product) {
       return res.status(404).json({ message: "Product not found." });
     }
+
+    // Check if description is in Draft.js format
+    try {
+      const descriptionObj = JSON.parse(product.description);
+      if (descriptionObj.blocks && descriptionObj.entityMap) {
+        // Convert Draft.js JSON to HTML
+        const contentState = convertFromRaw(descriptionObj);
+        product.description = stateToHTML(contentState);
+      }
+    } catch (e) {
+      // If parsing fails, assume description is a plain string and leave it as is
+      console.log(
+        "Description is not in Draft.js format, using it as plain text."
+      );
+    }
+
     res.status(200).json(product);
   } catch (error) {
     console.error("Error fetching product by Id: ", error);

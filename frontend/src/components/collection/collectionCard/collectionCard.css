@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative; /* Make the parent relatively positioned */
+  position: relative;
   cursor: pointer;
 }
 .collectionCard .collectionCardImgContainer {
@@ -38,9 +38,9 @@
 }
 
 .collectionCardNameContainer {
-  position: absolute; /* Position the text absolutely */
-  bottom: 0; /* Align to the bottom of the image */
-  background: rgba(0, 0, 0, 0.5); /* Optional: Add background to the text */
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
   color: var(--white);
   text-align: center;
   transition: var(--transition-out-slow);
@@ -48,25 +48,19 @@
 .collectionCardNameContainer h1 {
   display: flex;
   height: 100%;
-  font-size: clamp(var(--fs-h5-ui), 1.5vw + 0.5rem, var(--fs-h2-ui));
+  font-weight: 600;
+  font-size: var(--fs-h5);
   font-weight: 600;
 }
 
-@media (max-width: 834px) {
+@media (max-width: 768px) {
   .collectionCard .collectionCardImgContainer {
-    height: 54vw;
-    width: 40vw;
+    aspect-ratio: 3/4;
+    height: auto;
+    width: clamp(9.2rem, 46vw, 22rem);
+    overflow: hidden;
   }
-  .collectionCard .collectionCardNameContainer h1 {
-    font-size: clamp(var(--fs-small), 1.5vw + 0.5rem, var(--fs-h2-ui));
-  }
-}
-@media (max-width: 475px) {
-  .collectionCard .collectionCardImgContainer {
-    height: 100vw;
-    width: 75vw;
-  }
-  .collectionCard .collectionCardNameContainer h1 {
-    font-size: clamp(var(--fs-big), 4vw + 0.5rem, var(--fs-h4));
+  .collectionCard .collectionCardNameContainer .collectionCardName {
+    font-size: clamp(var(--fs-small-ui), 3vw, var(--fs-big));
   }
 }/*# sourceMappingURL=collectionCard.css.map */

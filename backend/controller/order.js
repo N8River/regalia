@@ -1,5 +1,6 @@
 const Order = require("../model/order");
 const User = require("../model/user");
+const Cart = require("../model/cart");
 const mongoose = require("mongoose");
 
 exports.createOrder = async (req, res, next) => {
@@ -30,6 +31,12 @@ exports.createOrder = async (req, res, next) => {
     console.log("🔴 Order", order);
 
     await order.save();
+
+    // Clear the user's cart by setting items to an empty array and totalPrice to 0
+    await Cart.findOneAndUpdate(
+      { userId: userId },
+      { items: [], totalPrice: 0 }
+    );
 
     res.status(201).json(order);
   } catch (error) {
@@ -74,6 +81,12 @@ exports.getOrderById = async (req, res, next) => {
         model: "Product",
       },
     });
+
+    // Prevent unauthorized access
+    if (!order || order.user.toString() !== req.user.userId) {
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+
     res.status(200).json(order);
   } catch (error) {
     console.log("Error fetching order by id:", error);

@@ -4,12 +4,22 @@
   align-items: center;
   flex-direction: column;
 
-  padding-inline: clamp(var(--margin-l), 3vw + 0.5rem, var(--margin-xxl));
-  padding-bottom: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+  // padding-inline: clamp(var(--margin-l), 3vw + 0.5rem, var(--margin-xxl));
+  // padding-bottom: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+
+  padding-bottom: var(--margin-xxl);
+
+  // background-color: var(--grey90);
+
+  width: 60rem;
+
+  margin-inline: auto;
 
   &.empty {
     padding: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
-    gap: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xl));
+    gap: clamp(var(--margin-l), 3vw, var(--margin-xxl));
+    padding-top: clamp(var(--margin-m), 5vw, 5rem);
+    padding-bottom: clamp(var(--margin-m), 15vw, 12rem);
 
     h2 {
       font-size: clamp(var(--fs-big), 2vw + 0.5rem, var(--fs-h5));
@@ -20,8 +30,8 @@
     h5 {
       padding: 0;
       margin: 0;
-      font-size: clamp(var(--fs-big), 2vw + 0.5rem, var(--fs-h4));
-      font-weight: 300;
+      font-size: clamp(var(--fs-big), 2vw + 0.5rem, var(--fs-h5));
+      font-weight: 400;
     }
 
     button {
@@ -29,18 +39,22 @@
       padding-inline: clamp(var(--margin-m), 2vw, var(--margin-l));
 
       big {
-        font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
+        // font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
+        font-size: var(--fs-p);
+        font-weight: 600;
       }
     }
   }
 
   h2 {
-    color: var(--text-color);
-    font-size: clamp(var(--fs-h4), 2vw + 0.5rem, var(--fs-h2));
-    padding-top: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
-    padding-bottom: clamp(var(--margin-xs), 1.5vw + 0.5rem, var(--margin-m));
     width: 100%;
     text-align: center;
+
+    margin-block: var(--margin-xl);
+    margin-bottom: var(--margin-m);
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    width: 100%;
   }
 
   p {
@@ -48,11 +62,10 @@
     width: 100%;
     justify-content: center;
 
-    font-size: clamp(var(--fs-p), 2vw + 0.5rem, var(--fs-big));
+    font-size: var(--fs-p);
 
     color: var(--grey30);
-
-    padding-bottom: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-s));
+    margin-bottom: var(--margin-xs);
   }
 
   .cartProducts {
@@ -60,19 +73,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 57.5rem;
-
-    // margin-top: var(--margin-l);
+    width: 60rem;
 
     .cartHeader {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      // padding-bottom: var(--margin-xxs);
-      border-bottom: 0.5px solid var(--grey50);
 
-      font-size: clamp(var(--fs-p), 3vw + 0.5rem, var(--fs-big));
+      border-bottom: 1px solid var(--grey80);
+      padding-bottom: var(--margin-xxs);
+
+      font-size: var(--fs-big);
 
       div:nth-child(1) {
         width: 60%;
@@ -110,14 +122,16 @@
 
       width: 100%;
 
-      margin-top: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+      // margin-top: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+      margin-top: var(--margin-s);
 
       big {
         display: flex;
         justify-content: flex-end;
         flex-direction: row;
 
-        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+        // font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+        font-size: var(--fs-big);
         color: var(--text-color);
 
         font-weight: 600;
@@ -127,13 +141,17 @@
       }
 
       small {
-        font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
-        color: var(--grey30);
+        // font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+        font: var(--fsp);
+        font-variant: var(--fs-p);
+        color: var(--grey20);
 
         font-weight: 400;
 
         width: 100%;
         text-align: right;
+
+        margin-bottom: var(--margin-xs);
       }
 
       .orderNow {
@@ -144,14 +162,11 @@
         width: 100%;
 
         .btn {
-          margin-top: var(--margin-xxs);
-
-          padding-block: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
-          padding-inline: clamp(var(--margin-s), 3vw, var(--margin-l));
-
           a {
             color: var(--white);
-            font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+            // font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+            font-size: var(--fs-p);
+            font-weight: 600;
           }
         }
       }
@@ -159,74 +174,12 @@
   }
 }
 
-// @media (max-width: 1536px) {
-//   .cart {
-//     padding-left: 22.5vw;
-//     padding-right: 22.5vw;
-//   }
-// }
-
-// @media (max-width: 1280px) {
-//   .cart {
-//     padding-left: 15vw;
-//     padding-right: 15vw;
-//   }
-// }
-
-// @media (max-width: 1024px) {
-//   .cart {
-//     padding-left: 10vw;
-//     padding-right: 10vw;
-
-//     h2 {
-//       margin-bottom: 1vw;
-//       font-size: 3.5vw;
-//     }
-
-//     p {
-//       margin-bottom: 0.5vw;
-//       font-size: 1.7vw;
-//     }
-
-//     .cartProducts {
-//       margin-top: 1vw;
-
-//       .cartHeader {
-//         div {
-//           font-size: 1.5vw;
-//         }
-//       }
-
-//       .cartDetails {
-//         big {
-//           font-size: 1.75vw;
-//         }
-
-//         small {
-//           font-size: 1.25vw;
-//         }
-
-//         .orderNow {
-//           button {
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//             padding: 0.75vw 1.25vw;
-
-//             a {
-//               font-size: 1.5vw !important;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
 @media (max-width: 1024px) {
   .cart {
+    width: clamp(20rem, 95vw, 60rem);
+
     p {
-      font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+      // font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
       padding-bottom: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-s));
     }
 
@@ -234,7 +187,7 @@
       width: 100%;
 
       .cartHeader {
-        font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+        // font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
         div:nth-child(1) {
           width: 60%;
         }
@@ -252,20 +205,20 @@
 
       .cartDetails {
         big {
-          font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+          // font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
         }
 
         small {
-          font-size: clamp(var(--fs-small), 2vw, var(--fs-p));
+          // font-size: clamp(var(--fs-small), 2vw, var(--fs-p));
         }
 
         .orderNow {
           .btn {
-            padding-block: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
-            padding-inline: clamp(var(--margin-s), 2vw, var(--margin-l));
+            // padding-block: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
+            // padding-inline: clamp(var(--margin-s), 2vw, var(--margin-l));
 
             a {
-              font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
+              // font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
             }
           }
         }
@@ -283,19 +236,27 @@
 
       .cartDetails {
         border-top: 1px solid var(--grey70);
-        padding-top: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+        padding-top: var(--margin-s);
 
         big {
           justify-content: flex-start;
+          font-size: var(--fs-p);
         }
 
         small {
           text-align: left;
+          font-size: var(--fs-small-ui);
         }
 
         .orderNow {
           .btn {
             width: 100%;
+
+            margin-inline: auto;
+
+            a {
+              font-size: var(--fs-small-ui);
+            }
           }
         }
       }

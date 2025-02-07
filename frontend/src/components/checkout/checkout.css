@@ -7,18 +7,17 @@
   padding-bottom: clamp(var(--margin-m), 5vw, var(--margin-xxl));
   height: -moz-fit-content;
   height: fit-content;
-  background-color: var(--primary-color);
 }
 .checkout .checkoutProgressBar {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  width: clamp(19rem, 95vw, 30rem);
+  width: clamp(20rem, 95vw, 30rem);
   padding-block: clamp(var(--margin-xs), 3vw, var(--margin-m));
-  padding-top: clamp(var(--margin-s), 3vw, var(--margin-l));
-  margin-bottom: clamp(var(--margin-xs), 3vw, var(--margin-m));
-  border-bottom: 1px solid var(--grey70);
+  padding-top: clamp(var(--margin-m), 3vw, var(--margin-l));
+  margin-bottom: var(--margin-m);
+  border-bottom: 1px solid var(--grey80);
 }
 .checkout .checkoutProgressBar .dash-svg {
   color: var(--grey50);
@@ -37,7 +36,7 @@
   transition: var(--transition-out);
 }
 .checkout .checkoutProgressBar div svg {
-  font-size: clamp(var(--fs-big), 3vw, var(--fs-h4));
+  font-size: var(--fs-big);
   color: var(--grey50);
   transition: var(--transition-out);
 }
@@ -48,7 +47,7 @@
   transition: var(--transition-in);
 }
 .checkout .checkoutProgressBar .active svg {
-  font-size: clamp(var(--fs-h5), 2vw, var(--fs-h3));
+  font-size: var(--fs-h3);
   color: var(--text-color);
   transition: var(--transition-in);
 }
@@ -57,8 +56,8 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  width: clamp(19rem, 95vw, 30rem);
-  gap: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+  width: clamp(20rem, 95vw, 30rem);
+  gap: var(--margin-xs);
 }
 .checkout .checkoutShipping .checkoutAddressSelect {
   display: flex;
@@ -75,11 +74,13 @@
   width: 100%;
 }
 .checkout .checkoutShipping .checkoutAddressSelect .checkoutAddressSelectHeader big {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
   font-weight: 600;
 }
 .checkout .checkoutShipping .checkoutAddressSelect .checkoutAddressSelectHeader .linkBtn {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p)) !important;
+  font-size: var(--fs-p) !important;
+  border: none;
+  font-weight: 600 !important;
 }
 .checkout .checkoutShipping .checkoutAddressSelect .addressCheckout {
   width: 100%;
@@ -93,8 +94,9 @@
 }
 .checkout .checkoutShipping .checkoutDeliveryEstimate big {
   width: 100%;
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
   font-weight: 600;
+  margin-bottom: var(--margin-xxs);
 }
 .checkout .checkoutShipping .checkoutDeliveryEstimate .standardDelivery {
   display: flex;
@@ -103,13 +105,14 @@
   gap: clamp(var(--margin-xs), 3vw, var(--margin-m));
   width: 100%;
   padding: clamp(var(--margin-xs), 3vw, var(--margin-s));
-  border: 0.5px solid var(--shadow-secondary);
-  background-color: var(--secondary-hover);
+  border: 1px solid var(--grey80);
+  background-color: var(--grey85);
 }
 .checkout .checkoutShipping .checkoutDeliveryEstimate .standardDelivery svg {
-  font-size: clamp(var(--fs-big), 3vw, var(--fs-h3));
+  font-size: var(--fs-h3);
   font-weight: 600;
   padding: auto 0rem;
+  color: var(--grey20);
   padding-left: var(--margin-xxs);
   width: auto;
 }
@@ -118,21 +121,26 @@
 }
 .checkout .checkoutShipping .checkoutDeliveryEstimate .standardDelivery div {
   width: auto;
+  display: flex;
+  flex-direction: column;
 }
 .checkout .checkoutShipping .checkoutDeliveryEstimate .standardDelivery div big {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
   font-weight: 400;
+  margin: 0;
 }
 .checkout .checkoutShipping .checkoutDeliveryEstimate .standardDelivery div p {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
+  font-weight: 500;
+  margin: 0;
 }
 .checkout .checkoutPayment {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  width: clamp(19rem, 95vw, 30rem);
-  gap: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+  width: clamp(20rem, 95vw, 30rem);
+  gap: var(--margin-xs);
 }
 .checkout .checkoutPayment .checkoutPaymentMethod {
   display: flex;
@@ -140,7 +148,8 @@
   width: 100%;
 }
 .checkout .checkoutPayment .checkoutPaymentMethod big {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
+  margin-bottom: var(--margin-xxs);
   font-weight: 600;
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .paymentMethods {
@@ -149,7 +158,7 @@
   align-items: center;
   flex-direction: row;
   width: 100%;
-  gap: clamp(var(--margin-xs), 3vw, var(--margin-s));
+  gap: var(--margin-s);
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .paymentMethods div {
   display: flex;
@@ -157,22 +166,20 @@
   align-items: center;
   flex-direction: row;
   width: 50%;
-  padding-block: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
-  padding-inline: clamp(var(--margin-xs), 3vw, var(--margin-s));
-  border: 0.5px solid var(--secondary-hover);
-  background-color: var(--secondary-color);
+  padding-block: var(--margin-xs);
+  padding-inline: var(--margin-s);
+  border: 0.5px solid var(--grey90);
+  background-color: var(--grey90);
   transition: var(--transition-out);
   cursor: pointer;
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .paymentMethods div:hover {
-  border: 0.5px solid var(--shadow-secondary);
-  transition: var(--transition--in);
-  background-color: var(--secondary-hover);
+  border: 0.5px solid var(--grey80);
+  background-color: var(--grey85);
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .paymentMethods div.selected {
-  border: 0.5px solid var(--shadow-secondary);
-  transition: var(--transition--in);
-  background-color: var(--secondary-hover);
+  border: 0.5px solid var(--grey80);
+  background-color: var(--grey85);
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .paymentMethods div svg {
   display: flex;
@@ -181,11 +188,12 @@
   flex-direction: row;
   width: auto;
   height: 100%;
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-big);
   margin-right: var(--margin-s);
+  color: var(--grey30);
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .paymentMethods div p {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .cardInfoForm {
   display: flex;
@@ -193,7 +201,7 @@
   align-items: center;
   width: 100%;
   margin-top: var(--margin-xs);
-  padding: var(--margin-xxs);
+  padding: var(--margin-xs);
   padding-bottom: var(--margin-xs);
   padding-inline: var(--margin-s);
   border: 1px solid var(--grey70);
@@ -205,14 +213,17 @@
   width: 100%;
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .cardInfoForm form p {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
   font-weight: 600;
+  color: var(--grey30);
 }
 .checkout .checkoutPayment .checkoutPaymentMethod .cardInfoForm form input {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-small-ui);
   font-weight: 400;
   margin-bottom: var(--margin-xxs);
-  padding-left: var(--margin-xxs);
+  border: 1px solid var(--grey70);
+  padding-inline: var(--margin-xs);
+  padding-block: var(--margin-xxs);
 }
 .checkout .checkoutPayment .checkoutCouponCode {
   display: flex;
@@ -221,7 +232,8 @@
   width: 100%;
 }
 .checkout .checkoutPayment .checkoutCouponCode big {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
+  margin-bottom: var(--margin-xxs);
   font-weight: 600;
 }
 .checkout .checkoutPayment .checkoutCouponCode div {
@@ -230,33 +242,41 @@
   align-items: center;
   flex-direction: row;
   width: 100%;
-  gap: var(--margin-xs);
+  gap: var(--margin-s);
 }
 .checkout .checkoutPayment .checkoutCouponCode div input {
   display: flex;
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
-  height: 100%;
-  padding-left: var(--margin-xxs);
+  font-size: var(--fs-small-ui);
+  height: 32.41px;
+  padding-inline: var(--margin-xs);
+  padding-block: var(--margin-xxs);
   width: 50%;
   border: 1px solid var(--grey70);
   border-radius: 0%;
   font-family: var(--ff);
   text-transform: uppercase;
-  padding-block: var(--margin-xxs);
+}
+.checkout .checkoutPayment .checkoutCouponCode div input:focus {
+  outline: none;
 }
 .checkout .checkoutPayment .checkoutCouponCode div .btn {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
-  font-weight: 400;
+  font-size: var(--fs-small-ui);
+  font-weight: 600;
   padding-block: var(--margin-xxs);
-  padding-inline: var(--margin-xs);
+  padding-inline: var(--margin-s);
+}
+.checkout .checkoutPayment .checkoutCouponCode div .coupon-success-icon {
+  color: green;
+  font-size: var(--fs-big);
+  transition: var(--transition-in);
 }
 .checkout .checkoutReview {
-  width: clamp(19rem, 95vw, 30rem);
+  width: clamp(20rem, 95vw, 30rem);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: var(--margin-xxs);
+  gap: var(--margin-xs);
 }
 .checkout .checkoutReview .checkoutSection {
   display: flex;
@@ -265,7 +285,7 @@
   flex-direction: row;
   width: 100%;
   gap: var(--margin-xxs);
-  min-height: 4rem;
+  min-height: 3.25rem;
 }
 .checkout .checkoutReview .checkoutSection .sectionTitle {
   display: flex;
@@ -279,17 +299,17 @@
   display: flex;
   justify-content: center;
   height: 100%;
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
   font-weight: 600;
 }
 .checkout .checkoutReview .checkoutSection .sectionContent {
   width: 80%;
   height: 100%;
-  font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
+  font-size: var(--fs-p);
   margin-bottom: auto;
 }
 .checkout .checkoutReview .checkoutSection .sectionContent p {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
 }
 .checkout .checkoutReview .checkoutSection .sectionContent div p {
   font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
@@ -310,7 +330,7 @@
   width: 100%;
 }
 .checkout .checkoutReview .checkoutItems .checkoutItemsDropdownHeader p {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+  font-size: var(--fs-p);
   font-weight: 600;
 }
 .checkout .checkoutReview .checkoutItems .checkoutItemsDropdownHeader button {
@@ -319,8 +339,8 @@
   height: 100%;
 }
 .checkout .checkoutReview .checkoutItems .checkoutItemsDropdownHeader button .checkoutItemArrow {
-  font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
-  transition: transform 0.3s ease;
+  font-size: var(--fs-p);
+  transition: transform 0.3s ease-in-out;
 }
 .checkout .checkoutReview .checkoutItems .checkoutItemsDropdownHeader button .checkoutItemArrow.invert {
   transform: rotate(180deg);
@@ -332,7 +352,7 @@
   flex-direction: column;
   margin-bottom: var(--margin-xs);
   width: 100%;
-  gap: 0.5rem;
+  gap: var(--margin-xs);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, padding 0.5s ease-in-out, border-top 0.3s ease-in-out;
@@ -343,7 +363,7 @@
   padding-top: var(--margin-xs);
   border-top: 1px solid var(--grey70);
 }
-.checkout .checkoutSummary {
+.checkout .checkoutReview .checkoutSummary {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -351,21 +371,22 @@
   width: 100%;
   padding-top: var(--margin-xs);
   border-top: 1px solid var(--grey70);
+  gap: var(--margin-xs);
 }
-.checkout .checkoutSummary .checkoutSummarySection {
+.checkout .checkoutReview .checkoutSummary .checkoutSummarySection {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   width: 100%;
 }
-.checkout .checkoutSummary .checkoutSummarySection div {
+.checkout .checkoutReview .checkoutSummary .checkoutSummarySection div {
   font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
 }
-.checkout .checkoutSummary .checkoutSummarySection:nth-child(1) {
+.checkout .checkoutReview .checkoutSummary .checkoutSummarySection:nth-child(1) {
   font-weight: 600;
 }
-.checkout .checkoutSummary .checkoutSummarySection:nth-child(4) {
+.checkout .checkoutReview .checkoutSummary .checkoutSummarySection:nth-child(4) {
   font-weight: 600;
 }
 .checkout .checkoutProgressBtn {
@@ -394,12 +415,15 @@
   padding-bottom: 2px;
 }
 
-@media (max-width: 640px) {
-  .checkout .checkoutReview {
-    gap: var(--margin-s);
+@media (max-width: 475px) {
+  .checkout .checkoutPayment .checkoutPaymentMethod .paymentMethods .paymentMethod {
+    padding: var(--margin-xxs);
+    padding-inline: var(--margin-xs);
   }
   .checkout .checkoutReview .checkoutSection {
-    min-height: -moz-fit-content;
-    min-height: fit-content;
+    gap: var(--margin-s);
+  }
+  .checkout .checkoutReview .checkoutSection .sectionTitle p {
+    font-size: var(--fs-small-ui);
   }
 }/*# sourceMappingURL=checkout.css.map */

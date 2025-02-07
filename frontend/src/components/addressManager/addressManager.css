@@ -1,10 +1,11 @@
 .addressManager {
+  --width: 60rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: clamp(19rem, 95vw, 62rem);
-  margin: auto;
-  padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
+  width: var(--width);
+  margin-inline: auto;
+  padding-block: var(--margin-xxl);
   background-color: var(--background-color);
 }
 .addressManager .goToAccount {
@@ -14,20 +15,22 @@
   flex-direction: row;
   width: -moz-fit-content;
   width: fit-content;
-  margin-bottom: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
+  margin-bottom: var(--margin-xxs);
   cursor: pointer;
 }
 .addressManager .goToAccount svg {
-  font-size: clamp(var(--p), 2vw, var(--big));
-  color: var(--grey30);
+  color: var(--grey40);
+  font-size: var(--fs-big);
+  font-weight: 500;
 }
 .addressManager .goToAccount p {
-  font-size: clamp(var(--fs-p), 2vw, var(--fs-big));
-  color: var(--grey30);
+  color: var(--grey40);
+  font-size: var(--fs-p);
+  font-weight: 500;
 }
 .addressManager h2 {
-  font-size: clamp(var(--fs-h5), 3.5vw, var(--fs-h2));
-  color: var(--text-color);
+  font-size: var(--fs-h2);
+  font-weight: 700;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -36,24 +39,23 @@
   text-align: center;
 }
 .addressManager button {
-  margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
+  margin-block: var(--margin-xxs);
+  margin-top: var(--margin-xs);
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
-  padding-inline: clamp(var(--margin-xs), 1.5vw, var(--margin-m));
 }
 .addressManager button svg {
   color: var(--white);
-  font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
+  font-size: var(--fs-h5);
   margin-left: var(--margin-xs);
   height: 100%;
 }
 .addressManager button big {
-  font-size: clamp(var(--fs-p), 1.5vw, var(--fs-big));
+  font-size: var(--fs-big);
   font-weight: 600;
   height: 100%;
 }
@@ -61,7 +63,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-block: clamp(var(--margin-xxs), 3.5vw, var(--margin-s));
+  margin-block: var(--margin-s);
   flex-wrap: wrap;
   gap: clamp(var(--margin-m), 3.5vw, var(--margin-xxl));
 }
@@ -149,8 +151,33 @@
   transition: var(--transition-in);
 }
 
-@media (max-width: 782px) {
+@media (max-width: 1024px) {
+  .addressManager {
+    width: clamp(20rem, 95vw, 60rem);
+  }
+  .addressManager h2 {
+    font-size: clamp(var(--fs-h4), 5vw, var(--fs-h2));
+  }
+  .addressManager .btn big {
+    font-size: var(--fs-p);
+  }
+  .addressManager .btn svg {
+    font-size: var(--fs-big);
+  }
+  .addressManager .addressFlex {
+    align-items: start;
+    gap: var(--margin-m);
+  }
+}
+@media (max-width: 768px) {
+  .addressManager .goToAccount {
+    margin: 0;
+  }
+  .addressManager .btn big {
+    font-size: clamp(var(--fs-small-ui), 3vw, var(--fs-p));
+  }
   .addressManager .addressFlex {
     flex-direction: column;
+    gap: var(--margin-l);
   }
 }/*# sourceMappingURL=addressManager.css.map */

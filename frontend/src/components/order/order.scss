@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
 
-  width: clamp(19rem, 95vw, 62rem);
+  width: clamp(19rem, 95vw, 60rem);
 
   margin: auto;
 
@@ -21,7 +21,8 @@
     flex-wrap: wrap;
 
     h4 {
-      font-size: clamp(var(--fs-big), 2.5vw, var(--fs-h4));
+      font-size: clamp(var(--fs-h5), 3vw, var(--fs-h4));
+      word-break: break-all;
     }
 
     button {
@@ -31,7 +32,7 @@
 
       flex-direction: row;
 
-      border: 0.5px solid var(--grey70);
+      border: 0.5px solid var(--grey60);
 
       padding: var(--margin-xxs) var(--margin-xs);
 
@@ -49,8 +50,10 @@
         align-items: center;
 
         flex-direction: row;
-        font-size: clamp(var(--fs-small), 2vw, var(--fs-big));
+        font-size: clamp(var(--fs-small), 2vw, var(--fs-p));
         height: 100%;
+
+        font-weight: 500;
 
         color: var(--grey30);
 
@@ -83,11 +86,11 @@
 
     width: 100%;
 
-    padding-bottom: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
+    padding-bottom: var(--margin-xxs);
 
     border-bottom: 1px solid var(--grey70);
 
-    gap: clamp(var(--margin-m), 3vw, var(--margin-xxl));
+    gap: clamp(var(--margin-m), 5vw, var(--margin-xxl));
 
     p {
       display: flex;
@@ -122,7 +125,7 @@
 
     height: fit-content;
 
-    margin-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+    margin-block: var(--margin-s);
 
     .payment {
       width: 50%;
@@ -130,12 +133,12 @@
 
       big {
         font-weight: 600;
-        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+        font-size: var(--fs-p);
       }
 
       div {
         p {
-          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+          font-size: var(--fs-p);
         }
       }
     }
@@ -151,12 +154,12 @@
 
       big {
         font-weight: 600;
-        font-size: clamp(var(--fs-small), 3vw, var(--fs-big));
+        font-size: var(--fs-p);
       }
 
       p {
         color: var(--text-color);
-        font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+        font-size: var(--fs-p);
       }
     }
   }
@@ -183,7 +186,7 @@
       big {
         // margin-bottom: var(--margin-xxs);
         font-weight: 600;
-        font-size: clamp(var(--fs-small), 3vw, var(--fs-big));
+        font-size: var(--fs-p);
       }
 
       button {
@@ -201,17 +204,19 @@
         background-color: transparent;
 
         cursor: pointer;
-        color: var(--grey30);
+        // color: var(--grey30);
 
         p {
-          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+          font-size: var(--fs-p);
         }
 
         svg {
-          font-size: clamp(var(--fs-big), 4vw, var(--fs-h5));
+          font-size: var(--fs-big);
+
+          width: var(--fs-big);
 
           margin-right: var(--margin-xxs);
-          color: var(--grey50);
+          color: var(--grey30);
           transition: var(--transition-out);
         }
 
@@ -236,7 +241,7 @@
       big {
         // margin-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-xs));
         font-weight: 600;
-        font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+        font-size: var(--fs-p);
       }
 
       .orderSubTotal {
@@ -247,7 +252,7 @@
 
         p {
           font-weight: 400;
-          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+          font-size: var(--fs-p);
         }
       }
 
@@ -259,7 +264,7 @@
 
         p {
           font-weight: 400;
-          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+          font-size: var(--fs-p);
         }
       }
 
@@ -271,7 +276,7 @@
 
         p {
           font-weight: 400;
-          font-size: clamp(var(--fs-small), 3vw, var(--fs-p));
+          font-size: var(--fs-p);
         }
       }
 
@@ -284,55 +289,18 @@
 
         big {
           font-weight: 600;
-          font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+          font-size: var(--fs-big-ui);
         }
       }
     }
   }
 }
 
-// @media (max-width: 1536px) {
-//   .order {
-//     padding: var(--margin-xxl) 25vw;
-//   }
-// }
-
-// @media (max-width: 1280px) {
-//   .order {
-//     padding: var(--margin-xxl) 20vw;
-//   }
-// }
-
-// @media (max-width: 1024px) {
-//   .order {
-//     padding: var(--margin-xxl) 10vw;
-
-//     .orderHeader {
-//       h4 {
-//         font-size: 3vw;
-//       }
-
-//       button {
-//         p {
-//           font-size: 1.7vw;
-//         }
-//       }
-//     }
-
-//     .orderSubHeader {
-//       p {
-//         font-size: 1.7vw;
-//       }
-//     }
-
-//     .orderItems{
-
-//     }
-//   }
-// }
-
 @media (max-width: 640px) {
   .order {
+    .orderItems {
+    }
+
     .orderHeader {
       margin-bottom: var(--margin-xs);
     }
@@ -347,13 +315,13 @@
       .payment {
         width: 100%;
 
-        padding-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+        padding-bottom: var(--margin-xs);
         border-bottom: 1px solid var(--grey70);
       }
 
       .delivery {
         width: 100%;
-        padding-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+        padding-block: var(--margin-xs);
         border-bottom: 1px solid var(--grey70);
       }
     }
@@ -364,14 +332,17 @@
 
       .orderSummary {
         width: 100%;
-        padding-bottom: clamp(var(--margin-xxs), 3vw, var(--margin-s));
+        padding-bottom: var(--margin-xs);
         border-bottom: 1px solid var(--grey70);
       }
 
       .orderHelp {
         width: 100%;
-        padding-block: clamp(var(--margin-xxs), 3vw, var(--margin-s));
-        // border-bottom: 1px solid var(--grey70);
+        padding-block: var(--margin-xs);
+
+        big {
+          margin-bottom: var(--margin-xxs);
+        }
       }
     }
   }

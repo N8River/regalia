@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding-block: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
-  background-color: var(--primary-color);
-  gap: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
+  padding-block: var(--margin-xxl);
+  background-color: var(--grey95);
+  gap: var(--margin-xxl);
 }
 .productDetails .productImgContainer {
   display: flex;
@@ -28,42 +28,41 @@
   display: flex;
   text-align: left;
   width: 100%;
-  font-size: clamp(var(--fs-h4), 3vw + 0.5rem, var(--fs-h2));
+  font-size: var(--fs-h2);
+  font-weight: 600;
   color: var(--text-color);
 }
 .productDetails .productInfoContainer big {
   display: flex;
   text-align: left;
   width: 100%;
-  font-size: clamp(var(--fs-p), 2vw + 0.5rem, var(--fs-big));
   font-weight: 600;
 }
 .productDetails .productInfoContainer big svg {
   display: flex;
   height: 100%;
-  font-size: clamp(var(--fs-p), 2vw + 0.5rem, var(--fs-big));
-  color: var(--grey30);
+  font-size: var(--fs-big-ui);
+  color: var(--grey40);
 }
 .productDetails .productInfoContainer big p {
   display: flex;
   height: 100%;
-  padding-left: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
+  padding-left: var(--margin-xxs);
+  font-size: var(--fs-big-ui);
   color: var(--grey30);
-  font-size: clamp(var(--fs-p), 2vw + 0.5rem, var(--fs-big));
 }
 .productDetails .productInfoContainer h4 {
   display: flex;
   width: 100%;
   font-weight: 600;
-  font-size: clamp(var(--fs-big), 2vw + 0.5rem, var(--fs-h4));
-  margin-top: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
+  font-size: var(--fs-h4-ui);
 }
 .productDetails .productInfoContainer .infoDisplay {
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  margin-block: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-s));
+  margin-block: var(--margin-xxs) var(--margin-s);
   gap: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
 }
 .productDetails .productInfoContainer .infoDisplay div {
@@ -71,18 +70,20 @@
   justify-content: flex-start;
   align-items: center;
   padding: var(--margin-xxs);
-  border: 0.5px solid var(--grey50);
+  border: 1px solid var(--grey60);
   width: clamp(20rem, 30vw + 0.5rem, 30rem);
   color: var(--grey10);
   font-weight: 400;
   background-color: var(--grey90);
 }
 .productDetails .productInfoContainer .infoDisplay div svg {
-  font-size: 1.25rem;
+  font-size: var(--fs-big);
+  color: var(--grey30);
   width: 2rem;
 }
 .productDetails .productInfoContainer .infoDisplay div p {
   font-weight: 400;
+  color: var(--grey30);
   font-size: clamp(var(--fs-small), 1vw + 0.5rem, var(--fs-p));
 }
 .productDetails .productInfoContainer .quantityModifier {
@@ -97,12 +98,11 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  border: 0.5px solid var(--accent-color);
+  border: 1px solid var(--accent-color);
   width: 3rem;
-  font-size: clamp(var(--fs-big), 3vw + 0.5rem, var(--fs-h4));
+  font-size: var(--fs-h3-ui);
   color: var(--white);
   background-color: var(--accent-color);
-  padding-block: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
   font-weight: 400;
   cursor: pointer;
   transition: var(--transition-out);
@@ -117,10 +117,10 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  border: 0.5px solid var(--accent-color);
-  border-left: 0.5px solid var(--accent-color);
-  border-right: 0.5px solid var(--accent-color);
-  font-size: clamp(var(--fs-p), 3vw + 0.5rem, var(--fs-big));
+  border: 1px solid var(--accent-color);
+  border-left: 1px solid var(--accent-color);
+  border-right: 1px solid var(--accent-color);
+  font-size: var(--fs-big-ui);
   padding-block: clamp(var(--margin-xxs), 2vw + 0.5rem, var(--margin-xs));
   width: 3rem;
   font-weight: 500;
@@ -141,8 +141,8 @@
 .productDetails .productInfoContainer .inStock p {
   color: var(--green);
   font: var(--p);
-  font-size: clamp(var(--fs-p), 3vw + 0.5rem, var(--fs-big));
-  font-weight: 400;
+  font-size: var(--fs-big-ui);
+  font-weight: 500;
   font-style: italic;
 }
 .productDetails .productInfoContainer .addToCart {
@@ -152,9 +152,9 @@
   width: 100%;
 }
 .productDetails .productInfoContainer .addToCart button {
-  padding-block: clamp(var(--margin-xxs), 3vw + 0.5rem, var(--margin-xs));
-  padding-inline: clamp(var(--margin-s), 3vw + 0.5rem, var(--margin-m));
-  font-size: clamp(var(--fs-p), 3vw + 0.5rem, var(--fs-big));
+  padding-block: var(--margin-xs);
+  padding-inline: var(--margin-m);
+  font-size: var(--fs-big-ui);
   font-weight: 600;
   height: 100%;
 }
@@ -198,47 +198,21 @@
 .productDetails .productInfoContainer .descriptionBox {
   display: flex;
   width: 100%;
-  margin-bottom: clamp(var(--margin-xxs), 3vw + 0.5rem, var(--margin-s));
+  margin-bottom: var(--margin-s);
 }
 .productDetails .productInfoContainer .descriptionBox p {
-  font-size: clamp(var(--fs-small), 3vw + 0.5rem, var(--fs-p));
+  font-size: var(--fs-p);
 }
 
 @media (max-width: 1024px) {
   .productDetails {
-    gap: clamp(var(--margin-xs), 1.5vw + 0.5rem, var(--margin-l));
+    gap: var(--margin-l);
   }
   .productDetails .productImgContainer {
     height: clamp(30rem, 62vw + 0.5rem, 40rem);
   }
-  .productDetails .productInfoContainer big svg {
-    font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
-  }
-  .productDetails .productInfoContainer big p {
-    font-size: clamp(var(--fs-p), 1vw + 0.5rem, var(--fs-big));
-  }
-  .productDetails .productInfoContainer h4 {
-    font-size: clamp(var(--fs-big), 1.5vw + 0.5rem, var(--fs-h5));
-    margin-top: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
-  }
-  .productDetails .productInfoContainer .infoDisplay {
-    margin-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
-    gap: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-xs));
-  }
-  .productDetails .productInfoContainer .infoDisplay div {
-    width: clamp(19rem, 35vw + 0.5rem, 25rem);
-  }
-  .productDetails .productInfoContainer .infoDisplay div p {
-    font-size: clamp(var(--fs-small), 0.8vw + 0.5rem, var(--fs-p));
-  }
-  .productDetails .productInfoContainer .quantityModifier button {
-    font-size: clamp(var(--fs-big), 1.5vw + 0.5rem, var(--fs-h4));
-    padding-block: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
-  }
-  .productDetails .productInfoContainer .quantityModifier p {
-    font-size: clamp(var(--fs-p), 1vw + 0.5rem, var(--fs-big));
-    padding-block: clamp(var(--margin-xxs), 1vw + 0.5rem, var(--margin-xs));
-    width: 3rem;
+  .productDetails .productInfoContainer h2 {
+    font-size: var(--fs-h3);
   }
 }
 @media (max-width: 768px) {
@@ -252,7 +226,7 @@
     align-items: center;
     height: -moz-fit-content;
     height: fit-content;
-    padding-inline: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
+    padding-inline: clamp(var(--margin-m), 5vw, var(--margin-xxl));
   }
   .productDetails .productImgContainer img {
     width: 100%;
@@ -260,28 +234,34 @@
   }
   .productDetails .productInfoContainer {
     width: 100%;
-    padding-inline: clamp(var(--margin-m), 3vw + 0.5rem, var(--margin-xxl));
+    padding-inline: clamp(var(--margin-m), 5vw, var(--margin-xxl));
+  }
+  .productDetails .productInfoContainer h2 {
+    font-size: clamp(var(--fs-h5), 5vw, var(--fs-h3));
+    font-weight: 700;
   }
   .productDetails .productInfoContainer big {
     display: flex;
     align-items: center;
   }
+  .productDetails .productInfoContainer big svg {
+    font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+  }
+  .productDetails .productInfoContainer big p {
+    font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
+  }
   .productDetails .productInfoContainer h4 {
-    margin-top: clamp(var(--margin-xxs), 1.1vw, var(--margin-xs));
+    font-size: clamp(var(--fs-p), 4vw, var(--fs-h5));
   }
   .productDetails .productInfoContainer .infoDisplay {
-    margin-block: clamp(var(--margin-xxs), 1.1vw, var(--margin-xs));
     display: flex;
-    gap: clamp(var(--margin-xxs), 1.1vw, var(--margin-xs));
+    gap: var(--margin-xs);
   }
   .productDetails .productInfoContainer .infoDisplay div {
-    width: clamp(17.8rem, 50vw + 0.5rem, 50rem);
+    width: clamp(20rem, 60vw, 23rem);
   }
   .productDetails .productInfoContainer .infoDisplay div p {
     font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
-  }
-  .productDetails .productInfoContainer .quantityModifier {
-    margin-block: clamp(var(--margin-xxs), 1.1vw, var(--margin-xs));
   }
   .productDetails .productInfoContainer .quantityModifier button {
     font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
@@ -292,25 +272,17 @@
     font-size: clamp(var(--fs-p), 3vw, var(--fs-big));
     padding-block: clamp(var(--margin-xxs), 1.5vw, var(--margin-xs));
   }
-  .productDetails .productInfoContainer .inStock {
-    margin: 0;
-    margin-bottom: clamp(var(--margin-xxs), 1vw, var(--margin-xs));
-  }
   .productDetails .productInfoContainer .inStock p {
     font-size: clamp(var(--fs-small), 2.5vw, var(--fs-big));
   }
   .productDetails .productInfoContainer .addToCart button {
     padding-block: clamp(var(--margin-xxs), 2vw, var(--margin-xs));
     padding-inline: clamp(var(--margin-s), 2vw, var(--margin-m));
-    font-size: clamp(var(--fs-p), 2.5vw, var(--fs-big));
   }
   .productDetails .productInfoContainer .shareLink {
-    margin-block: clamp(var(--margin-xxs), 1.2vw, var(--margin-s));
+    margin-block: var(--margin-xs);
   }
   .productDetails .productInfoContainer .descriptionBox {
     margin-bottom: 0;
-  }
-  .productDetails .productInfoContainer .descriptionBox p {
-    font-size: clamp(var(--fs-small), 2.5vw, var(--fs-p));
   }
 }/*# sourceMappingURL=ProductDetails.css.map */

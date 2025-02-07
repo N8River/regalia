@@ -4,12 +4,13 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  background-color: var(--primary-color);
+  background-color: var(--background-color);
 }
 .productCollection h1 {
-  padding-block: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+  margin-block: var(--margin-xl);
+  font-size: var(--fs-h3);
+  font-weight: 700;
   width: 100%;
-  font-size: clamp(var(--fs-h4), 2vw + 0.5rem, var(--fs-h2));
   text-align: center;
 }
 .productCollection .collectionToolbar {
@@ -17,9 +18,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-inline: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
-  border: 1px solid var(--grey70);
-  background-color: var(--primary-color);
+  border: 1px solid var(--grey80);
+  background-color: var(--background-color);
   border-left: none;
   border-right: none;
   z-index: 990;
@@ -30,44 +30,39 @@
   align-items: center;
   width: -moz-fit-content;
   width: fit-content;
-  padding-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
-  padding-right: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
-  border-right: 0.5px solid var(--grey50);
-}
-.productCollection .collectionToolbar .toolbarNav div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-block: var(--margin-s);
+  padding-inline: var(--margin-m);
+  padding-left: var(--margin-xxs);
   height: 100%;
+  border-right: 1px solid var(--grey80);
   cursor: pointer;
 }
-.productCollection .collectionToolbar .toolbarNav div svg {
+.productCollection .collectionToolbar .toolbarNav svg {
   display: flex;
   align-items: center;
-  font-size: clamp(var(--fs-big), 1.5vw + 0.5rem, var(--fs-h5));
-  color: var(--grey30);
+  font-size: var(--fs-h5);
+  color: var(--grey50);
   cursor: pointer;
   transition: var(--transition-out);
-  margin-right: var(--margin-xxs);
   height: 100%;
 }
-.productCollection .collectionToolbar .toolbarNav div svg path:nth-of-type(2) {
+.productCollection .collectionToolbar .toolbarNav svg path:nth-of-type(2) {
   stroke-width: 0.1px;
 }
-.productCollection .collectionToolbar .toolbarNav div p {
+.productCollection .collectionToolbar .toolbarNav p {
   display: flex;
   align-items: center;
-  color: var(--grey30);
+  color: var(--grey50);
   transition: var(--transition-out);
-  font-size: clamp(var(--fs-s), 1.5vw + 0.5rem, var(--fs-big));
+  font-size: var(--fs-p);
   font-weight: 500;
   height: 100%;
 }
-.productCollection .collectionToolbar .toolbarNav div:hover svg {
-  color: var(--text-color);
+.productCollection .collectionToolbar .toolbarNav:hover svg {
+  color: var(--black);
   transition: var(--transition-in);
 }
-.productCollection .collectionToolbar .toolbarNav div:hover p {
+.productCollection .collectionToolbar .toolbarNav:hover p {
   color: var(--text-color);
   transition: var(--transition-in);
 }
@@ -76,29 +71,34 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 5rem;
-  padding-left: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
-  padding-block: clamp(var(--margin-xxs), 1.5vw + 0.5rem, var(--margin-m));
-  border-left: 0.5px solid var(--grey50);
+  padding-block: var(--margin-s);
+  padding-inline: var(--margin-m);
+  border-left: 0.5px solid var(--grey70);
   color: var(--grey30);
   cursor: pointer;
 }
-.productCollection .collectionToolbar .toolbarFilterBtn div {
+.productCollection .collectionToolbar .toolbarFilterBtn:hover p {
+  color: var(--black);
+  transition: var(--transition-in);
+}
+.productCollection .collectionToolbar .toolbarFilterBtn p {
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
-  font-size: clamp(var(--fs-p), 1.5vw + 0.5rem, var(--fs-big));
+  color: var(--grey50);
+  font-size: var(--fs-p);
   font-weight: 500;
+  transition: var(--transition-out);
 }
 .productCollection .productCollectionContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
-  gap: clamp(var(--margin-m), 1.5vw + 0.5rem, var(--margin-xxl));
+  padding: var(--margin-m);
+  gap: var(--margin-m);
 }
 
 .toolbarFilter {
@@ -116,7 +116,7 @@
 }
 .toolbarFilter.show {
   transform: translateX(0);
-  box-shadow: -1px 0px 3px var(--grey50);
+  box-shadow: -1px 0px 5px var(--grey50);
   transition: var(--transition-in);
 }
 .toolbarFilter .toolbarFilterHeader {
@@ -125,9 +125,10 @@
   align-items: center;
   width: 100%;
   padding: var(--margin-s) var(--margin-l);
-  border-bottom: 1px solid var(--grey70);
+  border-bottom: 1px solid var(--grey80);
 }
 .toolbarFilter .toolbarFilterHeader h4 {
+  font-size: var(--fs-h5);
   font-weight: 600;
 }
 .toolbarFilter .toolbarFilterHeader div {
@@ -142,24 +143,24 @@
   cursor: pointer;
 }
 .toolbarFilter .toolbarFilterHeader div button svg {
-  font-size: 2rem;
+  font-size: var(--fs-h4);
 }
 .toolbarFilter .filterDropdownContainer {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  margin: 0 var(--margin-m);
+  margin-inline: var(--margin-m);
   cursor: pointer;
 }
 .toolbarFilter .filterDropdownContainer .filterDropdownFilter {
   display: flex;
   justify-content: space-between;
-  padding-bottom: var(--margin-s);
-  padding-top: var(--margin-s);
+  padding-block: var(--margin-s);
   border-bottom: 1px solid var(--grey90);
 }
 .toolbarFilter .filterDropdownContainer .filterDropdownFilter p {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: var(--fs-p);
 }
 .toolbarFilter .filterDropdownContainer .filterDropdownFilter div {
   display: flex;
@@ -171,7 +172,7 @@
   background-color: transparent;
 }
 .toolbarFilter .filterDropdownContainer .filterDropdownFilter div button .filterDropdownArrow {
-  font-size: 1rem;
+  font-size: var(--fs-p);
   transition: var(--transition-out);
 }
 .toolbarFilter .filterDropdownContainer .filterDropdownFilter div button .filterDropdownArrow.show {
@@ -182,6 +183,9 @@
   max-height: 0;
   overflow: hidden;
   transition: 0.25s margin ease-out, 0.25s max-height ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-s);
 }
 .toolbarFilter .filterDropdownContainer .filterDropdown.show {
   margin: var(--margin-s) 0rem;
@@ -196,7 +200,7 @@
 .toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input {
   display: flex;
   align-items: center;
-  border: 1px solid var(--grey70); /* Style the border as you like */
+  border: 1px solid var(--grey70);
   padding: var(--margin-xs) var(--margin-s);
 }
 .toolbarFilter .filterDropdownContainer .filterDropdown .filterByMaxMinPrice .price-input span {
@@ -225,15 +229,14 @@
   flex-direction: column;
 }
 .toolbarFilter .filterDropdownContainer .filterDropdown .filterByPriceSort p {
-  font: var(--p);
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: var(--margin-xxs);
 }
 .toolbarFilter .filterDropdownContainer .filterDropdown .filterByPriceSort select {
   display: flex;
   font-family: var(--ff);
   border: 1px solid var(--grey50);
-  padding: var(--margin-xxs) var(--margin-xs);
+  padding: var(--margin-xs) var(--margin-xs);
   outline: none;
   cursor: pointer;
 }
@@ -247,7 +250,7 @@
 .toolbarFilter .filterDropdownContainer .filterDropdown .categoryFilter form {
   display: flex;
   flex-direction: column;
-  gap: var(--margin-xxs);
+  gap: var(--margin-xs);
   width: 100%;
 }
 .toolbarFilter .filterDropdownContainer .filterDropdown .categoryFilter form div {
@@ -273,6 +276,16 @@
   margin-top: auto;
   margin-bottom: var(--margin-xxl);
 }
+.toolbarFilter .applyFiltersContainer button big {
+  font-weight: 600;
+}
+
+.skibidi {
+  width: 100vw;
+  position: absolute;
+  border-bottom: 1px solid red;
+  top: 500px;
+}
 
 @media (max-width: 1024px) {
   .productCollection .collectionToolbar.sticky {
@@ -280,6 +293,11 @@
   }
   .toolbarFilter {
     width: 50vw;
+  }
+}
+@media (max-width: 768px) {
+  .productCollection h1 {
+    font-size: clamp(var(--fs-h5), 6vw, var(--fs-h3));
   }
 }
 @media (max-width: 640px) {

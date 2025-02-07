@@ -1,0 +1,55 @@
+.textEditor {
+  display: flex;
+  flex-direction: column;
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: var(--margin-m);
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-wrap: nowrap;
+
+      border: none;
+      background-color: transparent;
+
+      font-size: var(--fs-small-ui);
+
+      font-family: var(--ff);
+
+      color: var(--grey40);
+
+      padding-inline: var(--margin-xs);
+      padding-block: var(--margin-xxs);
+
+      gap: var(--margin-xxs);
+      transition: var(--transition-out);
+
+      border-radius: 0.33rem;
+      cursor: pointer;
+
+      svg {
+        font-size: var(--fs-p);
+      }
+
+      &:hover {
+        background-color: var(--grey85);
+        color: var(--black);
+        transition: var(--transition-in);
+      }
+
+      &.active {
+        background-color: var(--grey85);
+        color: var(--black);
+        transition: var(--transition-in);
+      }
+    }
+  }
+}

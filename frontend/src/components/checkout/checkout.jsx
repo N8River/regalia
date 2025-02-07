@@ -13,6 +13,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa6";
+import { MdCheckCircle } from "react-icons/md";
 
 import "./checkout.css";
 import AddressCheckout from "./addressCheckout/addressCheckout";
@@ -26,12 +27,13 @@ function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("cashOnDelivery");
   const [couponCode, setCouponCode] = useState("");
   const [selectedAddress, setSelectedAddress] = useState(null);
-  const [deliveryCharge, setDeliveryCharge] = useState(null);
+  const [deliveryCharge, setDeliveryCharge] = useState(0);
   const [address, setAddresses] = useState(null);
   const navigate = useNavigate();
+  const [couponApplied, setCouponApplied] = useState(false);
 
-  const [discount, setDiscount] = useState(null);
-  const [discountAmount, setDiscountAmount] = useState(null);
+  const [discount, setDiscount] = useState(0);
+  const [discountAmount, setDiscountAmount] = useState(0);
 
   const [cardNumber, setCardNumber] = useState("");
   const [cardExp, setCardExp] = useState("");
@@ -66,7 +68,7 @@ function Checkout() {
     if (cart.cartInfo) {
       deliveryChargeCalc(cart);
     }
-  }, [cart]);
+  }, []);
 
   const fetchAddress = async () => {
     try {
@@ -118,7 +120,7 @@ function Checkout() {
           },
           body: JSON.stringify({
             products: cart.cartInfo.items.map((item) => ({
-              product: item.productId,
+              product: item.productId._id ? item.productId._id : item.productId,
               quantity: item.quantity,
             })),
             subTotal: cart.cartInfo.totalPrice,
@@ -141,11 +143,19 @@ function Checkout() {
       );
 
       if (!response.ok) {
+        const errorData = await response.json();
+        // Check if the error payload has an "errors" array (from express-validator)
+        if (errorData.errors && errorData.errors.length > 0) {
+          addToast(errorData.errors[0].msg, "error");
+        } else {
+          addToast("Failed to create order", "error");
+        }
         throw new Error("Failed to create the order");
       }
 
       const orderData = await response.json();
-
+      // Optionally refresh cart info
+      cart.fetchCartInfo();
       navigate(`/account/${orderData._id}`);
     } catch (error) {
       console.log("Error creating the order:", error);
@@ -178,16 +188,30 @@ function Checkout() {
       );
 
       if (!response.ok) {
-        throw new Error("Error validating coupon");
+        const errorData = await response.json();
+        console.log(errorData);
+        if (errorData.message && errorData.message === "Coupon not found") {
+          addToast("Invalid Coupon", "error");
+        } else if (errorData.errors && errorData.errors.length > 0) {
+          addToast(errorData.errors[0].msg, "error");
+        } else {
+          addToast("Error validating coupon", "error");
+        }
+        return; // Exit early so the catch block isn't triggered.
       }
 
       const responseData = await response.json();
-
       setDiscountAmount(responseData.discountAmount);
       setDiscount(responseData.discount);
-      // console.log("🔴 Response Data:", responseData);
+
+      // Show success confirmation (tick) for a short time
+      setCouponApplied(true);
+      setTimeout(() => setCouponApplied(false), 3000);
     } catch (error) {
       console.log("Failed to check coupon:", error);
+      // Optionally, if it's a network error (i.e. no response), you might want to show a toast here.
+      // But if you're confident that all errors are handled in the if-block, you can omit this.
+      addToast("Failed to validate coupon", "error");
     }
   };
 
@@ -315,6 +339,9 @@ function Checkout() {
                 <button onClick={handleApplyCoupon} className="btn">
                   Apply Coupon
                 </button>
+                {couponApplied && (
+                  <MdCheckCircle className="coupon-success-icon" />
+                )}
               </div>
             </div>
           </div>
@@ -388,23 +415,22 @@ function Checkout() {
             <div className="checkoutSummary">
               <div className="checkoutSummarySection">
                 <div>SUBTOTAL</div>
-                <div>Rs. {cart && cart.cartInfo.totalPrice}</div>
+                <div>₹ {cart && cart.cartInfo.totalPrice}</div>
               </div>
               <div className="checkoutSummarySection">
                 <div>DELIVERY CHARGES</div>
-                <div>Rs. {deliveryCharge}</div>
+                <div>₹ {deliveryCharge}</div>
               </div>
               <div className="checkoutSummarySection">
                 <div>DISCOUNT</div>
                 <div>
-                  {discount ? `(-${discount}%)  Rs. ${discountAmount}` : "-"}
+                  {discount ? `(-${discount}%)  ₹ ${discountAmount}` : "-"}
                 </div>
               </div>
               <div className="checkoutSummarySection">
                 <div>TOTAL</div>
                 <div>
-                  Rs.{" "}
-                  {cart.cartInfo.totalPrice + deliveryCharge - discountAmount}
+                  ₹ {cart.cartInfo.totalPrice + deliveryCharge - discountAmount}
                 </div>
               </div>
             </div>
