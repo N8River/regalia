@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       const isExpired = isTokenExpired(token);
       if (isExpired) {
-        // addToast("Please log in to add items to your cart.", "error");
         localStorage.removeItem("token");
       }
     }

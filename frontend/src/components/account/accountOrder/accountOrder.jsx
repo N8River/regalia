@@ -7,7 +7,6 @@ function AccountOrder({ order }) {
   const navigate = useNavigate();
 
   let numberOfProducts = 0;
-  // const [formattedOrderDate, setFormattedOrderDate] = useState(null);
 
   order.products.forEach((p) => {
     numberOfProducts += +p.quantity;
@@ -56,9 +55,6 @@ function AccountOrder({ order }) {
 
         <div>
           <p>Status: {order.status}</p>
-          {/* <button>
-            <small className="smallui">MORE DETAILS</small>
-          </button> */}
         </div>
       </div>
     </div>

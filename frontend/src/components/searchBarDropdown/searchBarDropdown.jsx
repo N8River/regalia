@@ -9,21 +9,6 @@ function SearchBarDropdown({ toggleSearchBarDropdown, isVisible }) {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  // const [x, setX] = useState(null);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setX(isVisible);
-  //   }, 1);
-  // }, []);
-
-  // const handleSearchSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (searchQuery.trim()) {
-  //     navigate(`/search?q=${searchQuery}`);
-  //   }
-  // };
-
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {

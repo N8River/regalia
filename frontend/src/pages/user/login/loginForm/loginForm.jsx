@@ -35,13 +35,6 @@ function LoginForm() {
 
       localStorage.setItem("token", responseData.token);
 
-      // const decodedToken = JSON.parse(atob(responseData.token.split(".")[1]));
-      // localStorage.setItem("isAdmin", decodedToken.isAdmin);
-
-      // console.log("User logged in successfully:", responseData);
-
-      // addToast("User logged in successfully!", "success");
-
       navigate("/account");
     } catch (error) {
       console.log("Error loggin in:", error);

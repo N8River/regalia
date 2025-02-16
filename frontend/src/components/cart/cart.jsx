@@ -18,7 +18,6 @@ function Cart() {
       setTotalPrice(cartInfo.totalPrice);
       setCart(cartInfo);
     }
-    // console.log(cartInfo);
   }, [cartInfo]);
 
   const handleDelete = (productId) => {

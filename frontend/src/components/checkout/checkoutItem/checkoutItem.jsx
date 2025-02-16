@@ -1,8 +1,6 @@
 import "./checkoutItem.css";
 
 function CheckoutItem({ item }) {
-  // console.log(item);
-
   return (
     <div className="checkoutItem">
       <div className="checkoutItemImg">

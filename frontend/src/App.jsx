@@ -65,7 +65,7 @@ function App() {
                 path="/admin"
                 element={<PrivateRoute adminOnly={true} element={AdminPage} />}
               />
-              {/* <Route path="/admin/login" element={<AdminLoginPage />} /> */}
+
               <Route
                 path="/admin/add-product"
                 element={

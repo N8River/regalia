@@ -18,7 +18,6 @@ exports.getProducts = async (req, res, next) => {
 };
 
 exports.addProduct = async (req, res, next) => {
-  console.log("Requested Body:", req.body);
   const { title, imageUrl, price, description, category, status } = req.body;
 
   const product = new Product({
@@ -123,7 +122,6 @@ exports.deleteProduct = async (req, res, next) => {
 
 exports.searchProduct = async (req, res, next) => {
   const { q } = req.query;
-  console.log("🔴 Query", q);
 
   try {
     const products = await Product.find({

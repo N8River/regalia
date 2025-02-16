@@ -6,13 +6,10 @@ const mongoose = require("mongoose");
 exports.createOrder = async (req, res, next) => {
   try {
     const userId = req.user.userId;
-    console.log("🔴 User Id:", userId);
 
     const user = await User.findById(userId);
-    console.log("🔴 User:", user);
 
     const orderDetails = req.body;
-    console.log("🔴 Order Details:", orderDetails);
 
     const order = new Order({
       user: userId,
@@ -28,7 +25,6 @@ exports.createOrder = async (req, res, next) => {
       cardDetails: orderDetails.cardDetails,
       orderedOn: orderDetails.orderedOn,
     });
-    console.log("🔴 Order", order);
 
     await order.save();
 
@@ -55,7 +51,6 @@ exports.getOrders = async (req, res, next) => {
         model: "Product",
       },
     });
-    console.log("🔴 Orders:", order);
 
     res.status(200).json(order);
   } catch (error) {
@@ -67,7 +62,6 @@ exports.getOrders = async (req, res, next) => {
 exports.getOrderById = async (req, res, next) => {
   try {
     const orderId = req.params.orderId;
-    console.log("🔴 Order ID:", orderId);
 
     // Validate the orderId
     if (!mongoose.Types.ObjectId.isValid(orderId)) {

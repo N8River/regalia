@@ -18,9 +18,6 @@ function adminProductCard({ product }) {
       if (!response.ok) {
         throw new Error("Failed to delete product");
       }
-
-      // const data = await response.json();
-      // console.log("Product deleted successfully:", data);
     } catch (error) {
       console.log(error);
     }

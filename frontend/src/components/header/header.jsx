@@ -20,10 +20,7 @@ function Header() {
   const [isSticky, setIsSticky] = useState(false);
   const [dropdownShow, setDropdownShow] = useState(false);
 
-  // const [cartCount, setCartCount] = useState(0);
-
   const { cartCount } = useCart();
-  // console.log(cartCount);
 
   const navigate = useNavigate();
   const { isMobile } = useResponsive(1024);
@@ -47,19 +44,6 @@ function Header() {
     }
   };
 
-  // const toggleSearchBarDropdown = () => {
-  //   const searchBarDropdown = document.querySelector(".searchBarDropdown");
-
-  //   setSearchBarOpen(!searchBarOpen);
-
-  //   // Toggle the `show` class based on `searchBarOpen` state
-  //   if (!searchBarOpen) {
-  //     document.body.classList.add("no-scroll"); // Disable scrolling
-  //   } else {
-  //     document.body.classList.remove("no-scroll"); // Re-enable scrolling
-  //   }
-  // };
-
   const toggleSearchBarDropdown = () => {
     setSearchBarOpen(!searchBarOpen);
     if (!searchBarOpen) {
@@ -68,34 +52,6 @@ function Header() {
       document.body.classList.remove("no-scroll"); // Re-enable scrolling
     }
   };
-
-  // const fetchCartCount = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `${import.meta.env.VITE_BACKEND_URL}/api/cart/cart-item-count`,
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-
-  //     if (!response.ok) {
-  //       throw new Error("Failed to fetch cart count");
-  //     }
-
-  //     const responseData = await response.json();
-  //     setCartCount(responseData.itemCount);
-  //   } catch (error) {
-  //     console.log("Error fetching cart count:", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchCartCount();
-  // }, []);
 
   useEffect(() => {
     const header = document.querySelector(".header");

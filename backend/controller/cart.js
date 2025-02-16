@@ -15,11 +15,9 @@ exports.addToCart = async (req, res, next) => {
   try {
     const { productId, quantity } = req.body;
     const userId = req.user.userId;
-    // console.log("🔴 User Id:", userId);
 
     // Find the cart for the user
     let cart = await Cart.findOne({ userId }).populate("items");
-    // console.log("🔴 Cart:", cart);
 
     // If no cart exists, create a new one
     if (!cart) {
@@ -90,7 +88,6 @@ exports.getCart = async (req, res, next) => {
 exports.updateCart = async (req, res, next) => {
   try {
     const { productId, quantity } = req.body;
-    console.log("🔴 Product ID:", productId, "Quantity:", quantity);
 
     const userId = req.user.userId;
 
@@ -110,8 +107,6 @@ exports.updateCart = async (req, res, next) => {
       (i) => i.productId._id.toString() === productId.toString()
     );
 
-    // console.log("🔴 Cart Item:", cartItem);
-
     if (!cartItem) {
       return res.status(404).json({ message: "Item not found in cart" });
     }
@@ -120,8 +115,6 @@ exports.updateCart = async (req, res, next) => {
     await cartItem.save();
 
     const product = await Product.findById(productId);
-    // console.log("🔴 Product:", product);
-    // console.log("🔴 Cart:", cart);
 
     // Calculate the total price
     let cartItemPrice = 0;
@@ -139,8 +132,6 @@ exports.updateCart = async (req, res, next) => {
 
     cart.totalPrice = calculateCartTotalPrice(cart);
 
-    // console.log("🔴 Cart Item Price:", cartItemPrice);
-
     cart.markModified("items");
 
     await CartItem.findByIdAndUpdate(cartItem._id, { quantity });
@@ -157,10 +148,8 @@ exports.updateCart = async (req, res, next) => {
 exports.deleteItem = async (req, res, next) => {
   try {
     const userId = req.user.userId;
-    // console.log("🔴 USER ID:", userId);
 
     const { productId } = req.params;
-    // console.log("🔴 PRODUCT ID:", productId);
 
     const cart = await Cart.findOne({ userId }).populate({
       path: "items",
@@ -170,20 +159,6 @@ exports.deleteItem = async (req, res, next) => {
       },
     });
 
-    // console.log("🔴 CART:", cart.items[0]);
-
-    // console.log(
-    //   "🔴 Boolean:",
-    //   cart.items[0].productId._id.toString() === productId.toString()
-    // );
-
-    // console.log(
-    //   "🔴:",
-    //   cart.items.find(
-    //     (i) => i.productId._id.toString() === productId.toString()
-    //   )
-    // );
-
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
     }
@@ -191,7 +166,6 @@ exports.deleteItem = async (req, res, next) => {
     const cartItemToDelete = cart.items.find(
       (i) => i.productId._id.toString() === productId.toString()
     );
-    // console.log("🔴 CART ITEM TO DELETE:", cartItemToDelete);
 
     if (!cartItemToDelete) {
       return res.status(404).json({ message: "Item not found in cart" });

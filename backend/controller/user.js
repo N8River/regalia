@@ -4,13 +4,10 @@ const mongoose = require("mongoose");
 exports.addAddress = async (req, res, next) => {
   try {
     const addressData = req.body;
-    console.log("🔴 Address Data:", addressData);
 
     const userId = req.user.userId;
-    console.log("🔴 User ID:", userId);
 
     const user = await User.findById(userId);
-    console.log("🔴 User:", user);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -36,21 +33,18 @@ exports.addAddress = async (req, res, next) => {
 exports.setDefaultAddress = async (req, res, next) => {
   try {
     const userId = req.user.userId;
-    console.log("🔴 User Id:", userId);
 
     if (!mongoose.Types.ObjectId.isValid(userId)) {
       return res.status(400).json({ message: "Invalid user ID." });
     }
 
     const addressId = req.params.addressId;
-    console.log("🔴 Address Id:", addressId);
 
     if (!mongoose.Types.ObjectId.isValid(addressId)) {
       return res.status(400).json({ message: "Invalid address ID." });
     }
 
     const user = await User.findById(userId);
-    console.log("🔴 User:", user);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -75,22 +69,13 @@ exports.setDefaultAddress = async (req, res, next) => {
 exports.editAddress = async (req, res, next) => {
   try {
     const addressData = req.body;
-    // console.log("🔴 Address Data:", addressData);
 
     const userId = req.user.userId;
-    // console.log("🔴 User ID:", userId);
 
     const user = await User.findById(userId);
     console.log("🔴 User:", user);
 
     const addressId = req.params.addressId;
-
-    // console.log(
-    //   "🔴 :",
-    //   user.address.find(
-    //     (address) => address._id.toString() === "66ab37b881ca7cc400b50eeb"
-    //   )
-    // );
 
     const addressToUpdate = user.address.find(
       (address) => address._id.toString() === addressId.toString()
@@ -99,8 +84,6 @@ exports.editAddress = async (req, res, next) => {
     if (!addressToUpdate) {
       return res.status(404).json({ message: "Address not found" });
     }
-
-    console.log("🔴 Address to update:", addressToUpdate);
 
     addressToUpdate.line1 = addressData.line1 || addressToUpdate.line1;
     addressToUpdate.line2 = addressData.line2 || addressToUpdate.line2;
@@ -124,7 +107,6 @@ exports.getAddress = async (req, res, next) => {
     const user = await User.findById(userId);
 
     const addressArr = user.address;
-    // console.log("🔴 Address Array:", addressArr);
 
     res.json(addressArr);
   } catch (error) {

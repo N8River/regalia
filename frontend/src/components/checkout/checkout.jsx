@@ -60,11 +60,9 @@ function Checkout() {
     " " +
     estimatedDeliveryDate.toDateString().split(" ")[1];
 
-  // console.log(estimatedDeliveryDateString);
-
   useEffect(() => {
     fetchAddress();
-    // console.log(cart.cartInfo);
+
     if (cart.cartInfo) {
       deliveryChargeCalc(cart);
     }

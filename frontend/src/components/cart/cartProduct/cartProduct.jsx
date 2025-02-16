@@ -80,12 +80,10 @@ function CartProduct({ item, onDelete, onUpdate }) {
   };
 
   const increaseQuantity = () => {
-    // console.log("+1");
     updateCartQuantity(product.quantity + 1);
   };
 
   const decreaseQuantity = () => {
-    // console.log("-1");
     if (product.quantity > 1) {
       updateCartQuantity(product.quantity - 1);
     }

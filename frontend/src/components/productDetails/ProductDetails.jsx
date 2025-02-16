@@ -55,7 +55,6 @@ function ProductDetails({ product }) {
       }
 
       const responseData = await response.json();
-      // console.log(responseData);
 
       addToast("Product added to cart successfully!", "success");
 

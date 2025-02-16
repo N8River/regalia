@@ -23,7 +23,7 @@ const useUserInfo = () => {
         }
 
         const responseData = await response.json();
-        // console.log(responseData.address);
+
         setUserInfo(responseData);
       } catch (error) {
         console.log("Error fetching user info:", error);
