@@ -1,11 +1,13 @@
 .account {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: fit-content;
 
   margin-inline: auto;
   flex-direction: column;
+
+  min-height: 60vh;
 
   // padding-block: clamp(var(--margin-m), 5vw, var(--margin-xxl));
 

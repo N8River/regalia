@@ -1,7 +1,8 @@
 .addressManager {
   --width: 60rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  min-height: 60vh;
   flex-direction: column;
   width: var(--width);
   margin-inline: auto;

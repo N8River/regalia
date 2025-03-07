@@ -1,11 +1,12 @@
 .account {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: -moz-fit-content;
   width: fit-content;
   margin-inline: auto;
   flex-direction: column;
+  min-height: 60vh;
   padding-block: var(--margin-xxl);
   gap: var(--margin-m);
 }

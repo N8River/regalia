@@ -16,6 +16,7 @@ const orderRoutes = require("./routes/order");
 const userRoutes = require("./routes/user");
 const couponRoutes = require("./routes/coupon");
 const adminRoutes = require("./routes/admin");
+const chatbotRoutes = require("./routes/chatbot");
 
 const app = express();
 
@@ -54,7 +55,6 @@ const limiter = rateLimit({
   max: 100, // 100 requests per 15 minutes
   message: "Too many requests from this IP, please try again later",
 });
-app.use("/api/", limiter);
 
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
@@ -63,6 +63,8 @@ app.use("/api/order", orderRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/coupon", couponRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/chatbot", chatbotRoutes);
+app.use("/api/", limiter);
 
 app.get("/", (req, res, next) => {
   res.send("Hello World!");

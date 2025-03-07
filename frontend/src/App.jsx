@@ -30,6 +30,7 @@ import SearchResultsPage from "./pages/searchResultsPage/searchResultsPage.jsx";
 import { ToastProvider } from "./context/ToastContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import Chatbot from "./components/chatbot/chatbot.jsx";
 
 function App() {
   return (
@@ -123,6 +124,7 @@ function App() {
               {/* Unauthorized Route */}
               <Route path="/unauthorized" element={<UnauthorizedPage />} />
             </Routes>
+            <Chatbot />
           </Router>
         </CartProvider>
       </ToastProvider>
