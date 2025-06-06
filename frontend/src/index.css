@@ -1,14 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+@import "tailwindcss";
+
+@import "./font.css";
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+
 @font-face {
   font-family: CinzelDecorative;
   src: url("assets/fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf");
 }
+
 * {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   box-sizing: border-box;
+}
+
+@theme {
+  --font-montserrat: "Montserrat";
+  --font-pattaya: "Pattaya";
+  --color-primary: #7851a9;
+  --color-primary-hover: #623699;
+
+  --breakpoint-xs: 490px;
+}
+
+@layer components {
+  .h2 {
+    @apply text-center text-2xl font-bold uppercase;
+  }
+
+  /* .sticky {
+    @apply fixed top-0 left-0 w-full z-[1000];
+  } */
 }
 
 body {
@@ -105,7 +128,15 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--text-color);
+  /* color: var(--text-color); */
+}
+
+.productDescription {
+  @apply xs:text-base text-sm leading-loose text-neutral-700;
+}
+
+.productDescription strong {
+  font-weight: 600;
 }
 
 .btn {
@@ -154,7 +185,7 @@ a {
   transition: var(--transition-in);
 }
 
-h1 {
+/* h1 {
   font: var(--h1);
 }
 
@@ -180,9 +211,9 @@ p {
 
 small {
   font: var(--small);
-}
+} */
 
-input {
+/* input {
   font: var(--p);
   padding-left: var(--margin-xxs);
   background-color: var(--white);
@@ -196,7 +227,7 @@ input::-moz-placeholder {
 
 input::placeholder {
   font: var(--p);
-}
+} */
 
 .h1ui {
   font: var(--h1ui);
@@ -244,4 +275,4 @@ input::placeholder {
 }
 .fadeOut {
   animation: fadeOut 0.3s ease-out forwards;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */

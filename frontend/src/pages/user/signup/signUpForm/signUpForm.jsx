@@ -1,4 +1,3 @@
-import "./signUpForm.css";
 import { useState } from "react";
 import { useToast } from "../../../../context/ToastContext";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +28,7 @@ function SignUpForm() {
             email: email,
             password: password,
           }),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -42,8 +41,7 @@ function SignUpForm() {
 
       const responseData = await response.json();
       console.log("User created successfully:", responseData.user);
-      addToast("Account created successfully!", "success"); // Success toast
-
+      addToast("Account created successfully!", "success");
       navigate("/login");
     } catch (error) {
       console.error("Error signing up:", error.message);
@@ -51,16 +49,20 @@ function SignUpForm() {
   };
 
   return (
-    <div className="signUpForm">
-      <h3>SIGN UP</h3>
-      <big>Please fill in the information below:</big>
-      <form onSubmit={handleSubmit}>
+    <div id="signUpForm" className="mx-auto my-16 max-w-md space-y-4 p-6">
+      <h2 className="h2">SIGN UP</h2>
+      <p className="text-center text-sm text-neutral-600">
+        Please fill in the information below:
+      </p>
+
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="First Name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:ring-1 focus:ring-neutral-400 focus:outline-none"
         />
         <input
           type="text"
@@ -68,13 +70,15 @@ function SignUpForm() {
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:ring-1 focus:ring-neutral-400 focus:outline-none"
         />
         <input
           type="email"
-          placeholder="E-mail"
+          placeholder="username@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:ring-1 focus:ring-neutral-400 focus:outline-none"
         />
         <input
           type="password"
@@ -82,21 +86,25 @@ function SignUpForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:ring-1 focus:ring-neutral-400 focus:outline-none"
         />
-        <button type="submit" className="btn">
-          <big>CREATE ACCOUNT</big>
+        <button
+          type="submit"
+          className="bg-primary hover:bg-primary-hover w-full cursor-pointer rounded-md py-3 font-medium text-white transition-colors"
+        >
+          CREATE ACCOUNT
         </button>
       </form>
-      <small>
+
+      <p className="text-center text-sm text-neutral-600">
         Already have an account?{" "}
-        <p
-          onClick={() => {
-            navigate("/account/login");
-          }}
+        <button
+          onClick={() => navigate("/account/login")}
+          className="text-primary hover:text-primary-hover cursor-pointer font-medium transition-colors"
         >
           Login
-        </p>
-      </small>
+        </button>
+      </p>
     </div>
   );
 }

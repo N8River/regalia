@@ -41,7 +41,7 @@ function Cart() {
             {totalPrice > 499
               ? "You are eligible for free shipping."
               : `Spend ₹ ${(500 - totalPrice).toFixed(
-                  2
+                  2,
                 )} to get free shipping on this order!`}
           </p>
 
@@ -94,15 +94,18 @@ function Cart() {
           </div>
         </div>
       ) : (
-        <div className="cart empty">
-          <h5>YOUR CART IS EMPTY</h5>
+        <div className="flex h-full min-h-[66vh] flex-col items-center justify-center">
+          <div className="text-xl leading-tight font-medium capitalize">
+            Your cart is empty
+          </div>
+          <div className="mt-1 mb-4 w-xl text-center text-sm leading-relaxed text-neutral-600">
+            Visit our vast collection to find your next favorite piece.
+          </div>
           <button
-            className="btn"
-            onClick={() => {
-              navigate("/collection");
-            }}
+            className="bg-primary hover:bg-primary-hover cursor-pointer rounded-lg px-6 py-2 text-base font-medium text-white transition"
+            onClick={() => navigate("/collection")}
           >
-            <big>GO TO COLLECTION</big>
+            SHOP NOW
           </button>
         </div>
       )}

@@ -1,4 +1,3 @@
-import "./loginForm.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../../../../context/ToastContext";
@@ -24,7 +23,7 @@ function LoginForm() {
             email: email,
             password: password,
           }),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -32,9 +31,7 @@ function LoginForm() {
       }
 
       const responseData = await response.json();
-
       localStorage.setItem("token", responseData.token);
-
       navigate("/account");
     } catch (error) {
       console.log("Error loggin in:", error);
@@ -43,16 +40,20 @@ function LoginForm() {
   };
 
   return (
-    <div className="loginForm">
-      <h3>LOGIN</h3>
-      <big>Enter your email and password to login:</big>
-      <form onSubmit={handleSubmit}>
+    <div id="loginForm" className="mx-auto my-16 max-w-md space-y-4 p-6">
+      <h2 className="h2">LOGIN</h2>
+      <p className="text-center text-sm text-neutral-600">
+        Enter your email and password to login:
+      </p>
+
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="email"
-          placeholder="e-mail address"
+          placeholder="username@email.com"
           name="userEMail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:ring-1 focus:ring-neutral-400 focus:outline-none"
         />
         <input
           type="password"
@@ -60,21 +61,25 @@ function LoginForm() {
           name="userPassword"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:ring-1 focus:ring-neutral-400 focus:outline-none"
         />
-        <button type="submit" className="btn">
-          <big className="bigui">LOGIN</big>
+        <button
+          type="submit"
+          className="bg-primary hover:bg-primary-hover w-full cursor-pointer rounded-md py-3 font-medium text-white transition-colors"
+        >
+          LOGIN
         </button>
       </form>
-      <small>
+
+      <p className="text-center text-sm text-neutral-600">
         Don't have an account?{" "}
-        <p
-          onClick={() => {
-            navigate("/account/signup");
-          }}
+        <button
+          onClick={() => navigate("/account/signup")}
+          className="text-primary hover:text-primary-hover cursor-pointer font-medium transition-colors"
         >
           Sign Up
-        </p>
-      </small>
+        </button>
+      </p>
     </div>
   );
 }

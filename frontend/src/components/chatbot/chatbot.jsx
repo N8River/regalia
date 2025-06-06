@@ -38,7 +38,7 @@ const Chatbot = () => {
 
       timeout = setTimeout(() => {
         setIsIconVisible(false);
-      }, 2500);
+      }, 2500000);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -86,11 +86,12 @@ const Chatbot = () => {
   };
 
   return (
-    <motion.div className="chatbotWrapper">
+    <motion.div id="chatbotWrapper" className="fixed right-4 bottom-4 z-50">
       {/* Floating Chat Icon - Smooth Appearance */}
       {!isOpen && isFullyClosed && (
         <motion.div
-          className="chatbotIcon"
+          id="chatbotIcon"
+          className="relative flex cursor-pointer items-center justify-center gap-2 rounded-full bg-neutral-100 p-1 pr-3 shadow-md shadow-neutral-950/50"
           onClick={() => {
             setIsFullyClosed(false);
             setIsOpen(true);
@@ -104,10 +105,15 @@ const Chatbot = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <div className="regbotIcon">
-            <SiIrobot />
+          <div
+            id="regbotIcon"
+            className="bg-primary flex size-10 items-center justify-center rounded-full text-white"
+          >
+            <SiIrobot className="size-5" />
           </div>
-          <span className="chatbotTooltip">Need Help?</span>
+          <span id="chatbotTooltip" className="text-base">
+            Need Help?
+          </span>
         </motion.div>
       )}
 
@@ -117,7 +123,8 @@ const Chatbot = () => {
       >
         {isOpen && (
           <motion.div
-            className="chatbotContainer"
+            id="chatbotContainer"
+            className="fixed right-4 bottom-4 flex h-[80vh] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl bg-white shadow-lg shadow-neutral-800/50 sm:h-[600px] sm:w-96"
             initial={{
               opacity: 0,
               scale: 0.6,
@@ -127,62 +134,96 @@ const Chatbot = () => {
             exit={{ opacity: 0, scale: 0.6, transformOrigin: "bottom right" }} // Shrink back to the corner
             transition={{ duration: 0.25, ease: "easeInOut" }} // Smooth animation
           >
-            <div className="chatbotHeader">
+            <div
+              id="chatbotHeader"
+              className="relative flex h-24 items-center justify-between border-b border-neutral-200 bg-neutral-800 p-4"
+            >
               <IoMdClose
-                className="chatbotHeaderCloseBtn"
-                size={20}
+                id="chatbotHeaderCloseBtn"
+                className="size-5 cursor-pointer text-neutral-100 transition-colors hover:text-neutral-400"
                 onClick={() => setIsOpen(false)}
               />
-              <div className="regbotIconWrapper">
-                <div className="regbotIconCircle">
-                  <SiIrobot className="regbotIcon" />
+              <div
+                id="regbotIconWrapper"
+                className="absolute left-1/2 flex -translate-x-1/2 flex-col items-center"
+              >
+                <div
+                  id="regbotIconCircle"
+                  className="bg-primary flex size-10 items-center justify-center rounded-full"
+                >
+                  <SiIrobot className="size-5 text-white" />
                 </div>
-                <h4>RegBot</h4>
+                <h4 className="pt-0.5 font-medium text-neutral-100">RegBot</h4>
               </div>
             </div>
 
-            <div className="chatbotMessages">
+            <div
+              id="chatbotMessages"
+              className="flex-1 space-y-4 overflow-y-auto p-4"
+            >
               {messages.length === 0 && (
-                <div className="chatbotFaq">
-                  <p>Ask me about:</p>
-                  <button
-                    onClick={() => setInput("What’s your refund policy?")}
-                  >
-                    Refund Policy
-                  </button>
-                  <button onClick={() => setInput("Do you ship worldwide?")}>
-                    Shipping Info
-                  </button>
-                  <button
-                    onClick={() => setInput("What materials do you use?")}
-                  >
-                    Jewelry Materials
-                  </button>
+                <div id="chatbotFaq" className="">
+                  <p className="mb-3 text-sm font-medium">Ask me about:</p>
+                  {[
+                    {
+                      label: "Refund Policy",
+                      query: "What's your refund policy?",
+                    },
+                    {
+                      label: "Shipping Info",
+                      query: "Do you ship worldwide?",
+                    },
+                    {
+                      label: "Jewelry Materials",
+                      query: "What materials do you use?",
+                    },
+                  ].map((item, index) => (
+                    <button
+                      key={index}
+                      className="mb-2 w-full cursor-pointer rounded-md bg-neutral-200 px-4 py-2 text-left text-sm transition-colors hover:bg-neutral-300"
+                      onClick={() => setInput(item.query)}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
                 </div>
               )}
 
               {messages.map((msg, index) =>
                 msg.role === "bot" ? (
-                  <div className="botMessage" key={index}>
-                    <div className="regbotIconMessage">
-                      <SiIrobot />
+                  <div id="botMessage" key={index} className="flex gap-2">
+                    <div
+                      id="regbotIconMessage"
+                      className="bg-primary flex size-8 flex-shrink-0 items-center justify-center rounded-full"
+                    >
+                      <SiIrobot className="size-4 text-white" />
                     </div>
-                    <div className={`message ${msg.role}`}>
+                    <div
+                      className={`max-w-[70%] flex-1 rounded-lg rounded-tl-none px-3 py-2 pb-3 text-sm ${
+                        msg.role === "bot"
+                          ? "bg-neutral-200"
+                          : "bg-primary text-white"
+                      }`}
+                    >
                       {msg.text}
 
                       {/* If the message object contains product suggestions, render them separately */}
                       {msg.recommendations &&
                         msg.recommendations.length > 0 && (
-                          <div className="productRecommendations">
+                          <div
+                            id="productRecommendations"
+                            className="mt-4 space-y-3"
+                          >
                             {msg.recommendations.map((product, idx) => (
                               <button
                                 key={idx}
-                                className="viewProductBtn"
+                                id="viewProductBtn"
+                                className="hover:bg-primary/50 w-full cursor-pointer rounded-md bg-neutral-300 px-3 py-2 text-left text-sm text-black transition-colors"
                                 onClick={() =>
                                   navigate(`/collection/${product.productId}`)
                                 }
                               >
-                                {product.title.toUpperCase()} - ₹{product.price}
+                                {product.title.toUpperCase()} - ${product.price}
                               </button>
                             ))}
                           </div>
@@ -190,35 +231,58 @@ const Chatbot = () => {
                     </div>
                   </div>
                 ) : (
-                  <div key={index} className={`message ${msg.role}`}>
+                  <div
+                    key={index}
+                    className={`ml-auto w-fit max-w-[70%] rounded-lg rounded-tr-none px-3 py-2 pb-3 text-sm ${
+                      msg.role === "user"
+                        ? "bg-primary text-white"
+                        : "bg-neutral-100"
+                    }`}
+                  >
                     {msg.text}
                   </div>
-                )
+                ),
               )}
 
               {loading && (
-                <div className="botMessage">
-                  <div className="regbotIconMessage">
-                    <SiIrobot />
+                <div id="botMessage" className="flex gap-2">
+                  <div
+                    id="regbotIconMessage"
+                    className="bg-primary flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full"
+                  >
+                    <SiIrobot className="h-4 w-4 text-white" />
                   </div>
-                  <div className="message bot">Thinking...</div>
+                  <div className="flex-1 rounded-lg bg-neutral-100 p-3">
+                    Thinking...
+                  </div>
                 </div>
               )}
 
               <div ref={messagesEndRef}></div>
             </div>
 
-            <div className="chatbotInput">
-              <input
-                type="text"
-                placeholder="Ask me about Regalia..."
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-              />
-              <button onClick={sendMessage} disabled={loading}>
-                <TbSend2 className={`${input.length == 0 ? "empty" : ""}`} />
-              </button>
+            <div id="chatbotInput" className="border-t border-neutral-200 p-2">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Ask me about Regalia..."
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                  className="flex-1 rounded-md border border-neutral-300 px-3 py-2 text-sm focus:ring-1 focus:ring-neutral-400 focus:outline-none"
+                />
+                <button
+                  onClick={sendMessage}
+                  disabled={loading}
+                  className="bg-primary hover:bg-primary-hover flex w-10 items-center justify-center rounded-md text-white transition-colors disabled:opacity-50"
+                >
+                  <TbSend2
+                    className={`size-5 ${
+                      input.length === 0 ? "opacity-30" : ""
+                    }`}
+                  />
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

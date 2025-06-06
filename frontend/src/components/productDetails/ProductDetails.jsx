@@ -25,6 +25,21 @@ function ProductDetails({ product }) {
 
   const [quantity, setQuantity] = useState(1);
 
+  const perks = [
+    {
+      icon: <MdLocalShipping className="size-4 text-neutral-500" />,
+      text: "Free Shipping above $199",
+    },
+    {
+      icon: <RiDiscountPercentLine className="size-4 text-neutral-500" />,
+      text: "Get 10% Off on orders above $259",
+    },
+    {
+      icon: <MdDiscount className="size-4 text-neutral-500" />,
+      text: "Get 20% Off on orders above $299",
+    },
+  ];
+
   const AddToCartHandler = async () => {
     if (!token) {
       // If the user is not logged in, redirect to the login page
@@ -47,7 +62,7 @@ function ProductDetails({ product }) {
             productId: productId,
             quantity: quantity,
           }),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -77,58 +92,97 @@ function ProductDetails({ product }) {
   };
 
   return (
-    <div className="productDetails">
-      <div className="productImgContainer">
-        <img src={product.imageUrl} alt={product.title} />
+    <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 px-6 py-8 sm:px-8 md:flex-row md:items-start md:justify-start md:px-4 lg:gap-8">
+      {/* Product Image */}
+      <div className="relative overflow-hidden rounded-2xl md:max-w-1/2">
+        <img
+          src={product.imageUrl}
+          alt={product.title}
+          className="h-full w-full object-cover"
+        />
       </div>
-      <div className="productInfoContainer">
-        <h2>{product.title}</h2>
-        <big>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaRegStarHalfStroke />
-          <p>4 Reviews</p>
-        </big>
-        <h4>₹ {product.price}</h4>
-        <div className="infoDisplay">
-          <div>
-            <MdLocalShipping /> <p>Free Shipping above ₹499</p>
+
+      {/* Product Info */}
+      <div className="w-full space-y-6 md:max-w-1/2">
+        <div className="">
+          <h1 className="text-2xl font-medium text-neutral-900 sm:text-3xl">
+            {product.title}
+          </h1>
+          <h2 className="text-2xl leading-loose font-bold text-neutral-900">
+            $ {product.price}
+          </h2>
+
+          <div className="flex items-center gap-2 text-neutral-600">
+            <div className="flex items-center gap-1">
+              <FaStar className="text-orange-400" />
+              <FaStar className="text-orange-400" />
+              <FaStar className="text-orange-400" />
+              <FaStar className="text-orange-400" />
+              <FaRegStarHalfStroke className="text-orange-400" />
+            </div>
+            <span className="pt-0.5 text-sm">4 Reviews</span>
           </div>
-          <div>
-            <RiDiscountPercentLine /> <p>Get 10% Off on orders above ₹699</p>
-          </div>
-          <div>
-            <MdDiscount /> <p>Get 20% Off on orders above ₹1199</p>
-          </div>
-        </div>
-        <div className="quantityModifier">
-          <button className="decreaseQuantity" onClick={decreaseQuantity}>
-            -
-          </button>
-          <p>{quantity}</p>
-          <button className="increaseQuantity" onClick={increaseQuantity}>
-            +
-          </button>
-        </div>
-        <div className="inStock">
-          <p>IN STOCK</p>
-        </div>
-        <div className="addToCart">
-          <button className="addToCartBtn btn" onClick={AddToCartHandler}>
-            ADD TO CART
-          </button>
         </div>
 
-        <div className="shareLink">
-          <a href="">
-            {" "}
-            <IoShareSocial />
-            Share
-          </a>
+        {/* Shipping and Discount Info */}
+        <div className="space-y-3 border-y border-neutral-200 py-4">
+          {perks.map((perk, idx) => (
+            <div key={idx} className="flex items-center gap-3 text-neutral-600">
+              {perk.icon}
+              <p className="text-sm">{perk.text}</p>
+            </div>
+          ))}
         </div>
-        <div className="descriptionBox">
+
+        {/* Quantity and Add to Cart */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <p className="text-sm font-medium text-neutral-700">Quantity:</p>
+            <div className="flex items-center rounded-md border border-neutral-200">
+              <button
+                onClick={decreaseQuantity}
+                className="cursor-pointer px-3 py-1 text-lg text-neutral-600 transition-colors hover:bg-neutral-100"
+              >
+                -
+              </button>
+              <span className="border-x border-neutral-200 px-4 py-1">
+                {quantity}
+              </span>
+              <button
+                onClick={increaseQuantity}
+                className="cursor-pointer px-3 py-1 text-lg text-neutral-600 transition-colors hover:bg-neutral-100"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <div className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+              IN STOCK
+            </div>
+          </div>
+
+          <button
+            onClick={AddToCartHandler}
+            className="bg-primary hover:bg-primary-hover flex cursor-pointer items-center justify-center gap-2 rounded-md px-6 py-3 font-medium text-white transition-colors"
+          >
+            ADD TO CART
+          </button>
+
+          <div className="flex items-center gap-2 text-neutral-600">
+            <IoShareSocial className="size-4 hover:text-neutral-900" />
+            <a
+              href="#"
+              className="text-sm transition-colors hover:text-neutral-900"
+            >
+              Share
+            </a>
+          </div>
+        </div>
+
+        {/* Product Description */}
+        <div className="productDescription prose prose-sm max-w-none">
           <div dangerouslySetInnerHTML={{ __html: product.description }} />
         </div>
       </div>

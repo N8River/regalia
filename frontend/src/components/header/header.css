@@ -121,7 +121,7 @@
   opacity: 0;
   visibility: hidden;
   -webkit-backdrop-filter: blur(1.5px);
-          backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1.5px);
   transition: all 0.3s ease-in-out;
   z-index: 998;
 }
@@ -140,10 +140,10 @@
   .header {
     padding-inline: var(--margin-xl);
   }
-  .header div {
+  /* .header div {
     width: 33%;
     text-align: center;
-  }
+  } */
   .header .hamburgerMenu {
     display: flex;
     justify-content: flex-start;
@@ -259,7 +259,7 @@
   }
   .header div {
     width: -moz-fit-content;
-    width: fit-content;
+    /* width: fit-content; */
   }
   .header .hamburgerMenu {
     min-width: 6rem;
@@ -289,4 +289,4 @@
   .header .headerRight .headerBtn .searchBtn svg {
     font-size: var(--fs-h3-ui);
   }
-}/*# sourceMappingURL=header.css.map */
+} /*# sourceMappingURL=header.css.map */
