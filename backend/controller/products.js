@@ -6,8 +6,10 @@ const { stateToHTML } = require("draft-js-export-html");
 exports.getProducts = async (req, res, next) => {
   try {
     const { status, limit } = req.query; // Get status and limit from query params
+
     const query = status ? { status } : {}; // Filter by status if provided
-    const productLimit = parseInt(limit) || 0; // Limit the number of products
+    const productLimit = limit && !isNaN(limit) ? parseInt(limit) : 0;
+    // Limit the number of products
 
     const products = await Product.find(query).limit(productLimit);
     res.status(200).json(products);
