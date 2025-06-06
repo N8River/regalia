@@ -1,8 +1,8 @@
-# Regalia: A Full-Stack E-Commerce Experience
+# Regalia: AI-Enhanced E-Commerce with Full-Stack Precision
 
-A seamless jewelry e-commerce platform built for performance and efficiency. **Regalia** features a smooth shopping experience, a powerful admin dashboard for managing products, orders, and users, and a modern UI optimized for speed and engagement.
+A seamless jewelry e-commerce platform built for performance, intelligence, and efficiency. **Regalia** delivers a smooth shopping experience, an AI-powered assistant for personalized recommendations, and a powerful admin dashboard for managing products, orders, and users—all within a modern, optimized UI.
 
-Designed for **scalability and business growth**, this project showcases my ability to build robust full-stack solutions that optimize user experience and streamline backend operations.
+Designed for **scalability and adaptability**, this project reflects my ability to engineer full-stack solutions that do more than just function—they anticipate user needs. From **real-time AI-driven product suggestions** to a streamlined admin experience, Regalia is built to reduce friction, enhance engagement, and refine decision-making at every level.
 
 ---
 
@@ -23,6 +23,13 @@ Designed for **scalability and business growth**, this project showcases my abil
 - Buyers can **track orders in real-time** and manage their purchase history.
 - Secure authentication and smooth sign-in/sign-up experience.
 
+### **AI-Powered Shopping Assistant (RegBot)**
+
+- **RegBot** provides instant **product recommendations** based on user queries.
+- **Understands natural language** to suggest items based on material, price, and trends.
+- Handles **refund, shipping, and general inquiries** without requiring manual support.
+- Designed for **fast, context-aware conversations**, improving user engagement.
+
 ---
 
 ## **Tech Stack**
@@ -40,6 +47,10 @@ Designed for **scalability and business growth**, this project showcases my abil
 ### **Database**
 
 - **MongoDB & Mongoose** – Optimized data storage and retrieval
+
+### **AI Integration**
+
+- **Google Gemini API** – Powers **RegBot’s intelligent responses**
 
 ---
 
@@ -61,6 +72,11 @@ Designed for **scalability and business growth**, this project showcases my abil
 
 - Ensured **smooth navigation** across **desktop, tablet, and mobile**, preventing UI lag and maintaining fast load times.
 
+### **Seamless AI Chatbot Integration**
+
+- Implemented **natural language processing (NLP)** to make **RegBot intuitive & user-friendly**.
+- Ensured **fast response times** with caching and optimized API calls.
+
 ---
 
 ## **My Role & Key Contributions**
@@ -68,6 +84,7 @@ Designed for **scalability and business growth**, this project showcases my abil
 - **Designed and developed Regalia from scratch** as a full-stack project.
 - Engineered **secure admin management**, allowing real-time product control with authentication safeguards.
 - Built a **structured shopping experience** with optimized search, filtering, and dynamic product updates.
+- Integrated **RegBot AI assistant**, enhancing user engagement and **reducing support workload**.
 - Focused on **performance & scalability**, ensuring smooth user interactions without lag.
 - Designed an **intuitive, responsive UI** to provide a **polished, premium shopping experience**.
 
