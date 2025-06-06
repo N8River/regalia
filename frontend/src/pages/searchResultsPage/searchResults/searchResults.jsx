@@ -18,7 +18,7 @@ function SearchResults() {
             headers: {
               "Content-Type": "application/json",
             },
-          }
+          },
         );
 
         if (!response.ok) {
@@ -26,7 +26,6 @@ function SearchResults() {
         }
 
         const responseData = await response.json();
-        console.log(responseData);
         setProducts(responseData);
       } catch (error) {
         console.error("Error fetching search results:", error);
@@ -37,20 +36,27 @@ function SearchResults() {
   }, [query]);
 
   return (
-    <>
-      <div className="searchResultsContainer">
-        <h4>Search Results for "{query}"</h4>
-        {products.length > 0 ? (
-          <div className="searchResults">
-            {products.map((product) => (
-              <ProductCard key={product._id} product={product} />
-            ))}
-          </div>
-        ) : (
-          <big>No products found</big>
-        )}
+    <div className="relative min-h-screen">
+      <h1 className="h2 py-10">Search Results for "{query}"</h1>
+
+      <div id="searchResultsContent" className="py-8">
+        <div className="grid grid-cols-1 gap-8 px-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {products.length > 0 ? (
+            products.map((product, index) => (
+              <ProductCard
+                key={product._id}
+                product={product}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              />
+            ))
+          ) : (
+            <div className="col-span-full py-8 text-center">
+              <p className="text-lg text-neutral-600">No products found</p>
+            </div>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
